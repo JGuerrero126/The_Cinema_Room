@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 import {
-  Center,
+  // Center,
   Divider,
-  FormControl,
-  FormLabel,
+  // FormControl,
+  // FormLabel,
   Heading,
   // Input,
-  Select,
+  // Select,
   // Spacer,
+  Link,
 } from "@chakra-ui/react";
 // import { CalendarIcon } from "@chakra-ui/icons";
 // import { BsFillCameraReelsFill as CameraIcon } from "react-icons/bs";
-import Moviepage from "./pages/Moviepage";
+// import Moviepage from "./pages/Moviepage";
 
-function Header({ currentPage, handlePageChange }) {
-  const [genre, setGenre] = useState("");
-  const handleChange = (event) => setGenre(event.target.value);
+function Header() {
+  // const [genre, setGenre] = useState("");
+  // const handleChange = (event) => setGenre(event.target.value);
 
-  useEffect(() => {
-    console.log(genre);
-  });
+  // useEffect(() => {
+  //   console.log(genre);
+  // });
 
-  const handleEnter = (event) => {
-    if (event.keyCode === 13) {
-      console.log("ENTER WAS PRESSED!!!");
-    }
-  };
+  // const handleEnter = (event) => {
+  //   if (event.keyCode === 13) {
+  //     console.log("ENTER WAS PRESSED!!!");
+  //   }
+  // };
 
   // useEffect(() => {
   //   console.log(currentPage);
@@ -33,13 +34,18 @@ function Header({ currentPage, handlePageChange }) {
 
   return (
     <div>
-      <Heading>TOP MOVIES BY GENRE</Heading>
-      <FormControl>
+      <Heading>
+        <Link textDecoration="none" href="/">
+          TOP MOVIES AND ACTORS ON NETFLIX
+        </Link>
+      </Heading>
+      {/* <FormControl>
         <FormLabel fontSize="1.5rem" textAlign="center">
           Select Genre:
         </FormLabel>
         <Center>
           <Select
+            placeholder="Select Genre"
             fontSize="1.5rem"
             h="2rem"
             borderRadius="0.25rem"
@@ -65,11 +71,13 @@ function Header({ currentPage, handlePageChange }) {
             <option>Sci-Fi</option>
             <option>Animation</option>
             <option>Western</option>
+            <option>Reality</option>
+            <option>Sport</option>
           </Select>
         </Center>
-      </FormControl>
+      </FormControl> */}
       <Divider border="null" w="80%" mt="1rem" />
-      <Moviepage genre={genre} />
+      {/* <Moviepage genre={genre} /> */}
     </div>
   );
 }
