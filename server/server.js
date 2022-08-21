@@ -49,7 +49,7 @@ db.once("open", () => {
   app.get("/", (req, res) => {
     res.send("ACT Group 63");
   });
-  app.get("/movies", async (req, res) => {
+  app.get("/movies", (req, res) => {
     // await Movie.collection.insertOne({
     //   moviename: "Apocalypse Now",
     //   rating: 79,
