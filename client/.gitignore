@@ -1,7 +1,3 @@
-# python
-venv
-backend/__pycache__
-
 # dependencies
 /node_modules
 /.pnp
