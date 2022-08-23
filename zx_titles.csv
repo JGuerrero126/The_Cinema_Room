@@ -1,0 +1,3791 @@
+key,title,genres,imdb_score
+1,Taxi Driver,crime,8.3
+1,Taxi Driver,drama,8.3
+2,Monty Python and the Holy Grail,comedy,8.2
+2,Monty Python and the Holy Grail,fantasy,8.2
+3,Life of Brian,comedy,8
+4,The Exorcist,horror,8.1
+6,Dirty Harry,thriller,7.7
+6,Dirty Harry,crime,7.7
+6,Dirty Harry,action,7.7
+7,My Fair Lady,drama,7.8
+7,My Fair Lady,music,7.8
+7,My Fair Lady,romance,7.8
+7,My Fair Lady,family,7.8
+8,The Blue Lagoon,romance,5.8
+8,The Blue Lagoon,drama,5.8
+9,Bonnie and Clyde,drama,7.7
+9,Bonnie and Clyde,crime,7.7
+9,Bonnie and Clyde,action,7.7
+10,The Professionals,western,7.3
+10,The Professionals,action,7.3
+10,The Professionals,european,7.3
+12,Lupin the Third: The Castle of Cagliostro,comedy,7.6
+12,Lupin the Third: The Castle of Cagliostro,animation,7.6
+12,Lupin the Third: The Castle of Cagliostro,action,7.6
+12,Lupin the Third: The Castle of Cagliostro,fantasy,7.6
+12,Lupin the Third: The Castle of Cagliostro,family,7.6
+13,Richard Pryor: Live in Concert,comedy,8.1
+13,Richard Pryor: Live in Concert,documentation,8.1
+14,The Long Riders,western,6.9
+14,The Long Riders,crime,6.9
+18,Hitler: A Career,documentation,7.5
+18,Hitler: A Career,history,7.5
+18,Hitler: A Career,european,7.5
+19,FTA,comedy,6.2
+19,FTA,documentation,6.2
+19,FTA,music,6.2
+46,Top Gun,drama,6.9
+46,Top Gun,action,6.9
+48,Stand by Me,drama,8.1
+49,Once Upon a Time in America,drama,8.3
+49,Once Upon a Time in America,crime,8.3
+49,Once Upon a Time in America,european,8.3
+50,When Harry Met Sally...,romance,7.7
+50,When Harry Met Sally...,comedy,7.7
+50,When Harry Met Sally...,drama,7.7
+51,Teenage Mutant Ninja Turtles,scifi,6.7
+51,Teenage Mutant Ninja Turtles,action,6.7
+51,Teenage Mutant Ninja Turtles,comedy,6.7
+51,Teenage Mutant Ninja Turtles,family,6.7
+52,Full Metal Jacket,drama,8.3
+52,Full Metal Jacket,war,8.3
+53,Christine,horror,6.7
+53,Christine,thriller,6.7
+53,Christine,european,6.7
+54,A Nightmare on Elm Street,horror,7.4
+56,Awakenings,drama,7.8
+56,Awakenings,european,7.8
+58,Annie,drama,6.6
+58,Annie,family,6.6
+58,Annie,comedy,6.6
+59,Pet Sematary,horror,6.5
+59,Pet Sematary,fantasy,6.5
+59,Pet Sematary,thriller,6.5
+61,She's Gotta Have It,comedy,6.7
+61,She's Gotta Have It,romance,6.7
+62,Eddie Murphy Raw,comedy,7.6
+62,Eddie Murphy Raw,documentation,7.6
+63,Endless Love,drama,4.9
+63,Endless Love,romance,4.9
+70,Sam Kinison: Breaking the Rules,comedy,7.2
+70,Sam Kinison: Breaking the Rules,documentation,7.2
+72,Monty Python Live at the Hollywood Bowl,comedy,7.9
+72,Monty Python Live at the Hollywood Bowl,documentation,7.9
+104,The Quick and the Dead,western,6.5
+104,The Quick and the Dead,thriller,6.5
+104,The Quick and the Dead,action,6.5
+104,The Quick and the Dead,romance,6.5
+108,Forrest Gump,drama,8.8
+108,Forrest Gump,romance,8.8
+108,Forrest Gump,comedy,8.8
+109,Happy Gilmore,comedy,7
+109,Happy Gilmore,sport,7
+111,Saving Private Ryan,drama,8.6
+111,Saving Private Ryan,war,8.6
+115,Gattaca,thriller,7.8
+115,Gattaca,drama,7.8
+115,Gattaca,scifi,7.8
+117,Blade,action,7.1
+117,Blade,scifi,7.1
+117,Blade,horror,7.1
+118,You've Got Mail,romance,6.7
+118,You've Got Mail,drama,6.7
+118,You've Got Mail,comedy,6.7
+119,Starship Troopers,scifi,7.3
+119,Starship Troopers,thriller,7.3
+119,Starship Troopers,action,7.3
+122,Donnie Brasco,thriller,7.7
+122,Donnie Brasco,drama,7.7
+122,Donnie Brasco,crime,7.7
+124,U.S. Marshals,thriller,6.5
+124,U.S. Marshals,crime,6.5
+124,U.S. Marshals,action,6.5
+126,Wild Things,drama,6.6
+126,Wild Things,thriller,6.6
+126,Wild Things,crime,6.6
+126,Wild Things,european,6.6
+127,Last Action Hero,comedy,6.4
+127,Last Action Hero,action,6.4
+127,Last Action Hero,fantasy,6.4
+128,Seven Years in Tibet,drama,7.1
+128,Seven Years in Tibet,history,7.1
+128,Seven Years in Tibet,war,7.1
+130,A River Runs Through It,drama,7.2
+131,"Girl, Interrupted",drama,7.3
+131,"Girl, Interrupted",european,7.3
+135,Any Given Sunday,drama,6.9
+135,Any Given Sunday,sport,6.9
+136,Menace II Society,drama,7.5
+136,Menace II Society,crime,7.5
+136,Menace II Society,thriller,7.5
+137,Desperado,thriller,7.1
+137,Desperado,action,7.1
+137,Desperado,crime,7.1
+137,Desperado,western,7.1
+137,Desperado,european,7.1
+138,The Mask of Zorro,action,6.8
+138,The Mask of Zorro,thriller,6.8
+138,The Mask of Zorro,western,6.8
+138,The Mask of Zorro,comedy,6.8
+138,The Mask of Zorro,romance,6.8
+139,The Patriot,drama,7.2
+139,The Patriot,action,7.2
+139,The Patriot,history,7.2
+139,The Patriot,war,7.2
+140,Road Trip,comedy,6.5
+141,Free Willy,drama,6
+141,Free Willy,family,6
+143,3 Ninjas Kick Back,action,4.5
+143,3 Ninjas Kick Back,comedy,4.5
+143,3 Ninjas Kick Back,family,4.5
+143,3 Ninjas Kick Back,sport,4.5
+144,In the Line of Fire,drama,7.2
+144,In the Line of Fire,thriller,7.2
+144,In the Line of Fire,action,7.2
+144,In the Line of Fire,crime,7.2
+145,The Replacements,comedy,6.6
+145,The Replacements,sport,6.6
+146,Johnny Mnemonic,scifi,5.6
+146,Johnny Mnemonic,thriller,5.6
+146,Johnny Mnemonic,action,5.6
+146,Johnny Mnemonic,drama,5.6
+147,Little Women,drama,7.3
+147,Little Women,family,7.3
+147,Little Women,romance,7.3
+148,Anaconda,thriller,4.8
+148,Anaconda,horror,4.8
+148,Anaconda,action,4.8
+149,My Girl,comedy,6.9
+149,My Girl,drama,6.9
+149,My Girl,family,6.9
+149,My Girl,romance,6.9
+149,My Girl,european,6.9
+150,Cliffhanger,thriller,6.5
+150,Cliffhanger,action,6.5
+150,Cliffhanger,animation,6.5
+151,I Know What You Did Last Summer,horror,5.7
+151,I Know What You Did Last Summer,thriller,5.7
+152,Teenage Mutant Ninja Turtles II: The Secret of the Ooze,scifi,6
+152,Teenage Mutant Ninja Turtles II: The Secret of the Ooze,action,6
+152,Teenage Mutant Ninja Turtles II: The Secret of the Ooze,comedy,6
+152,Teenage Mutant Ninja Turtles II: The Secret of the Ooze,family,6
+154,Hollow Man,scifi,5.8
+154,Hollow Man,action,5.8
+154,Hollow Man,horror,5.8
+154,Hollow Man,thriller,5.8
+155,Godzilla,thriller,5.4
+155,Godzilla,scifi,5.4
+155,Godzilla,action,5.4
+157,Spawn,fantasy,5.2
+157,Spawn,horror,5.2
+157,Spawn,scifi,5.2
+157,Spawn,thriller,5.2
+157,Spawn,action,5.2
+157,Spawn,drama,5.2
+158,Dennis the Menace,comedy,5.6
+158,Dennis the Menace,family,5.6
+159,The Net,thriller,5.9
+159,The Net,action,5.9
+159,The Net,crime,5.9
+159,The Net,drama,5.9
+160,The Devil's Own,thriller,6.2
+160,The Devil's Own,drama,6.2
+160,The Devil's Own,action,6.2
+160,The Devil's Own,crime,6.2
+160,The Devil's Own,european,6.2
+161,Croupier,thriller,7
+161,Croupier,european,7
+161,Croupier,crime,7
+161,Croupier,drama,7
+162,Teenage Mutant Ninja Turtles III,fantasy,4.7
+162,Teenage Mutant Ninja Turtles III,scifi,4.7
+162,Teenage Mutant Ninja Turtles III,action,4.7
+162,Teenage Mutant Ninja Turtles III,comedy,4.7
+162,Teenage Mutant Ninja Turtles III,family,4.7
+163,The General's Daughter,drama,6.4
+163,The General's Daughter,crime,6.4
+163,The General's Daughter,thriller,6.4
+164,The Next Karate Kid,drama,4.5
+164,The Next Karate Kid,family,4.5
+164,The Next Karate Kid,romance,4.5
+164,The Next Karate Kid,sport,4.5
+164,The Next Karate Kid,action,4.5
+165,I Still Know What You Did Last Summer,thriller,4.7
+165,I Still Know What You Did Last Summer,horror,4.7
+166,Double Team,scifi,4.7
+166,Double Team,action,4.7
+166,Double Team,comedy,4.7
+166,Double Team,thriller,4.7
+167,Under Suspicion,thriller,6.5
+167,Under Suspicion,crime,6.5
+167,Under Suspicion,drama,6.5
+167,Under Suspicion,european,6.5
+171,Geronimo: An American Legend,western,6.5
+171,Geronimo: An American Legend,drama,6.5
+171,Geronimo: An American Legend,history,6.5
+172,The Mirror Has Two Faces,romance,6.6
+172,The Mirror Has Two Faces,comedy,6.6
+172,The Mirror Has Two Faces,drama,6.6
+175,Knight Rider 2000,action,4.5
+175,Knight Rider 2000,scifi,4.5
+176,The Last Days,drama,7.9
+176,The Last Days,documentation,7.9
+176,The Last Days,war,7.9
+178,Heavy,romance,6.8
+178,Heavy,drama,6.8
+183,Jerry Seinfeld: I'm Telling You for the Last Time,comedy,7.9
+183,Jerry Seinfeld: I'm Telling You for the Last Time,documentation,7.9
+185,Wild Tango,drama,6.7
+185,Wild Tango,music,6.7
+185,Wild Tango,romance,6.7
+186,Kuch Kuch Hota Hai,drama,7.6
+186,Kuch Kuch Hota Hai,romance,7.6
+186,Kuch Kuch Hota Hai,comedy,7.6
+189,Herod's Law,drama,7.8
+189,Herod's Law,comedy,7.8
+189,Herod's Law,crime,7.8
+190,Tim Allen: Rewires America,comedy,5.9
+190,Tim Allen: Rewires America,documentation,5.9
+192,Dil Se..,drama,7.5
+192,Dil Se..,romance,7.5
+196,Oh Darling! Yeh Hai India!,comedy,4
+199,West Beirut,romance,7.6
+199,West Beirut,war,7.6
+199,West Beirut,comedy,7.6
+199,West Beirut,drama,7.6
+199,West Beirut,european,7.6
+200,Muthu,drama,7.6
+200,Muthu,comedy,7.6
+200,Muthu,romance,7.6
+200,Muthu,action,7.6
+203,Chamatkar,comedy,6.5
+203,Chamatkar,fantasy,6.5
+203,Chamatkar,drama,6.5
+203,Chamatkar,crime,6.5
+206,Hum Saath Saath Hain,fantasy,6.2
+206,Hum Saath Saath Hain,romance,6.2
+206,Hum Saath Saath Hain,family,6.2
+206,Hum Saath Saath Hain,drama,6.2
+207,Kabhi Haan Kabhi Naa,comedy,7.6
+207,Kabhi Haan Kabhi Naa,drama,7.6
+207,Kabhi Haan Kabhi Naa,music,7.6
+207,Kabhi Haan Kabhi Naa,romance,7.6
+209,Phir Bhi Dil Hai Hindustani,comedy,6.1
+209,Phir Bhi Dil Hai Hindustani,romance,6.1
+209,Phir Bhi Dil Hai Hindustani,drama,6.1
+212,Chaahat,drama,5.5
+212,Chaahat,romance,5.5
+214,Maya Memsaab,romance,5.4
+214,Maya Memsaab,drama,5.4
+214,Maya Memsaab,thriller,5.4
+216,Duplicate,comedy,5.5
+216,Duplicate,action,5.5
+216,Duplicate,crime,5.5
+216,Duplicate,thriller,5.5
+219,English Babu Desi Mem,romance,4.5
+219,English Babu Desi Mem,comedy,4.5
+219,English Babu Desi Mem,drama,4.5
+225,Sinbad: Afros and Bellbottoms,comedy,7.8
+225,Sinbad: Afros and Bellbottoms,documentation,7.8
+232,Avvai Shanmugi,drama,7.9
+232,Avvai Shanmugi,comedy,7.9
+233,Minsara Kanavu,comedy,6.7
+233,Minsara Kanavu,drama,6.7
+233,Minsara Kanavu,romance,6.7
+254,Forgetting Sarah Marshall,comedy,7.1
+254,Forgetting Sarah Marshall,drama,7.1
+254,Forgetting Sarah Marshall,romance,7.1
+255,War of the Worlds,thriller,6.5
+255,War of the Worlds,action,6.5
+255,War of the Worlds,scifi,6.5
+260,Inception,scifi,8.8
+260,Inception,music,8.8
+260,Inception,thriller,8.8
+260,Inception,action,8.8
+262,How to Train Your Dragon,fantasy,8.1
+262,How to Train Your Dragon,animation,8.1
+262,How to Train Your Dragon,action,8.1
+262,How to Train Your Dragon,comedy,8.1
+262,How to Train Your Dragon,family,8.1
+262,How to Train Your Dragon,drama,8.1
+265,Michael Clayton,thriller,7.2
+265,Michael Clayton,crime,7.2
+265,Michael Clayton,drama,7.2
+268,Jackass: The Movie,action,6.6
+268,Jackass: The Movie,comedy,6.6
+268,Jackass: The Movie,documentation,6.6
+271,Zoolander,comedy,6.5
+271,Zoolander,european,6.5
+273,Charlie and the Chocolate Factory,fantasy,6.6
+273,Charlie and the Chocolate Factory,comedy,6.6
+273,Charlie and the Chocolate Factory,family,6.6
+274,Cleaner,thriller,6.1
+274,Cleaner,crime,6.1
+275,Harold & Kumar Go to White Castle,comedy,7
+276,The Social Network,drama,7.8
+277,Road to Perdition,thriller,7.7
+277,Road to Perdition,documentation,7.7
+277,Road to Perdition,crime,7.7
+277,Road to Perdition,drama,7.7
+279,Blow,drama,7.5
+279,Blow,crime,7.5
+280,Shooter,thriller,7.2
+280,Shooter,action,7.2
+280,Shooter,drama,7.2
+281,Big Fish,drama,8
+281,Big Fish,fantasy,8
+281,Big Fish,romance,8
+282,The Bourne Ultimatum,thriller,8
+282,The Bourne Ultimatum,action,8
+283,Public Enemies,crime,7
+283,Public Enemies,drama,7
+283,Public Enemies,history,7
+283,Public Enemies,action,7
+283,Public Enemies,european,7
+285,Sherlock Holmes,crime,7.6
+285,Sherlock Holmes,action,7.6
+285,Sherlock Holmes,thriller,7.6
+286,Love Actually,drama,7.6
+286,Love Actually,comedy,7.6
+286,Love Actually,romance,7.6
+287,Closer,drama,7.2
+287,Closer,romance,7.2
+289,Something's Gotta Give,romance,6.7
+289,Something's Gotta Give,drama,6.7
+289,Something's Gotta Give,comedy,6.7
+290,Grown Ups,comedy,5.9
+290,Grown Ups,drama,5.9
+290,Grown Ups,european,5.9
+291,The Blind Side,drama,7.6
+291,The Blind Side,sport,7.6
+292,Quantum of Solace,thriller,6.6
+292,Quantum of Solace,action,6.6
+293,The Ring,horror,7.1
+293,The Ring,european,7.1
+295,Into the Wild,drama,8.1
+296,True Grit,western,7.6
+296,True Grit,drama,7.6
+298,Rambo,thriller,7
+298,Rambo,action,7
+298,Rambo,war,7
+298,Rambo,european,7
+299,Stardust,fantasy,7.6
+299,Stardust,romance,7.6
+299,Stardust,family,7.6
+301,The Last Samurai,drama,7.8
+301,The Last Samurai,history,7.8
+301,The Last Samurai,war,7.8
+301,The Last Samurai,action,7.8
+304,The Book of Eli,thriller,6.8
+304,The Book of Eli,action,6.8
+304,The Book of Eli,drama,6.8
+304,The Book of Eli,european,6.8
+305,Identity,thriller,7.3
+308,Shrek Forever After,fantasy,6.3
+308,Shrek Forever After,comedy,6.3
+308,Shrek Forever After,family,6.3
+308,Shrek Forever After,romance,6.3
+308,Shrek Forever After,animation,6.3
+309,Hairspray,comedy,6.7
+309,Hairspray,drama,6.7
+309,Hairspray,romance,6.7
+310,Corpse Bride,fantasy,7.3
+310,Corpse Bride,romance,7.3
+310,Corpse Bride,animation,7.3
+310,Corpse Bride,drama,7.3
+310,Corpse Bride,family,7.3
+311,Let Me In,horror,7.1
+311,Let Me In,drama,7.1
+311,Let Me In,fantasy,7.1
+311,Let Me In,thriller,7.1
+311,Let Me In,european,7.1
+312,Monster,crime,7.3
+312,Monster,drama,7.3
+312,Monster,thriller,7.3
+312,Monster,european,7.3
+313,Without a Paddle,thriller,5.8
+313,Without a Paddle,comedy,5.8
+314,Once Upon a Time in Mexico,drama,6.3
+314,Once Upon a Time in Mexico,action,6.3
+314,Once Upon a Time in Mexico,crime,6.3
+314,Once Upon a Time in Mexico,thriller,6.3
+315,Cloudy with a Chance of Meatballs,animation,6.9
+315,Cloudy with a Chance of Meatballs,drama,6.9
+315,Cloudy with a Chance of Meatballs,romance,6.9
+315,Cloudy with a Chance of Meatballs,comedy,6.9
+315,Cloudy with a Chance of Meatballs,family,6.9
+315,Cloudy with a Chance of Meatballs,fantasy,6.9
+315,Cloudy with a Chance of Meatballs,scifi,6.9
+317,Blade II,thriller,6.7
+317,Blade II,fantasy,6.7
+317,Blade II,scifi,6.7
+317,Blade II,action,6.7
+317,Blade II,horror,6.7
+318,Chloe,thriller,6.3
+318,Chloe,drama,6.3
+318,Chloe,romance,6.3
+318,Chloe,european,6.3
+319,Blood Diamond,thriller,8
+319,Blood Diamond,drama,8
+320,The Lake House,drama,6.8
+320,The Lake House,fantasy,6.8
+320,The Lake House,romance,6.8
+320,The Lake House,documentation,6.8
+321,Terminator 3: Rise of the Machines,thriller,6.3
+321,Terminator 3: Rise of the Machines,scifi,6.3
+321,Terminator 3: Rise of the Machines,action,6.3
+321,Terminator 3: Rise of the Machines,european,6.3
+322,Beerfest,comedy,6.2
+323,Heist,thriller,6.5
+323,Heist,drama,6.5
+323,Heist,action,6.5
+323,Heist,crime,6.5
+323,Heist,european,6.5
+324,Catch and Release,romance,5.9
+324,Catch and Release,comedy,5.9
+324,Catch and Release,drama,5.9
+325,Just Like Heaven,drama,6.7
+325,Just Like Heaven,romance,6.7
+325,Just Like Heaven,fantasy,6.7
+325,Just Like Heaven,comedy,6.7
+327,Four Brothers,crime,6.8
+327,Four Brothers,action,6.8
+327,Four Brothers,drama,6.8
+327,Four Brothers,thriller,6.8
+328,John Q,drama,7
+328,John Q,thriller,7
+328,John Q,crime,7
+329,Not Another Teen Movie,comedy,5.7
+330,21,drama,6.8
+330,21,crime,6.8
+330,21,history,6.8
+330,21,thriller,6.8
+332,Terminator Salvation,thriller,6.5
+332,Terminator Salvation,scifi,6.5
+332,Terminator Salvation,fantasy,6.5
+332,Terminator Salvation,war,6.5
+332,Terminator Salvation,action,6.5
+333,Deck the Halls,comedy,5
+333,Deck the Halls,family,5
+334,The Girl Next Door,thriller,6.5
+334,The Girl Next Door,drama,6.5
+334,The Girl Next Door,crime,6.5
+334,The Girl Next Door,horror,6.5
+335,The Cat in the Hat,fantasy,4
+335,The Cat in the Hat,comedy,4
+335,The Cat in the Hat,family,4
+337,Final Destination 3,horror,5.8
+337,Final Destination 3,thriller,5.8
+337,Final Destination 3,action,5.8
+337,Final Destination 3,crime,5.8
+337,Final Destination 3,fantasy,5.8
+337,Final Destination 3,european,5.8
+338,Thir13en Ghosts,thriller,5.6
+338,Thir13en Ghosts,horror,5.6
+338,Thir13en Ghosts,fantasy,5.6
+339,The One,scifi,5.9
+339,The One,thriller,5.9
+339,The One,action,5.9
+340,Happy Feet,comedy,6.4
+340,Happy Feet,fantasy,6.4
+340,Happy Feet,animation,6.4
+340,Happy Feet,family,6.4
+340,Happy Feet,music,6.4
+340,Happy Feet,romance,6.4
+341,Ip Man,drama,8
+341,Ip Man,fantasy,8
+341,Ip Man,action,8
+341,Ip Man,history,8
+342,Coach Carter,drama,7.3
+342,Coach Carter,sport,7.3
+342,Coach Carter,european,7.3
+343,Blade: Trinity,action,5.8
+343,Blade: Trinity,thriller,5.8
+343,Blade: Trinity,fantasy,5.8
+343,Blade: Trinity,horror,5.8
+343,Blade: Trinity,scifi,5.8
+344,Monster-in-Law,romance,5.5
+344,Monster-in-Law,comedy,5.5
+345,Halloween,horror,6
+346,How Do You Know,drama,5.4
+346,How Do You Know,comedy,5.4
+346,How Do You Know,romance,5.4
+347,The Sweetest Thing,comedy,5.1
+347,The Sweetest Thing,romance,5.1
+348,The Final Destination,horror,5.1
+348,The Final Destination,fantasy,5.1
+348,The Final Destination,scifi,5.1
+348,The Final Destination,action,5.1
+348,The Final Destination,thriller,5.1
+349,The Other Boleyn Girl,romance,6.7
+349,The Other Boleyn Girl,drama,6.7
+349,The Other Boleyn Girl,history,6.7
+350,Friday the 13th,horror,5.5
+350,Friday the 13th,thriller,5.5
+351,The Bucket List,drama,7.4
+351,The Bucket List,comedy,7.4
+351,The Bucket List,european,7.4
+352,Freddy vs. Jason,horror,5.7
+352,Freddy vs. Jason,action,5.7
+354,Memoirs of a Geisha,drama,7.3
+354,Memoirs of a Geisha,romance,7.3
+354,Memoirs of a Geisha,european,7.3
+355,A Nightmare on Elm Street,horror,5.2
+355,A Nightmare on Elm Street,thriller,5.2
+355,A Nightmare on Elm Street,crime,5.2
+355,A Nightmare on Elm Street,drama,5.2
+356,Body of Lies,drama,7.1
+356,Body of Lies,action,7.1
+356,Body of Lies,thriller,7.1
+357,A Cinderella Story,romance,5.9
+357,A Cinderella Story,comedy,5.9
+357,A Cinderella Story,family,5.9
+359,Osmosis Jones,animation,6.3
+359,Osmosis Jones,action,6.3
+359,Osmosis Jones,comedy,6.3
+359,Osmosis Jones,crime,6.3
+359,Osmosis Jones,family,6.3
+359,Osmosis Jones,fantasy,6.3
+359,Osmosis Jones,scifi,6.3
+360,Scary Movie 4,comedy,5.1
+360,Scary Movie 4,horror,5.1
+361,The Texas Chainsaw Massacre,horror,6.2
+361,The Texas Chainsaw Massacre,crime,6.2
+362,Fun with Dick and Jane,comedy,6.1
+362,Fun with Dick and Jane,crime,6.1
+363,TMNT,animation,6.2
+363,TMNT,comedy,6.2
+363,TMNT,family,6.2
+363,TMNT,fantasy,6.2
+363,TMNT,scifi,6.2
+363,TMNT,action,6.2
+364,Due Date,drama,6.5
+364,Due Date,comedy,6.5
+365,Cop Out,comedy,5.5
+365,Cop Out,thriller,5.5
+365,Cop Out,action,5.5
+365,Cop Out,crime,5.5
+368,3 Idiots,comedy,8.4
+368,3 Idiots,drama,8.4
+373,New York Minute,comedy,4.8
+373,New York Minute,crime,4.8
+373,New York Minute,family,4.8
+373,New York Minute,romance,4.8
+376,Dreamer: Inspired By a True Story,drama,6.8
+376,Dreamer: Inspired By a True Story,family,6.8
+376,Dreamer: Inspired By a True Story,sport,6.8
+376,Dreamer: Inspired By a True Story,fantasy,6.8
+377,Monster House,fantasy,6.6
+377,Monster House,animation,6.6
+377,Monster House,comedy,6.6
+377,Monster House,family,6.6
+378,Starsky & Hutch,comedy,6.1
+378,Starsky & Hutch,crime,6.1
+379,Tears of the Sun,drama,6.6
+379,Tears of the Sun,thriller,6.6
+379,Tears of the Sun,war,6.6
+379,Tears of the Sun,action,6.6
+382,The Cave,horror,5.1
+382,The Cave,thriller,5.1
+382,The Cave,scifi,5.1
+382,The Cave,action,5.1
+382,The Cave,european,5.1
+384,The Texas Chainsaw Massacre: The Beginning,horror,5.8
+384,The Texas Chainsaw Massacre: The Beginning,thriller,5.8
+384,The Texas Chainsaw Massacre: The Beginning,documentation,5.8
+385,I Am Sam,drama,7.6
+386,The Spiderwick Chronicles,fantasy,6.5
+386,The Spiderwick Chronicles,thriller,6.5
+386,The Spiderwick Chronicles,action,6.5
+386,The Spiderwick Chronicles,drama,6.5
+386,The Spiderwick Chronicles,family,6.5
+387,Rumor Has It...,comedy,5.5
+387,Rumor Has It...,drama,5.5
+387,Rumor Has It...,romance,5.5
+390,I Now Pronounce You Chuck & Larry,comedy,5.9
+390,I Now Pronounce You Chuck & Larry,romance,5.9
+392,World Trade Center,thriller,6
+392,World Trade Center,history,6
+392,World Trade Center,drama,6
+393,Premonition,thriller,5.9
+393,Premonition,drama,5.9
+393,Premonition,fantasy,5.9
+395,Eagle Eye,thriller,6.6
+395,Eagle Eye,action,6.6
+395,Eagle Eye,european,6.6
+397,Lagaan: Once Upon a Time in India,drama,8.1
+397,Lagaan: Once Upon a Time in India,romance,8.1
+397,Lagaan: Once Upon a Time in India,sport,8.1
+398,The Men Who Stare at Goats,comedy,6.2
+398,The Men Who Stare at Goats,war,6.2
+400,Friends with Money,romance,5.8
+400,Friends with Money,comedy,5.8
+400,Friends with Money,drama,5.8
+401,Legend of the Guardians: The Owls of Ga'Hoole,fantasy,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,family,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,action,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,war,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,drama,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,thriller,6.9
+401,Legend of the Guardians: The Owls of Ga'Hoole,animation,6.9
+406,Death at a Funeral,comedy,5.6
+411,Blood and Bone,thriller,6.7
+411,Blood and Bone,action,6.7
+411,Blood and Bone,crime,6.7
+411,Blood and Bone,drama,6.7
+411,Blood and Bone,sport,6.7
+412,Ip Man 2,drama,7.5
+412,Ip Man 2,history,7.5
+412,Ip Man 2,sport,7.5
+412,Ip Man 2,action,7.5
+414,Like Stars on Earth,drama,8.3
+414,Like Stars on Earth,family,8.3
+418,Felon,crime,7.4
+418,Felon,thriller,7.4
+418,Felon,drama,7.4
+418,Felon,action,7.4
+421,Stuart Little 2,comedy,5.5
+421,Stuart Little 2,fantasy,5.5
+421,Stuart Little 2,animation,5.5
+421,Stuart Little 2,family,5.5
+424,Did You Hear About the Morgans?,comedy,4.9
+424,Did You Hear About the Morgans?,romance,4.9
+424,Did You Hear About the Morgans?,drama,4.9
+429,Chaos,action,6.4
+429,Chaos,crime,6.4
+429,Chaos,drama,6.4
+429,Chaos,thriller,6.4
+429,Chaos,european,6.4
+433,Comedian,comedy,6.9
+433,Comedian,documentation,6.9
+434,Delta Farce,action,3.6
+434,Delta Farce,comedy,3.6
+435,One Piece: Strong World,fantasy,7.5
+435,One Piece: Strong World,animation,7.5
+435,One Piece: Strong World,action,7.5
+436,Christmas with the Kranks,comedy,5.4
+436,Christmas with the Kranks,family,5.4
+438,Love Happens,drama,5.6
+438,Love Happens,romance,5.6
+444,Kabhi Khushi Kabhie Gham,drama,7.4
+444,Kabhi Khushi Kabhie Gham,romance,7.4
+445,Naruto Shippuden the Movie,fantasy,6.7
+445,Naruto Shippuden the Movie,animation,6.7
+445,Naruto Shippuden the Movie,action,6.7
+445,Naruto Shippuden the Movie,family,6.7
+447,Trailer Park Boys: The Movie,comedy,7.1
+447,Trailer Park Boys: The Movie,crime,7.1
+448,Jeff Dunham: Arguing with Myself,comedy,8
+448,Jeff Dunham: Arguing with Myself,documentation,8
+449,From Within,thriller,5.6
+449,From Within,horror,5.6
+449,From Within,documentation,5.6
+449,From Within,war,5.6
+449,From Within,european,5.6
+450,Jodhaa Akbar,romance,7.5
+450,Jodhaa Akbar,history,7.5
+450,Jodhaa Akbar,war,7.5
+450,Jodhaa Akbar,action,7.5
+450,Jodhaa Akbar,drama,7.5
+451,And Then Came Lola,comedy,3.9
+451,And Then Came Lola,drama,3.9
+451,And Then Came Lola,romance,3.9
+453,Om Shanti Om,comedy,6.7
+453,Om Shanti Om,drama,6.7
+453,Om Shanti Om,fantasy,6.7
+453,Om Shanti Om,romance,6.7
+453,Om Shanti Om,thriller,6.7
+453,Om Shanti Om,action,6.7
+454,Jab We Met,comedy,7.9
+454,Jab We Met,drama,7.9
+454,Jab We Met,romance,7.9
+457,Bon Cop Bad Cop,crime,6.5
+457,Bon Cop Bad Cop,scifi,6.5
+457,Bon Cop Bad Cop,drama,6.5
+457,Bon Cop Bad Cop,thriller,6.5
+457,Bon Cop Bad Cop,action,6.5
+457,Bon Cop Bad Cop,comedy,6.5
+458,Naruto: Ninja Clash in the Land of Snow,comedy,6.6
+458,Naruto: Ninja Clash in the Land of Snow,action,6.6
+458,Naruto: Ninja Clash in the Land of Snow,animation,6.6
+458,Naruto: Ninja Clash in the Land of Snow,fantasy,6.6
+461,I Will Follow,drama,5.9
+462,Alpha and Omega,animation,5.1
+462,Alpha and Omega,romance,5.1
+462,Alpha and Omega,comedy,5.1
+462,Alpha and Omega,family,5.1
+463,One Piece: The Desert Princess and the Pirates: Adventure in Alabasta,drama,6.9
+463,One Piece: The Desert Princess and the Pirates: Adventure in Alabasta,comedy,6.9
+463,One Piece: The Desert Princess and the Pirates: Adventure in Alabasta,animation,6.9
+463,One Piece: The Desert Princess and the Pirates: Adventure in Alabasta,action,6.9
+465,Waist Deep,thriller,5.8
+465,Waist Deep,drama,5.8
+465,Waist Deep,crime,5.8
+465,Waist Deep,action,5.8
+466,Naruto: Guardians of the Crescent Moon Kingdom,action,6.4
+466,Naruto: Guardians of the Crescent Moon Kingdom,animation,6.4
+467,First Sunday,comedy,4.5
+467,First Sunday,crime,4.5
+467,First Sunday,drama,4.5
+470,My Suicide,comedy,7
+470,My Suicide,drama,7
+474,Accident,thriller,6.6
+476,Naruto: Legend of the Stone of Gelel,fantasy,6.4
+476,Naruto: Legend of the Stone of Gelel,comedy,6.4
+476,Naruto: Legend of the Stone of Gelel,drama,6.4
+476,Naruto: Legend of the Stone of Gelel,animation,6.4
+476,Naruto: Legend of the Stone of Gelel,action,6.4
+479,Billu,drama,6.3
+479,Billu,comedy,6.3
+484,Dil Chahta Hai,drama,8.1
+484,Dil Chahta Hai,comedy,8.1
+484,Dil Chahta Hai,romance,8.1
+485,Trailer Park Boys: Countdown to Liquor Day,comedy,7.3
+485,Trailer Park Boys: Countdown to Liquor Day,crime,7.3
+486,Bleach the Movie: Hell Verse,fantasy,7.4
+486,Bleach the Movie: Hell Verse,animation,7.4
+486,Bleach the Movie: Hell Verse,action,7.4
+490,Naruto Shippuden the Movie: The Lost Tower,action,6.9
+490,Naruto Shippuden the Movie: The Lost Tower,animation,6.9
+490,Naruto Shippuden the Movie: The Lost Tower,fantasy,6.9
+491,Naruto Shippuden the Movie: Bonds,fantasy,6.8
+491,Naruto Shippuden the Movie: Bonds,animation,6.8
+491,Naruto Shippuden the Movie: Bonds,action,6.8
+492,Naruto Shippuden the Movie: The Will of Fire,action,7
+492,Naruto Shippuden the Movie: The Will of Fire,animation,7
+492,Naruto Shippuden the Movie: The Will of Fire,fantasy,7
+493,Linewatch,thriller,5.4
+493,Linewatch,crime,5.4
+493,Linewatch,drama,5.4
+494,The Boy Who Cried Werewolf,fantasy,5.9
+494,The Boy Who Cried Werewolf,horror,5.9
+494,The Boy Who Cried Werewolf,comedy,5.9
+494,The Boy Who Cried Werewolf,family,5.9
+495,Dostana,drama,6.5
+495,Dostana,comedy,6.5
+495,Dostana,romance,6.5
+497,Don,thriller,7.1
+497,Don,crime,7.1
+497,Don,action,7.1
+497,Don,european,7.1
+501,"One Piece: Episode of Chopper Plus: Bloom in the Winter, Miracle Cherry Blossom",action,7
+501,"One Piece: Episode of Chopper Plus: Bloom in the Winter, Miracle Cherry Blossom",animation,7
+501,"One Piece: Episode of Chopper Plus: Bloom in the Winter, Miracle Cherry Blossom",comedy,7
+501,"One Piece: Episode of Chopper Plus: Bloom in the Winter, Miracle Cherry Blossom",drama,7
+501,"One Piece: Episode of Chopper Plus: Bloom in the Winter, Miracle Cherry Blossom",fantasy,7
+506,Bleach the Movie: Fade to Black,fantasy,7.2
+506,Bleach the Movie: Fade to Black,drama,7.2
+506,Bleach the Movie: Fade to Black,animation,7.2
+506,Bleach the Movie: Fade to Black,action,7.2
+507,Rang De Basanti,comedy,8.1
+507,Rang De Basanti,drama,8.1
+507,Rang De Basanti,history,8.1
+507,Rang De Basanti,crime,8.1
+509,Swades,drama,8.1
+509,Swades,european,8.1
+514,Kal Ho Naa Ho,drama,7.9
+514,Kal Ho Naa Ho,comedy,7.9
+514,Kal Ho Naa Ho,romance,7.9
+515,Sivaji: The Boss,drama,7.5
+515,Sivaji: The Boss,crime,7.5
+515,Sivaji: The Boss,thriller,7.5
+515,Sivaji: The Boss,action,7.5
+516,Ishqiya,comedy,7.3
+516,Ishqiya,thriller,7.3
+516,Ishqiya,romance,7.3
+516,Ishqiya,drama,7.3
+518,Guzaarish,drama,7.4
+518,Guzaarish,romance,7.4
+522,Kabhi Alvida Naa Kehna,drama,6
+522,Kabhi Alvida Naa Kehna,romance,6
+524,Black Friday,crime,8.4
+524,Black Friday,action,8.4
+524,Black Friday,drama,8.4
+524,Black Friday,history,8.4
+528,Golmaal Returns,comedy,5.1
+528,Golmaal Returns,crime,5.1
+531,Bluffmaster!,drama,6.6
+531,Bluffmaster!,comedy,6.6
+531,Bluffmaster!,romance,6.6
+531,Bluffmaster!,thriller,6.6
+531,Bluffmaster!,crime,6.6
+532,Inuyasha the Movie 4: Fire on the Mystic Island,fantasy,7.2
+532,Inuyasha the Movie 4: Fire on the Mystic Island,action,7.2
+532,Inuyasha the Movie 4: Fire on the Mystic Island,comedy,7.2
+532,Inuyasha the Movie 4: Fire on the Mystic Island,animation,7.2
+539,Inuyasha the Movie: Affections Touching Across Time,action,7.2
+539,Inuyasha the Movie: Affections Touching Across Time,animation,7.2
+539,Inuyasha the Movie: Affections Touching Across Time,fantasy,7.2
+540,Once Upon a Time in Mumbaai,thriller,7.4
+540,Once Upon a Time in Mumbaai,crime,7.4
+540,Once Upon a Time in Mumbaai,drama,7.4
+540,Once Upon a Time in Mumbaai,romance,7.4
+540,Once Upon a Time in Mumbaai,action,7.4
+541,Guru,romance,7.7
+541,Guru,documentation,7.7
+541,Guru,drama,7.7
+541,Guru,european,7.7
+542,Main Hoon Na,drama,7
+542,Main Hoon Na,romance,7
+542,Main Hoon Na,thriller,7
+542,Main Hoon Na,action,7
+542,Main Hoon Na,comedy,7
+543,Romantik Komedi,romance,5.3
+543,Romantik Komedi,comedy,5.3
+544,Jeff Dunham's Very Special Christmas Special,comedy,7.4
+544,Jeff Dunham's Very Special Christmas Special,documentation,7.4
+545,Paheli,fantasy,6.3
+545,Paheli,drama,6.3
+545,Paheli,romance,6.3
+545,Paheli,comedy,6.3
+546,Honeymoon Travels Pvt. Ltd.,comedy,6.1
+546,Honeymoon Travels Pvt. Ltd.,drama,6.1
+546,Honeymoon Travels Pvt. Ltd.,romance,6.1
+548,Inuyasha the Movie 3: Swords of an Honorable Ruler,fantasy,7.6
+548,Inuyasha the Movie 3: Swords of an Honorable Ruler,thriller,7.6
+548,Inuyasha the Movie 3: Swords of an Honorable Ruler,animation,7.6
+548,Inuyasha the Movie 3: Swords of an Honorable Ruler,action,7.6
+550,Kaminey,drama,7.4
+550,Kaminey,crime,7.4
+550,Kaminey,action,7.4
+550,Kaminey,thriller,7.4
+552,Kevin Hart: I'm a Grown Little Man,comedy,7.5
+552,Kevin Hart: I'm a Grown Little Man,documentation,7.5
+553,G.O.R.A.,scifi,8
+553,G.O.R.A.,comedy,8
+558,"LSD: Love, Sex aur Dhokha",drama,7.2
+558,"LSD: Love, Sex aur Dhokha",comedy,7.2
+558,"LSD: Love, Sex aur Dhokha",crime,7.2
+558,"LSD: Love, Sex aur Dhokha",romance,7.2
+562,Chup Chup Ke,comedy,6.9
+562,Chup Chup Ke,drama,6.9
+562,Chup Chup Ke,romance,6.9
+563,Manorama Six Feet Under,thriller,7.6
+563,Manorama Six Feet Under,crime,7.6
+563,Manorama Six Feet Under,drama,7.6
+568,Karthik Calling Karthik,thriller,7.1
+568,Karthik Calling Karthik,drama,7.1
+568,Karthik Calling Karthik,romance,7.1
+571,Ajab Prem Ki Ghazab Kahani,action,6.3
+571,Ajab Prem Ki Ghazab Kahani,comedy,6.3
+571,Ajab Prem Ki Ghazab Kahani,romance,6.3
+572,Dhan Dhana Dhan Goal,drama,5
+572,Dhan Dhana Dhan Goal,sport,5
+572,Dhan Dhana Dhan Goal,thriller,5
+574,Yuva,action,7.3
+574,Yuva,drama,7.3
+574,Yuva,thriller,7.3
+576,Namastey London,comedy,7.1
+576,Namastey London,drama,7.1
+576,Namastey London,romance,7.1
+577,Fashion,romance,6.9
+577,Fashion,drama,6.9
+578,Peepli Live,drama,7.4
+578,Peepli Live,comedy,7.4
+579,Lakshya,drama,7.8
+579,Lakshya,romance,7.8
+579,Lakshya,war,7.8
+579,Lakshya,action,7.8
+583,Do Dooni Chaar,drama,7.5
+583,Do Dooni Chaar,comedy,7.5
+583,Do Dooni Chaar,crime,7.5
+584,Kismat Konnection,romance,5.3
+584,Kismat Konnection,comedy,5.3
+584,Kismat Konnection,drama,5.3
+589,The Figurine (Araromire),horror,4.4
+589,The Figurine (Araromire),thriller,4.4
+591,Kurbaan,thriller,5.7
+591,Kurbaan,action,5.7
+591,Kurbaan,crime,5.7
+591,Kurbaan,drama,5.7
+591,Kurbaan,romance,5.7
+591,Kurbaan,sport,5.7
+593,Inuyasha the Movie 2: The Castle Beyond the Looking Glass,animation,7.3
+593,Inuyasha the Movie 2: The Castle Beyond the Looking Glass,fantasy,7.3
+593,Inuyasha the Movie 2: The Castle Beyond the Looking Glass,action,7.3
+593,Inuyasha the Movie 2: The Castle Beyond the Looking Glass,romance,7.3
+593,Inuyasha the Movie 2: The Castle Beyond the Looking Glass,comedy,7.3
+598,Chalte Chalte,comedy,6.5
+598,Chalte Chalte,drama,6.5
+598,Chalte Chalte,romance,6.5
+599,Mumbai Meri Jaan,drama,7.7
+600,Aamir,thriller,7.6
+600,Aamir,action,7.6
+600,Aamir,crime,7.6
+600,Aamir,drama,7.6
+606,Race,drama,6.9
+606,Race,action,6.9
+606,Race,thriller,6.9
+606,Race,crime,6.9
+606,Race,comedy,6.9
+607,Udaan,drama,8.1
+609,We Are Family,drama,5.6
+609,We Are Family,comedy,5.6
+609,We Are Family,family,5.6
+611,Raajneeti,drama,7.1
+611,Raajneeti,thriller,7.1
+611,Raajneeti,crime,7.1
+617,Dev.D,drama,7.9
+617,Dev.D,romance,7.9
+617,Dev.D,comedy,7.9
+620,Aagey Se Right,comedy,5.2
+620,Aagey Se Right,crime,5.2
+620,Aagey Se Right,drama,5.2
+627,I Hate Luv Storys,drama,5.6
+627,I Hate Luv Storys,romance,5.6
+627,I Hate Luv Storys,comedy,5.6
+629,Welcome to Sajjanpur,comedy,6.9
+629,Welcome to Sajjanpur,drama,6.9
+631,I Am Kalam,comedy,8
+631,I Am Kalam,drama,8
+631,I Am Kalam,family,8
+637,Main Aurr Mrs Khanna,drama,3.5
+637,Main Aurr Mrs Khanna,comedy,3.5
+637,Main Aurr Mrs Khanna,romance,3.5
+641,Chance Pe Dance,drama,4.8
+641,Chance Pe Dance,music,4.8
+641,Chance Pe Dance,romance,4.8
+641,Chance Pe Dance,comedy,4.8
+651,Shootout at Lokhandwala,crime,7.1
+651,Shootout at Lokhandwala,action,7.1
+651,Shootout at Lokhandwala,history,7.1
+654,Interview with a Serial Killer,documentation,5.9
+654,Interview with a Serial Killer,crime,5.9
+658,Dhoondte Reh Jaaoge,comedy,5.6
+658,Dhoondte Reh Jaaoge,drama,5.6
+663,Hattrick,romance,4.3
+663,Hattrick,drama,4.3
+663,Hattrick,comedy,4.3
+663,Hattrick,sport,4.3
+664,Harishchandrachi Factory,comedy,8.4
+664,Harishchandrachi Factory,drama,8.4
+667,What's Your Raashee?,comedy,4.8
+667,What's Your Raashee?,drama,4.8
+667,What's Your Raashee?,romance,4.8
+684,A Very Special Love,romance,6.5
+684,A Very Special Love,drama,6.5
+684,A Very Special Love,comedy,6.5
+692,Chhota Bheem Aur Krishna,animation,6.4
+692,Chhota Bheem Aur Krishna,fantasy,6.4
+701,Hop,comedy,5.4
+701,Hop,fantasy,5.4
+701,Hop,animation,5.4
+701,Hop,family,5.4
+702,"Crazy, Stupid, Love.",romance,7.4
+702,"Crazy, Stupid, Love.",comedy,7.4
+702,"Crazy, Stupid, Love.",drama,7.4
+705,Margin Call,thriller,7.1
+705,Margin Call,drama,7.1
+706,Django Unchained,western,8.4
+706,Django Unchained,drama,8.4
+708,Looper,thriller,7.4
+708,Looper,scifi,7.4
+708,Looper,drama,7.4
+708,Looper,crime,7.4
+708,Looper,action,7.4
+711,Argo,drama,7.7
+711,Argo,thriller,7.7
+713,Midnight in Paris,fantasy,7.7
+713,Midnight in Paris,romance,7.7
+713,Midnight in Paris,comedy,7.7
+716,Warrior,drama,8.2
+716,Warrior,action,8.2
+716,Warrior,sport,8.2
+718,Les Misérables,drama,7.5
+718,Les Misérables,romance,7.5
+718,Les Misérables,history,7.5
+718,Les Misérables,war,7.5
+720,The Girl with the Dragon Tattoo,crime,7.8
+720,The Girl with the Dragon Tattoo,thriller,7.8
+720,The Girl with the Dragon Tattoo,drama,7.8
+721,Contagion,thriller,6.8
+721,Contagion,scifi,6.8
+721,Contagion,action,6.8
+721,Contagion,drama,6.8
+722,Battleship,scifi,5.8
+722,Battleship,thriller,5.8
+722,Battleship,action,5.8
+722,Battleship,documentation,5.8
+723,Killing Them Softly,crime,6.2
+723,Killing Them Softly,thriller,6.2
+723,Killing Them Softly,drama,6.2
+724,Just Go with It,romance,6.4
+724,Just Go with It,comedy,6.4
+725,Dark Shadows,comedy,6.2
+725,Dark Shadows,fantasy,6.2
+725,Dark Shadows,horror,6.2
+726,Sherlock Holmes: A Game of Shadows,crime,7.4
+726,Sherlock Holmes: A Game of Shadows,thriller,7.4
+726,Sherlock Holmes: A Game of Shadows,action,7.4
+727,Silver Linings Playbook,drama,7.7
+727,Silver Linings Playbook,romance,7.7
+727,Silver Linings Playbook,comedy,7.7
+730,Sucker Punch,fantasy,6
+730,Sucker Punch,thriller,6
+730,Sucker Punch,action,6
+734,Total Recall,thriller,6.2
+734,Total Recall,scifi,6.2
+734,Total Recall,crime,6.2
+734,Total Recall,action,6.2
+736,Project X,comedy,6.6
+737,Berserk: The Golden Age Arc I - The Egg of the King,fantasy,7.5
+737,Berserk: The Golden Age Arc I - The Egg of the King,war,7.5
+737,Berserk: The Golden Age Arc I - The Egg of the King,animation,7.5
+737,Berserk: The Golden Age Arc I - The Egg of the King,action,7.5
+737,Berserk: The Golden Age Arc I - The Egg of the King,drama,7.5
+737,Berserk: The Golden Age Arc I - The Egg of the King,horror,7.5
+738,Soul Surfer,drama,7
+738,Soul Surfer,family,7
+738,Soul Surfer,sport,7
+740,Final Destination 5,horror,5.9
+740,Final Destination 5,thriller,5.9
+740,Final Destination 5,action,5.9
+740,Final Destination 5,fantasy,5.9
+740,Final Destination 5,documentation,5.9
+740,Final Destination 5,european,5.9
+741,Puss in Boots,comedy,6.6
+741,Puss in Boots,animation,6.6
+741,Puss in Boots,family,6.6
+741,Puss in Boots,fantasy,6.6
+741,Puss in Boots,action,6.6
+742,Savages,thriller,6.4
+742,Savages,action,6.4
+742,Savages,crime,6.4
+742,Savages,drama,6.4
+744,Hall Pass,romance,5.9
+744,Hall Pass,comedy,5.9
+747,Rurouni Kenshin Part I: Origins,drama,7.4
+747,Rurouni Kenshin Part I: Origins,war,7.4
+747,Rurouni Kenshin Part I: Origins,action,7.4
+747,Rurouni Kenshin Part I: Origins,history,7.4
+748,Unknown,action,6.8
+748,Unknown,thriller,6.8
+748,Unknown,european,6.8
+752,The Rite,drama,6
+752,The Rite,thriller,6
+752,The Rite,horror,6
+756,Mean Girls 2,comedy,4.1
+757,A Very Harold & Kumar Christmas,comedy,6.2
+757,A Very Harold & Kumar Christmas,fantasy,6.2
+757,A Very Harold & Kumar Christmas,romance,6.2
+762,Red Riding Hood,fantasy,5.4
+762,Red Riding Hood,thriller,5.4
+762,Red Riding Hood,horror,5.4
+762,Red Riding Hood,drama,5.4
+762,Red Riding Hood,romance,5.4
+765,New Year's Eve,comedy,5.6
+765,New Year's Eve,romance,5.6
+765,New Year's Eve,documentation,5.6
+766,The Smurfs,fantasy,5.4
+766,The Smurfs,comedy,5.4
+766,The Smurfs,family,5.4
+766,The Smurfs,animation,5.4
+767,Jack and Jill,comedy,3.3
+767,Jack and Jill,horror,3.3
+768,Everything Must Go,comedy,6.4
+768,Everything Must Go,drama,6.4
+772,One Piece Film: Z,action,7.8
+772,One Piece Film: Z,animation,7.8
+772,One Piece Film: Z,fantasy,7.8
+774,Arthur Christmas,drama,7.1
+774,Arthur Christmas,animation,7.1
+774,Arthur Christmas,family,7.1
+774,Arthur Christmas,comedy,7.1
+774,Arthur Christmas,fantasy,7.1
+780,Quartet,romance,6.8
+780,Quartet,comedy,6.8
+780,Quartet,drama,6.8
+780,Quartet,music,6.8
+781,Berserk: The Golden Age Arc II - The Battle for Doldrey,fantasy,7.7
+781,Berserk: The Golden Age Arc II - The Battle for Doldrey,drama,7.7
+781,Berserk: The Golden Age Arc II - The Battle for Doldrey,horror,7.7
+781,Berserk: The Golden Age Arc II - The Battle for Doldrey,animation,7.7
+781,Berserk: The Golden Age Arc II - The Battle for Doldrey,action,7.7
+784,Bill Burr: You People Are All The Same,comedy,8.2
+785,Bully,drama,7.4
+785,Bully,documentation,7.4
+789,A Princess for Christmas,comedy,6.3
+789,A Princess for Christmas,family,6.3
+789,A Princess for Christmas,romance,6.3
+789,A Princess for Christmas,drama,6.3
+790,Middle of Nowhere,drama,6.5
+791,Zindagi Na Milegi Dobara,comedy,8.1
+791,Zindagi Na Milegi Dobara,drama,8.1
+794,Escape from Planet Earth,comedy,5.8
+794,Escape from Planet Earth,family,5.8
+794,Escape from Planet Earth,scifi,5.8
+794,Escape from Planet Earth,animation,5.8
+797,Undefeated,documentation,7.7
+797,Undefeated,sport,7.7
+803,Barfi!,drama,8.1
+803,Barfi!,comedy,8.1
+803,Barfi!,romance,8.1
+809,Joan Rivers: Don't Start with Me,comedy,6.6
+812,Naruto Shippuden the Movie: Blood Prison,horror,7.1
+812,Naruto Shippuden the Movie: Blood Prison,thriller,7.1
+812,Naruto Shippuden the Movie: Blood Prison,animation,7.1
+812,Naruto Shippuden the Movie: Blood Prison,action,7.1
+812,Naruto Shippuden the Movie: Blood Prison,fantasy,7.1
+812,Naruto Shippuden the Movie: Blood Prison,comedy,7.1
+815,Tiger & Bunny: The Beginning,scifi,6.7
+815,Tiger & Bunny: The Beginning,animation,6.7
+815,Tiger & Bunny: The Beginning,action,6.7
+817,Pyaar Ka Punchnama,romance,7.7
+817,Pyaar Ka Punchnama,comedy,7.7
+817,Pyaar Ka Punchnama,drama,7.7
+817,Pyaar Ka Punchnama,european,7.7
+818,Big Time Movie,comedy,6.1
+818,Big Time Movie,family,6.1
+818,Big Time Movie,music,6.1
+824,Jeff Dunham: Minding the Monsters,comedy,7
+826,Chillar Party,drama,7.5
+826,Chillar Party,comedy,7.5
+826,Chillar Party,family,7.5
+828,Kyaa Super Kool Hain Hum,drama,5
+828,Kyaa Super Kool Hain Hum,comedy,5
+832,Rowdy Rathore,crime,5.9
+832,Rowdy Rathore,action,5.9
+832,Rowdy Rathore,comedy,5.9
+834,OMG: Oh My God!,fantasy,8.1
+834,OMG: Oh My God!,drama,8.1
+834,OMG: Oh My God!,comedy,8.1
+835,6 Bullets,thriller,6
+835,6 Bullets,drama,6
+835,6 Bullets,action,6
+835,6 Bullets,crime,6
+843,Shaitan,action,7.3
+843,Shaitan,crime,7.3
+843,Shaitan,thriller,7.3
+843,Shaitan,drama,7.3
+844,Paan Singh Tomar,drama,8.2
+844,Paan Singh Tomar,sport,8.2
+844,Paan Singh Tomar,thriller,8.2
+844,Paan Singh Tomar,action,8.2
+844,Paan Singh Tomar,crime,8.2
+847,Game,thriller,5.2
+847,Game,drama,5.2
+847,Game,action,5.2
+847,Game,crime,5.2
+847,Game,european,5.2
+848,Lavell Crawford: Can a Brother Get Some Love?,comedy,6.9
+848,Lavell Crawford: Can a Brother Get Some Love?,documentation,6.9
+850,Arjun: The Warrior Prince,animation,6.7
+850,Arjun: The Warrior Prince,action,6.7
+850,Arjun: The Warrior Prince,drama,6.7
+854,Tere Naal Love Ho Gaya,romance,5.8
+854,Tere Naal Love Ho Gaya,drama,5.8
+854,Tere Naal Love Ho Gaya,comedy,5.8
+855,FRED 3: Camp Fred,comedy,2
+855,FRED 3: Camp Fred,family,2
+856,Kalakalappu,comedy,6.9
+858,Katt Williams: Kattpacalypse,comedy,5.5
+859,No One Killed Jessica,crime,7.2
+859,No One Killed Jessica,drama,7.2
+859,No One Killed Jessica,thriller,7.2
+860,Luv Shuv Tey Chicken Khurana,comedy,6.6
+861,Ragini MMS,horror,5.1
+861,Ragini MMS,drama,5.1
+861,Ragini MMS,thriller,5.1
+870,Tita Rahiba,comedy,5.2
+870,Tita Rahiba,drama,5.2
+871,Ek Main Aur Ekk Tu,drama,5.8
+871,Ek Main Aur Ekk Tu,comedy,5.8
+871,Ek Main Aur Ekk Tu,romance,5.8
+873,Michael,thriller,5.3
+873,Michael,drama,5.3
+874,Bbuddah Hoga Terra Baap,thriller,5.6
+874,Bbuddah Hoga Terra Baap,action,5.6
+874,Bbuddah Hoga Terra Baap,comedy,5.6
+874,Bbuddah Hoga Terra Baap,crime,5.6
+875,Shor in the City,drama,7.2
+875,Shor in the City,crime,7.2
+876,Chhota Bheem & Krishna in Mayanagari,animation,9
+876,Chhota Bheem & Krishna in Mayanagari,action,9
+876,Chhota Bheem & Krishna in Mayanagari,fantasy,9
+877,Department,thriller,3.2
+877,Department,action,3.2
+877,Department,crime,3.2
+879,The Mistress,romance,6.3
+879,The Mistress,drama,6.3
+882,Ferrari Ki Sawaari,comedy,6.4
+882,Ferrari Ki Sawaari,family,6.4
+882,Ferrari Ki Sawaari,sport,6.4
+882,Ferrari Ki Sawaari,drama,6.4
+883,Zokkomon,scifi,3.9
+883,Zokkomon,fantasy,3.9
+883,Zokkomon,action,3.9
+883,Zokkomon,family,3.9
+888,Aiyyaa,comedy,4.3
+888,Aiyyaa,romance,4.3
+889,Blood Money,drama,5.1
+889,Blood Money,thriller,5.1
+889,Blood Money,action,5.1
+889,Blood Money,crime,5.1
+897,Chhota Bheem In Dholakpur to Kathmandu,animation,7.8
+898,The Rise of Kirmada,animation,8
+911,My Friend Pinto,comedy,5.3
+911,My Friend Pinto,drama,5.3
+911,My Friend Pinto,crime,5.3
+920,Paddington,comedy,7.2
+920,Paddington,animation,7.2
+920,Paddington,family,7.2
+920,Paddington,fantasy,7.2
+920,Paddington,european,7.2
+922,Nightcrawler,crime,7.8
+922,Nightcrawler,thriller,7.8
+922,Nightcrawler,drama,7.8
+925,Her,drama,8
+925,Her,romance,8
+925,Her,scifi,8
+926,42,drama,7.5
+926,42,sport,7.5
+927,The Imitation Game,thriller,8
+927,The Imitation Game,drama,8
+927,The Imitation Game,war,8
+928,The Call,crime,6.7
+928,The Call,thriller,6.7
+928,The Call,drama,6.7
+928,The Call,horror,6.7
+928,The Call,european,6.7
+930,Big Eyes,drama,7.2
+930,Big Eyes,documentation,7.2
+930,Big Eyes,crime,7.2
+930,Big Eyes,romance,7.2
+932,Oldboy,thriller,5.7
+932,Oldboy,action,5.7
+932,Oldboy,drama,5.7
+933,Rush,drama,8.1
+933,Rush,action,8.1
+933,Rush,sport,8.1
+933,Rush,european,8.1
+935,How to Train Your Dragon 2,fantasy,7.8
+935,How to Train Your Dragon 2,comedy,7.8
+935,How to Train Your Dragon 2,family,7.8
+935,How to Train Your Dragon 2,animation,7.8
+935,How to Train Your Dragon 2,action,7.8
+936,Begin Again,comedy,7.4
+936,Begin Again,music,7.4
+936,Begin Again,romance,7.4
+936,Begin Again,drama,7.4
+937,The Conjuring,thriller,7.5
+937,The Conjuring,horror,7.5
+938,Insidious: Chapter 2,thriller,6.5
+938,Insidious: Chapter 2,horror,6.5
+942,A Walk Among the Tombstones,drama,6.5
+942,A Walk Among the Tombstones,thriller,6.5
+942,A Walk Among the Tombstones,action,6.5
+942,A Walk Among the Tombstones,crime,6.5
+943,Olympus Has Fallen,thriller,6.5
+943,Olympus Has Fallen,action,6.5
+943,Olympus Has Fallen,drama,6.5
+944,The Giver,drama,6.4
+944,The Giver,scifi,6.4
+944,The Giver,romance,6.4
+944,The Giver,thriller,6.4
+948,Creep,horror,6.3
+948,Creep,thriller,6.3
+949,St. Vincent,comedy,7.2
+949,St. Vincent,drama,7.2
+953,The Green Inferno,horror,5.3
+953,The Green Inferno,thriller,5.3
+954,Dark Skies,thriller,6.3
+954,Dark Skies,horror,6.3
+954,Dark Skies,scifi,6.3
+954,Dark Skies,documentation,6.3
+956,The Frozen Ground,thriller,6.4
+956,The Frozen Ground,drama,6.4
+956,The Frozen Ground,crime,6.4
+959,Empire State,drama,5.2
+959,Empire State,crime,5.2
+959,Empire State,thriller,5.2
+959,Empire State,action,5.2
+959,Empire State,european,5.2
+961,Shrek the Musical,fantasy,6.9
+961,Shrek the Musical,family,6.9
+961,Shrek the Musical,comedy,6.9
+962,The Butler,drama,7.2
+962,The Butler,european,7.2
+965,Scary Movie 5,comedy,3.5
+965,Scary Movie 5,horror,3.5
+969,Cloudy with a Chance of Meatballs 2,comedy,6.3
+969,Cloudy with a Chance of Meatballs 2,family,6.3
+969,Cloudy with a Chance of Meatballs 2,fantasy,6.3
+969,Cloudy with a Chance of Meatballs 2,scifi,6.3
+969,Cloudy with a Chance of Meatballs 2,drama,6.3
+969,Cloudy with a Chance of Meatballs 2,animation,6.3
+973,Penguins of Madagascar,comedy,6.6
+973,Penguins of Madagascar,animation,6.6
+973,Penguins of Madagascar,family,6.6
+973,Penguins of Madagascar,scifi,6.6
+975,Texas Chainsaw 3D,horror,4.8
+975,Texas Chainsaw 3D,thriller,4.8
+979,Mr. Peabody & Sherman,action,6.8
+979,Mr. Peabody & Sherman,family,6.8
+979,Mr. Peabody & Sherman,animation,6.8
+979,Mr. Peabody & Sherman,history,6.8
+979,Mr. Peabody & Sherman,scifi,6.8
+979,Mr. Peabody & Sherman,romance,6.8
+979,Mr. Peabody & Sherman,comedy,6.8
+979,Mr. Peabody & Sherman,fantasy,6.8
+980,Vampire Academy,fantasy,5.4
+980,Vampire Academy,horror,5.4
+980,Vampire Academy,thriller,5.4
+980,Vampire Academy,action,5.4
+980,Vampire Academy,comedy,5.4
+980,Vampire Academy,drama,5.4
+981,"I, Frankenstein",horror,5.1
+981,"I, Frankenstein",thriller,5.1
+981,"I, Frankenstein",scifi,5.1
+981,"I, Frankenstein",action,5.1
+981,"I, Frankenstein",fantasy,5.1
+982,Seventh Son,fantasy,5.5
+982,Seventh Son,action,5.5
+985,Sabotage,drama,5.7
+985,Sabotage,thriller,5.7
+985,Sabotage,western,5.7
+985,Sabotage,action,5.7
+985,Sabotage,crime,5.7
+987,The Railway Man,drama,7.1
+987,The Railway Man,european,7.1
+987,The Railway Man,war,7.1
+987,The Railway Man,romance,7.1
+990,Life of Crime,comedy,5.8
+990,Life of Crime,crime,5.8
+991,Get on Up,drama,6.9
+991,Get on Up,music,6.9
+993,The November Man,crime,6.3
+993,The November Man,action,6.3
+993,The November Man,thriller,6.3
+995,The Nut Job,comedy,5.7
+995,The Nut Job,crime,5.7
+995,The Nut Job,family,5.7
+995,The Nut Job,animation,5.7
+997,Brick Mansions,crime,5.6
+997,Brick Mansions,drama,5.6
+997,Brick Mansions,action,5.6
+997,Brick Mansions,thriller,5.6
+998,The Big Wedding,comedy,5.6
+998,The Big Wedding,drama,5.6
+998,The Big Wedding,romance,5.6
+1002,The Battered Bastards of Baseball,documentation,8
+1002,The Battered Bastards of Baseball,sport,8
+1008,The Smurfs 2,fantasy,5.3
+1008,The Smurfs 2,animation,5.3
+1008,The Smurfs 2,comedy,5.3
+1008,The Smurfs 2,family,5.3
+1009,Metallica: Through the Never,music,7.1
+1010,Walk of Shame,comedy,6
+1011,Search Party,comedy,5.6
+1012,Stand by Me Doraemon,fantasy,7.3
+1012,Stand by Me Doraemon,animation,7.3
+1012,Stand by Me Doraemon,comedy,7.3
+1012,Stand by Me Doraemon,drama,7.3
+1012,Stand by Me Doraemon,family,7.3
+1012,Stand by Me Doraemon,scifi,7.3
+1013,Thanks for Sharing,drama,6.4
+1013,Thanks for Sharing,comedy,6.4
+1013,Thanks for Sharing,romance,6.4
+1017,The Haunting in Connecticut 2: Ghosts of Georgia,horror,5.2
+1017,The Haunting in Connecticut 2: Ghosts of Georgia,thriller,5.2
+1017,The Haunting in Connecticut 2: Ghosts of Georgia,drama,5.2
+1020,Elena,documentation,7.6
+1020,Elena,european,7.6
+1020,Elena,drama,7.6
+1020,Elena,family,7.6
+1022,Berserk: The Golden Age Arc III - The Advent,fantasy,7.8
+1022,Berserk: The Golden Age Arc III - The Advent,action,7.8
+1022,Berserk: The Golden Age Arc III - The Advent,drama,7.8
+1022,Berserk: The Golden Age Arc III - The Advent,horror,7.8
+1022,Berserk: The Golden Age Arc III - The Advent,romance,7.8
+1022,Berserk: The Golden Age Arc III - The Advent,animation,7.8
+1025,A Haunted House 2,comedy,4.6
+1025,A Haunted House 2,horror,4.6
+1025,A Haunted House 2,fantasy,4.6
+1028,We Steal Secrets: The Story of WikiLeaks,documentation,6.9
+1029,Effie Gray,drama,6
+1029,Effie Gray,romance,6
+1030,Free Birds,comedy,5.8
+1030,Free Birds,family,5.8
+1030,Free Birds,scifi,5.8
+1030,Free Birds,animation,5.8
+1032,The Short Game,documentation,7.3
+1032,The Short Game,sport,7.3
+1033,PK,comedy,8.2
+1033,PK,drama,8.2
+1033,PK,romance,8.2
+1033,PK,fantasy,8.2
+1033,PK,scifi,8.2
+1034,Underdogs,romance,6.5
+1034,Underdogs,drama,6.5
+1034,Underdogs,documentation,6.5
+1034,Underdogs,sport,6.5
+1034,Underdogs,animation,6.5
+1034,Underdogs,family,6.5
+1035,Jinxed,fantasy,6.4
+1035,Jinxed,comedy,6.4
+1035,Jinxed,family,6.4
+1037,Swearnet: The Movie,comedy,6.1
+1044,Chennai Express,romance,6.1
+1044,Chennai Express,comedy,6.1
+1044,Chennai Express,drama,6.1
+1044,Chennai Express,action,6.1
+1058,Haider,drama,8.1
+1058,Haider,action,8.1
+1058,Haider,crime,8.1
+1058,Haider,thriller,8.1
+1059,2 States,comedy,6.9
+1059,2 States,drama,6.9
+1059,2 States,romance,6.9
+1063,A Fairly Odd Summer,fantasy,4
+1063,A Fairly Odd Summer,animation,4
+1063,A Fairly Odd Summer,comedy,4
+1063,A Fairly Odd Summer,family,4
+1068,Khoobsurat,comedy,6.5
+1068,Khoobsurat,romance,6.5
+1069,Monty Python: Live (Mostly),comedy,7.6
+1069,Monty Python: Live (Mostly),documentation,7.6
+1072,Highway,drama,7.6
+1072,Highway,crime,7.6
+1072,Highway,romance,7.6
+1073,Queen,drama,8.2
+1073,Queen,comedy,8.2
+1081,Mission Blue,documentation,7.9
+1081,Mission Blue,drama,7.9
+1084,ABCD,drama,6.3
+1084,ABCD,music,6.3
+1086,City of God: 10 Years Later,documentation,6.4
+1088,Bombay Talkies,drama,6.6
+1092,Ragini MMS 2,horror,3.9
+1093,Fukrey,romance,6.9
+1093,Fukrey,comedy,6.9
+1093,Fukrey,drama,6.9
+1094,Dedh Ishqiya,drama,7
+1094,Dedh Ishqiya,romance,7
+1094,Dedh Ishqiya,thriller,7
+1094,Dedh Ishqiya,comedy,7
+1095,Hasee Toh Phasee,comedy,6.8
+1095,Hasee Toh Phasee,romance,6.8
+1100,Boss,action,5.3
+1100,Boss,comedy,5.3
+1100,Boss,crime,5.3
+1100,Boss,drama,5.3
+1104,Mary Kom,drama,6.9
+1104,Mary Kom,sport,6.9
+1104,Mary Kom,action,6.9
+1110,Jim Jefferies: Bare,comedy,8
+1111,Dabbe 5: Zehr-i Cin,horror,6
+1117,Humpty Sharma Ki Dulhania,drama,6
+1117,Humpty Sharma Ki Dulhania,comedy,6
+1117,Humpty Sharma Ki Dulhania,romance,6
+1119,The Butterfly's Dream,drama,7.8
+1119,The Butterfly's Dream,history,7.8
+1119,The Butterfly's Dream,romance,7.8
+1120,Jeff Dunham: All Over the Map,comedy,7.1
+1123,Ghanchakkar,thriller,5.8
+1123,Ghanchakkar,crime,5.8
+1123,Ghanchakkar,comedy,5.8
+1133,Inkaar,drama,6.2
+1133,Inkaar,romance,6.2
+1133,Inkaar,thriller,6.2
+1135,Coming Soon,drama,7.5
+1135,Coming Soon,comedy,7.5
+1135,Coming Soon,romance,7.5
+1137,Refugiado,drama,6.4
+1137,Refugiado,thriller,6.4
+1137,Refugiado,european,6.4
+1139,Wedding Association,comedy,7.1
+1142,Madras Cafe,thriller,7.7
+1142,Madras Cafe,action,7.7
+1142,Madras Cafe,drama,7.7
+1143,Deliha,comedy,4.5
+1143,Deliha,family,4.5
+1143,Deliha,romance,4.5
+1146,Ungli,comedy,5.8
+1146,Ungli,drama,5.8
+1146,Ungli,thriller,5.8
+1146,Ungli,crime,5.8
+1150,Ghadi,drama,7.3
+1150,Ghadi,comedy,7.3
+1150,Ghadi,family,7.3
+1152,October 1,thriller,6.4
+1154,Satyagraha,drama,5.9
+1154,Satyagraha,documentation,5.9
+1166,Raja Natwarlal,thriller,6.1
+1166,Raja Natwarlal,crime,6.1
+1172,What the Fish,drama,5.2
+1172,What the Fish,comedy,5.2
+1187,Anaamika,thriller,5.5
+1188,Mumbai Delhi Mumbai,comedy,5.7
+1188,Mumbai Delhi Mumbai,romance,5.7
+1203,Gollu Aur Pappu,comedy,3.8
+1210,Chhota Bheem Aur Hanuman,fantasy,7.1
+1210,Chhota Bheem Aur Hanuman,animation,7.1
+1230,Hunt for the Wilderpeople,comedy,7.8
+1230,Hunt for the Wilderpeople,drama,7.8
+1230,Hunt for the Wilderpeople,action,7.8
+1231,Hell or High Water,western,7.6
+1231,Hell or High Water,thriller,7.6
+1231,Hell or High Water,action,7.6
+1231,Hell or High Water,crime,7.6
+1231,Hell or High Water,drama,7.6
+1234,It Follows,horror,6.8
+1234,It Follows,thriller,6.8
+1240,Raw,horror,7
+1240,Raw,drama,7
+1240,Raw,fantasy,7
+1240,Raw,european,7
+1241,Kung Fu Panda 3,comedy,7.1
+1241,Kung Fu Panda 3,animation,7.1
+1241,Kung Fu Panda 3,action,7.1
+1241,Kung Fu Panda 3,family,7.1
+1241,Kung Fu Panda 3,fantasy,7.1
+1241,Kung Fu Panda 3,drama,7.1
+1242,Ouija: Origin of Evil,thriller,5.3
+1242,Ouija: Origin of Evil,horror,5.3
+1242,Ouija: Origin of Evil,drama,5.3
+1244,Nocturnal Animals,drama,7.5
+1244,Nocturnal Animals,thriller,7.5
+1245,The Gift,thriller,7.1
+1245,The Gift,drama,7.1
+1245,The Gift,documentation,7.1
+1249,War Dogs,crime,7.1
+1249,War Dogs,drama,7.1
+1249,War Dogs,comedy,7.1
+1249,War Dogs,war,7.1
+1250,Blackhat,thriller,5.4
+1250,Blackhat,action,5.4
+1250,Blackhat,crime,5.4
+1253,The Hateful Eight,western,7.8
+1253,The Hateful Eight,crime,7.8
+1253,The Hateful Eight,drama,7.8
+1253,The Hateful Eight,thriller,7.8
+1254,Crimson Peak,thriller,6.5
+1254,Crimson Peak,drama,6.5
+1254,Crimson Peak,horror,6.5
+1254,Crimson Peak,romance,6.5
+1254,Crimson Peak,fantasy,6.5
+1257,Tangerine,comedy,7.1
+1257,Tangerine,drama,7.1
+1257,Tangerine,crime,7.1
+1259,Legend,thriller,6.9
+1259,Legend,crime,6.9
+1259,Legend,drama,6.9
+1259,Legend,european,6.9
+1267,"Hail, Caesar!",drama,6.3
+1267,"Hail, Caesar!",comedy,6.3
+1267,"Hail, Caesar!",music,6.3
+1271,The Edge of Seventeen,comedy,7.3
+1271,The Edge of Seventeen,drama,7.3
+1273,Steve Jobs,drama,7.2
+1276,A Silent Voice: The Movie,romance,8.1
+1276,A Silent Voice: The Movie,animation,8.1
+1276,A Silent Voice: The Movie,drama,8.1
+1276,A Silent Voice: The Movie,family,8.1
+1280,London Has Fallen,thriller,5.9
+1280,London Has Fallen,crime,5.9
+1280,London Has Fallen,drama,5.9
+1280,London Has Fallen,action,5.9
+1281,Mr. Right,comedy,6.3
+1281,Mr. Right,romance,6.3
+1281,Mr. Right,action,6.3
+1284,Chappie,scifi,6.8
+1284,Chappie,drama,6.8
+1284,Chappie,thriller,6.8
+1284,Chappie,action,6.8
+1284,Chappie,crime,6.8
+1285,Christine,drama,6.9
+1288,B?hubali: The Beginning,drama,8
+1288,B?hubali: The Beginning,action,8
+1288,B?hubali: The Beginning,fantasy,8
+1290,Hush,horror,6.6
+1290,Hush,thriller,6.6
+1293,The Conjuring 2,thriller,7.3
+1293,The Conjuring 2,horror,7.3
+1293,The Conjuring 2,drama,7.3
+1295,Gantz:O,animation,7.1
+1295,Gantz:O,scifi,7.1
+1295,Gantz:O,action,7.1
+1295,Gantz:O,drama,7.1
+1295,Gantz:O,fantasy,7.1
+1295,Gantz:O,thriller,7.1
+1295,Gantz:O,horror,7.1
+1296,Unfriended,thriller,5.5
+1296,Unfriended,horror,5.5
+1296,Unfriended,drama,5.5
+1300,In a Valley of Violence,thriller,6
+1300,In a Valley of Violence,western,6
+1300,In a Valley of Violence,drama,6
+1300,In a Valley of Violence,crime,6
+1300,In a Valley of Violence,action,6
+1303,"Hello, My Name Is Doris",romance,6.6
+1303,"Hello, My Name Is Doris",comedy,6.6
+1303,"Hello, My Name Is Doris",drama,6.6
+1307,A Monster Calls,fantasy,7.5
+1307,A Monster Calls,drama,7.5
+1307,A Monster Calls,thriller,7.5
+1307,A Monster Calls,animation,7.5
+1307,A Monster Calls,family,7.5
+1307,A Monster Calls,european,7.5
+1310,Under the Shadow,thriller,6.8
+1310,Under the Shadow,horror,6.8
+1310,Under the Shadow,war,6.8
+1310,Under the Shadow,drama,6.8
+1310,Under the Shadow,fantasy,6.8
+1312,Loving,drama,7
+1312,Loving,romance,7
+1317,The Danish Girl,drama,7.1
+1317,The Danish Girl,romance,7.1
+1317,The Danish Girl,european,7.1
+1318,He Never Died,horror,6.4
+1318,He Never Died,fantasy,6.4
+1318,He Never Died,drama,6.4
+1318,He Never Died,thriller,6.4
+1318,He Never Died,comedy,6.4
+1319,Home,fantasy,6.6
+1319,Home,scifi,6.6
+1319,Home,comedy,6.6
+1319,Home,family,6.6
+1319,Home,animation,6.6
+1322,Before I Wake,drama,6.2
+1322,Before I Wake,fantasy,6.2
+1322,Before I Wake,horror,6.2
+1322,Before I Wake,thriller,6.2
+1324,The Fundamentals of Caring,drama,7.3
+1324,The Fundamentals of Caring,comedy,7.3
+1327,Batman: The Killing Joke,drama,6.4
+1327,Batman: The Killing Joke,crime,6.4
+1327,Batman: The Killing Joke,thriller,6.4
+1327,Batman: The Killing Joke,animation,6.4
+1327,Batman: The Killing Joke,action,6.4
+1328,Cop Car,thriller,6.3
+1328,Cop Car,crime,6.3
+1329,Bastille Day,action,6.3
+1329,Bastille Day,drama,6.3
+1329,Bastille Day,thriller,6.3
+1329,Bastille Day,crime,6.3
+1330,Sinister 2,horror,5.3
+1330,Sinister 2,thriller,5.3
+1334,American Ultra,comedy,6.1
+1334,American Ultra,action,6.1
+1334,American Ultra,scifi,6.1
+1336,Spectral,scifi,6.3
+1336,Spectral,action,6.3
+1336,Spectral,thriller,6.3
+1338,"Crouching Tiger, Hidden Dragon: Sword of Destiny",drama,6.1
+1338,"Crouching Tiger, Hidden Dragon: Sword of Destiny",fantasy,6.1
+1338,"Crouching Tiger, Hidden Dragon: Sword of Destiny",action,6.1
+1343,The Bye Bye Man,thriller,4.3
+1343,The Bye Bye Man,fantasy,4.3
+1343,The Bye Bye Man,horror,4.3
+1343,The Bye Bye Man,drama,4.3
+1345,Beasts of No Nation,war,7.7
+1345,Beasts of No Nation,drama,7.7
+1348,Self/less,scifi,6.5
+1348,Self/less,thriller,6.5
+1348,Self/less,action,6.5
+1348,Self/less,drama,6.5
+1349,Collateral Beauty,drama,6.7
+1349,Collateral Beauty,romance,6.7
+1356,The Forest,thriller,4.8
+1356,The Forest,scifi,4.8
+1356,The Forest,drama,4.8
+1356,The Forest,fantasy,4.8
+1356,The Forest,horror,4.8
+1357,Demonic,thriller,5.3
+1357,Demonic,horror,5.3
+1360,Hyena Road,thriller,6.5
+1360,Hyena Road,action,6.5
+1360,Hyena Road,drama,6.5
+1360,Hyena Road,war,6.5
+1364,Ip Man 3,drama,7
+1364,Ip Man 3,action,7
+1364,Ip Man 3,history,7
+1372,ARQ,scifi,6.3
+1372,ARQ,thriller,6.3
+1372,ARQ,action,6.3
+1374,Ratchet & Clank,action,5.5
+1374,Ratchet & Clank,animation,5.5
+1374,Ratchet & Clank,comedy,5.5
+1374,Ratchet & Clank,family,5.5
+1374,Ratchet & Clank,scifi,5.5
+1374,Ratchet & Clank,fantasy,5.5
+1375,Dangal,action,8.4
+1375,Dangal,drama,8.4
+1375,Dangal,sport,8.4
+1377,Pee-wee's Big Holiday,comedy,6.1
+1377,Pee-wee's Big Holiday,family,6.1
+1383,The Young Messiah,drama,5.6
+1383,The Young Messiah,fantasy,5.6
+1387,Marauders,thriller,5.5
+1387,Marauders,action,5.5
+1387,Marauders,crime,5.5
+1391,Our Brand Is Crisis,comedy,6.1
+1391,Our Brand Is Crisis,drama,6.1
+1392,The Ridiculous 6,western,4.8
+1392,The Ridiculous 6,action,4.8
+1392,The Ridiculous 6,comedy,4.8
+1393,Special Correspondents,comedy,5.8
+1394,Jem and the Holograms,fantasy,4.1
+1394,Jem and the Holograms,drama,4.1
+1394,Jem and the Holograms,family,4.1
+1394,Jem and the Holograms,music,4.1
+1394,Jem and the Holograms,romance,4.1
+1394,Jem and the Holograms,scifi,4.1
+1396,Mindhorn,comedy,6.3
+1396,Mindhorn,thriller,6.3
+1397,The Do-Over,action,5.7
+1397,The Do-Over,comedy,5.7
+1404,Suffragette,drama,6.9
+1404,Suffragette,history,6.9
+1411,By the Sea,drama,5.3
+1411,By the Sea,european,5.3
+1411,By the Sea,romance,5.3
+1420,Results,comedy,5.4
+1420,Results,romance,5.4
+1425,Legends of the Hidden Temple,family,5.7
+1431,Message from the King,thriller,6.4
+1431,Message from the King,drama,6.4
+1431,Message from the King,action,6.4
+1431,Message from the King,crime,6.4
+1431,Message from the King,european,6.4
+1436,Sleight,thriller,5.9
+1436,Sleight,crime,5.9
+1436,Sleight,drama,5.9
+1436,Sleight,scifi,5.9
+1436,Sleight,action,5.9
+1438,Middle School: The Worst Years of My Life,comedy,6
+1438,Middle School: The Worst Years of My Life,family,6
+1438,Middle School: The Worst Years of My Life,animation,6
+1440,Rock the Kasbah,comedy,5.5
+1440,Rock the Kasbah,music,5.5
+1440,Rock the Kasbah,war,5.5
+1448,Kevin Hart: What Now?,comedy,5.9
+1448,Kevin Hart: What Now?,documentation,5.9
+1449,Extraction,thriller,4.1
+1449,Extraction,action,4.1
+1451,The Warriors Gate,action,5.4
+1451,The Warriors Gate,comedy,5.4
+1451,The Warriors Gate,family,5.4
+1451,The Warriors Gate,fantasy,5.4
+1451,The Warriors Gate,european,5.4
+1454,Incarnate,horror,5.2
+1454,Incarnate,thriller,5.2
+1456,Term Life,thriller,5.6
+1456,Term Life,action,5.6
+1456,Term Life,crime,5.6
+1456,Term Life,drama,5.6
+1458,Drishyam,thriller,8.2
+1458,Drishyam,crime,8.2
+1458,Drishyam,drama,8.2
+1460,John Mulaney: The Comeback Kid,comedy,7.9
+1460,John Mulaney: The Comeback Kid,documentation,7.9
+1471,True Memoirs of an International Assassin,action,5.9
+1471,True Memoirs of an International Assassin,comedy,5.9
+1471,True Memoirs of an International Assassin,crime,5.9
+1473,The Darkness,thriller,4.5
+1473,The Darkness,horror,4.5
+1485,Pandora,drama,6.6
+1485,Pandora,action,6.6
+1485,Pandora,thriller,6.6
+1486,Ok Kanmani,drama,7.5
+1486,Ok Kanmani,romance,7.5
+1501,Kapoor & Sons,romance,7.7
+1501,Kapoor & Sons,comedy,7.7
+1501,Kapoor & Sons,drama,7.7
+1501,Kapoor & Sons,family,7.7
+1510,Septembers of Shiraz,drama,7.9
+1510,Septembers of Shiraz,thriller,7.9
+1510,Septembers of Shiraz,western,7.9
+1518,Brothers,drama,6.4
+1518,Brothers,action,6.4
+1518,Brothers,sport,6.4
+1536,Heneral Luna,action,7.4
+1536,Heneral Luna,drama,7.4
+1536,Heneral Luna,history,7.4
+1536,Heneral Luna,war,7.4
+1538,Mucize,drama,7.7
+1538,Mucize,comedy,7.7
+1538,Mucize,romance,7.7
+1538,Mucize,documentation,7.7
+1538,Mucize,european,7.7
+1543,Gabriel Iglesias: I'm Sorry for What I Said When I Was Hungry,comedy,7.4
+1543,Gabriel Iglesias: I'm Sorry for What I Said When I Was Hungry,documentation,7.4
+1545,Jim Jefferies: Freedumb,comedy,7.7
+1545,Jim Jefferies: Freedumb,documentation,7.7
+1546,Force 2,crime,6.2
+1546,Force 2,action,6.2
+1546,Force 2,thriller,6.2
+1550,Tamasha,drama,7.4
+1550,Tamasha,comedy,7.4
+1550,Tamasha,romance,7.4
+1554,Strange Weather,drama,6
+1561,The Guardian Brothers,animation,5.4
+1561,The Guardian Brothers,family,5.4
+1561,The Guardian Brothers,fantasy,5.4
+1561,The Guardian Brothers,comedy,5.4
+1571,Udta Punjab,crime,7.8
+1571,Udta Punjab,action,7.8
+1571,Udta Punjab,drama,7.8
+1573,Toro,thriller,5.9
+1573,Toro,action,5.9
+1573,Toro,crime,5.9
+1573,Toro,drama,5.9
+1573,Toro,european,5.9
+1574,Jeff Dunham: Unhinged in Hollywood,comedy,6.7
+1576,Hunterrr,romance,7
+1576,Hunterrr,drama,7
+1576,Hunterrr,comedy,7
+1579,Keith Richards: Under the Influence,music,7.1
+1579,Keith Richards: Under the Influence,documentation,7.1
+1586,4K Fireplace,family,7.7
+1586,4K Fireplace,reality,7.7
+1590,Smoke & Mirrors,thriller,6.9
+1590,Smoke & Mirrors,european,6.9
+1603,The Lion Woman,drama,6.6
+1603,The Lion Woman,european,6.6
+1605,The Beginning of Life,documentation,7.6
+1605,The Beginning of Life,family,7.6
+1606,Pyaar Ka Punchnama 2,comedy,7.3
+1606,Pyaar Ka Punchnama 2,drama,7.3
+1606,Pyaar Ka Punchnama 2,romance,7.3
+1622,Gridlocked,action,5.8
+1625,Chocolate City: Vegas Strip,drama,3.7
+1634,Ali Baba and the 7 Dwarfs,comedy,5.8
+1634,Ali Baba and the 7 Dwarfs,action,5.8
+1634,Ali Baba and the 7 Dwarfs,drama,5.8
+1636,Talvar,thriller,8.1
+1636,Talvar,crime,8.1
+1636,Talvar,drama,8.1
+1637,"Liar, Liar, Vampire",comedy,5.8
+1637,"Liar, Liar, Vampire",family,5.8
+1639,Dil Dhadakne Do,drama,7
+1639,Dil Dhadakne Do,comedy,7
+1639,Dil Dhadakne Do,romance,7
+1640,Wazir,thriller,7.2
+1640,Wazir,crime,7.2
+1640,Wazir,action,7.2
+1640,Wazir,drama,7.2
+1645,1898: Our Last Men in the Philippines,drama,6.5
+1645,1898: Our Last Men in the Philippines,history,6.5
+1645,1898: Our Last Men in the Philippines,war,6.5
+1645,1898: Our Last Men in the Philippines,european,6.5
+1653,Gabbar Is Back,drama,7.2
+1653,Gabbar Is Back,action,7.2
+1653,Gabbar Is Back,crime,7.2
+1653,Gabbar Is Back,comedy,7.2
+1655,Jonah,thriller,5.4
+1655,Jonah,drama,5.4
+1655,Jonah,romance,5.4
+1655,Jonah,family,5.4
+1657,Motu Patlu: King Of Kings,animation,6.8
+1657,Motu Patlu: King Of Kings,comedy,6.8
+1663,Puerto Ricans in Paris,comedy,5.3
+1671,ABCD 2,music,5.4
+1671,ABCD 2,drama,5.4
+1680,Te3n,thriller,7.3
+1680,Te3n,drama,7.3
+1686,U Turn,horror,7.5
+1686,U Turn,thriller,7.5
+1686,U Turn,crime,7.5
+1686,U Turn,drama,7.5
+1690,Poshter Girl,comedy,6.6
+1692,Shaandaar,romance,3.6
+1692,Shaandaar,drama,3.6
+1692,Shaandaar,comedy,3.6
+1695,Hawaizaada,fantasy,5.6
+1695,Hawaizaada,drama,5.6
+1697,Very Big Shot,thriller,7.1
+1697,Very Big Shot,action,7.1
+1697,Very Big Shot,crime,7.1
+1697,Very Big Shot,drama,7.1
+1699,X: Past Is Present,drama,5.1
+1699,X: Past Is Present,thriller,5.1
+1699,X: Past Is Present,romance,5.1
+1704,Hannibal Buress: Comedy Camisado,comedy,6.6
+1706,Bangistan,comedy,4.5
+1706,Bangistan,drama,4.5
+1709,Kiss of Life,comedy,5.9
+1709,Kiss of Life,romance,5.9
+1709,Kiss of Life,drama,5.9
+1711,S Storm,action,5.2
+1711,S Storm,thriller,5.2
+1711,S Storm,crime,5.2
+1711,S Storm,drama,5.2
+1716,Husband Factor,comedy,6.2
+1716,Husband Factor,fantasy,6.2
+1716,Husband Factor,romance,6.2
+1716,Husband Factor,drama,6.2
+1725,Husband Factor: Resurrection,comedy,5.4
+1725,Husband Factor: Resurrection,family,5.4
+1725,Husband Factor: Resurrection,romance,5.4
+1725,Husband Factor: Resurrection,drama,5.4
+1725,Husband Factor: Resurrection,fantasy,5.4
+1734,Wedding Association 2: Circumcision,comedy,6.4
+1740,Niyazi Gül Dörtnala,comedy,4.5
+1740,Niyazi Gül Dörtnala,drama,4.5
+1740,Niyazi Gül Dörtnala,action,4.5
+1742,My Mother's Wound,drama,7.3
+1742,My Mother's Wound,war,7.3
+1753,Dedemin Fi?i,comedy,5.5
+1753,Dedemin Fi?i,family,5.5
+1765,Souk Bazaar,comedy,5.2
+1766,Dharam Sankat Mein,comedy,6.3
+1766,Dharam Sankat Mein,drama,6.3
+1775,Kara Bela,comedy,6.8
+1775,Kara Bela,action,6.8
+1775,Kara Bela,drama,6.8
+1781,Sommore: The Reign Continues,comedy,6.9
+1789,Chris D'Elia: Incorrigible,comedy,6.4
+1789,Chris D'Elia: Incorrigible,documentation,6.4
+1797,'76,romance,5.6
+1797,'76,drama,5.6
+1807,Snervous Tyler Oakley,documentation,5.4
+1810,A Chaster Marriage,romance,5.4
+1810,A Chaster Marriage,family,5.4
+1810,A Chaster Marriage,comedy,5.4
+1812,Hajwala: The Missing Engine,drama,2.1
+1812,Hajwala: The Missing Engine,thriller,2.1
+1812,Hajwala: The Missing Engine,action,2.1
+1812,Hajwala: The Missing Engine,crime,2.1
+1812,Hajwala: The Missing Engine,sport,2.1
+1823,Jada,drama,5.3
+1823,Jada,sport,5.3
+1827,Blade Runner 2049,scifi,8
+1827,Blade Runner 2049,thriller,8
+1827,Blade Runner 2049,action,8
+1827,Blade Runner 2049,drama,8
+1829,Sorry to Bother You,fantasy,6.9
+1829,Sorry to Bother You,scifi,6.9
+1829,Sorry to Bother You,drama,6.9
+1829,Sorry to Bother You,comedy,6.9
+1830,Dunkirk,drama,7.8
+1830,Dunkirk,history,7.8
+1830,Dunkirk,thriller,7.8
+1830,Dunkirk,war,7.8
+1830,Dunkirk,action,7.8
+1830,Dunkirk,european,7.8
+1831,Wind River,thriller,7.7
+1831,Wind River,crime,7.7
+1831,Wind River,drama,7.7
+1831,Wind River,western,7.7
+1832,Molly's Game,drama,7.4
+1832,Molly's Game,crime,7.4
+1832,Molly's Game,sport,7.4
+1836,Den of Thieves,thriller,7
+1836,Den of Thieves,action,7
+1836,Den of Thieves,crime,7
+1836,Den of Thieves,drama,7
+1838,Phantom Thread,romance,7.4
+1838,Phantom Thread,drama,7.4
+1845,Lady Bird,drama,7.4
+1845,Lady Bird,comedy,7.4
+1847,The Ritual,horror,6.3
+1847,The Ritual,thriller,6.3
+1853,Darkest Hour,drama,7.4
+1853,Darkest Hour,war,7.4
+1853,Darkest Hour,history,7.4
+1853,Darkest Hour,thriller,7.4
+1853,Darkest Hour,family,7.4
+1859,The Nightingale,thriller,7.3
+1859,The Nightingale,drama,7.3
+1859,The Nightingale,horror,7.3
+1865,The Disaster Artist,comedy,7.3
+1865,The Disaster Artist,drama,7.3
+1868,Ghostland,horror,6.4
+1868,Ghostland,thriller,6.4
+1868,Ghostland,drama,6.4
+1868,Ghostland,european,6.4
+1871,The Ballad of Buster Scruggs,western,7.3
+1871,The Ballad of Buster Scruggs,comedy,7.3
+1871,The Ballad of Buster Scruggs,drama,7.3
+1871,The Ballad of Buster Scruggs,romance,7.3
+1872,Okja,drama,7.3
+1872,Okja,scifi,7.3
+1872,Okja,action,7.3
+1874,The Bad Batch,drama,5.2
+1874,The Bad Batch,action,5.2
+1874,The Bad Batch,horror,5.2
+1874,The Bad Batch,romance,5.2
+1874,The Bad Batch,scifi,5.2
+1882,Shot Caller,thriller,7.3
+1882,Shot Caller,crime,7.3
+1882,Shot Caller,drama,7.3
+1884,The Shack,fantasy,6.2
+1884,The Shack,drama,6.2
+1889,Roma,drama,7.7
+1889,Roma,european,7.7
+1891,Crooked House,drama,6.3
+1891,Crooked House,crime,6.3
+1893,The Beguiled,drama,6.8
+1893,The Beguiled,documentation,6.8
+1893,The Beguiled,war,6.8
+1893,The Beguiled,thriller,6.8
+1898,What Happened to Monday,thriller,6.8
+1898,What Happened to Monday,drama,6.8
+1898,What Happened to Monday,action,6.8
+1898,What Happened to Monday,crime,6.8
+1898,What Happened to Monday,fantasy,6.8
+1898,What Happened to Monday,scifi,6.8
+1899,The Foreigner,thriller,7
+1899,The Foreigner,action,7
+1899,The Foreigner,crime,7
+1899,The Foreigner,drama,7
+1899,The Foreigner,european,7
+1900,Apostle,thriller,6.3
+1900,Apostle,horror,6.3
+1900,Apostle,drama,6.3
+1900,Apostle,fantasy,6.3
+1902,The Package,comedy,5.5
+1902,The Package,drama,5.5
+1902,The Package,thriller,5.5
+1905,Mary Magdalene,drama,5.9
+1910,The Invisible Guest,thriller,8
+1910,The Invisible Guest,crime,8
+1910,The Invisible Guest,drama,8
+1910,The Invisible Guest,european,8
+1911,The Cloverfield Paradox,thriller,5.5
+1911,The Cloverfield Paradox,horror,5.5
+1911,The Cloverfield Paradox,scifi,5.5
+1911,The Cloverfield Paradox,drama,5.5
+1911,The Cloverfield Paradox,action,5.5
+1914,Abducted in Plain Sight,crime,6.8
+1914,Abducted in Plain Sight,documentation,6.8
+1914,Abducted in Plain Sight,thriller,6.8
+1914,Abducted in Plain Sight,drama,6.8
+1915,Annabelle: Creation,horror,6.5
+1915,Annabelle: Creation,thriller,6.5
+1923,I Am Not Your Negro,documentation,7.9
+1923,I Am Not Your Negro,history,7.9
+1923,I Am Not Your Negro,european,7.9
+1926,Bird Box,thriller,6.6
+1926,Bird Box,drama,6.6
+1926,Bird Box,horror,6.6
+1926,Bird Box,scifi,6.6
+1928,The Zookeeper's Wife,drama,7
+1928,The Zookeeper's Wife,war,7
+1928,The Zookeeper's Wife,history,7
+1931,Outlaw King,drama,6.9
+1931,Outlaw King,action,6.9
+1931,Outlaw King,history,6.9
+1931,Outlaw King,war,6.9
+1933,Veronica,horror,6.2
+1936,Beirut,thriller,6.4
+1936,Beirut,action,6.4
+1936,Beirut,crime,6.4
+1936,Beirut,drama,6.4
+1937,The Night Comes for Us,thriller,6.9
+1937,The Night Comes for Us,action,6.9
+1940,Destination Wedding,romance,6
+1940,Destination Wedding,comedy,6
+1940,Destination Wedding,drama,6
+1946,The Babysitter,horror,6.4
+1946,The Babysitter,comedy,6.4
+1947,When We First Met,fantasy,6.4
+1947,When We First Met,comedy,6.4
+1947,When We First Met,romance,6.4
+1948,Extinction,drama,5.8
+1948,Extinction,thriller,5.8
+1948,Extinction,scifi,5.8
+1948,Extinction,action,5.8
+1949,To All the Boys I've Loved Before,romance,7.1
+1949,To All the Boys I've Loved Before,comedy,7.1
+1949,To All the Boys I've Loved Before,drama,7.1
+1954,Everybody Knows,drama,6.9
+1954,Everybody Knows,crime,6.9
+1954,Everybody Knows,thriller,6.9
+1954,Everybody Knows,european,6.9
+1962,Home Again,drama,5.8
+1962,Home Again,romance,5.8
+1962,Home Again,comedy,5.8
+1963,Mudbound,drama,7.4
+1963,Mudbound,war,7.4
+1964,The Book of Henry,thriller,6.5
+1964,The Book of Henry,crime,6.5
+1964,The Book of Henry,drama,6.5
+1972,Berlin Syndrome,thriller,6.2
+1972,Berlin Syndrome,horror,6.2
+1972,Berlin Syndrome,drama,6.2
+1973,Anon,scifi,6.1
+1973,Anon,drama,6.1
+1973,Anon,action,6.1
+1973,Anon,crime,6.1
+1973,Anon,thriller,6.1
+1973,Anon,european,6.1
+1975,Replicas,thriller,5.5
+1975,Replicas,drama,5.5
+1975,Replicas,scifi,5.5
+1976,Private Life,drama,7.2
+1976,Private Life,comedy,7.2
+1977,Beyond Skyline,scifi,5.3
+1977,Beyond Skyline,thriller,5.3
+1977,Beyond Skyline,horror,5.3
+1977,Beyond Skyline,action,5.3
+1979,Mirai,fantasy,7
+1979,Mirai,animation,7
+1979,Mirai,drama,7
+1979,Mirai,family,7
+1985,King of Thieves,drama,5.5
+1985,King of Thieves,crime,5.5
+1985,King of Thieves,history,5.5
+1989,Black Mirror: Bandersnatch,scifi,7.1
+1989,Black Mirror: Bandersnatch,thriller,7.1
+1989,Black Mirror: Bandersnatch,fantasy,7.1
+1989,Black Mirror: Bandersnatch,drama,7.1
+1993,RBG,documentation,7.6
+1998,The Kindergarten Teacher,drama,6.7
+1998,The Kindergarten Teacher,thriller,6.7
+1998,The Kindergarten Teacher,european,6.7
+1999,Wheelman,thriller,6.4
+1999,Wheelman,crime,6.4
+1999,Wheelman,action,6.4
+2000,Mirage,thriller,7.4
+2000,Mirage,drama,7.4
+2000,Mirage,documentation,7.4
+2000,Mirage,fantasy,7.4
+2000,Mirage,music,7.4
+2000,Mirage,romance,7.4
+2000,Mirage,european,7.4
+2001,Set It Up,comedy,6.5
+2001,Set It Up,romance,6.5
+2002,An Evening with Beverly Luff Linn,crime,5.8
+2002,An Evening with Beverly Luff Linn,comedy,5.8
+2007,Little Italy,romance,5.7
+2007,Little Italy,comedy,5.7
+2010,The Outsider,crime,6.2
+2010,The Outsider,thriller,6.2
+2010,The Outsider,action,6.2
+2010,The Outsider,drama,6.2
+2014,Banana Split,comedy,6.2
+2017,Creep 2,horror,6.4
+2017,Creep 2,thriller,6.4
+2017,Creep 2,crime,6.4
+2017,Creep 2,drama,6.4
+2018,Dumplin',comedy,6.5
+2018,Dumplin',drama,6.5
+2021,Red Joan,thriller,6.4
+2021,Red Joan,drama,6.4
+2021,Red Joan,history,6.4
+2021,Red Joan,romance,6.4
+2022,Mute,thriller,5.4
+2022,Mute,drama,5.4
+2022,Mute,scifi,5.4
+2024,Hell Fest,horror,5.5
+2024,Hell Fest,thriller,5.5
+2025,Small Town Crime,thriller,6.6
+2025,Small Town Crime,crime,6.6
+2026,Adrift,thriller,6.6
+2026,Adrift,drama,6.6
+2026,Adrift,romance,6.6
+2026,Adrift,action,6.6
+2026,Adrift,european,6.6
+2029,Happy as Lazzaro,fantasy,7.5
+2029,Happy as Lazzaro,drama,7.5
+2029,Happy as Lazzaro,european,7.5
+2030,A Bad Moms Christmas,comedy,5.6
+2031,A-X-L,scifi,5.3
+2031,A-X-L,family,5.3
+2031,A-X-L,thriller,5.3
+2031,A-X-L,action,5.3
+2031,A-X-L,drama,5.3
+2032,The Other Side of the Wind,drama,6.7
+2032,The Other Side of the Wind,european,6.7
+2038,22 July,thriller,6.8
+2038,22 July,history,6.8
+2038,22 July,crime,6.8
+2038,22 July,drama,6.8
+2038,22 July,european,6.8
+2040,Victoria & Abdul,drama,6.8
+2040,Victoria & Abdul,history,6.8
+2042,May the Devil Take You,thriller,5.9
+2042,May the Devil Take You,horror,5.9
+2049,Death Note,fantasy,4.5
+2049,Death Note,horror,4.5
+2049,Death Note,thriller,4.5
+2049,Death Note,action,4.5
+2049,Death Note,crime,4.5
+2049,Death Note,drama,4.5
+2051,Bright,thriller,6.3
+2051,Bright,fantasy,6.3
+2051,Bright,action,6.3
+2051,Bright,crime,6.3
+2051,Bright,scifi,6.3
+2063,"Game Over, Man!",comedy,5.4
+2063,"Game Over, Man!",action,5.4
+2065,Piercing,thriller,5.5
+2065,Piercing,horror,5.5
+2070,Mowgli: Legend of the Jungle,drama,6.5
+2070,Mowgli: Legend of the Jungle,fantasy,6.5
+2073,Goon: Last of the Enforcers,comedy,5.8
+2073,Goon: Last of the Enforcers,sport,5.8
+2077,Ricky Gervais: Humanity,comedy,7.9
+2078,Trolls Holiday,fantasy,6.2
+2078,Trolls Holiday,comedy,6.2
+2078,Trolls Holiday,family,6.2
+2078,Trolls Holiday,romance,6.2
+2078,Trolls Holiday,animation,6.2
+2084,Siberia,thriller,4.3
+2084,Siberia,european,4.3
+2084,Siberia,crime,4.3
+2084,Siberia,romance,4.3
+2086,Woodshock,thriller,4.2
+2086,Woodshock,horror,4.2
+2086,Woodshock,drama,4.2
+2086,Woodshock,fantasy,4.2
+2087,War Machine,drama,6
+2087,War Machine,comedy,6
+2087,War Machine,war,6
+2088,Illang: The Wolf Brigade,thriller,5.9
+2088,Illang: The Wolf Brigade,drama,5.9
+2088,Illang: The Wolf Brigade,action,5.9
+2088,Illang: The Wolf Brigade,scifi,5.9
+2089,Security,crime,5.7
+2089,Security,thriller,5.7
+2089,Security,action,5.7
+2089,Security,european,5.7
+2094,Clive Davis: The Soundtrack of Our Lives,music,7.5
+2094,Clive Davis: The Soundtrack of Our Lives,documentation,7.5
+2103,We the Animals,drama,6.9
+2105,Welcome Home,thriller,5.2
+2105,Welcome Home,horror,5.2
+2105,Welcome Home,drama,5.2
+2106,Midnight Sun,drama,6.6
+2106,Midnight Sun,romance,6.6
+2106,Midnight Sun,european,6.6
+2108,Tau,thriller,5.8
+2108,Tau,scifi,5.8
+2109,Brain on Fire,drama,6.6
+2109,Brain on Fire,european,6.6
+2114,Bathtubs Over Broadway,comedy,7.6
+2114,Bathtubs Over Broadway,music,7.6
+2114,Bathtubs Over Broadway,documentation,7.6
+2121,The Long Dumb Road,comedy,6.1
+2133,John Mulaney: Kid Gorgeous at Radio City,comedy,7.9
+2136,Andhadhun,thriller,8.2
+2136,Andhadhun,music,8.2
+2136,Andhadhun,drama,8.2
+2136,Andhadhun,comedy,8.2
+2136,Andhadhun,crime,8.2
+2147,Day of the Dead: Bloodline,horror,3.4
+2147,Day of the Dead: Bloodline,drama,3.4
+2147,Day of the Dead: Bloodline,scifi,3.4
+2147,Day of the Dead: Bloodline,thriller,3.4
+2147,Day of the Dead: Bloodline,action,3.4
+2147,Day of the Dead: Bloodline,european,3.4
+2151,First They Killed My Father,drama,7.2
+2151,First They Killed My Father,history,7.2
+2151,First They Killed My Father,war,7.2
+2152,The Titan,thriller,4.8
+2152,The Titan,fantasy,4.8
+2152,The Titan,scifi,4.8
+2152,The Titan,drama,4.8
+2152,The Titan,romance,4.8
+2157,Animal Crackers,comedy,5.8
+2157,Animal Crackers,animation,5.8
+2157,Animal Crackers,family,5.8
+2157,Animal Crackers,fantasy,5.8
+2164,The Resurrection of Gavin Stone,drama,6.2
+2164,The Resurrection of Gavin Stone,family,6.2
+2164,The Resurrection of Gavin Stone,romance,6.2
+2164,The Resurrection of Gavin Stone,comedy,6.2
+2167,Bad Genius,thriller,7.6
+2167,Bad Genius,comedy,7.6
+2167,Bad Genius,crime,7.6
+2167,Bad Genius,drama,7.6
+2170,Godzilla: The Planet Eater,animation,5
+2170,Godzilla: The Planet Eater,action,5
+2170,Godzilla: The Planet Eater,scifi,5
+2170,Godzilla: The Planet Eater,horror,5
+2171,Blame!,scifi,6.6
+2171,Blame!,thriller,6.6
+2171,Blame!,animation,6.6
+2171,Blame!,action,6.6
+2171,Blame!,drama,6.6
+2173,Bullet Head,thriller,5.4
+2173,Bullet Head,crime,5.4
+2173,Bullet Head,drama,5.4
+2173,Bullet Head,european,5.4
+2177,The Photographer of Mauthausen,thriller,6.7
+2177,The Photographer of Mauthausen,drama,6.7
+2177,The Photographer of Mauthausen,war,6.7
+2177,The Photographer of Mauthausen,history,6.7
+2177,The Photographer of Mauthausen,european,6.7
+2186,Godzilla: Planet of the Monsters,scifi,6
+2186,Godzilla: Planet of the Monsters,animation,6
+2186,Godzilla: Planet of the Monsters,action,6
+2189,Girl,drama,7.1
+2189,Girl,european,7.1
+2190,Acts of Vengeance,thriller,5.7
+2190,Acts of Vengeance,action,5.7
+2190,Acts of Vengeance,drama,5.7
+2190,Acts of Vengeance,crime,5.7
+2190,Acts of Vengeance,european,5.7
+2193,Bleach,fantasy,6.4
+2193,Bleach,action,6.4
+2200,Birth of the Dragon,drama,5.6
+2200,Birth of the Dragon,action,5.6
+2205,Fullmetal Alchemist,fantasy,5.2
+2205,Fullmetal Alchemist,scifi,5.2
+2205,Fullmetal Alchemist,action,5.2
+2209,Benji,crime,6.3
+2209,Benji,drama,6.3
+2209,Benji,family,6.3
+2211,White Fang,animation,6.9
+2211,White Fang,drama,6.9
+2211,White Fang,western,6.9
+2211,White Fang,european,6.9
+2214,The Resistance Banker,drama,6.9
+2214,The Resistance Banker,war,6.9
+2214,The Resistance Banker,european,6.9
+2232,The Battleship Island,action,7.1
+2232,The Battleship Island,drama,7.1
+2232,The Battleship Island,history,7.1
+2238,Lu Over the Wall,fantasy,6.8
+2238,Lu Over the Wall,animation,6.8
+2238,Lu Over the Wall,family,6.8
+2238,Lu Over the Wall,music,6.8
+2238,Lu Over the Wall,comedy,6.8
+2241,Hampstead,comedy,6
+2241,Hampstead,romance,6
+2241,Hampstead,drama,6
+2242,Reprisal,action,4.2
+2242,Reprisal,thriller,4.2
+2242,Reprisal,crime,4.2
+2242,Reprisal,drama,4.2
+2243,Like Father,comedy,6.1
+2243,Like Father,drama,6.1
+2252,MFKZ,crime,6.7
+2252,MFKZ,scifi,6.7
+2252,MFKZ,thriller,6.7
+2252,MFKZ,animation,6.7
+2252,MFKZ,action,6.7
+2252,MFKZ,comedy,6.7
+2252,MFKZ,european,6.7
+2259,The Christmas Chronicles,fantasy,7
+2259,The Christmas Chronicles,family,7
+2259,The Christmas Chronicles,comedy,7
+2264,Patrick,comedy,6.2
+2264,Patrick,drama,6.2
+2264,Patrick,family,6.2
+2264,Patrick,romance,6.2
+2265,The Ottoman Lieutenant,drama,6.4
+2265,The Ottoman Lieutenant,war,6.4
+2271,The World Is Yours,crime,6.3
+2271,The World Is Yours,comedy,6.3
+2271,The World Is Yours,european,6.3
+2276,Next Gen,animation,6.6
+2276,Next Gen,action,6.6
+2276,Next Gen,family,6.6
+2276,Next Gen,scifi,6.6
+2276,Next Gen,comedy,6.6
+2277,The Saint,crime,4.9
+2277,The Saint,action,4.9
+2278,Voyeur,documentation,6.2
+2278,Voyeur,crime,6.2
+2278,Voyeur,drama,6.2
+2295,Fun Mom Dinner,comedy,5.3
+2304,Te Ata,drama,7.4
+2304,Te Ata,history,7.4
+2306,Indian Horse,drama,7.3
+2306,Indian Horse,sport,7.3
+2308,The Forgiven,thriller,5.9
+2323,Modest Heroes,fantasy,6.6
+2323,Modest Heroes,animation,6.6
+2323,Modest Heroes,drama,6.6
+2323,Modest Heroes,family,6.6
+2323,Modest Heroes,comedy,6.6
+2326,Mercury 13,documentation,6.9
+2330,Godzilla: City on the Edge of Battle,scifi,5.8
+2330,Godzilla: City on the Edge of Battle,animation,5.8
+2330,Godzilla: City on the Edge of Battle,action,5.8
+2334,The Outcasts,comedy,5.4
+2341,Adam Sandler: 100% Fresh,comedy,7.5
+2341,Adam Sandler: 100% Fresh,music,7.5
+2343,An Imperfect Murder,crime,3.1
+2343,An Imperfect Murder,drama,3.1
+2343,An Imperfect Murder,thriller,3.1
+2346,Gnome Alone,fantasy,5.6
+2346,Gnome Alone,family,5.6
+2346,Gnome Alone,drama,5.6
+2346,Gnome Alone,comedy,5.6
+2346,Gnome Alone,thriller,5.6
+2346,Gnome Alone,music,5.6
+2346,Gnome Alone,animation,5.6
+2355,The Week Of,comedy,5.2
+2361,Taylor Swift: Reputation Stadium Tour,documentation,8.3
+2361,Taylor Swift: Reputation Stadium Tour,music,8.3
+2362,Toc Toc,comedy,6.8
+2362,Toc Toc,family,6.8
+2362,Toc Toc,fantasy,6.8
+2362,Toc Toc,european,6.8
+2363,John Leguizamo's Latin History for Morons,comedy,7.4
+2363,John Leguizamo's Latin History for Morons,documentation,7.4
+2369,Giant,drama,6.7
+2369,Giant,history,6.7
+2369,Giant,european,6.7
+2375,Flavors of Youth,drama,6.6
+2375,Flavors of Youth,animation,6.6
+2375,Flavors of Youth,romance,6.6
+2383,Monster High: Electrified,animation,5.5
+2383,Monster High: Electrified,fantasy,5.5
+2387,Perdida,crime,5.6
+2387,Perdida,drama,5.6
+2387,Perdida,thriller,5.6
+2392,S.W.A.T.: Under Siege,thriller,4.5
+2392,S.W.A.T.: Under Siege,crime,4.5
+2392,S.W.A.T.: Under Siege,action,4.5
+2398,Whose Streets?,documentation,5.5
+2404,Alex Strangelove,drama,6.3
+2404,Alex Strangelove,comedy,6.3
+2404,Alex Strangelove,romance,6.3
+2405,Lowriders,drama,5.6
+2405,Lowriders,crime,5.6
+2412,Justice,western,4
+2412,Justice,drama,4
+2412,Justice,action,4
+2412,Justice,european,4
+2415,Tom Segura: Disgraceful,comedy,7.5
+2415,Tom Segura: Disgraceful,documentation,7.5
+2417,Sierra Burgess Is a Loser,drama,5.8
+2417,Sierra Burgess Is a Loser,romance,5.8
+2417,Sierra Burgess Is a Loser,comedy,5.8
+2419,Battle,drama,5.9
+2419,Battle,romance,5.9
+2419,Battle,music,5.9
+2419,Battle,european,5.9
+2420,The Seven Deadly Sins: Prisoners of the Sky,fantasy,7.1
+2420,The Seven Deadly Sins: Prisoners of the Sky,animation,7.1
+2420,The Seven Deadly Sins: Prisoners of the Sky,action,7.1
+2426,Okko's Inn,comedy,7
+2426,Okko's Inn,fantasy,7
+2426,Okko's Inn,animation,7
+2426,Okko's Inn,family,7
+2426,Okko's Inn,drama,7
+2431,A Christmas Prince,romance,5.7
+2431,A Christmas Prince,comedy,5.7
+2431,A Christmas Prince,family,5.7
+2437,Killing Hasselhoff,comedy,4.4
+2439,Thi Mai,comedy,6
+2439,Thi Mai,family,6
+2439,Thi Mai,european,6
+2443,Yucatán,comedy,5.5
+2443,Yucatán,romance,5.5
+2443,Yucatán,european,5.5
+2460,The B-Side: Elsa Dorfman's Portrait Photography,documentation,6.7
+2461,A Very Country Christmas,romance,6
+2461,A Very Country Christmas,drama,6
+2461,A Very Country Christmas,family,6
+2461,A Very Country Christmas,comedy,6
+2468,Show Dogs,comedy,3.9
+2468,Show Dogs,crime,3.9
+2468,Show Dogs,family,3.9
+2469,Escape from Mr. Lemoncello's Library,fantasy,5.4
+2469,Escape from Mr. Lemoncello's Library,family,5.4
+2472,Amateur,drama,5.9
+2472,Amateur,sport,5.9
+2474,Fireworks,drama,5.6
+2474,Fireworks,documentation,5.6
+2474,Fireworks,fantasy,5.6
+2474,Fireworks,romance,5.6
+2474,Fireworks,scifi,5.6
+2474,Fireworks,family,5.6
+2474,Fireworks,animation,5.6
+2476,Pachamama,fantasy,6.8
+2476,Pachamama,animation,6.8
+2476,Pachamama,family,6.8
+2476,Pachamama,european,6.8
+2478,Lust Stories,romance,6.4
+2478,Lust Stories,drama,6.4
+2479,All I Wish,comedy,5.2
+2479,All I Wish,drama,5.2
+2479,All I Wish,romance,5.2
+2483,The Clapper,comedy,5.1
+2483,The Clapper,drama,5.1
+2493,Raees,thriller,6.7
+2493,Raees,drama,6.7
+2493,Raees,action,6.7
+2493,Raees,crime,6.7
+2496,Animal World,thriller,6.5
+2496,Animal World,action,6.5
+2496,Animal World,fantasy,6.5
+2496,Animal World,scifi,6.5
+2496,Animal World,comedy,6.5
+2496,Animal World,drama,6.5
+2516,Nappily Ever After,comedy,6.4
+2516,Nappily Ever After,drama,6.4
+2516,Nappily Ever After,romance,6.4
+2523,Maktub,drama,7.3
+2523,Maktub,comedy,7.3
+2535,Shepherds and Butchers,drama,6.8
+2535,Shepherds and Butchers,crime,6.8
+2543,Pope Francis: A Man of His Word,documentation,6.4
+2543,Pope Francis: A Man of His Word,european,6.4
+2547,Budapest,comedy,5.4
+2547,Budapest,european,5.4
+2576,Point Blank,action,5.7
+2576,Point Blank,thriller,5.7
+2576,Point Blank,crime,5.7
+2576,Point Blank,drama,5.7
+2578,The Princess Switch,romance,6
+2578,The Princess Switch,comedy,6
+2578,The Princess Switch,drama,6
+2578,The Princess Switch,family,6
+2581,My Perfect Romance,romance,4.6
+2585,A Witches' Ball,fantasy,5.2
+2585,A Witches' Ball,scifi,5.2
+2585,A Witches' Ball,family,5.2
+2585,A Witches' Ball,comedy,5.2
+2586,Ittefaq,thriller,7.2
+2586,Ittefaq,crime,7.2
+2592,Going for Gold,drama,4.8
+2592,Going for Gold,family,4.8
+2592,Going for Gold,sport,4.8
+2604,Duck Duck Goose,comedy,5.7
+2604,Duck Duck Goose,family,5.7
+2604,Duck Duck Goose,animation,5.7
+2605,Revenger,action,5.7
+2605,Revenger,crime,5.7
+2605,Revenger,thriller,5.7
+2615,Edge of Fear,thriller,4.5
+2615,Edge of Fear,crime,4.5
+2615,Edge of Fear,action,4.5
+2617,Nothing to Lose,drama,2.3
+2621,Expedition Happiness,documentation,5.9
+2621,Expedition Happiness,european,5.9
+2624,Step Sisters,comedy,5.4
+2625,Dovlatov,drama,6.4
+2629,SPF-18,romance,3.2
+2629,SPF-18,drama,3.2
+2629,SPF-18,sport,3.2
+2637,A Christmas Prince: The Royal Wedding,romance,5.3
+2637,A Christmas Prince: The Royal Wedding,drama,5.3
+2641,Trevor Noah: Son of Patricia,comedy,7.3
+2642,Raising the Bar,drama,5.5
+2642,Raising the Bar,family,5.5
+2642,Raising the Bar,documentation,5.5
+2642,Raising the Bar,sport,5.5
+2643,Pup Star: Better 2Gether,family,4.4
+2644,Jab Harry Met Sejal,romance,5
+2644,Jab Harry Met Sejal,comedy,5
+2644,Jab Harry Met Sejal,drama,5
+2648,Pihu,thriller,6.7
+2648,Pihu,drama,6.7
+2648,Pihu,family,6.7
+2680,Jagga Jasoos,romance,6.4
+2680,Jagga Jasoos,action,6.4
+2680,Jagga Jasoos,comedy,6.4
+2681,Candy Jar,comedy,5.8
+2682,Christmas Wedding Planner,romance,4.3
+2688,The Insomnia Club,comedy,6.2
+2688,The Insomnia Club,drama,6.2
+2702,Trevor Noah: Afraid of the Dark,comedy,7.2
+2717,Sara's Notebook,thriller,5.9
+2717,Sara's Notebook,drama,5.9
+2717,Sara's Notebook,european,5.9
+2724,Love Beats Rhymes,drama,5.4
+2741,Monster Island,comedy,4.7
+2741,Monster Island,fantasy,4.7
+2741,Monster Island,animation,4.7
+2741,Monster Island,family,4.7
+2760,A Champion Heart,family,5.9
+2767,The Mansion,horror,4.6
+2767,The Mansion,comedy,4.6
+2767,The Mansion,european,4.6
+2774,In the Family,comedy,7.7
+2793,Sudani from Nigeria,comedy,8.2
+2793,Sudani from Nigeria,drama,8.2
+2793,Sudani from Nigeria,family,8.2
+2793,Sudani from Nigeria,sport,8.2
+2796,Njan Prakashan,comedy,7.6
+2796,Njan Prakashan,drama,7.6
+2814,C/o Kancharapalem,drama,9
+2816,Coin Heist,crime,4.8
+2816,Coin Heist,thriller,4.8
+2816,Coin Heist,drama,4.8
+2816,Coin Heist,romance,4.8
+2830,Overnight Republic,comedy,5.8
+2835,Love Jacked,comedy,5.9
+2835,Love Jacked,romance,5.9
+2843,Ladies First,documentation,3.9
+2843,Ladies First,comedy,3.9
+2843,Ladies First,romance,3.9
+2845,Sunday's Illness,drama,6.9
+2845,Sunday's Illness,european,6.9
+2851,Born Racer,drama,6.1
+2851,Born Racer,action,6.1
+2851,Born Racer,documentation,6.1
+2854,Kevin James: Never Don't Give Up,comedy,6.1
+2860,Cook Off,comedy,6.1
+2860,Cook Off,romance,6.1
+2872,Fishtronaut: The Movie,animation,7.5
+2872,Fishtronaut: The Movie,family,7.5
+2875,Pad Man,comedy,7.9
+2875,Pad Man,drama,7.9
+2879,My Travel Buddy,comedy,6.1
+2887,Superlopez,comedy,5.4
+2887,Superlopez,scifi,5.4
+2887,Superlopez,action,5.4
+2887,Superlopez,european,5.4
+2888,The Birth Reborn 2,documentation,6.6
+2890,Soorma,drama,7.4
+2890,Soorma,sport,7.4
+2895,Bygones Be Bygones,comedy,6.2
+2915,Mubarakan,drama,5.6
+2915,Mubarakan,comedy,5.6
+2915,Mubarakan,romance,5.6
+2919,Tattoo of Revenge,thriller,4.9
+2919,Tattoo of Revenge,comedy,4.9
+2919,Tattoo of Revenge,romance,4.9
+2922,Neevevaro,thriller,6.9
+2922,Neevevaro,action,6.9
+2922,Neevevaro,drama,6.9
+2922,Neevevaro,romance,6.9
+2926,Judah Friedlander: America Is the Greatest Country in the United States,comedy,7.8
+2926,Judah Friedlander: America Is the Greatest Country in the United States,documentation,7.8
+2943,Freej Al Taibeen,comedy,5.8
+2943,Freej Al Taibeen,sport,5.8
+2959,Night of Knots,comedy,5.4
+2965,Poster Boys,comedy,5.5
+2981,Deliha 2,comedy,4.7
+2984,DreamWorks Home: For the Holidays,fantasy,4.9
+2984,DreamWorks Home: For the Holidays,comedy,4.9
+2984,DreamWorks Home: For the Holidays,family,4.9
+2984,DreamWorks Home: For the Holidays,scifi,4.9
+2984,DreamWorks Home: For the Holidays,animation,4.9
+2997,Turkish Dance School,drama,5.7
+2997,Turkish Dance School,comedy,5.7
+2999,Vanjagar Ulagam,thriller,6
+2999,Vanjagar Ulagam,action,6
+2999,Vanjagar Ulagam,crime,6
+2999,Vanjagar Ulagam,drama,6
+3001,Luciano Mellera: Infantiloide,comedy,7.5
+3002,My Travel Buddy 2,comedy,5.8
+3008,Teefa in Trouble,drama,7.3
+3008,Teefa in Trouble,comedy,7.3
+3008,Teefa in Trouble,crime,7.3
+3008,Teefa in Trouble,romance,7.3
+3008,Teefa in Trouble,action,7.3
+3021,Fantastica,fantasy,3.6
+3021,Fantastica,comedy,3.6
+3029,Penalty Kick,comedy,3.7
+3033,"Love, Surreal and Odd",comedy,5.6
+3033,"Love, Surreal and Odd",romance,5.6
+3038,Puppy Star Christmas,family,3.6
+3038,Puppy Star Christmas,comedy,3.6
+3052,Pup Star: World Tour,comedy,3.8
+3052,Pup Star: World Tour,family,3.8
+3057,DeRay Davis: How to Act Black,comedy,6.1
+3067,Adel Karam: Live from Beirut,comedy,5.5
+3074,Coco y Raulito: Carrusel de ternura,comedy,6.6
+3084,Good Game: The Beginning,comedy,4.4
+3084,Good Game: The Beginning,drama,4.4
+3084,Good Game: The Beginning,sport,4.4
+3098,Lilli,thriller,5.7
+3101,Enissa Amani: Ehrenwort,comedy,5.5
+3101,Enissa Amani: Ehrenwort,european,5.5
+3120,Dhh,drama,7.9
+3120,Dhh,family,7.9
+3135,Kanavu Variyam,scifi,6.4
+3135,Kanavu Variyam,family,6.4
+3135,Kanavu Variyam,drama,6.4
+3145,Vir Das: Losing It,comedy,7
+3146,What Did I Mess,romance,7.1
+3146,What Did I Mess,comedy,7.1
+3155,Pandigai,thriller,6.3
+3155,Pandigai,action,6.3
+3155,Pandigai,romance,6.3
+3157,Hajwala 2: Mysterious Mission,action,4
+3157,Hajwala 2: Mysterious Mission,comedy,4
+3169,Elf Pets: Santa's St. Bernards Save Christmas,animation,5.3
+3169,Elf Pets: Santa's St. Bernards Save Christmas,fantasy,5.3
+3179,The Gentlemen,comedy,7.8
+3179,The Gentlemen,crime,7.8
+3179,The Gentlemen,action,7.8
+3187,The Rental,thriller,5.7
+3187,The Rental,drama,5.7
+3187,The Rental,horror,5.7
+3188,Uncut Gems,drama,7.4
+3188,Uncut Gems,thriller,7.4
+3188,Uncut Gems,comedy,7.4
+3188,Uncut Gems,crime,7.4
+3205,Rambo: Last Blood,thriller,6.1
+3205,Rambo: Last Blood,western,6.1
+3205,Rambo: Last Blood,action,6.1
+3207,Freaks,scifi,6.7
+3207,Freaks,thriller,6.7
+3207,Freaks,drama,6.7
+3208,The King,drama,7.3
+3208,The King,history,7.3
+3208,The King,romance,7.3
+3208,The King,war,7.3
+3210,I'm Thinking of Ending Things,thriller,6.6
+3210,I'm Thinking of Ending Things,fantasy,6.6
+3210,I'm Thinking of Ending Things,drama,6.6
+3213,The Devil All the Time,drama,7.1
+3213,The Devil All the Time,thriller,7.1
+3213,The Devil All the Time,crime,7.1
+3213,The Devil All the Time,horror,7.1
+3216,The Irishman,drama,7.8
+3216,The Irishman,crime,7.8
+3216,The Irishman,history,7.8
+3216,The Irishman,thriller,7.8
+3217,Synchronic,horror,6.2
+3217,Synchronic,scifi,6.2
+3217,Synchronic,thriller,6.2
+3217,Synchronic,drama,6.2
+3218,Hillbilly Elegy,drama,6.7
+3221,21 Bridges,action,6.6
+3221,21 Bridges,drama,6.6
+3221,21 Bridges,crime,6.6
+3221,21 Bridges,thriller,6.6
+3223,Marriage Story,drama,7.9
+3223,Marriage Story,romance,7.9
+3223,Marriage Story,comedy,7.9
+3224,The Trial of the Chicago 7,drama,7.7
+3224,The Trial of the Chicago 7,history,7.7
+3224,The Trial of the Chicago 7,thriller,7.7
+3229,El Camino: A Breaking Bad Movie,thriller,7.3
+3229,El Camino: A Breaking Bad Movie,drama,7.3
+3229,El Camino: A Breaking Bad Movie,crime,7.3
+3229,El Camino: A Breaking Bad Movie,action,7.3
+3230,Eurovision Song Contest: The Story of Fire Saga,comedy,6.5
+3230,Eurovision Song Contest: The Story of Fire Saga,music,6.5
+3235,In the Shadow of the Moon,thriller,6.2
+3235,In the Shadow of the Moon,crime,6.2
+3235,In the Shadow of the Moon,scifi,6.2
+3238,Summerland,romance,7
+3238,Summerland,drama,7
+3238,Summerland,war,7
+3240,The Social Dilemma,drama,7.6
+3240,The Social Dilemma,documentation,7.6
+3245,Mank,comedy,6.8
+3245,Mank,drama,6.8
+3246,6 Underground,action,6.1
+3246,6 Underground,thriller,6.1
+3246,6 Underground,comedy,6.1
+3247,I Care a Lot,comedy,6.3
+3247,I Care a Lot,crime,6.3
+3247,I Care a Lot,drama,6.3
+3247,I Care a Lot,thriller,6.3
+3260,Always Be My Maybe,romance,6.8
+3260,Always Be My Maybe,comedy,6.8
+3261,Enola Holmes,crime,6.6
+3261,Enola Holmes,drama,6.6
+3261,Enola Holmes,action,6.6
+3262,Scary Stories to Tell in the Dark,horror,6.2
+3262,Scary Stories to Tell in the Dark,thriller,6.2
+3264,Triple Frontier,thriller,6.4
+3264,Triple Frontier,action,6.4
+3264,Triple Frontier,crime,6.4
+3264,Triple Frontier,drama,6.4
+3265,Fast Color,thriller,6
+3265,Fast Color,drama,6
+3265,Fast Color,scifi,6
+3266,The Midnight Sky,drama,5.6
+3266,The Midnight Sky,scifi,5.6
+3266,The Midnight Sky,thriller,5.6
+3266,The Midnight Sky,fantasy,5.6
+3267,Official Secrets,thriller,7.3
+3267,Official Secrets,crime,7.3
+3267,Official Secrets,drama,7.3
+3267,Official Secrets,war,7.3
+3267,Official Secrets,romance,7.3
+3270,I Am Mother,scifi,6.7
+3270,I Am Mother,thriller,6.7
+3270,I Am Mother,horror,6.7
+3270,I Am Mother,drama,6.7
+3274,The Old Guard,fantasy,6.6
+3274,The Old Guard,action,6.6
+3274,The Old Guard,thriller,6.6
+3277,The Outpost,drama,6.8
+3277,The Outpost,action,6.8
+3277,The Outpost,history,6.8
+3277,The Outpost,war,6.8
+3279,Extraction,thriller,6.7
+3279,Extraction,crime,6.7
+3279,Extraction,drama,6.7
+3279,Extraction,action,6.7
+3283,Occupation: Rainfall,action,5.6
+3283,Occupation: Rainfall,scifi,5.6
+3285,"Extremely Wicked, Shockingly Evil and Vile",crime,6.7
+3285,"Extremely Wicked, Shockingly Evil and Vile",drama,6.7
+3285,"Extremely Wicked, Shockingly Evil and Vile",thriller,6.7
+3290,The Old Ways,fantasy,5.4
+3290,The Old Ways,thriller,5.4
+3290,The Old Ways,drama,5.4
+3290,The Old Ways,horror,5.4
+3291,The Half of It,comedy,6.9
+3291,The Half of It,romance,6.9
+3291,The Half of It,drama,6.9
+3292,After,drama,5.2
+3292,After,romance,5.2
+3293,Dolemite Is My Name,comedy,7.2
+3293,Dolemite Is My Name,drama,7.2
+3298,The Paper Tigers,comedy,6.3
+3298,The Paper Tigers,action,6.3
+3299,Pieces of a Woman,drama,7
+3302,Jiu Jitsu,fantasy,2.9
+3302,Jiu Jitsu,action,2.9
+3302,Jiu Jitsu,scifi,2.9
+3302,Jiu Jitsu,thriller,2.9
+3302,Jiu Jitsu,comedy,2.9
+3305,The Wind,western,5.5
+3305,The Wind,thriller,5.5
+3305,The Wind,horror,5.5
+3307,Five Feet Apart,romance,7.2
+3307,Five Feet Apart,drama,7.2
+3310,Murder Mystery,comedy,6
+3310,Murder Mystery,action,6
+3310,Murder Mystery,crime,6
+3310,Murder Mystery,romance,6
+3311,The Water Man,action,5.4
+3311,The Water Man,drama,5.4
+3311,The Water Man,family,5.4
+3311,The Water Man,fantasy,5.4
+3311,The Water Man,thriller,5.4
+3312,Rebecca,thriller,6
+3312,Rebecca,romance,6
+3312,Rebecca,drama,6
+3318,Fractured,thriller,6.4
+3319,Da 5 Bloods,war,6.5
+3319,Da 5 Bloods,drama,6.5
+3325,The Highwaymen,thriller,6.9
+3325,The Highwaymen,crime,6.9
+3325,The Highwaymen,drama,6.9
+3328,The Dirt,drama,6.9
+3328,The Dirt,music,6.9
+3328,The Dirt,comedy,6.9
+3330,Ava,drama,5.4
+3330,Ava,thriller,5.4
+3330,Ava,action,5.4
+3330,Ava,crime,5.4
+3335,The Night Clerk,thriller,5.5
+3335,The Night Clerk,crime,5.5
+3335,The Night Clerk,drama,5.5
+3335,The Night Clerk,romance,5.5
+3336,Ma Rainey's Black Bottom,music,6.9
+3336,Ma Rainey's Black Bottom,drama,6.9
+3338,Polar,action,6.3
+3338,Polar,crime,6.3
+3338,Polar,drama,6.3
+3338,Polar,thriller,6.3
+3338,Polar,european,6.3
+3340,"Yes, God, Yes",comedy,6.1
+3340,"Yes, God, Yes",drama,6.1
+3341,The Prom,comedy,5.9
+3341,The Prom,drama,5.9
+3341,The Prom,music,5.9
+3344,We Summon the Darkness,horror,5.2
+3344,We Summon the Darkness,thriller,5.2
+3344,We Summon the Darkness,music,5.2
+3344,We Summon the Darkness,comedy,5.2
+3346,Someone Great,romance,6.2
+3346,Someone Great,comedy,6.2
+3349,Sweetheart,horror,5.8
+3349,Sweetheart,thriller,5.8
+3349,Sweetheart,scifi,5.8
+3349,Sweetheart,drama,5.8
+3349,Sweetheart,fantasy,5.8
+3351,The Wrong Missy,comedy,5.7
+3351,The Wrong Missy,romance,5.7
+3352,David Attenborough: A Life on Our Planet,documentation,9
+3353,Skylines,scifi,4.7
+3353,Skylines,action,4.7
+3354,The Laundromat,drama,6.3
+3354,The Laundromat,comedy,6.3
+3354,The Laundromat,crime,6.3
+3354,The Laundromat,history,6.3
+3357,Over the Moon,family,6.3
+3357,Over the Moon,fantasy,6.3
+3357,Over the Moon,scifi,6.3
+3357,Over the Moon,romance,6.3
+3357,Over the Moon,animation,6.3
+3357,Over the Moon,comedy,6.3
+3358,The Two Popes,drama,7.6
+3358,The Two Popes,comedy,7.6
+3358,The Two Popes,history,7.6
+3363,IO,scifi,4.7
+3363,IO,romance,4.7
+3363,IO,drama,4.7
+3365,Velvet Buzzsaw,thriller,5.7
+3365,Velvet Buzzsaw,horror,5.7
+3365,Velvet Buzzsaw,comedy,5.7
+3368,The Occupant,thriller,6.4
+3368,The Occupant,european,6.4
+3368,The Occupant,drama,6.4
+3374,The Red Sea Diving Resort,thriller,6.6
+3374,The Red Sea Diving Resort,drama,6.6
+3374,The Red Sea Diving Resort,history,6.6
+3376,Crip Camp: A Disability Revolution,documentation,7.7
+3376,Crip Camp: A Disability Revolution,history,7.7
+3379,The Wandering Earth,scifi,5.9
+3379,The Wandering Earth,drama,5.9
+3379,The Wandering Earth,action,5.9
+3379,The Wandering Earth,thriller,5.9
+3382,Wine Country,comedy,5.4
+3382,Wine Country,drama,5.4
+3387,The Silence,horror,5.3
+3387,The Silence,thriller,5.3
+3387,The Silence,fantasy,5.3
+3387,The Silence,drama,5.3
+3387,The Silence,scifi,5.3
+3387,The Silence,comedy,5.3
+3387,The Silence,european,5.3
+3393,A Shaun the Sheep Movie: Farmageddon,comedy,6.8
+3393,A Shaun the Sheep Movie: Farmageddon,animation,6.8
+3393,A Shaun the Sheep Movie: Farmageddon,family,6.8
+3393,A Shaun the Sheep Movie: Farmageddon,fantasy,6.8
+3393,A Shaun the Sheep Movie: Farmageddon,scifi,6.8
+3397,Atlantics,fantasy,6.7
+3397,Atlantics,drama,6.7
+3397,Atlantics,romance,6.7
+3402,Spenser Confidential,thriller,6.2
+3402,Spenser Confidential,comedy,6.2
+3402,Spenser Confidential,crime,6.2
+3402,Spenser Confidential,action,6.2
+3402,Spenser Confidential,drama,6.2
+3403,Doom: Annihilation,scifi,3.7
+3403,Doom: Annihilation,horror,3.7
+3403,Doom: Annihilation,thriller,3.7
+3403,Doom: Annihilation,action,3.7
+3414,Ip Man 4: The Finale,drama,7
+3414,Ip Man 4: The Finale,history,7
+3414,Ip Man 4: The Finale,action,7
+3415,Ophelia,drama,6.6
+3415,Ophelia,history,6.6
+3415,Ophelia,romance,6.6
+3415,Ophelia,thriller,6.6
+3415,Ophelia,war,6.6
+3416,After We Collided,romance,5
+3416,After We Collided,drama,5
+3423,Dick Johnson Is Dead,documentation,7.4
+3423,Dick Johnson Is Dead,drama,7.4
+3424,American Murder: The Family Next Door,crime,7.2
+3424,American Murder: The Family Next Door,documentation,7.2
+3425,Rust Creek,thriller,5.9
+3425,Rust Creek,crime,5.9
+3425,Rust Creek,drama,5.9
+3425,Rust Creek,horror,5.9
+3430,Eli,horror,5.8
+3430,Eli,thriller,5.8
+3430,Eli,drama,5.8
+3435,Klaus,comedy,8.1
+3435,Klaus,family,8.1
+3435,Klaus,animation,8.1
+3435,Klaus,european,8.1
+3437,Fatima,drama,6.6
+3437,Fatima,war,6.6
+3438,Sword of Trust,comedy,6.3
+3438,Sword of Trust,drama,6.3
+3442,The Last Thing He Wanted,drama,4.3
+3442,The Last Thing He Wanted,thriller,4.3
+3442,The Last Thing He Wanted,crime,4.3
+3447,The Vanished,thriller,5.7
+3447,The Vanished,crime,5.7
+3447,The Vanished,action,5.7
+3459,Concrete Cowboy,western,6.3
+3459,Concrete Cowboy,drama,6.3
+3463,Charlie Says,crime,5.9
+3463,Charlie Says,drama,5.9
+3463,Charlie Says,documentation,5.9
+3474,Lost Girls,thriller,6.1
+3474,Lost Girls,crime,6.1
+3474,Lost Girls,drama,6.1
+3475,We Can Be Heroes,fantasy,4.7
+3475,We Can Be Heroes,comedy,4.7
+3475,We Can Be Heroes,family,4.7
+3475,We Can Be Heroes,action,4.7
+3475,We Can Be Heroes,drama,4.7
+3478,Violet Evergarden: The Movie,fantasy,8.3
+3478,Violet Evergarden: The Movie,romance,8.3
+3478,Violet Evergarden: The Movie,animation,8.3
+3478,Violet Evergarden: The Movie,drama,8.3
+3482,Paddleton,drama,7.1
+3482,Paddleton,comedy,7.1
+3485,Vampires vs. the Bronx,comedy,5.7
+3485,Vampires vs. the Bronx,horror,5.7
+3495,The Life Ahead,drama,6.8
+3495,The Life Ahead,european,6.8
+3504,Project Power,action,6
+3504,Project Power,crime,6
+3504,Project Power,scifi,6
+3504,Project Power,thriller,6
+3510,Rim of the World,comedy,5.2
+3510,Rim of the World,scifi,5.2
+3510,Rim of the World,action,5.2
+3513,Death of Me,horror,4.4
+3513,Death of Me,thriller,4.4
+3516,The Best of Enemies,drama,7.3
+3516,The Best of Enemies,history,7.3
+3520,Hubie Halloween,thriller,5.2
+3520,Hubie Halloween,horror,5.2
+3520,Hubie Halloween,fantasy,5.2
+3520,Hubie Halloween,comedy,5.2
+3524,Ala Vaikunthapurramuloo,drama,7.5
+3524,Ala Vaikunthapurramuloo,action,7.5
+3524,Ala Vaikunthapurramuloo,comedy,7.5
+3526,Unbreakable Kimmy Schmidt: Kimmy vs. the Reverend,comedy,7
+3526,Unbreakable Kimmy Schmidt: Kimmy vs. the Reverend,romance,7
+3526,Unbreakable Kimmy Schmidt: Kimmy vs. the Reverend,scifi,7
+3536,Ride Like a Girl,drama,7
+3536,Ride Like a Girl,sport,7
+3537,Miss Americana,documentation,7.4
+3537,Miss Americana,music,7.4
+3538,Dave Chappelle: Sticks & Stones,comedy,8.4
+3540,The Babysitter: Killer Queen,horror,5.8
+3540,The Babysitter: Killer Queen,comedy,5.8
+3541,To All the Boys: P.S. I Still Love You,romance,6
+3541,To All the Boys: P.S. I Still Love You,comedy,6
+3541,To All the Boys: P.S. I Still Love You,drama,6
+3542,The Forty-Year-Old Version,comedy,7.2
+3542,The Forty-Year-Old Version,drama,7.2
+3544,Triple Threat,thriller,5.6
+3544,Triple Threat,action,5.6
+3545,The Willoughbys,comedy,6.3
+3545,The Willoughbys,animation,6.3
+3545,The Willoughbys,drama,6.3
+3545,The Willoughbys,family,6.3
+3545,The Willoughbys,fantasy,6.3
+3550,Tall Girl,comedy,5.2
+3550,Tall Girl,drama,5.2
+3550,Tall Girl,family,5.2
+3550,Tall Girl,romance,5.2
+3563,2 Hearts,romance,6.2
+3563,2 Hearts,drama,6.2
+3566,Audrey,documentation,7.1
+3566,Audrey,history,7.1
+3569,Wasp Network,drama,5.9
+3569,Wasp Network,thriller,5.9
+3569,Wasp Network,crime,5.9
+3573,Ghosts of War,horror,5.5
+3573,Ghosts of War,thriller,5.5
+3573,Ghosts of War,fantasy,5.5
+3573,Ghosts of War,war,5.5
+3577,The Perfect Date,romance,5.8
+3577,The Perfect Date,comedy,5.8
+3579,Bigfoot Family,animation,5.8
+3579,Bigfoot Family,action,5.8
+3579,Bigfoot Family,family,5.8
+3581,Barbie: Princess Adventure,music,5.4
+3581,Barbie: Princess Adventure,animation,5.4
+3581,Barbie: Princess Adventure,family,5.4
+3583,This Changes Everything,documentation,7.6
+3588,Friendsgiving,comedy,4.4
+3588,Friendsgiving,drama,4.4
+3589,Poms,comedy,6
+3589,Poms,drama,6
+3589,Poms,sport,6
+3594,Close,thriller,5.7
+3594,Close,action,5.7
+3594,Close,drama,5.7
+3595,Making The Witcher,documentation,6.8
+3602,Stand by Me Doraemon 2,animation,7.7
+3602,Stand by Me Doraemon 2,comedy,7.7
+3602,Stand by Me Doraemon 2,drama,7.7
+3602,Stand by Me Doraemon 2,family,7.7
+3602,Stand by Me Doraemon 2,fantasy,7.7
+3602,Stand by Me Doraemon 2,scifi,7.7
+3605,Cuties,drama,3.3
+3605,Cuties,european,3.3
+3613,Pokémon: Mewtwo Strikes Back - Evolution,animation,5.7
+3613,Pokémon: Mewtwo Strikes Back - Evolution,action,5.7
+3613,Pokémon: Mewtwo Strikes Back - Evolution,fantasy,5.7
+3613,Pokémon: Mewtwo Strikes Back - Evolution,family,5.7
+3615,The Stand In,comedy,4.7
+3615,The Stand In,drama,4.7
+3616,The Boys in the Band,drama,6.8
+3620,Let It Snow,comedy,5.8
+3620,Let It Snow,romance,5.8
+3621,The Decline,thriller,6
+3621,The Decline,action,6
+3630,Lying and Stealing,crime,5.4
+3630,Lying and Stealing,drama,5.4
+3630,Lying and Stealing,comedy,5.4
+3634,Becoming,documentation,6.8
+3639,Athlete A,documentation,7.6
+3639,Athlete A,crime,7.6
+3639,Athlete A,sport,7.6
+3650,The Lost Husband,romance,6.1
+3650,The Lost Husband,drama,6.1
+3655,The Wedding Guest,thriller,5.8
+3658,Then Came You,comedy,6.9
+3658,Then Came You,drama,6.9
+3669,Otherhood,comedy,6.1
+3671,Jingle Jangle: A Christmas Journey,music,6.5
+3671,Jingle Jangle: A Christmas Journey,family,6.5
+3671,Jingle Jangle: A Christmas Journey,fantasy,6.5
+3683,Inside Man: Most Wanted,thriller,5.6
+3683,Inside Man: Most Wanted,action,5.6
+3683,Inside Man: Most Wanted,crime,5.6
+3705,Earthquake Bird,romance,5.9
+3705,Earthquake Bird,thriller,5.9
+3705,Earthquake Bird,crime,5.9
+3705,Earthquake Bird,drama,5.9
+3709,Cut Throat City,crime,4.8
+3709,Cut Throat City,thriller,4.8
+3709,Cut Throat City,action,4.8
+3709,Cut Throat City,drama,4.8
+3711,Tigertail,drama,6.6
+3713,Knock Down the House,documentation,7.1
+3731,Freaks – You're One of Us,thriller,5.4
+3731,Freaks – You're One of Us,fantasy,5.4
+3731,Freaks – You're One of Us,scifi,5.4
+3731,Freaks – You're One of Us,action,5.4
+3731,Freaks – You're One of Us,drama,5.4
+3748,Homecoming: A Film by Beyoncé,music,7.4
+3748,Homecoming: A Film by Beyoncé,documentation,7.4
+3753,Sergio,drama,6.2
+3753,Sergio,history,6.2
+3753,Sergio,romance,6.2
+3753,Sergio,documentation,6.2
+3768,Benchwarmers 2: Breaking Balls,comedy,4.1
+3768,Benchwarmers 2: Breaking Balls,sport,4.1
+3780,Undercover Brother 2,action,3.4
+3780,Undercover Brother 2,comedy,3.4
+3797,Legacy of Lies,thriller,5
+3797,Legacy of Lies,action,5
+3817,Lady Driver,drama,5.8
+3817,Lady Driver,sport,5.8
+3819,Captain Underpants: Mega Blissmas,comedy,5.3
+3819,Captain Underpants: Mega Blissmas,animation,5.3
+3819,Captain Underpants: Mega Blissmas,family,5.3
+3824,Hard Kill,thriller,3.4
+3824,Hard Kill,action,3.4
+3830,Work It,music,6.1
+3830,Work It,comedy,6.1
+3832,Bethany Hamilton: Unstoppable,documentation,7.4
+3832,Bethany Hamilton: Unstoppable,sport,7.4
+3833,Jungle Beat: The Movie,scifi,5.5
+3833,Jungle Beat: The Movie,fantasy,5.5
+3833,Jungle Beat: The Movie,animation,5.5
+3833,Jungle Beat: The Movie,comedy,5.5
+3833,Jungle Beat: The Movie,family,5.5
+3841,Feel the Beat,drama,6.3
+3841,Feel the Beat,comedy,6.3
+3841,Feel the Beat,family,6.3
+3842,Debt Collectors,comedy,5.7
+3842,Debt Collectors,action,5.7
+3844,All Together Now,drama,6.5
+3869,Wheels of Fortune,comedy,5.3
+3871,The Grizzlies,drama,7.5
+3871,The Grizzlies,sport,7.5
+3882,The F**k-It List,comedy,5.1
+3889,Super Deluxe,thriller,8.4
+3889,Super Deluxe,action,8.4
+3889,Super Deluxe,comedy,8.4
+3889,Super Deluxe,crime,8.4
+3889,Super Deluxe,drama,8.4
+3895,Villain,drama,5.9
+3895,Villain,thriller,5.9
+3895,Villain,action,5.9
+3895,Villain,crime,5.9
+3896,"Oh, Ramona!",comedy,4.8
+3896,"Oh, Ramona!",romance,4.8
+3896,"Oh, Ramona!",european,4.8
+3905,Larry the Cable Guy: Remain Seated,comedy,6.6
+3929,Saaho,thriller,5.5
+3929,Saaho,action,5.5
+3929,Saaho,crime,5.5
+3929,Saaho,drama,5.5
+3929,Saaho,romance,5.5
+3936,A Remarkable Tale,comedy,5.3
+3936,A Remarkable Tale,drama,5.3
+3936,A Remarkable Tale,european,5.3
+3948,Rising Phoenix,documentation,8.1
+3948,Rising Phoenix,sport,8.1
+3951,NiNoKuni,fantasy,6.1
+3951,NiNoKuni,animation,6.1
+3951,NiNoKuni,action,6.1
+3951,NiNoKuni,family,6.1
+3951,NiNoKuni,romance,6.1
+3982,The Christmas Chronicles: Part Two,comedy,6
+3982,The Christmas Chronicles: Part Two,family,6
+3982,The Christmas Chronicles: Part Two,fantasy,6
+3986,The Yin-Yang Master: Dream of Eternity,scifi,6.4
+3986,The Yin-Yang Master: Dream of Eternity,action,6.4
+3986,The Yin-Yang Master: Dream of Eternity,drama,6.4
+3986,The Yin-Yang Master: Dream of Eternity,fantasy,6.4
+4022,A California Christmas,romance,5.8
+4022,A California Christmas,comedy,5.8
+4022,A California Christmas,drama,5.8
+4048,Seized,thriller,5.2
+4048,Seized,action,5.2
+4049,Roped,romance,5.4
+4049,Roped,family,5.4
+4049,Roped,comedy,5.4
+4049,Roped,drama,5.4
+4060,Grand-Daddy Day Care,comedy,4.9
+4060,Grand-Daddy Day Care,family,4.9
+4068,The Man Who Feels No Pain,action,7.3
+4068,The Man Who Feels No Pain,comedy,7.3
+4102,Forensic,thriller,6.8
+4102,Forensic,crime,6.8
+4103,Badla,thriller,7.8
+4103,Badla,crime,7.8
+4103,Badla,drama,7.8
+4104,BLACKPINK: Light Up the Sky,documentation,7.5
+4104,BLACKPINK: Light Up the Sky,music,7.5
+4112,Alice Júnior,romance,6.8
+4112,Alice Júnior,animation,6.8
+4112,Alice Júnior,comedy,6.8
+4112,Alice Júnior,drama,6.8
+4113,Rogue Warfare: Death of a Nation,action,3.4
+4113,Rogue Warfare: Death of a Nation,war,3.4
+4135,All Day and a Night,drama,5.9
+4138,Bennett's War,drama,6
+4138,Bennett's War,sport,6
+4156,A Babysitter's Guide to Monster Hunting,fantasy,5.4
+4156,A Babysitter's Guide to Monster Hunting,comedy,5.4
+4156,A Babysitter's Guide to Monster Hunting,family,5.4
+4160,Fearless,comedy,4.9
+4160,Fearless,scifi,4.9
+4160,Fearless,documentation,4.9
+4160,Fearless,animation,4.9
+4160,Fearless,family,4.9
+4163,Dragon Quest: Your Story,action,6.5
+4163,Dragon Quest: Your Story,animation,6.5
+4163,Dragon Quest: Your Story,family,6.5
+4163,Dragon Quest: Your Story,fantasy,6.5
+4166,Bobbleheads: The Movie,comedy,2.4
+4166,Bobbleheads: The Movie,family,2.4
+4166,Bobbleheads: The Movie,animation,2.4
+4169,Good Sam,drama,5.7
+4169,Good Sam,comedy,5.7
+4178,Wish Upon a Unicorn,fantasy,5.4
+4178,Wish Upon a Unicorn,family,5.4
+4179,Ludo,crime,7.6
+4179,Ludo,action,7.6
+4179,Ludo,comedy,7.6
+4179,Ludo,drama,7.6
+4180,Dolly Parton's Christmas on the Square,comedy,5.2
+4180,Dolly Parton's Christmas on the Square,family,5.2
+4197,I Am Vengeance: Retaliation,action,3.4
+4220,The Little Switzerland,comedy,4.8
+4220,The Little Switzerland,european,4.8
+4223,Kevin Hart: Zero F**ks Given,comedy,6
+4229,Keeping the Bees,drama,5.8
+4255,Parchís: the Documentary,documentation,6.8
+4255,Parchís: the Documentary,music,6.8
+4256,Double World,action,6.1
+4256,Double World,fantasy,6.1
+4276,Eric Andre: Legalize Everything,comedy,6.1
+4277,Cargo,drama,5.6
+4277,Cargo,fantasy,5.6
+4277,Cargo,scifi,5.6
+4283,Made in China,drama,6.3
+4283,Made in China,comedy,6.3
+4283,Made in China,crime,6.3
+4283,Made in China,romance,6.3
+4283,Made in China,thriller,6.3
+4283,Made in China,european,6.3
+4322,The Stand at Paxton County,thriller,6.4
+4322,The Stand at Paxton County,drama,6.4
+4361,Angela's Christmas Wish,animation,7.1
+4361,Angela's Christmas Wish,comedy,7.1
+4361,Angela's Christmas Wish,drama,7.1
+4361,Angela's Christmas Wish,family,7.1
+4362,Dolly Kitty and Those Twinkling Stars,drama,5.5
+4362,Dolly Kitty and Those Twinkling Stars,comedy,5.5
+4364,Father Soldier Son,war,7.3
+4364,Father Soldier Son,documentation,7.3
+4367,Shawn Mendes: Live in Concert,documentation,7.1
+4367,Shawn Mendes: Live in Concert,music,7.1
+4392,The Road to El Camino: Behind the Scenes of El Camino: A Breaking Bad Movie,documentation,7.1
+4398,Rogue Warfare: The Hunt,action,3.1
+4402,A Second Chance: Rivals!,family,4.7
+4402,A Second Chance: Rivals!,drama,4.7
+4402,A Second Chance: Rivals!,sport,4.7
+4437,Kevin Hart's Guide to Black History,comedy,5.5
+4441,ReMastered: The Lion's Share,music,6.9
+4441,ReMastered: The Lion's Share,documentation,6.9
+4469,A Go! Go! Cory Carson Halloween,family,6.3
+4469,A Go! Go! Cory Carson Halloween,animation,6.3
+4469,A Go! Go! Cory Carson Halloween,horror,6.3
+4478,Sillu Karupatti,drama,8
+4478,Sillu Karupatti,romance,8
+4483,Adam Devine: Best Time of Our Lives,comedy,5.9
+4503,Saverio Raimondo: Il Satiro Parlante,comedy,5.6
+4538,Hikaru Utada Laughter in the Dark Tour 2018,documentation,8.3
+4538,Hikaru Utada Laughter in the Dark Tour 2018,music,8.3
+4541,Spirit Riding Free: Spirit of Christmas,animation,5.2
+4541,Spirit Riding Free: Spirit of Christmas,action,5.2
+4541,Spirit Riding Free: Spirit of Christmas,comedy,5.2
+4541,Spirit Riding Free: Spirit of Christmas,drama,5.2
+4541,Spirit Riding Free: Spirit of Christmas,family,5.2
+4563,Yeh Ballet,drama,7.5
+4574,Bombay Rose,romance,6.2
+4574,Bombay Rose,animation,6.2
+4574,Bombay Rose,drama,6.2
+4582,122,horror,6.2
+4582,122,thriller,6.2
+4583,A Trash Truck Christmas,animation,5.5
+4583,A Trash Truck Christmas,comedy,5.5
+4583,A Trash Truck Christmas,family,5.5
+4612,Sarvam Thaala Mayam,drama,7.6
+4612,Sarvam Thaala Mayam,music,7.6
+4661,The Beginning of Life 2: Outside,documentation,8.1
+4672,Uriyadi 2,thriller,7.1
+4672,Uriyadi 2,action,7.1
+4680,Chippa,drama,6.4
+4702,Super Monsters Save Christmas,animation,4.8
+4702,Super Monsters Save Christmas,fantasy,4.8
+4702,Super Monsters Save Christmas,family,4.8
+4719,Classmates Minus,comedy,7.1
+4719,Classmates Minus,drama,7.1
+4721,Sethum Aayiram Pon,family,7.2
+4721,Sethum Aayiram Pon,drama,7.2
+4723,The App That Stole Christmas,drama,3.7
+4723,The App That Stole Christmas,comedy,3.7
+4733,Chico Bon Bon and the Very Berry Holiday,family,5.9
+4733,Chico Bon Bon and the Very Berry Holiday,animation,5.9
+4734,Uncle Naji in UAE,comedy,5
+4734,Uncle Naji in UAE,horror,5
+4748,Nenjamundu Nermaiyundu Odu Raja,comedy,6.1
+4748,Nenjamundu Nermaiyundu Odu Raja,romance,6.1
+4748,Nenjamundu Nermaiyundu Odu Raja,drama,6.1
+4757,The Panti Sisters,comedy,5.6
+4757,The Panti Sisters,romance,5.6
+4812,Bhai - Vyakti Ki Valli 2,comedy,7.8
+4812,Bhai - Vyakti Ki Valli 2,drama,7.8
+4819,Luccas Neto in: Summer Camp,comedy,2.8
+4836,The Adam Project,drama,6.7
+4836,The Adam Project,action,6.7
+4836,The Adam Project,comedy,6.7
+4836,The Adam Project,scifi,6.7
+4837,Operation Mincemeat,drama,6.9
+4837,Operation Mincemeat,war,6.9
+4838,The Power of the Dog,drama,6.9
+4838,The Power of the Dog,romance,6.9
+4838,The Power of the Dog,western,6.9
+4841,Metal Lords,drama,6.7
+4841,Metal Lords,comedy,6.7
+4841,Metal Lords,music,6.7
+4843,The Bubble,comedy,4.7
+4844,White Hot: The Rise & Fall of Abercrombie & Fitch,documentation,5.6
+4848,Windfall,thriller,5.7
+4848,Windfall,crime,5.7
+4848,Windfall,drama,5.7
+4849,"tick, tick... BOOM!",drama,7.5
+4853,Don't Look Up,scifi,7.2
+4853,Don't Look Up,drama,7.2
+4853,Don't Look Up,comedy,7.2
+4857,Apollo 10½:  A Space Age Childhood,comedy,7.3
+4857,Apollo 10½:  A Space Age Childhood,action,7.3
+4857,Apollo 10½:  A Space Age Childhood,animation,7.3
+4857,Apollo 10½:  A Space Age Childhood,romance,7.3
+4857,Apollo 10½:  A Space Age Childhood,family,7.3
+4857,Apollo 10½:  A Space Age Childhood,horror,7.3
+4857,Apollo 10½:  A Space Age Childhood,drama,7.3
+4857,Apollo 10½:  A Space Age Childhood,scifi,7.3
+4861,Peter Rabbit 2: The Runaway,fantasy,6.2
+4861,Peter Rabbit 2: The Runaway,family,6.2
+4861,Peter Rabbit 2: The Runaway,comedy,6.2
+4861,Peter Rabbit 2: The Runaway,action,6.2
+4861,Peter Rabbit 2: The Runaway,animation,6.2
+4861,Peter Rabbit 2: The Runaway,crime,6.2
+4861,Peter Rabbit 2: The Runaway,drama,6.2
+4864,The Mystery of Marilyn Monroe: The Unheard Tapes,documentation,6.2
+4867,Bubble,scifi,6.5
+4867,Bubble,thriller,6.5
+4867,Bubble,animation,6.5
+4867,Bubble,action,6.5
+4867,Bubble,drama,6.5
+4867,Bubble,fantasy,6.5
+4867,Bubble,romance,6.5
+4867,Bubble,sport,6.5
+4868,The Lost Daughter,drama,6.7
+4871,The Mitchells vs. the Machines,animation,7.6
+4871,The Mitchells vs. the Machines,comedy,7.6
+4871,The Mitchells vs. the Machines,family,7.6
+4871,The Mitchells vs. the Machines,scifi,7.6
+4872,Red Notice,comedy,6.3
+4872,Red Notice,crime,6.3
+4872,Red Notice,thriller,6.3
+4872,Red Notice,action,6.3
+4879,The Alpinist,documentation,8
+4881,The Harder They Fall,action,6.5
+4881,The Harder They Fall,drama,6.5
+4881,The Harder They Fall,western,6.5
+4889,The House,animation,6.8
+4889,The House,drama,6.8
+4889,The House,comedy,6.8
+4889,The House,thriller,6.8
+4897,The Colony,scifi,5.4
+4897,The Colony,thriller,5.4
+4897,The Colony,action,5.4
+4901,Diana: The Musical,drama,4.3
+4903,The Hand of God,drama,7.4
+4905,The Unforgivable,drama,7.1
+4905,The Unforgivable,crime,7.1
+4906,The Guilty,drama,6.3
+4906,The Guilty,thriller,6.3
+4906,The Guilty,action,6.3
+4906,The Guilty,crime,6.3
+4911,Till Death,horror,5.8
+4911,Till Death,thriller,5.8
+4916,Silverton Siege,drama,6.1
+4916,Silverton Siege,action,6.1
+4916,Silverton Siege,crime,6.1
+4916,Silverton Siege,thriller,6.1
+4920,Munich: The Edge of War,drama,6.8
+4920,Munich: The Edge of War,history,6.8
+4920,Munich: The Edge of War,thriller,6.8
+4922,Texas Chainsaw Massacre,thriller,4.8
+4922,Texas Chainsaw Massacre,crime,4.8
+4922,Texas Chainsaw Massacre,horror,4.8
+4923,Passing,drama,6.7
+4923,Passing,thriller,6.7
+4924,Downfall: The Case Against Boeing,documentation,7.4
+4928,Army of Thieves,comedy,6.4
+4928,Army of Thieves,horror,6.4
+4928,Army of Thieves,action,6.4
+4928,Army of Thieves,crime,6.4
+4928,Army of Thieves,thriller,6.4
+4928,Army of Thieves,romance,6.4
+4928,Army of Thieves,scifi,6.4
+4929,Gunpowder Milkshake,action,6
+4929,Gunpowder Milkshake,crime,6
+4929,Gunpowder Milkshake,thriller,6
+4931,The Sparks Brothers,documentation,7.8
+4931,The Sparks Brothers,music,7.8
+4931,The Sparks Brothers,comedy,7.8
+4931,The Sparks Brothers,history,7.8
+4936,Outlaws,crime,6.9
+4936,Outlaws,thriller,6.9
+4936,Outlaws,action,6.9
+4937,Army of the Dead,horror,5.7
+4937,Army of the Dead,thriller,5.7
+4937,Army of the Dead,crime,5.7
+4937,Army of the Dead,scifi,5.7
+4937,Army of the Dead,action,5.7
+4944,Bo Burnham: Inside,comedy,8.7
+4944,Bo Burnham: Inside,drama,8.7
+4944,Bo Burnham: Inside,music,8.7
+4944,Bo Burnham: Inside,reality,8.7
+4956,Bigbug,scifi,5.4
+4956,Bigbug,comedy,5.4
+4956,Bigbug,fantasy,5.4
+4957,Trust No One: The Hunt for the Crypto King,crime,6.3
+4957,Trust No One: The Hunt for the Crypto King,documentation,6.3
+4959,Kate,action,6.2
+4959,Kate,crime,6.2
+4959,Kate,drama,6.2
+4959,Kate,thriller,6.2
+4960,Worth,history,6.8
+4960,Worth,drama,6.8
+4971,Last Man Down,thriller,5
+4971,Last Man Down,scifi,5
+4971,Last Man Down,action,5
+4973,No One Gets Out Alive,thriller,5.3
+4973,No One Gets Out Alive,horror,5.3
+4973,No One Gets Out Alive,drama,5.3
+4974,The Woman in the Window,thriller,5.7
+4974,The Woman in the Window,crime,5.7
+4974,The Woman in the Window,drama,5.7
+4979,Home Team,comedy,6
+4979,Home Team,sport,6
+4984,After We Fell,drama,4.6
+4984,After We Fell,romance,4.6
+4989,The Vault,action,6.4
+4989,The Vault,thriller,6.4
+4989,The Vault,crime,6.4
+4989,The Vault,fantasy,6.4
+4996,The Dig,drama,7.1
+4996,The Dig,history,7.1
+5004,Prayers for the Stolen,drama,7.3
+5006,Zone 414,thriller,4.9
+5006,Zone 414,scifi,4.9
+5011,The Starling,comedy,6.3
+5011,The Starling,drama,6.3
+5011,The Starling,fantasy,6.3
+5014,My Little Pony: A New Generation,fantasy,6.8
+5014,My Little Pony: A New Generation,scifi,6.8
+5014,My Little Pony: A New Generation,drama,6.8
+5014,My Little Pony: A New Generation,comedy,6.8
+5014,My Little Pony: A New Generation,family,6.8
+5014,My Little Pony: A New Generation,animation,6.8
+5014,My Little Pony: A New Generation,action,6.8
+5015,Cosmic Sin,scifi,2.5
+5015,Cosmic Sin,action,2.5
+5021,The Summit of the Gods,animation,7.5
+5021,The Summit of the Gods,thriller,7.5
+5021,The Summit of the Gods,history,7.5
+5021,The Summit of the Gods,drama,7.5
+5021,The Summit of the Gods,sport,7.5
+5022,Vivo,comedy,6.7
+5022,Vivo,animation,6.7
+5022,Vivo,drama,6.7
+5022,Vivo,family,6.7
+5023,The Ice Road,thriller,5.6
+5023,The Ice Road,drama,5.6
+5023,The Ice Road,action,5.6
+5024,Robin Robin,animation,7.2
+5024,Robin Robin,comedy,7.2
+5024,Robin Robin,family,7.2
+5030,Through My Window,romance,5.4
+5030,Through My Window,comedy,5.4
+5030,Through My Window,drama,5.4
+5032,Long Story Short,fantasy,6.5
+5032,Long Story Short,comedy,6.5
+5032,Long Story Short,romance,6.5
+5037,A Cop Movie,drama,7
+5037,A Cop Movie,action,7
+5037,A Cop Movie,crime,7
+5037,A Cop Movie,thriller,7
+5037,A Cop Movie,documentation,7
+5043,Stowaway,thriller,5.6
+5043,Stowaway,scifi,5.6
+5043,Stowaway,drama,5.6
+5046,Fistful of Vengeance,fantasy,4.5
+5046,Fistful of Vengeance,action,4.5
+5046,Fistful of Vengeance,crime,4.5
+5046,Fistful of Vengeance,drama,4.5
+5047,Procession,documentation,7.2
+5049,Bruised,drama,6.1
+5049,Bruised,sport,6.1
+5049,Bruised,thriller,6.1
+5050,Space Sweepers,scifi,6.5
+5050,Space Sweepers,fantasy,6.5
+5050,Space Sweepers,action,6.5
+5050,Space Sweepers,drama,6.5
+5057,Yes Day,comedy,5.7
+5057,Yes Day,family,5.7
+5064,"Bob Ross: Happy Accidents, Betrayal & Greed",documentation,6.9
+5068,The Lovebirds,action,6
+5068,The Lovebirds,romance,6
+5068,The Lovebirds,comedy,6
+5068,The Lovebirds,crime,6
+5068,The Lovebirds,thriller,6
+5069,Final Account,documentation,7.1
+5074,Awake,scifi,4.8
+5074,Awake,thriller,4.8
+5074,Awake,action,4.8
+5074,Awake,drama,4.8
+5077,Malcolm & Marie,drama,6.6
+5077,Malcolm & Marie,romance,6.6
+5078,The White Tiger,drama,7.1
+5078,The White Tiger,crime,7.1
+5081,Fatherhood,drama,6.6
+5081,Fatherhood,comedy,6.6
+5083,Moxie,comedy,6.7
+5083,Moxie,drama,6.7
+5083,Moxie,music,6.7
+5084,Rurouni Kenshin: The Beginning,drama,7.4
+5084,Rurouni Kenshin: The Beginning,action,7.4
+5086,Ali Wong: Don Wong,comedy,6.5
+5089,Back to the Outback,family,6.5
+5089,Back to the Outback,animation,6.5
+5089,Back to the Outback,comedy,6.5
+5092,Tyler Perry's A Madea Homecoming,comedy,5.6
+5092,Tyler Perry's A Madea Homecoming,drama,5.6
+5092,Tyler Perry's A Madea Homecoming,romance,5.6
+5100,Beckett,thriller,5.6
+5100,Beckett,action,5.6
+5100,Beckett,crime,5.6
+5100,Beckett,drama,5.6
+5101,7 Prisoners,drama,7.1
+5101,7 Prisoners,crime,7.1
+5109,SAS: Red Notice,action,5.2
+5109,SAS: Red Notice,thriller,5.2
+5115,Fever Dream,drama,5.4
+5115,Fever Dream,horror,5.4
+5115,Fever Dream,thriller,5.4
+5116,America: The Motion Picture,action,5.6
+5116,America: The Motion Picture,animation,5.6
+5116,America: The Motion Picture,comedy,5.6
+5116,America: The Motion Picture,fantasy,5.6
+5116,America: The Motion Picture,history,5.6
+5116,America: The Motion Picture,scifi,5.6
+5116,America: The Motion Picture,war,5.6
+5119,Love and Leashes,romance,6.3
+5119,Love and Leashes,comedy,6.3
+5121,My Best Friend Anne Frank,drama,6.2
+5129,Rita Moreno: Just a Girl Who Decided to Go for It,documentation,7.7
+5133,Sweet Girl,drama,5.5
+5133,Sweet Girl,thriller,5.5
+5133,Sweet Girl,action,5.5
+5134,Restless,thriller,5.8
+5134,Restless,action,5.8
+5134,Restless,crime,5.8
+5135,Rurouni Kenshin: The Final,drama,7.2
+5135,Rurouni Kenshin: The Final,action,7.2
+5151,Wish Dragon,fantasy,7.2
+5151,Wish Dragon,comedy,7.2
+5151,Wish Dragon,family,7.2
+5151,Wish Dragon,romance,7.2
+5151,Wish Dragon,animation,7.2
+5161,Good on Paper,romance,5.6
+5161,Good on Paper,comedy,5.6
+5167,Aileen Wuornos: American Boogeywoman,drama,3.6
+5167,Aileen Wuornos: American Boogeywoman,horror,3.6
+5167,Aileen Wuornos: American Boogeywoman,thriller,3.6
+5168,Aziz Ansari: Nightclub Comedian,comedy,7
+5170,Operation Varsity Blues: The College Admissions Scandal,drama,6.9
+5170,Operation Varsity Blues: The College Admissions Scandal,documentation,6.9
+5170,Operation Varsity Blues: The College Admissions Scandal,crime,6.9
+5179,Finding 'Ohana,comedy,6.1
+5179,Finding 'Ohana,family,6.1
+5179,Finding 'Ohana,action,6.1
+5181,To All the Boys: Always and Forever,romance,6.3
+5181,To All the Boys: Always and Forever,comedy,6.3
+5181,To All the Boys: Always and Forever,drama,6.3
+5184,He's All That,comedy,4.3
+5184,He's All That,romance,4.3
+5186,Misha and the Wolves,documentation,6.7
+5186,Misha and the Wolves,drama,6.7
+5188,Never Back Down: Revolt,drama,3.9
+5188,Never Back Down: Revolt,sport,3.9
+5188,Never Back Down: Revolt,action,3.9
+5188,Never Back Down: Revolt,crime,3.9
+5192,Untold: Malice at the Palace,crime,7.5
+5192,Untold: Malice at the Palace,documentation,7.5
+5192,Untold: Malice at the Palace,sport,7.5
+5216,Pray Away,documentation,6.5
+5224,A Boy Called Christmas,family,6.7
+5224,A Boy Called Christmas,fantasy,6.7
+5224,A Boy Called Christmas,drama,6.7
+5236,The Seventh Day,horror,4.5
+5238,Thunder Force,scifi,4.4
+5238,Thunder Force,comedy,4.4
+5238,Thunder Force,fantasy,4.4
+5238,Thunder Force,action,4.4
+5248,Outside the Wire,scifi,5.4
+5248,Outside the Wire,thriller,5.4
+5248,Outside the Wire,action,5.4
+5248,Outside the Wire,fantasy,5.4
+5249,The Loud House Movie,animation,6.2
+5249,The Loud House Movie,action,6.2
+5249,The Loud House Movie,thriller,6.2
+5249,The Loud House Movie,fantasy,6.2
+5249,The Loud House Movie,drama,6.2
+5249,The Loud House Movie,family,6.2
+5249,The Loud House Movie,music,6.2
+5249,The Loud House Movie,comedy,6.2
+5263,Shaun the Sheep: The Flight Before Christmas,comedy,7.3
+5263,Shaun the Sheep: The Flight Before Christmas,animation,7.3
+5263,Shaun the Sheep: The Flight Before Christmas,family,7.3
+5277,The Kissing Booth 3,romance,4.7
+5277,The Kissing Booth 3,comedy,4.7
+5283,Pelé,documentation,7
+5283,Pelé,sport,7
+5285,Memories of a Murderer: The Nilsen Tapes,documentation,6.3
+5285,Memories of a Murderer: The Nilsen Tapes,crime,6.3
+5289,Found,documentation,7.5
+5289,Found,drama,7.5
+5295,Ride or Die,thriller,5.5
+5295,Ride or Die,drama,5.5
+5295,Ride or Die,romance,5.5
+5296,Monster,drama,6.5
+5296,Monster,crime,6.5
+5299,Mobile Suit Gundam Hathaway,drama,6.6
+5299,Mobile Suit Gundam Hathaway,romance,6.6
+5299,Mobile Suit Gundam Hathaway,scifi,6.6
+5299,Mobile Suit Gundam Hathaway,animation,6.6
+5299,Mobile Suit Gundam Hathaway,action,6.6
+5300,This Is the Night,drama,5.5
+5300,This Is the Night,comedy,5.5
+5303,The Whole Truth,horror,5.1
+5303,The Whole Truth,thriller,5.1
+5303,The Whole Truth,drama,5.1
+5323,Skater Girl,drama,6.6
+5323,Skater Girl,family,6.6
+5323,Skater Girl,sport,6.6
+5324,Penguin Bloom,drama,6.8
+5339,The Devil Below,horror,4.2
+5339,The Devil Below,thriller,4.2
+5353,Why Did You Kill Me?,documentation,5.6
+5353,Why Did You Kill Me?,crime,5.6
+5359,Broken Idol: The Undoing of Diomedes Díaz,documentation,6.1
+5359,Broken Idol: The Undoing of Diomedes Díaz,crime,6.1
+5375,Blood Brothers: Malcolm X & Muhammad Ali,documentation,6.9
+5375,Blood Brothers: Malcolm X & Muhammad Ali,history,6.9
+5375,Blood Brothers: Malcolm X & Muhammad Ali,sport,6.9
+5384,Anonymously Yours,romance,5.7
+5384,Anonymously Yours,drama,5.7
+5401,Chappelle's Home Team - Earthquake: Legendary,comedy,6.7
+5405,Dynasty Warriors,action,4.7
+5405,Dynasty Warriors,fantasy,4.7
+5425,Bright: Samurai Soul,animation,5.5
+5425,Bright: Samurai Soul,action,5.5
+5425,Bright: Samurai Soul,fantasy,5.5
+5425,Bright: Samurai Soul,thriller,5.5
+5436,Untold: Breaking Point,documentation,7.6
+5436,Untold: Breaking Point,sport,7.6
+5440,A California Christmas: City Lights,romance,5.5
+5440,A California Christmas: City Lights,comedy,5.5
+5440,A California Christmas: City Lights,drama,5.5
+5452,Murder by the Coast,crime,6.5
+5452,Murder by the Coast,history,6.5
+5452,Murder by the Coast,thriller,6.5
+5452,Murder by the Coast,documentation,6.5
+5454,Je suis Karl,drama,5.4
+5454,Je suis Karl,thriller,5.4
+5454,Je suis Karl,european,5.4
+5454,Je suis Karl,romance,5.4
+5462,Father Christmas Is Back,comedy,4.5
+5466,A Family,crime,7
+5466,A Family,drama,7
+5467,Ms. Pat: Y'all Wanna Hear Something Crazy?,comedy,6.1
+5473,Forever Rich,drama,5.5
+5473,Forever Rich,comedy,5.5
+5473,Forever Rich,music,5.5
+5473,Forever Rich,thriller,5.5
+5473,Forever Rich,crime,5.5
+5480,Cousins,drama,6.9
+5498,The Princess Switch 3: Romancing the Star,romance,5.5
+5498,The Princess Switch 3: Romancing the Star,comedy,5.5
+5498,The Princess Switch 3: Romancing the Star,drama,5.5
+5498,The Princess Switch 3: Romancing the Star,family,5.5
+5503,Biggie: I Got a Story to Tell,music,6.8
+5503,Biggie: I Got a Story to Tell,documentation,6.8
+5515,137 Shots,crime,6.2
+5515,137 Shots,documentation,6.2
+5520,The Women and the Murderer,crime,6.4
+5520,The Women and the Murderer,documentation,6.4
+5523,Adam by Eve: A Live in Animation,drama,6.5
+5523,Adam by Eve: A Live in Animation,animation,6.5
+5523,Adam by Eve: A Live in Animation,music,6.5
+5534,AI Love You,romance,4.4
+5534,AI Love You,drama,4.4
+5534,AI Love You,scifi,4.4
+5535,Amina,drama,3.9
+5535,Amina,action,3.9
+5535,Amina,history,3.9
+5538,Fate: The Winx Saga - The Afterparty,comedy,6.2
+5538,Fate: The Winx Saga - The Afterparty,fantasy,6.2
+5538,Fate: The Winx Saga - The Afterparty,reality,6.2
+5551,Kapil Sharma: I'm Not Done Yet,comedy,6.9
+5557,The Father Who Moves Mountains,thriller,5.5
+5557,The Father Who Moves Mountains,drama,5.5
+5564,Untold: Caitlyn Jenner,documentation,6.4
+5564,Untold: Caitlyn Jenner,sport,6.4
+5566,Lords of Scam,documentation,6.3
+5566,Lords of Scam,crime,6.3
+5574,Puff: Wonders of the Reef,documentation,7.1
+5574,Puff: Wonders of the Reef,family,7.1
+5582,The House of Flowers: The Movie,drama,5.5
+5582,The House of Flowers: The Movie,comedy,5.5
+5588,Creating The Queen's Gambit,documentation,6.9
+5589,Octonauts: The Ring of Fire,animation,6.5
+5592,Honey Girls,family,5
+5592,Honey Girls,music,5
+5592,Honey Girls,comedy,5
+5595,Resort to Love,comedy,5.7
+5595,Resort to Love,romance,5.7
+5597,Hate by Dani Rovira,comedy,6.7
+5613,Headspace Unwind you Mind,animation,7.2
+5613,Headspace Unwind you Mind,documentation,7.2
+5630,This Little Love of Mine,romance,5.3
+5639,"Strip Down, Rise Up",documentation,5.3
+5682,Johnny Test's Ultimate Meatloaf Quest,animation,7
+5682,Johnny Test's Ultimate Meatloaf Quest,family,7
+5688,Sisters on Track,documentation,5.8
+5688,Sisters on Track,sport,5.8
+5692,Prime Time,thriller,5.2
+5692,Prime Time,drama,5.2
+5699,Thalaivii,drama,5.9
+5704,Convergence: Courage in a Crisis,documentation,5.4
+5713,Angèle,music,7
+5713,Angèle,documentation,7
+5773,Stuck Apart,comedy,6
+5773,Stuck Apart,drama,6
