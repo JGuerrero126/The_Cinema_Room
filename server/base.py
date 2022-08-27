@@ -5,31 +5,30 @@ from bson.json_util import dumps
 app = Flask(__name__)
 
 client = MongoClient("mongodb://localhost:27017")
-db = client.flask_example_db
+db = client.six_three_db
 
-@app.route("/create")
-def add_user():
-  result = db.users.insert_one({"name": "test name 01"})
-  return str(result.inserted_id)
+@app.route('/actors/<name>')
+def actor(name):
+  actor = db.credits.find_one({'name': str(name)})
+  print(actor)
 
-@app.route("/list")
-def get_user():
-  users = list(db.users.find({}))
-  return dumps(users)
+  response_body = {
+    "name": actor['name'],
+    "character": actor['character']
+  }
 
+  return response_body
 
-# from flask import Flask
+@app.route('/movies/<title>')
+def movie(title):
+  movie = db.titles.find_one({'title': str(title)})
+  print(movie)
 
-# api = Flask(__name__)
+  response_body = {
+    "title": movie['title'],
+    "genres": movie['genres'],
+    "rating": movie['imdb_score'],
+    "description": movie['description']
+  }
 
-@app.route('/profile')
-def my_profile():
-    users = list(db.users.find({}))
-    print(users[1]["name"])
-
-    response_body = {
-        "name": users[1]["name"],
-        "about" :"Hello!"
-    }
-
-    return response_body
+  return response_body
