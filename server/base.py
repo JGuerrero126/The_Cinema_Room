@@ -32,3 +32,23 @@ def movie(title):
   }
 
   return response_body
+
+@app.route('/genres/<genre>')
+def genres(genre):
+  movies = db.titles.find({'type': "MOVIE", "imdb_score": {"$gt": 0}}).sort("imdb_score", -1).limit(5)
+  print(movies)
+
+  response_body = []
+
+  for x in movies:
+    print(x)
+    details = {
+      "title": x['title'],
+      "rating": x['imdb_score'],
+      "description": x['description']
+    }
+    response_body.append(details)
+
+  print(response_body)
+
+  return response_body
