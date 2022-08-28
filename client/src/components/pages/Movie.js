@@ -6,18 +6,22 @@ import { useParams } from "react-router";
 function Movie() {
   const [profileData, setProfileData] = useState(null);
   const [movieData, setMovieData] = useState(null);
-  const movie = useParams();
+  // const movie = useParams();
+  const movie = "Singapore";
 
   function getData() {
     axios({
       method: "GET",
-      url: "/profile",
+      url: "/movies/" + movie,
     })
       .then((response) => {
         const res = response.data;
         setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
+          title: res.title,
+          genres: res.genres,
+          rating: res.rating,
+          description: res.description,
+          release_year: res.release_year,
         });
       })
       .catch((error) => {
@@ -29,24 +33,24 @@ function Movie() {
       });
   }
 
-  function getMovie() {
-    axios({
-      method: "GET",
-      url: "/movies/" + movie,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setMovieData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getMovie() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/movies/" + movie,
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       console.log(res);
+  //       setMovieData(res);
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
 
   return (
     <div>
@@ -57,12 +61,15 @@ function Movie() {
           <Link fontSize="1.5rem" href="/actors/test">
             Click here to go to the Actor Page.
           </Link>
-          <p>Test call to db for "profile": </p>
+          <p>Test call to db for movie: </p>
           <button onClick={getData}>Click me</button>
           {profileData && (
             <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
+              <p>Title: {profileData.title}</p>
+              <p>Genres: {profileData.genres}</p>
+              <p>Rating: {profileData.rating}</p>
+              <p>Description: {profileData.description}</p>
+              <p>Release Year: {profileData.release_year}</p>
             </div>
           )}
         </Box>
