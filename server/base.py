@@ -28,7 +28,8 @@ def movie(title):
     "title": movie['title'],
     "genres": movie['genres'],
     "rating": movie['imdb_score'],
-    "description": movie['description']
+    "description": movie['description'],
+    "release_year": movie['release_year']
   }
 
   return response_body
@@ -40,12 +41,13 @@ def genres(genre):
 
   response_body = []
 
-  for x in movies:
-    print(x)
+  for movie in movies:
+    print(movie)
     details = {
-      "title": x['title'],
-      "rating": x['imdb_score'],
-      "description": x['description']
+      "title": movie['title'],
+      "rating": movie['imdb_score'],
+      "description": movie['description'],
+      "release_year": movie['release_year']
     }
     response_body.append(details)
 
