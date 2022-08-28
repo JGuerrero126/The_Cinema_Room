@@ -5,6 +5,7 @@ import axios from "axios";
 
 function Home() {
   const [profileData, setProfileData] = useState(null);
+  const [genres, setGenres] = useState(null);
 
   function getData() {
     axios({
@@ -17,6 +18,24 @@ function Home() {
           profile_name: res.name,
           about_me: res.about,
         });
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function getGenres() {
+    axios({
+      method: "GET",
+      url: "/",
+    })
+      .then((response) => {
+        const res = response.data;
+        setGenres(res);
       })
       .catch((error) => {
         if (error.response) {
