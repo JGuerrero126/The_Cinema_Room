@@ -6,8 +6,8 @@ import { useParams } from "react-router";
 function Movie() {
   const [profileData, setProfileData] = useState(null);
   const [movieData, setMovieData] = useState(null);
-  // const movie = useParams();
-  const movie = "Singapore";
+  const { movie } = useParams();
+  // const movie = "Singapore";
 
   function getData() {
     axios({

@@ -4,30 +4,30 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 function Genre() {
-  const [profileData, setProfileData] = useState(null);
+  // const [profileData, setProfileData] = useState(null);
   const [genreData, setGenreData] = useState(null);
-  const genre = useParams();
+  const { genre } = useParams();
 
-  function getData() {
-    axios({
-      method: "GET",
-      url: "/profile",
-    })
-      .then((response) => {
-        const res = response.data;
-        setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getData() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/profile",
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       setProfileData({
+  //         profile_name: res.name,
+  //         about_me: res.about,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
 
   function getGenre() {
     axios({
@@ -57,12 +57,11 @@ function Genre() {
           <Link fontSize="1.5rem" href="/movies/test">
             Click here to go to the Movie Page.
           </Link>
-          <p>Test call to db for "profile": </p>
-          <button onClick={getData}>Click me</button>
-          {profileData && (
+          <p>Test call to db for genre results: </p>
+          <button onClick={getGenre}>Click me</button>
+          {genreData && (
             <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
+              <p>{JSON.stringify(genreData)}</p>
             </div>
           )}
         </Box>

@@ -36,7 +36,7 @@ def movie(title):
 
 @app.route('/genres/<genre>')
 def genres(genre):
-  movies = db.titles.find({'type': "MOVIE", "imdb_score": {"$gt": 0}}).sort("imdb_score", -1).limit(5)
+  movies = db.titles.find({'type': "MOVIE", "imdb_score": {"$gt": 0}, "genres_array": [genre]}).sort("imdb_score", -1).limit(5)
   print(movies)
 
   response_body = []
@@ -46,8 +46,8 @@ def genres(genre):
     details = {
       "title": movie['title'],
       "rating": movie['imdb_score'],
-      "description": movie['description'],
-      "release_year": movie['release_year']
+      # "description": movie['description'],
+      # "release_year": movie['release_year']
     }
     response_body.append(details)
 
