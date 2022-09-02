@@ -36,7 +36,10 @@ function Actor() {
     })
       .then((response) => {
         const res = response.data;
-        setActorData(res);
+        setActorData({
+          name: res.name,
+          character: res.character,
+        });
       })
       .catch((error) => {
         if (error.response) {
