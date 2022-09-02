@@ -1,3 +1,4 @@
+from ast import main
 from pymongo import MongoClient
 from flask import Flask
 from bson.json_util import dumps
@@ -33,3 +34,6 @@ def my_profile():
     }
 
     return response_body
+
+if __name__ == "__main__":
+  app.run(debug=True)
