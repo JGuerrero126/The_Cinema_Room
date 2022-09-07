@@ -38,26 +38,26 @@ function Actor() {
       });
   }
 
-  function getActor() {
-    axios({
-      method: "GET",
-      url: "/actors/" + actor,
-    })
-      .then((response) => {
-        const res = response.data;
-        setActorData({
-          name: res.name,
-          character: res.character,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getActor() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/actors/" + actor,
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       setActorData({
+  //         name: res.name,
+  //         character: res.character,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
 
   // useEffect(() => {
   //   getActor();
@@ -72,6 +72,7 @@ function Actor() {
         release_year: 1987,
         poster:
           "https://m.media-amazon.com/images/M/MV5BZWVlYzU2ZjQtZmNkMi00OTc3LTkwZmYtZDVjNmY4OWFmZGJlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX917_.jpg",
+        id: "tm123456",
       },
       {
         title: "Naked Lunch",
@@ -80,6 +81,7 @@ function Actor() {
         release_year: 1991,
         poster:
           "https://m.media-amazon.com/images/M/MV5BMTRiOTQ2ZWQtMmIwYy00Y2Y3LWFmMzgtNzgzZWU1MDhlOGJhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX719_.jpg",
+        id: "tm1234567",
       },
       {
         title: "RoboCop 2",
@@ -88,6 +90,7 @@ function Actor() {
         release_year: 1990,
         poster:
           "https://m.media-amazon.com/images/M/MV5BZWQ1YjQ3ZTAtN2VlMC00YTllLTk3ZmEtNDlmNzg4ZGM1ODhjXkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_FMjpg_UX355_.jpg",
+        id: "tm1234568",
       },
       {
         title: "The Adventures of Buckaroo Banzai Across the 8th Dimension",
@@ -96,6 +99,7 @@ function Actor() {
         release_year: 1984,
         poster:
           "https://m.media-amazon.com/images/M/MV5BMmE1OWZjYjctYzZlNi00YmEyLTg4YWYtZDc4NTE2ODZlYzhhXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_.jpg",
+        id: "tm1234569",
       },
     ]);
   }, []);
@@ -141,7 +145,7 @@ function Actor() {
       {actorData
         ? actorData.map((element) => {
             return (
-              <Container centerContent key={element.title}>
+              <Container centerContent key={element.id}>
                 <SimpleGrid columns={2}>
                   <Box
                     border="0.5rem groove grey"
@@ -151,10 +155,10 @@ function Actor() {
                     h="20rem"
                   >
                     <Link
-                      href={
-                        "/movies/" +
-                        element.title.replace(/ /g, "").toLowerCase()
-                      }
+                      href={"/movies/" + element.id}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
                     >
                       <Text>Movie: {element.title}</Text>
                       <Text>Main Genre: {element.genres[0]}</Text>

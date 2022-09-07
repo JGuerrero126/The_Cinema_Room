@@ -73,6 +73,7 @@ function Movie() {
         Role: "ACTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BMTE5MTIxNTM1NV5BMl5BanBnXkFtZTYwOTMzNjc1._V1_FMjpg_UX277_.jpg",
+        Person_id: "123456",
       },
       {
         Name: "Nancy Allen",
@@ -80,6 +81,7 @@ function Movie() {
         Role: "ACTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BNzU3NTFjZjUtNzE1OS00YTA4LWI3ZmYtNTBiZGY3YmY0YjU5XkEyXkFqcGdeQXVyMjI3NDc1NTU@._V1_FMjpg_UX427_.jpg",
+        Person_id: "1234567",
       },
       {
         Name: "Dan O'Herlihy",
@@ -87,6 +89,7 @@ function Movie() {
         Role: "ACTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BMjMwNjYxOTEzMl5BMl5BanBnXkFtZTcwOTA3NTUwOA@@._V1_.jpg",
+        Person_id: "1234568",
       },
       {
         Name: "Ronny Cox",
@@ -94,6 +97,7 @@ function Movie() {
         Role: "ACTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BMjEyMjAzNTI0M15BMl5BanBnXkFtZTcwNTA1MjcyMQ@@._V1_FMjpg_UX149_.jpg",
+        Person_id: "1234569",
       },
       {
         Name: "Paul Verhoeven",
@@ -101,6 +105,7 @@ function Movie() {
         Role: "DIRECTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BMTU5NTc4OTU0Nl5BMl5BanBnXkFtZTYwMDU2MDc0._V1_FMjpg_UX275_.jpg",
+        Person_id: "12345610",
       },
     ]);
   }, []);
@@ -149,7 +154,7 @@ function Movie() {
       {movieData
         ? movieData.map((element) => {
             return (
-              <Container centerContent key={element.Name}>
+              <Container centerContent key={element.Person_id}>
                 <SimpleGrid columns={2}>
                   <Box
                     border="0.5rem groove grey"
@@ -159,10 +164,10 @@ function Movie() {
                     h="15rem"
                   >
                     <Link
-                      href={
-                        "/actors/" +
-                        element.Name.replace(/ /g, "").toLowerCase()
-                      }
+                      href={"/actors/" + element.Person_id}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
                     >
                       {element.Role === "ACTOR" ? (
                         <div>
