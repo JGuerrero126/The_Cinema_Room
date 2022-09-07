@@ -7,8 +7,6 @@ import {
   Box,
   Image,
   Divider,
-  Center,
-  Flex,
   Container,
 } from "@chakra-ui/react";
 import axios from "axios";
@@ -40,24 +38,24 @@ function Genre() {
       });
   }
 
-  function getGenre() {
-    axios({
-      method: "GET",
-      url: "/genres/" + genre,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setGenreData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getGenre() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/genres/" + genre,
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       console.log(res);
+  //       setGenreData(res);
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
 
   // useEffect(() => {
   //   getGenre();
@@ -72,6 +70,7 @@ function Genre() {
         release_year: 2015,
         poster:
           "https://www.themoviedb.org/t/p/original/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
+        id: "tm123456",
       },
       {
         title: "Blade Runner 2049",
@@ -80,6 +79,7 @@ function Genre() {
         release_year: 2017,
         poster:
           "https://www.themoviedb.org/t/p/original/gajva2L0rPYkEWjzgFlBXCAVBE5.jpg",
+        id: "tm1234567",
       },
       {
         title: "RoboCop",
@@ -88,6 +88,7 @@ function Genre() {
         release_year: 1987,
         poster:
           "https://www.themoviedb.org/t/p/original/hHtOgGb3NihlyRATHlKPaFApbrd.jpg",
+        id: "tm1234568",
       },
       {
         title: "Rambo III",
@@ -96,6 +97,7 @@ function Genre() {
         release_year: 1988,
         poster:
           "https://www.themoviedb.org/t/p/original/pTVm2HrqV5kOt8tG4ZURNuhrmAq.jpg",
+        id: "tm1234569",
       },
     ]);
   }, []);
@@ -141,7 +143,7 @@ function Genre() {
       {genreData
         ? genreData.map((element) => {
             return (
-              <Container centerContent key={element.title}>
+              <Container centerContent key={element.id}>
                 <SimpleGrid columns={2}>
                   <Box
                     border="0.5rem groove grey"
@@ -151,10 +153,10 @@ function Genre() {
                     h="20rem"
                   >
                     <Link
-                      href={
-                        "/movies/" +
-                        element.title.replace(/ /g, "").toLowerCase()
-                      }
+                      href={"/movies/" + element.id}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
                     >
                       <Text>Movie: {element.title}</Text>
                       <Text>Main Genre: {element.genres[0]}</Text>

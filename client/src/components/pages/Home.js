@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Text, Heading, Link } from "@chakra-ui/react";
+import { Text, Heading, Link, Divider, Box, Flex } from "@chakra-ui/react";
 import axios from "axios";
 
 function Home() {
@@ -28,23 +28,49 @@ function Home() {
       });
   }
 
-  function getGenres() {
-    axios({
-      method: "GET",
-      url: "/",
-    })
-      .then((response) => {
-        const res = response.data;
-        setGenres(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  // function getGenres() {
+  //   axios({
+  //     method: "GET",
+  //     url: "/",
+  //   })
+  //     .then((response) => {
+  //       const res = response.data;
+  //       setGenres(res);
+  //     })
+  //     .catch((error) => {
+  //       if (error.response) {
+  //         console.log(error.response);
+  //         console.log(error.response.status);
+  //         console.log(error.response.headers);
+  //       }
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   getGenres();
+  // }, []);
+
+  useEffect(() => {
+    setGenres([
+      "Action",
+      "Animation",
+      "Comedy",
+      "Crime",
+      "Documentation",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Horror",
+      "Music",
+      "Reality",
+      "Romance",
+      "Sci-Fi",
+      "Sport",
+      "Thriller",
+      "War",
+      "Western",
+    ]);
+  }, []);
 
   return (
     <div>
@@ -61,6 +87,35 @@ function Home() {
           <p>About me: {profileData.about_me}</p>
         </div>
       )}
+      <Divider border="null" w="80%" />
+      <Text fontSize="1.5rem" color="red">
+        Below this is the dynamic data test, it may look strange.
+      </Text>
+      <Flex flexWrap="wrap">
+        {genres
+          ? genres.map((element) => {
+              return (
+                <Box
+                  key={element}
+                  border="0.5rem groove grey"
+                  bg="lightblue"
+                  fontSize="1.25rem"
+                  w="10rem"
+                  h="5rem"
+                >
+                  <Link
+                    href={"/genres/" + element.replace(/-/, "").toLowerCase()}
+                    color="black"
+                    textDecoration="none"
+                    _hover={{ color: "red", textDecoration: "underline" }}
+                  >
+                    <Text>{element}</Text>
+                  </Link>
+                </Box>
+              );
+            })
+          : []}
+      </Flex>
     </div>
   );
 }
