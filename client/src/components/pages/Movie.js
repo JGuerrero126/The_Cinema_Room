@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-import { Text, Heading, Link, SimpleGrid, Box, Image } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  Heading,
+  Link,
+  SimpleGrid,
+  Box,
+  Image,
+  Divider,
+  Container,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
 
 function Movie() {
   const [profileData, setProfileData] = useState(null);
   const [movieData, setMovieData] = useState(null);
-  // const movie = useParams();
+  const movieTest = useParams();
   const movie = "Singapore";
 
   function getData() {
@@ -52,6 +61,52 @@ function Movie() {
   //     });
   // }
 
+  // useEffect(() => {
+  //   getMovie();
+  // }, []);
+
+  useEffect(() => {
+    setMovieData([
+      {
+        Name: "Peter Weller",
+        Character: "Alex Murphy/RoboCop",
+        Role: "ACTOR",
+        Image:
+          "https://m.media-amazon.com/images/M/MV5BMTE5MTIxNTM1NV5BMl5BanBnXkFtZTYwOTMzNjc1._V1_FMjpg_UX277_.jpg",
+      },
+      {
+        Name: "Nancy Allen",
+        Character: "Anne Lewis",
+        Role: "ACTOR",
+        Image:
+          "https://m.media-amazon.com/images/M/MV5BNzU3NTFjZjUtNzE1OS00YTA4LWI3ZmYtNTBiZGY3YmY0YjU5XkEyXkFqcGdeQXVyMjI3NDc1NTU@._V1_FMjpg_UX427_.jpg",
+      },
+      {
+        Name: "Dan O'Herlihy",
+        Character: "The Old Man",
+        Role: "ACTOR",
+        Image:
+          "https://m.media-amazon.com/images/M/MV5BMjMwNjYxOTEzMl5BMl5BanBnXkFtZTcwOTA3NTUwOA@@._V1_.jpg",
+      },
+      {
+        Name: "Ronny Cox",
+        Character: "Dick Jones",
+        Role: "ACTOR",
+        Image:
+          "https://m.media-amazon.com/images/M/MV5BMjEyMjAzNTI0M15BMl5BanBnXkFtZTcwNTA1MjcyMQ@@._V1_FMjpg_UX149_.jpg",
+      },
+      {
+        Name: "Paul Verhoeven",
+        Character: "",
+        Role: "DIRECTOR",
+        Image:
+          "https://m.media-amazon.com/images/M/MV5BMTU5NTc4OTU0Nl5BMl5BanBnXkFtZTYwMDU2MDc0._V1_FMjpg_UX275_.jpg",
+      },
+    ]);
+  }, []);
+
+  console.log(movieTest);
+
   return (
     <div>
       <Heading fontSize="2rem">This is the Movie Page.</Heading>
@@ -87,6 +142,54 @@ function Movie() {
           />
         </Box>
       </SimpleGrid>
+      <Divider border="null" w="80%" />
+      <Text fontSize="1.5rem" color="red">
+        Below this is the dynamic data test, it may look strange.
+      </Text>
+      {movieData
+        ? movieData.map((element) => {
+            return (
+              <Container centerContent key={element.Name}>
+                <SimpleGrid columns={2}>
+                  <Box
+                    border="0.5rem groove grey"
+                    bg="lightblue"
+                    fontSize="1.5rem"
+                    w="20rem"
+                    h="15rem"
+                  >
+                    <Link
+                      href={
+                        "/actors/" +
+                        element.Name.replace(/ /g, "").toLowerCase()
+                      }
+                    >
+                      {element.Role === "ACTOR" ? (
+                        <div>
+                          <Text>Actor: {element.Name}</Text>
+                          <Text>Character: {element.Character}</Text>
+                        </div>
+                      ) : (
+                        <div>
+                          <Text>Director: {element.Name}</Text>
+                        </div>
+                      )}
+                    </Link>
+                  </Box>
+                  <Box
+                    w="25rem"
+                    borderWidth="1rem"
+                    borderRadius="md"
+                    borderColor="gray"
+                    borderStyle="groove"
+                  >
+                    <Image w="100%" h="100%" src={element.Image} />
+                  </Box>
+                </SimpleGrid>
+              </Container>
+            );
+          })
+        : []}
     </div>
   );
 }
