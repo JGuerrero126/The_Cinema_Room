@@ -7,9 +7,12 @@ app = Flask(__name__)
 client = MongoClient("mongodb://localhost:27017")
 db = client.six_three_db
 
-@app.route('/actors/<name>')
-def actor(name):
-  actor = db.credits.find_one({'name': str(name)})
+@app.route('/actors/<person>')
+def actor(person):
+  print(person)
+  # need to convert person string to number
+  actor = db.credits.find_one({'person_id': 1549})
+  # actor = db.credits.find_one({'name': "John Cleese"})
   print(actor)
 
   response_body = {
@@ -19,17 +22,36 @@ def actor(name):
 
   return response_body
 
-@app.route('/movies/<title>')
-def movie(title):
-  movie = db.titles.find_one({'title': str(title)})
+@app.route('/movies/<id>')
+def movie(id):
+  print(id)
+  movie = db.titles.find_one({'id': id})
+  actors = db.credits.find({'id':id})
   print(movie)
+  print(actors)
+
+  actor_array = []
+
+  for actor in actors:
+    print(actor)
+    details = {
+      "name": actor['name'],
+      # "character": actor['character'],
+      # "role": actor['role'],
+      # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
+      # "person_id": actor['person_id'],
+    }
+    actor_array.append(details)
+
+  print(actor_array)
 
   response_body = {
     "title": movie['title'],
     "genres": movie['genres'],
     "rating": movie['imdb_score'],
     "description": movie['description'],
-    "release_year": movie['release_year']
+    "release_year": movie['release_year'],
+    "actor_array": actor_array
   }
 
   return response_body
@@ -45,9 +67,12 @@ def genres(genre):
     print(movie)
     details = {
       "title": movie['title'],
+      "genres": movie['genres_array'],
       "rating": movie['imdb_score'],
+      "release_year": movie['release_year'],
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
+      "id": movie['id'],
       # "description": movie['description'],
-      # "release_year": movie['release_year']
     }
     response_body.append(details)
 

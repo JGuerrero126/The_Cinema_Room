@@ -13,7 +13,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 function Movie() {
-  const [profileData, setProfileData] = useState(null);
+  const [movieData2, setMovieData2] = useState(null);
   const [movieData, setMovieData] = useState(null);
   const { movie } = useParams();
   // const movie = "Singapore";
@@ -25,12 +25,13 @@ function Movie() {
     })
       .then((response) => {
         const res = response.data;
-        setProfileData({
+        setMovieData2({
           title: res.title,
           genres: res.genres,
           rating: res.rating,
           description: res.description,
           release_year: res.release_year,
+          actor_array: res.actor_array,
         });
       })
       .catch((error) => {
@@ -68,12 +69,12 @@ function Movie() {
   useEffect(() => {
     setMovieData([
       {
-        Name: "Peter Weller",
+        Name: "John Cleese",
         Character: "Alex Murphy/RoboCop",
         Role: "ACTOR",
         Image:
           "https://m.media-amazon.com/images/M/MV5BMTE5MTIxNTM1NV5BMl5BanBnXkFtZTYwOTMzNjc1._V1_FMjpg_UX277_.jpg",
-        Person_id: "123456",
+        Person_id: "1549",
       },
       {
         Name: "Nancy Allen",
@@ -110,7 +111,7 @@ function Movie() {
     ]);
   }, []);
 
-  console.log(movieTest);
+  // console.log(movieTest);
 
   return (
     <div>
@@ -123,13 +124,14 @@ function Movie() {
           </Link>
           <p>Test call to db for movie: </p>
           <button onClick={getData}>Click me</button>
-          {profileData && (
+          {movieData2 && (
             <div>
-              <p>Title: {profileData.title}</p>
-              <p>Genres: {profileData.genres}</p>
-              <p>Rating: {profileData.rating}</p>
-              <p>Description: {profileData.description}</p>
-              <p>Release Year: {profileData.release_year}</p>
+              <p>Title: {movieData2.title}</p>
+              <p>Genres: {movieData2.genres}</p>
+              <p>Rating: {movieData2.rating}</p>
+              <p>Description: {movieData2.description}</p>
+              <p>Release Year: {movieData2.release_year}</p>
+              <p>Actor Array: {JSON.stringify(movieData2.actor_array)}</p>
             </div>
           )}
         </Box>

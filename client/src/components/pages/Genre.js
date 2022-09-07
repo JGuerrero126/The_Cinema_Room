@@ -15,6 +15,7 @@ import { useParams } from "react-router";
 function Genre() {
   // const [profileData, setProfileData] = useState(null);
   const [genreData, setGenreData] = useState(null);
+  const [genreData2, setGenreData2] = useState(null);
   const { genre } = useParams();
 
   // function getData() {
@@ -38,24 +39,24 @@ function Genre() {
   //     });
   // }
 
-  // function getGenre() {
-  //   axios({
-  //     method: "GET",
-  //     url: "/genres/" + genre,
-  //   })
-  //     .then((response) => {
-  //       const res = response.data;
-  //       console.log(res);
-  //       setGenreData(res);
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         console.log(error.response);
-  //         console.log(error.response.status);
-  //         console.log(error.response.headers);
-  //       }
-  //     });
-  // }
+  function getGenre() {
+    axios({
+      method: "GET",
+      url: "/genres/" + genre,
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setGenreData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
 
   // useEffect(() => {
   //   getGenre();
@@ -64,13 +65,13 @@ function Genre() {
   useEffect(() => {
     setGenreData([
       {
-        title: "Mad Max: Fury Road",
+        title: "Monty Python and the Holy Grail",
         genres: ["Action", "Drama"],
         rating: 10,
         release_year: 2015,
         poster:
           "https://www.themoviedb.org/t/p/original/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
-        id: "tm123456",
+        id: "tm127384",
       },
       {
         title: "Blade Runner 2049",
@@ -115,9 +116,9 @@ function Genre() {
           </Link>
           <p>Test call to db for genre results: </p>
           <button onClick={getGenre}>Click me</button>
-          {genreData && (
+          {genreData2 && (
             <div>
-              <p>{JSON.stringify(genreData)}</p>
+              <p>{JSON.stringify(genreData2)}</p>
             </div>
           )}
         </Box>
