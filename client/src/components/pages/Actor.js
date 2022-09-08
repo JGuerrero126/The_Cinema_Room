@@ -13,41 +13,21 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 function Actor() {
-  const [profileData, setProfileData] = useState(null);
+  const [actorData2, setActorData2] = useState(null);
   const [actorData, setActorData] = useState(null);
-  const actor = useParams();
+  const { actor } = useParams();
+  // const actor = "1549";
 
-  function getData() {
-    axios({
-      method: "GET",
-      url: "/profile",
-    })
-      .then((response) => {
-        const res = response.data;
-        setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  // function getActor() {
+  // function getData() {
   //   axios({
   //     method: "GET",
-  //     url: "/actors/" + actor,
+  //     url: "/profile",
   //   })
   //     .then((response) => {
   //       const res = response.data;
-  //       setActorData({
-  //         name: res.name,
-  //         character: res.character,
+  //       setActorData2({
+  //         profile_name: res.name,
+  //         about_me: res.about,
   //       });
   //     })
   //     .catch((error) => {
@@ -58,6 +38,30 @@ function Actor() {
   //       }
   //     });
   // }
+
+  function getActor() {
+    console.log("actor is:");
+    console.log(actor);
+    axios({
+      method: "GET",
+      url: "/actors/" + actor,
+    })
+      .then((response) => {
+        const res = response.data;
+        setActorData2({
+          name: res.name,
+          // character: res.character,
+          appearances_array: res.appearances_array,
+        });
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
 
   // useEffect(() => {
   //   getActor();
@@ -104,7 +108,7 @@ function Actor() {
     ]);
   }, []);
 
-  console.log(actor);
+  // console.log(actor);
 
   return (
     <div>
@@ -116,11 +120,15 @@ function Actor() {
             Click Here to go back to the Movie Page.
           </Link>
           <p>Test call to db for "profile": </p>
-          <button onClick={getData}>Click me</button>
-          {profileData && (
+          <button onClick={getActor}>Click me</button>
+          {actorData2 && (
             <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
+              <p>Name: {actorData2.name}</p>
+              <p>
+                Appearances Array:
+                {JSON.stringify(actorData2.appearances_array)}
+              </p>
+              {/* <p>Character: {actorData2.character}</p> */}
             </div>
           )}
         </Box>

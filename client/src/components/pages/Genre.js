@@ -13,40 +13,22 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 function Genre() {
-  const [profileData, setProfileData] = useState(null);
+  // const [profileData, setProfileData] = useState(null);
   const [genreData, setGenreData] = useState(null);
-  const genre = useParams();
+  const [genreData2, setGenreData2] = useState(null);
+  const { genre } = useParams();
 
-  function getData() {
-    axios({
-      method: "GET",
-      url: "/profile",
-    })
-      .then((response) => {
-        const res = response.data;
-        setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  // function getGenre() {
+  // function getData() {
   //   axios({
   //     method: "GET",
-  //     url: "/genres/" + genre,
+  //     url: "/profile",
   //   })
   //     .then((response) => {
   //       const res = response.data;
-  //       console.log(res);
-  //       setGenreData(res);
+  //       setProfileData({
+  //         profile_name: res.name,
+  //         about_me: res.about,
+  //       });
   //     })
   //     .catch((error) => {
   //       if (error.response) {
@@ -57,6 +39,25 @@ function Genre() {
   //     });
   // }
 
+  function getGenre() {
+    axios({
+      method: "GET",
+      url: "/genres/" + genre,
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setGenreData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   // useEffect(() => {
   //   getGenre();
   // }, []);
@@ -64,13 +65,13 @@ function Genre() {
   useEffect(() => {
     setGenreData([
       {
-        title: "Mad Max: Fury Road",
+        title: "Monty Python and the Holy Grail",
         genres: ["Action", "Drama"],
         rating: 10,
         release_year: 2015,
         poster:
           "https://www.themoviedb.org/t/p/original/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
-        id: "tm123456",
+        id: "tm127384",
       },
       {
         title: "Blade Runner 2049",
@@ -113,12 +114,11 @@ function Genre() {
           <Link fontSize="1.5rem" href="/movies/test">
             Click here to go to the Movie Page.
           </Link>
-          <p>Test call to db for "profile": </p>
-          <button onClick={getData}>Click me</button>
-          {profileData && (
+          <p>Test call to db for genre results: </p>
+          <button onClick={getGenre}>Click me</button>
+          {genreData2 && (
             <div>
-              <p>Profile name: {profileData.profile_name}</p>
-              <p>About me: {profileData.about_me}</p>
+              <p>{JSON.stringify(genreData2)}</p>
             </div>
           )}
         </Box>
