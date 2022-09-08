@@ -69,8 +69,8 @@ function Genre() {
         genres: ["Action", "Drama"],
         rating: 10,
         release_year: 2015,
-        poster:
-          "https://www.themoviedb.org/t/p/original/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
+        // poster:
+        //   "https://www.themoviedb.org/t/p/original/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg",
         id: "tm127384",
       },
       {
@@ -133,6 +133,7 @@ function Genre() {
             w="100%"
             h="100%"
             src="https://m.media-amazon.com/images/M/MV5BZWVlYzU2ZjQtZmNkMi00OTc3LTkwZmYtZDVjNmY4OWFmZGJlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX917_.jpg"
+            fallbackSrc="https://via.placeholder.com/325x500.png"
           />
         </Box>
       </SimpleGrid>
@@ -171,7 +172,12 @@ function Genre() {
                     borderColor="gray"
                     borderStyle="groove"
                   >
-                    <Image w="100%" h="100%" src={element.poster} />
+                    <Image
+                      w="100%"
+                      h="100%"
+                      src={element.poster}
+                      fallbackSrc="https://via.placeholder.com/325x500.png"
+                    />
                   </Box>
                 </SimpleGrid>
               </Container>

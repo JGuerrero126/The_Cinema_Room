@@ -148,6 +148,7 @@ function Movie() {
             w="100%"
             h="100%"
             src="https://m.media-amazon.com/images/M/MV5BZmQ1NDc0MTEtMGJkYy00ZjNiLThkN2ItYzk2MzBkNmVlNDBmXkEyXkFqcGdeQXVyNjQyMjcwNDM@._V1_FMjpg_UX752_.jpg"
+            fallbackSrc="https://via.placeholder.com/325x500.png"
           />
         </Box>
       </SimpleGrid>
@@ -192,7 +193,12 @@ function Movie() {
                     borderColor="gray"
                     borderStyle="groove"
                   >
-                    <Image w="100%" h="100%" src={element.Image} />
+                    <Image
+                      w="100%"
+                      h="100%"
+                      src={element.Image}
+                      fallbackSrc="https://via.placeholder.com/325x500.png"
+                    />
                   </Box>
                 </SimpleGrid>
               </Container>
