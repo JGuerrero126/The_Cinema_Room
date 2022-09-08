@@ -143,6 +143,7 @@ function Actor() {
             w="100%"
             h="100%"
             src="https://m.media-amazon.com/images/M/MV5BMTQzMjkwNTQ2OF5BMl5BanBnXkFtZTgwNTQ4MTQ4MTE@._V1_.jpg"
+            fallbackSrc="https://via.placeholder.com/325x500.png"
           />
         </Box>
       </SimpleGrid>
@@ -181,7 +182,12 @@ function Actor() {
                     borderColor="gray"
                     borderStyle="groove"
                   >
-                    <Image w="100%" h="100%" src={element.poster} />
+                    <Image
+                      w="100%"
+                      h="100%"
+                      src={element.poster}
+                      fallbackSrc="https://via.placeholder.com/325x500.png"
+                    />
                   </Box>
                 </SimpleGrid>
               </Container>
