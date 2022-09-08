@@ -19,6 +19,8 @@ function Movie() {
   // const movie = "Singapore";
 
   function getData() {
+    console.log("movie is:");
+    console.log(movie);
     axios({
       method: "GET",
       url: "/movies/" + movie,

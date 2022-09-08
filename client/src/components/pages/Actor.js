@@ -15,7 +15,8 @@ import { useParams } from "react-router";
 function Actor() {
   const [actorData2, setActorData2] = useState(null);
   const [actorData, setActorData] = useState(null);
-  const { person } = useParams();
+  const { actor } = useParams();
+  // const actor = "1549";
 
   // function getData() {
   //   axios({
@@ -39,15 +40,18 @@ function Actor() {
   // }
 
   function getActor() {
+    console.log("actor is:");
+    console.log(actor);
     axios({
       method: "GET",
-      url: "/actors/" + person,
+      url: "/actors/" + actor,
     })
       .then((response) => {
         const res = response.data;
         setActorData2({
           name: res.name,
-          character: res.character,
+          // character: res.character,
+          appearances_array: res.appearances_array,
         });
       })
       .catch((error) => {
@@ -120,7 +124,11 @@ function Actor() {
           {actorData2 && (
             <div>
               <p>Name: {actorData2.name}</p>
-              <p>Character: {actorData2.character}</p>
+              <p>
+                Appearances Array:
+                {JSON.stringify(actorData2.appearances_array)}
+              </p>
+              {/* <p>Character: {actorData2.character}</p> */}
             </div>
           )}
         </Box>
