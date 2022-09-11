@@ -63,8 +63,9 @@ function Genre() {
 
   function getPersonImageLink() {
     axios({
-      method: "GET",
+      method: "POST",
       url: "/image-link/",
+      data: { person_name: personName },
     })
       .then((response) => {
         const res = response.data;
@@ -143,7 +144,7 @@ function Genre() {
               <p>{JSON.stringify(genreData2)}</p>
             </div>
           )}
-          <p>Test call to db for image link results: </p>
+          <p>Test call to db for person image link results: </p>
           <button onClick={getPersonImageLink}>Click me</button>
           {personImageLinkData && (
             <div>
