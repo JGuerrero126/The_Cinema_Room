@@ -16,7 +16,10 @@ function Genre() {
   // const [profileData, setProfileData] = useState(null);
   const [genreData, setGenreData] = useState(null);
   const [genreData2, setGenreData2] = useState(null);
+  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { genre } = useParams();
+
+  const personName = "Harrison Ford";
 
   // function getData() {
   //   axios({
@@ -48,6 +51,26 @@ function Genre() {
         const res = response.data;
         console.log(res);
         setGenreData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function getPersonImageLink() {
+    axios({
+      method: "POST",
+      url: "/image-link/",
+      data: { person_name: personName },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setPersonImageLinkData(res);
       })
       .catch((error) => {
         if (error.response) {
@@ -119,6 +142,13 @@ function Genre() {
           {genreData2 && (
             <div>
               <p>{JSON.stringify(genreData2)}</p>
+            </div>
+          )}
+          <p>Test call to db for person image link results: </p>
+          <button onClick={getPersonImageLink}>Click me</button>
+          {personImageLinkData && (
+            <div>
+              <p>{JSON.stringify(personImageLinkData)}</p>
             </div>
           )}
         </Box>
