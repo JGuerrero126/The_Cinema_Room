@@ -2,12 +2,17 @@ from pymongo import MongoClient
 from flask import Flask
 from flask import request
 from bson.json_util import dumps
-from tmdb_key import tmdb_key
+# from tmdb_key import tmdb_key
+from dotenv import load_dotenv
 import urllib.request
 import urllib.parse
 import json
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
+tmdb_key = os.getenv("TMDB_KEY")
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.six_three_db
