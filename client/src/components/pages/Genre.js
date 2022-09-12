@@ -82,6 +82,10 @@ function Genre() {
   }
 
   // useEffect(() => {
+  //   getPersonImageLink();
+  // }, []);
+
+  // useEffect(() => {
   //   getGenre();
   // }, []);
 
