@@ -43,7 +43,7 @@ def actor(person_id):
       "role": appearance['role'],
       "id": appearance['id'],
       "title": movie[0]['title'],
-      "rating": movie[0]['imdb_score'],
+      # "rating": movie[0]['imdb_score'],
       "release_year": movie[0]['release_year'],
       # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
       # "person_id": actor['person_id'],
@@ -74,10 +74,10 @@ def movie(id):
     print(actor)
     details = {
       "name": actor['name'],
-      # "character": actor['character'],
-      # "role": actor['role'],
-      # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-      # "person_id": actor['person_id'],
+      "character": actor['character'],
+      "role": actor['role'],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
+      "person_id": actor['person_id'],
     }
     actor_array.append(details)
 
