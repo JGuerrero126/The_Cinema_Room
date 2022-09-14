@@ -74,9 +74,38 @@ function Home() {
 
   return (
     <div>
-      <Heading fontSize="2rem">This is the Home Page.</Heading>
+      <Heading fontSize="2rem">
+        Here's all the Genres you can look through!
+      </Heading>
       <Text fontSize="2rem">This is the Home Page.</Text>
-      <Link fontSize="1.5rem" href="/genres/test">
+      <Flex flexWrap="wrap" justify="center">
+        {genres
+          ? genres.map((element) => {
+              return (
+                <div>
+                  <Box
+                    key={element}
+                    // border="0.5rem groove grey"
+                    // bg="lightblue"
+                    fontSize="1.25rem"
+                    w="10rem"
+                    h="5rem"
+                  >
+                    <Link
+                      href={"/genres/" + element.replace(/-/, "").toLowerCase()}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
+                    >
+                      <Text>{element}</Text>
+                    </Link>
+                  </Box>
+                </div>
+              );
+            })
+          : []}
+      </Flex>
+      {/* <Link fontSize="1.5rem" href="/genres/test">
         Click Here to go the Genre Page.
       </Link>
       <p>Test call to db for "profile": </p>
@@ -115,7 +144,7 @@ function Home() {
               );
             })
           : []}
-      </Flex>
+      </Flex> */}
     </div>
   );
 }

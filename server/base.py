@@ -1,8 +1,18 @@
 from pymongo import MongoClient
 from flask import Flask
+from flask import request
 from bson.json_util import dumps
+# from tmdb_key import tmdb_key
+from dotenv import load_dotenv
+import urllib.request
+import urllib.parse
+import json
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
+tmdb_key = os.getenv("TMDB_KEY")
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.six_three_db
@@ -33,7 +43,7 @@ def actor(person_id):
       "role": appearance['role'],
       "id": appearance['id'],
       "title": movie[0]['title'],
-      "rating": movie[0]['imdb_score'],
+      # "rating": movie[0]['imdb_score'],
       "release_year": movie[0]['release_year'],
       # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
       # "person_id": actor['person_id'],
@@ -64,10 +74,10 @@ def movie(id):
     print(actor)
     details = {
       "name": actor['name'],
-      # "character": actor['character'],
-      # "role": actor['role'],
-      # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-      # "person_id": actor['person_id'],
+      "character": actor['character'],
+      "role": actor['role'],
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
+      "person_id": actor['person_id'],
     }
     actor_array.append(details)
 
@@ -105,6 +115,59 @@ def genres(genre):
     response_body.append(details)
 
   print(response_body)
+
+  return response_body
+
+# @app.route('/image-link/')
+# def image_link():
+  
+#   print('image_link')
+
+#   tmdb_actor_api_search_link = 'https://api.themoviedb.org/3/search/person?api_key=00a308902ce2ba616113f87123c4793f&language=en-US&query=Jody%20Foster&page=1&include_adult=false'
+#   # tmdb_actor_api_search_link = f'https://api.themoviedb.org/3/person/3?api_key={tmdb_key}&language=en-US'
+
+#   print(tmdb_actor_api_search_link)
+
+#   with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
+#     res = response.read()
+#     print(json.loads(res))
+#     print(json.loads(res)['results'][0]['profile_path'])
+#     path_suffix = json.loads(res)['results'][0]['profile_path']
+
+#   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+
+#   print(image_link)
+
+#   response_body = image_link
+
+#   return response_body
+
+@app.route('/image-link/', methods = ['POST'])
+def image_link():
+  
+  print('image_link')
+
+  person_name = request.get_json()['person_name']
+
+  print(person_name)
+
+  url_parsed_person_name = urllib.parse.quote(person_name)
+
+  tmdb_actor_api_search_link = f'https://api.themoviedb.org/3/search/person?api_key={tmdb_key}&language=en-US&query={url_parsed_person_name}&page=1&include_adult=false'
+
+  print(tmdb_actor_api_search_link)
+
+  with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
+    res = response.read()
+    print(json.loads(res))
+    print(json.loads(res)['results'][0]['profile_path'])
+    path_suffix = json.loads(res)['results'][0]['profile_path']
+
+  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+
+  print(image_link)
+
+  response_body = image_link
 
   return response_body
 
