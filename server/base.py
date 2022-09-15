@@ -2,7 +2,6 @@ from pymongo import MongoClient
 from flask import Flask
 from flask import request
 from bson.json_util import dumps
-# from tmdb_key import tmdb_key
 from dotenv import load_dotenv
 import urllib.request
 import urllib.parse
@@ -118,31 +117,7 @@ def genres(genre):
 
   return response_body
 
-# @app.route('/image-link/')
-# def image_link():
-  
-#   print('image_link')
-
-#   tmdb_actor_api_search_link = 'https://api.themoviedb.org/3/search/person?api_key=00a308902ce2ba616113f87123c4793f&language=en-US&query=Jody%20Foster&page=1&include_adult=false'
-#   # tmdb_actor_api_search_link = f'https://api.themoviedb.org/3/person/3?api_key={tmdb_key}&language=en-US'
-
-#   print(tmdb_actor_api_search_link)
-
-#   with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
-#     res = response.read()
-#     print(json.loads(res))
-#     print(json.loads(res)['results'][0]['profile_path'])
-#     path_suffix = json.loads(res)['results'][0]['profile_path']
-
-#   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
-
-#   print(image_link)
-
-#   response_body = image_link
-
-#   return response_body
-
-@app.route('/image-link/', methods = ['POST'])
+@app.route('/person-image-link/', methods = ['POST'])
 def image_link():
   
   print('image_link')
@@ -162,6 +137,35 @@ def image_link():
     print(json.loads(res))
     print(json.loads(res)['results'][0]['profile_path'])
     path_suffix = json.loads(res)['results'][0]['profile_path']
+
+  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+
+  print(image_link)
+
+  response_body = image_link
+
+  return response_body
+
+@app.route('/movie-poster-link/', methods = ['POST'])
+def poster_link():
+  
+  print('poster_link')
+
+  movie_name = request.get_json()['movie_name']
+
+  print(movie_name)
+
+  url_parsed_movie_name = urllib.parse.quote(movie_name)
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/search/movie?api_key={tmdb_key}&language=en-US&query={url_parsed_movie_name}&page=1&include_adult=false'
+
+  print(tmdb_movie_api_search_link)
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+    print(json.loads(res))
+    print(json.loads(res)['results'][0]['poster_path'])
+    path_suffix = json.loads(res)['results'][0]['poster_path']
 
   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
 
