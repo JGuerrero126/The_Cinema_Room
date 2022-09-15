@@ -13,31 +13,9 @@ import axios from "axios";
 import { useParams } from "react-router";
 
 function Actor() {
-  const [actorData2, setActorData2] = useState(null);
   const [actorData, setActorData] = useState(null);
+  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { actor } = useParams();
-  // const actor = "1549";
-
-  // function getData() {
-  //   axios({
-  //     method: "GET",
-  //     url: "/profile",
-  //   })
-  //     .then((response) => {
-  //       const res = response.data;
-  //       setActorData2({
-  //         profile_name: res.name,
-  //         about_me: res.about,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         console.log(error.response);
-  //         console.log(error.response.status);
-  //         console.log(error.response.headers);
-  //       }
-  //     });
-  // }
 
   function getActor() {
     console.log("actor is:");
@@ -48,7 +26,7 @@ function Actor() {
     })
       .then((response) => {
         const res = response.data;
-        setActorData2({
+        setActorData({
           name: res.name,
           character: res.character,
           appearances_array: res.appearances_array,
@@ -63,74 +41,49 @@ function Actor() {
       });
   }
 
+  function getPersonImageLink(target) {
+    axios({
+      method: "POST",
+      url: "/person-image-link/",
+      data: { person_name: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setPersonImageLinkData(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
     getActor();
   }, []);
 
-  // useEffect(() => {
-  //   setActorData([
-  //     {
-  //       title: "RoboCop",
-  //       genres: ["Action", "Drama"],
-  //       rating: 10,
-  //       release_year: 1987,
-  //       poster:
-  //         "https://m.media-amazon.com/images/M/MV5BZWVlYzU2ZjQtZmNkMi00OTc3LTkwZmYtZDVjNmY4OWFmZGJlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX917_.jpg",
-  //       id: "tm123456",
-  //     },
-  //     {
-  //       title: "Naked Lunch",
-  //       genres: ["Drama"],
-  //       rating: 10,
-  //       release_year: 1991,
-  //       poster:
-  //         "https://m.media-amazon.com/images/M/MV5BMTRiOTQ2ZWQtMmIwYy00Y2Y3LWFmMzgtNzgzZWU1MDhlOGJhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX719_.jpg",
-  //       id: "tm1234567",
-  //     },
-  //     {
-  //       title: "RoboCop 2",
-  //       genres: ["Action", "Crime"],
-  //       rating: 10,
-  //       release_year: 1990,
-  //       poster:
-  //         "https://m.media-amazon.com/images/M/MV5BZWQ1YjQ3ZTAtN2VlMC00YTllLTk3ZmEtNDlmNzg4ZGM1ODhjXkEyXkFqcGdeQXVyNDQ2MTMzODA@._V1_FMjpg_UX355_.jpg",
-  //       id: "tm1234568",
-  //     },
-  //     {
-  //       title: "The Adventures of Buckaroo Banzai Across the 8th Dimension",
-  //       genres: ["Adventure", "Comedy"],
-  //       rating: 10,
-  //       release_year: 1984,
-  //       poster:
-  //         "https://m.media-amazon.com/images/M/MV5BMmE1OWZjYjctYzZlNi00YmEyLTg4YWYtZDc4NTE2ODZlYzhhXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_.jpg",
-  //       id: "tm1234569",
-  //     },
-  //   ]);
-  // }, []);
-
-  // console.log(actor);
+  useEffect(() => {
+    if (actorData !== null) {
+      getPersonImageLink(actorData.name);
+    }
+  }, [actorData]);
 
   return (
     <div>
-      {actorData2 && (
+      {actorData && (
         <div>
-          <Heading fontSize="2rem">{actorData2.name}</Heading>
+          <Heading fontSize="2rem">{actorData.name}</Heading>
         </div>
       )}
       <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
         <Box>
-          {actorData2
-            ? actorData2.appearances_array.map((element) => {
+          {actorData
+            ? actorData.appearances_array.map((element) => {
                 return (
                   <Container centerContent key={element.id}>
-                    {/* <SimpleGrid columns={2}> */}
-                    {/* <Box
-                      border="0.5rem groove grey"
-                      bg="lightblue"
-                      fontSize="1.5rem"
-                      w="20rem"
-                      h="20rem"
-                    > */}
                     <Link
                       href={"/movies/" + element.id}
                       color="black"
@@ -139,49 +92,28 @@ function Actor() {
                     >
                       <Text>Movie: {element.title}</Text>
                       <Text>Character: {element.character}</Text>
-                      {/* <Text>Main Genre: {element.genres[0]}</Text> */}
-                      {/* <Text>Rating: {element.rating}</Text> */}
                       <Text>Release Year: {element.release_year}</Text>
                     </Link>
-                    {/* </Box> */}
-                    {/* <Box
-                    w="25rem"
-                    borderWidth="1rem"
-                    borderRadius="md"
-                    borderColor="gray"
-                    borderStyle="groove"
-                  >
-                    <Image
-                      w="100%"
-                      h="100%"
-                      src={element.poster}
-                      fallbackSrc="https://via.placeholder.com/325x500.png"
-                    />
-                  </Box> */}
-                    {/* </SimpleGrid> */}
                   </Container>
                 );
               })
             : []}
-          {/* <Link fontSize="1.5rem" href="/movies/test">
-            Click Here to go back to the Movie Page.
-          </Link> */}
           <Divider border="null" w="80%" />
           <p>Test call to db for "profile": </p>
           <button onClick={getActor}>Click me</button>
-          {actorData2 && (
+          {actorData && (
             <div>
-              <p>Name: {actorData2.name}</p>
+              <p>Name: {actorData.name}</p>
               <p>
                 Appearances Array:
-                {JSON.stringify(actorData2.appearances_array)}
+                {JSON.stringify(actorData.appearances_array)}
               </p>
-              {/* <p>Character: {actorData2.character}</p> */}
             </div>
           )}
         </Box>
         <Box
           w="85%"
+          h="min-content"
           borderWidth="1rem"
           borderRadius="md"
           borderColor="gray"
@@ -190,58 +122,11 @@ function Actor() {
           <Image
             w="100%"
             h="100%"
-            src="https://m.media-amazon.com/images/M/MV5BMTQzMjkwNTQ2OF5BMl5BanBnXkFtZTgwNTQ4MTQ4MTE@._V1_.jpg"
+            src={personImageLinkData ? personImageLinkData : ""}
             fallbackSrc="https://via.placeholder.com/325x500.png"
           />
         </Box>
       </SimpleGrid>
-      {/* <Divider border="null" w="80%" />
-      <Text fontSize="1.5rem" color="red">
-        Below this is the dynamic data test, it may look strange.
-      </Text>
-      {actorData
-        ? actorData.map((element) => {
-            return (
-              <Container centerContent key={element.id}>
-                <SimpleGrid columns={2}>
-                  <Box
-                    border="0.5rem groove grey"
-                    bg="lightblue"
-                    fontSize="1.5rem"
-                    w="20rem"
-                    h="20rem"
-                  >
-                    <Link
-                      href={"/movies/" + element.id}
-                      color="black"
-                      textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
-                    >
-                      <Text>Movie: {element.title}</Text>
-                      <Text>Main Genre: {element.genres[0]}</Text>
-                      <Text>Rating: {element.rating}</Text>
-                      <Text>Release Year: {element.release_year}</Text>
-                    </Link>
-                  </Box>
-                  <Box
-                    w="25rem"
-                    borderWidth="1rem"
-                    borderRadius="md"
-                    borderColor="gray"
-                    borderStyle="groove"
-                  >
-                    <Image
-                      w="100%"
-                      h="100%"
-                      src={element.poster}
-                      fallbackSrc="https://via.placeholder.com/325x500.png"
-                    />
-                  </Box>
-                </SimpleGrid>
-              </Container>
-            );
-          })
-        : []} */}
     </div>
   );
 }
