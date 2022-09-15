@@ -17,9 +17,11 @@ function Genre() {
   const [genreData, setGenreData] = useState(null);
   const [genreData2, setGenreData2] = useState(null);
   const [personImageLinkData, setPersonImageLinkData] = useState(null);
+  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
 
   const personName = "Harrison Ford";
+  const movieName = "Taxi Driver";
 
   // function getData() {
   //   axios({
@@ -64,7 +66,7 @@ function Genre() {
   function getPersonImageLink() {
     axios({
       method: "POST",
-      url: "/image-link/",
+      url: "/person-image-link/",
       data: { person_name: personName },
     })
       .then((response) => {
@@ -81,8 +83,32 @@ function Genre() {
       });
   }
 
+  function getMoviePosterLink() {
+    axios({
+      method: "POST",
+      url: "/movie-poster-link/",
+      data: { movie_name: movieName },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMoviePosterLinkData(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
     getPersonImageLink();
+  }, []);
+
+  useEffect(() => {
+    getMoviePosterLink();
   }, []);
 
   useEffect(() => {
@@ -196,6 +222,14 @@ function Genre() {
           {personImageLinkData && (
             <div>
               <p>{JSON.stringify(personImageLinkData)}</p>
+            </div>
+          )}
+          <Divider border="null" w="80%" />
+          <p>Test call to db for movie poster link results: </p>
+          <button onClick={getMoviePosterLink}>Click me</button>
+          {moviePosterLinkData && (
+            <div>
+              <p>{JSON.stringify(moviePosterLinkData)}</p>
             </div>
           )}
         </Box>
