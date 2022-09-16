@@ -92,32 +92,37 @@ function Movie() {
               <p>Release Year: {movieData.release_year}</p>
             </div>
           )}
-          {movieData
-            ? movieData.actor_array.map((element) => {
-                console.log(element);
-                return (
-                  <Container centerContent key={element.person_id}>
-                    <Link
-                      href={"/actors/" + element.person_id}
-                      color="black"
-                      textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
-                    >
-                      {element.role === "ACTOR" ? (
-                        <div>
-                          <Text>Actor: {element.name}</Text>
-                          <Text>Character: {element.character}</Text>
-                        </div>
-                      ) : (
-                        <div>
-                          <Text>Director: {element.name}</Text>
-                        </div>
-                      )}
-                    </Link>
-                  </Container>
-                );
-              })
-            : []}
+          <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
+            {movieData
+              ? movieData.actor_array.map((element) => {
+                  console.log(element);
+                  return (
+                    <Container centerContent key={element.person_id}>
+                      <Link
+                        href={"/actors/" + element.person_id}
+                        color="black"
+                        textDecoration="none"
+                        _hover={{ color: "red", textDecoration: "underline" }}
+                      >
+                        {element.role === "ACTOR" ? (
+                          <div>
+                            <Text>
+                              Actor: {element.name}
+                              <br />
+                              Character: {element.character}
+                            </Text>
+                          </div>
+                        ) : (
+                          <div>
+                            <Text>Director: {element.name}</Text>
+                          </div>
+                        )}
+                      </Link>
+                    </Container>
+                  );
+                })
+              : []}
+          </SimpleGrid>
           <Link fontSize="1.5rem" href="/actors/test">
             Click here to go to the Actor Page.
           </Link>
