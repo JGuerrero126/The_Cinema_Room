@@ -26,6 +26,7 @@ function Actor() {
     })
       .then((response) => {
         const res = response.data;
+        console.log(res);
         setActorData({
           name: res.name,
           character: res.character,
@@ -90,9 +91,19 @@ function Actor() {
                       textDecoration="none"
                       _hover={{ color: "red", textDecoration: "underline" }}
                     >
-                      <Text>Movie: {element.title}</Text>
-                      <Text>Character: {element.character}</Text>
-                      <Text>Release Year: {element.release_year}</Text>
+                      <Text>
+                        Movie: {element.title}
+                        <br />
+                        Release Year: {element.release_year}
+                        <br />
+                        Role: {element.role}
+                        <br />{" "}
+                        {element.role === "ACTOR" ? (
+                          <span>Character: {element.character}</span>
+                        ) : (
+                          ""
+                        )}
+                      </Text>
                     </Link>
                   </Container>
                 );
@@ -113,7 +124,8 @@ function Actor() {
         </Box>
         <Box
           w="85%"
-          h="min-content"
+          // h="min-content"
+          bg="black"
           borderWidth="1rem"
           borderRadius="md"
           borderColor="gray"
