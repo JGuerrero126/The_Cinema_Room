@@ -123,21 +123,7 @@ function Movie() {
                 })
               : []}
           </SimpleGrid>
-          <Link fontSize="1.5rem" href="/actors/test">
-            Click here to go to the Actor Page.
-          </Link>
-          <p>Test call to db for movie: </p>
-          <button onClick={getData}>Click me</button>
-          {movieData2 && (
-            <div>
-              <p>Title: {movieData2.title}</p>
-              <p>Genres: {movieData2.genres}</p>
-              <p>Rating: {movieData2.rating}</p>
-              <p>Description: {movieData2.description}</p>
-              <p>Release Year: {movieData2.release_year}</p>
-              <p>Actor Array: {JSON.stringify(movieData2.actor_array)}</p>
-            </div>
-          )}
+          <Divider border="null" w="80%" />
         </Box>
         <Box
           w="85%"

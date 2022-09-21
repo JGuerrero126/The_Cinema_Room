@@ -110,21 +110,10 @@ function Actor() {
               })
             : []}
           <Divider border="null" w="80%" />
-          <p>Test call to db for "profile": </p>
-          <button onClick={getActor}>Click me</button>
-          {actorData && (
-            <div>
-              <p>Name: {actorData.name}</p>
-              <p>
-                Appearances Array:
-                {JSON.stringify(actorData.appearances_array)}
-              </p>
-            </div>
-          )}
         </Box>
         <Box
           w="85%"
-          // h="min-content"
+          h="min-content"
           bg="black"
           borderWidth="1rem"
           borderRadius="md"

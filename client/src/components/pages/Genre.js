@@ -122,21 +122,6 @@ function Genre() {
               })
             : []}
           <Divider border="null" w="80%" />
-          <p>Test call to db for person image link results: </p>
-          <button onClick={getPersonImageLink}>Click me</button>
-          {personImageLinkData && (
-            <div>
-              <p>{JSON.stringify(personImageLinkData)}</p>
-            </div>
-          )}
-          <Divider border="null" w="80%" />
-          <p>Test call to db for movie poster link results: </p>
-          <button onClick={getMoviePosterLink}>Click me</button>
-          {moviePosterLinkData && (
-            <div>
-              <p>{JSON.stringify(moviePosterLinkData)}</p>
-            </div>
-          )}
         </Box>
         <Box
           w="85%"
