@@ -26,6 +26,7 @@ function Actor() {
     })
       .then((response) => {
         const res = response.data;
+        console.log(res);
         setActorData({
           name: res.name,
           character: res.character,
@@ -90,30 +91,30 @@ function Actor() {
                       textDecoration="none"
                       _hover={{ color: "red", textDecoration: "underline" }}
                     >
-                      <Text>Movie: {element.title}</Text>
-                      <Text>Character: {element.character}</Text>
-                      <Text>Release Year: {element.release_year}</Text>
+                      <Text>
+                        Movie: {element.title}
+                        <br />
+                        Release Year: {element.release_year}
+                        <br />
+                        Role: {element.role}
+                        <br />{" "}
+                        {element.role === "ACTOR" ? (
+                          <span>Character: {element.character}</span>
+                        ) : (
+                          ""
+                        )}
+                      </Text>
                     </Link>
                   </Container>
                 );
               })
             : []}
           <Divider border="null" w="80%" />
-          <p>Test call to db for "profile": </p>
-          <button onClick={getActor}>Click me</button>
-          {actorData && (
-            <div>
-              <p>Name: {actorData.name}</p>
-              <p>
-                Appearances Array:
-                {JSON.stringify(actorData.appearances_array)}
-              </p>
-            </div>
-          )}
         </Box>
         <Box
           w="85%"
           h="min-content"
+          bg="black"
           borderWidth="1rem"
           borderRadius="md"
           borderColor="gray"
