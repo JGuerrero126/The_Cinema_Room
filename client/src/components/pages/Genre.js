@@ -8,9 +8,11 @@ import {
   Image,
   Divider,
   Container,
+  Button,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { BsCardList } from "react-icons/bs";
 
 function Genre() {
   const [genreData, setGenreData] = useState(null);
@@ -18,6 +20,7 @@ function Genre() {
   const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
+  const [movieList, setMovieList] = useState(null);
 
   const personName = "Harrison Ford";
   const movieName = "Taxi Driver";
@@ -71,6 +74,26 @@ function Genre() {
         const res = response.data;
         console.log(res);
         setMoviePosterLinkData(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function getMovies(target) {
+    axios({
+      method: "GET",
+      url: "/genre-movies/" + target,
+      // data: { genre_target: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMovieList(res);
       })
       .catch((error) => {
         if (error.response) {
@@ -139,6 +162,38 @@ function Genre() {
           />
         </Box>
       </SimpleGrid>
+      <Divider border="null" w="80%" />
+      <Button leftIcon={<BsCardList />} onClick={() => getMovies(36)}>
+        Test TMDB Movie List For History
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getMovies(28)}>
+        Test TMDB Movie List For Action
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getMovies(27)}>
+        Test TMDB Movie List For Horror
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getMovies(16)}>
+        Test TMDB Movie List For Animation
+      </Button>
+      {movieList
+        ? movieList.map((element) => {
+            return (
+              <div>
+                <Box
+                  border="0.5rem solid black"
+                  bg="lightcoral"
+                  mr="auto"
+                  ml="auto"
+                  mb="1rem"
+                  w="30rem"
+                >
+                  <Text>Movie Title: {element.title}</Text>
+                  <Text>Overview: {element.overview}</Text>
+                </Box>
+              </div>
+            );
+          })
+        : []}
     </div>
   );
 }

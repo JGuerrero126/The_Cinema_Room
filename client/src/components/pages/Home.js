@@ -1,32 +1,40 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Text, Heading, Link, Divider, Box, Flex } from "@chakra-ui/react";
+import {
+  Text,
+  Heading,
+  Link,
+  Divider,
+  Box,
+  Flex,
+  Button,
+} from "@chakra-ui/react";
 import axios from "axios";
+import { BsCardList } from "react-icons/bs";
 
 function Home() {
   // const [profileData, setProfileData] = useState(null);
   const [genres, setGenres] = useState(null);
+  const [genrelist, setGenreList] = useState(null);
 
-  // function getData() {
-  //   axios({
-  //     method: "GET",
-  //     url: "/profile",
-  //   })
-  //     .then((response) => {
-  //       const res = response.data;
-  //       setProfileData({
-  //         profile_name: res.name,
-  //         about_me: res.about,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         console.log(error.response);
-  //         console.log(error.response.status);
-  //         console.log(error.response.headers);
-  //       }
-  //     });
-  // }
+  function getData() {
+    axios({
+      method: "GET",
+      url: "/genre-list-link/",
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setGenreList(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
 
   useEffect(() => {
     setGenres([
@@ -76,6 +84,21 @@ function Home() {
             })
           : []}
       </Flex>
+      <Divider border="null" w="80%" />
+      <Button leftIcon={<BsCardList />} onClick={() => getData()}>
+        Test TMDB Genre List
+      </Button>
+      {genrelist
+        ? genrelist.map((element) => {
+            return (
+              <div>
+                <Link href={"/genres/" + element.id}>
+                  <Text>{element.name}</Text>
+                </Link>
+              </div>
+            );
+          })
+        : []}
     </div>
   );
 }
