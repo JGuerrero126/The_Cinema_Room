@@ -8,15 +8,18 @@ import {
   Image,
   Divider,
   Container,
+  Button,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { BsCardList } from "react-icons/bs";
 
 function Movie() {
   const [movieData2, setMovieData2] = useState(null);
   const [movieData, setMovieData] = useState(null);
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { movie } = useParams();
+  const [movieCredits, setMovieCredits] = useState(null);
 
   function getData() {
     console.log("movie is:");
@@ -65,6 +68,26 @@ function Movie() {
       });
   }
 
+  function getCredits(target) {
+    console.log("STARTING THE REQUEST");
+    axios({
+      method: "GET",
+      url: "/movie-credits/" + target,
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMovieCredits(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -95,7 +118,7 @@ function Movie() {
           <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
             {movieData
               ? movieData.actor_array.map((element) => {
-                  console.log(element);
+                  // console.log(element);
                   return (
                     <Container centerContent key={element.person_id}>
                       <Link
@@ -141,6 +164,80 @@ function Movie() {
           />
         </Box>
       </SimpleGrid>
+      <Divider border="null" w="80%" />
+      <Button leftIcon={<BsCardList />} onClick={() => getCredits(155)}>
+        Test TMDB Credits for The Dark Knight
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getCredits(346)}>
+        Test TMDB Credits for Seven Samurai
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getCredits(324857)}>
+        Test TMDB Credits for Spider-Man: Into the Spider-Verse
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getCredits(1891)}>
+        Test TMDB Credits for Star Wars: The Empire Strikes Back
+      </Button>
+      {movieCredits ? (
+        <div>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Actor: {movieCredits.cast[0].name}</Text>
+            <Text>Character: {movieCredits.cast[0].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Actor: {movieCredits.cast[1].name}</Text>
+            <Text>Character: {movieCredits.cast[1].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Actor: {movieCredits.cast[2].name}</Text>
+            <Text>Character: {movieCredits.cast[2].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Actor: {movieCredits.cast[3].name}</Text>
+            <Text>Character: {movieCredits.cast[3].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Actor: {movieCredits.cast[4].name}</Text>
+            <Text>Character: {movieCredits.cast[4].character}</Text>
+          </Box>
+        </div>
+      ) : (
+        []
+      )}
     </div>
   );
 }

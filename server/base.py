@@ -175,5 +175,79 @@ def poster_link():
 
   return response_body
 
+@app.route('/genre-list-link/', methods = ['GET'])
+def genre_link():
+  
+  print('GETTING LIST OF GENRES')
+
+  tmdb_genre_list = f'https://api.themoviedb.org/3/genre/movie/list?api_key={tmdb_key}&language=en-US'
+
+  print(tmdb_genre_list)
+
+  with urllib.request.urlopen(tmdb_genre_list) as response:
+    res = response.read()
+    print(json.loads(res))
+
+  response_body = json.loads(res)['genres']
+
+  return response_body
+
+@app.route('/genre-movies/<target>', methods = ['GET'])
+def genre_movies(target):
+  
+  print('GETTING LIST OF MOVIES IN GENRE')
+  print(target)
+
+  # tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&include_adult=false&include_video=false&page=1&with_genres={target}'
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_genres={target}'
+
+  print(tmdb_movie_api_search_link)
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+    print(json.loads(res))
+
+  response_body = (json.loads(res))['results']
+
+  return response_body
+
+@app.route('/movie-credits/<target>', methods = ['GET'])
+def movie_credits(target):
+  
+  print('GETTING CREDITS FOR MOVIE')
+  print(target)
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{target}/credits?api_key={tmdb_key}&language=en-US'
+
+  print(tmdb_movie_api_search_link)
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+    print(json.loads(res))
+
+  response_body = (json.loads(res))
+
+  return response_body
+
+@app.route('/actor-appearances/<target>', methods = ['GET'])
+def actor_appearances(target):
+  
+  print('GETTING APPEARANCES FOR ACTOR')
+  print(target)
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/person/{target}/movie_credits?api_key={tmdb_key}&language=en-US'
+
+  print(tmdb_movie_api_search_link)
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+    print(json.loads(res))
+
+  response_body = (json.loads(res))
+
+  return response_body
+
+
 if __name__ == "__main__":
   app.run(debug=True)

@@ -8,14 +8,17 @@ import {
   Image,
   Divider,
   Container,
+  Button,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { BsCardList } from "react-icons/bs";
 
 function Actor() {
   const [actorData, setActorData] = useState(null);
   const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { actor } = useParams();
+  const [actorAppearances, setActorAppearances] = useState(null);
 
   function getActor() {
     console.log("actor is:");
@@ -52,6 +55,25 @@ function Actor() {
         const res = response.data;
         console.log(res);
         setPersonImageLinkData(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function getAppearances(target) {
+    axios({
+      method: "GET",
+      url: "/actor-appearances/" + target,
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setActorAppearances(res);
       })
       .catch((error) => {
         if (error.response) {
@@ -128,6 +150,80 @@ function Actor() {
           />
         </Box>
       </SimpleGrid>
+      <Divider border="null" w="80%" />
+      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(3894)}>
+        Test TMDB Appearances for Christian Bale
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(7450)}>
+        Test TMDB Appearances for Toshiro Mifune
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(2)}>
+        Test TMDB Appearances for Mark Hamill
+      </Button>
+      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(587506)}>
+        Test TMDB Appearances for Shameik Moore
+      </Button>
+      {actorAppearances ? (
+        <div>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Movie Title: {actorAppearances.cast[0].title}</Text>
+            <Text>Character: {actorAppearances.cast[0].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Movie Title: {actorAppearances.cast[1].title}</Text>
+            <Text>Character: {actorAppearances.cast[1].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Movie Title: {actorAppearances.cast[2].title}</Text>
+            <Text>Character: {actorAppearances.cast[2].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Movie Title: {actorAppearances.cast[3].title}</Text>
+            <Text>Character: {actorAppearances.cast[3].character}</Text>
+          </Box>
+          <Box
+            border="0.5rem solid black"
+            bg="lightcoral"
+            mr="auto"
+            ml="auto"
+            mb="1rem"
+            w="15rem"
+          >
+            <Text>Movie Title: {actorAppearances.cast[4].title}</Text>
+            <Text>Character: {actorAppearances.cast[4].character}</Text>
+          </Box>
+        </div>
+      ) : (
+        []
+      )}
     </div>
   );
 }
