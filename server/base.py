@@ -250,10 +250,7 @@ def actor_appearances(target):
   return response_body
 
 
-<<<<<<< HEAD
-    return response_body
+  return response_body
 
-=======
->>>>>>> main
 if __name__ == "__main__":
   app.run(debug=True)
