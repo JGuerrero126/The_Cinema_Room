@@ -1,2 +1,5 @@
 node_modules
 server/venv
+server/__pycache__
+server/tmdb_key.py
+.env

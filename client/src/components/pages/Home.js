@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Text, Heading, Link } from "@chakra-ui/react";
+import {
+  Text,
+  Heading,
+  Link,
+  Divider,
+  Box,
+  Flex,
+  Button,
+} from "@chakra-ui/react";
 import axios from "axios";
+import { BsCardList } from "react-icons/bs";
 
 function Home() {
-  const [profileData, setProfileData] = useState(null);
+  // const [profileData, setProfileData] = useState(null);
+  const [genres, setGenres] = useState(null);
+  const [genrelist, setGenreList] = useState(null);
 
   function getData() {
     axios({
       method: "GET",
-      url: "/profile",
+      url: "/genre-list-link/",
     })
       .then((response) => {
         const res = response.data;
-        setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-        });
+        console.log(res);
+        setGenreList(res);
       })
       .catch((error) => {
         if (error.response) {
@@ -27,21 +36,69 @@ function Home() {
       });
   }
 
+  useEffect(() => {
+    setGenres([
+      "Action",
+      "Animation",
+      "Comedy",
+      "Crime",
+      "Documentation",
+      "Drama",
+      "Family",
+      "Fantasy",
+      "Horror",
+      "Music",
+      "Reality",
+      "Romance",
+      "Sci-Fi",
+      "Sport",
+      "Thriller",
+      "War",
+      "Western",
+    ]);
+  }, []);
+
   return (
     <div>
-      <Heading fontSize="2rem">This is the Home Page.</Heading>
+      <Heading fontSize="2rem">
+        Here's all the Genres you can look through!
+      </Heading>
       <Text fontSize="2rem">This is the Home Page.</Text>
-      <Link fontSize="1.5rem" href="/genres/test">
-        Click Here to go the Genre Page.
-      </Link>
-      <p>Test call to db for "profile": </p>
-      <button onClick={getData}>Click me</button>
-      {profileData && (
-        <div>
-          <p>Profile name: {profileData.profile_name}</p>
-          <p>About me: {profileData.about_me}</p>
-        </div>
-      )}
+      <Flex flexWrap="wrap" justify="center">
+        {genres
+          ? genres.map((element) => {
+              return (
+                <div>
+                  <Box key={element} fontSize="1.25rem" w="10rem" h="5rem">
+                    <Link
+                      href={"/genres/" + element.replace(/-/, "").toLowerCase()}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
+                    >
+                      <Text>{element}</Text>
+                    </Link>
+                  </Box>
+                </div>
+              );
+            })
+          : []}
+      </Flex>
+      <Divider border="null" w="80%" />
+      <Button leftIcon={<BsCardList />} onClick={() => getData()}>
+        Test TMDB Genre List
+      </Button>
+      {genrelist
+        ? genrelist.map((element) => {
+            return (
+              <div>
+                <Link href={"/genres/" + element.id}>
+                  <Text>{element.name}</Text>
+                </Link>
+              </div>
+            );
+          })
+        : []}
     </div>
   );
 }
