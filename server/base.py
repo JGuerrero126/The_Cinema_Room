@@ -31,23 +31,28 @@ def actor(person_id):
 
   for appearance in actor:
     print(appearance)
-    movie = db.titles.find_one({'id': appearance['id']}),
-    print(movie)
-    # not clear why movie is a tuple
-    print(movie[0]['title'])
-    # print(movie['title'])
-    details = {
-      # "name": actor['name'],
-      "character": appearance['character'],
-      "role": appearance['role'],
-      "id": appearance['id'],
-      "title": movie[0]['title'],
-      # "rating": movie[0]['imdb_score'],
-      "release_year": movie[0]['release_year'],
-      # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-      # "person_id": actor['person_id'],
-    }
-    appearances_array.append(details)
+    print(appearance['id'])
+
+    # we only want to display movies; all titles that are movies have an m as the second character in their id
+    if appearance['id'][1] == "m":
+      movie = db.titles.find_one({'id': appearance['id']}),
+      print(movie)
+      # not clear why movie is a tuple
+      print(movie[0]['title'])
+      
+
+      details = {
+        # "name": actor['name'],
+        "character": appearance['character'],
+        "role": appearance['role'],
+        "id": appearance['id'],
+        "title": movie[0]['title'],
+        # "rating": movie[0]['imdb_score'],
+        "release_year": movie[0]['release_year'],
+        # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
+        # "person_id": actor['person_id'],
+      }
+      appearances_array.append(details)
 
   print(appearances_array)
 
