@@ -21,6 +21,7 @@ function Genre() {
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
   const [movieList, setMovieList] = useState(null);
+  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
 
   const personName = "Harrison Ford";
   const movieName = "Taxi Driver";
@@ -88,7 +89,6 @@ function Genre() {
     axios({
       method: "GET",
       url: "/genre-movies/" + target,
-      // data: { genre_target: target },
     })
       .then((response) => {
         const res = response.data;
@@ -104,21 +104,51 @@ function Genre() {
       });
   }
 
-  useEffect(() => {
-    getPersonImageLink();
-  }, []);
+  // useEffect(() => {
+  //   getPersonImageLink();
+  // }, []);
 
-  useEffect(() => {
-    if (genreData !== null) {
-      getMoviePosterLink(genreData[0].title);
-    }
-  }, [genreData]);
+  // useEffect(() => {
+  //   if (genreData !== null) {
+  //     getMoviePosterLink(genreData[0].title);
+  //   }
+  // }, [genreData]);
 
-  useEffect(() => {
-    getGenre();
-  }, []);
+  // useEffect(() => {
+  //   getGenre();
+  // }, []);
 
   console.log(genre);
+
+  function getMoviePosterLink2(target) {
+    axios({
+      method: "POST",
+      url: "/movie-poster-link2/",
+      data: { movie_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMoviePosterLinkData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  useEffect(() => {
+    getMovies(genre);
+  }, []);
+
+  useEffect(() => {
+    if (movieList !== null) {
+      getMoviePosterLink2(movieList[0].id);
+    }
+  }, [movieList]);
 
   return (
     <div>
@@ -163,37 +193,56 @@ function Genre() {
         </Box>
       </SimpleGrid>
       <Divider border="null" w="80%" />
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(36)}>
-        Test TMDB Movie List For History
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(28)}>
-        Test TMDB Movie List For Action
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(27)}>
-        Test TMDB Movie List For Horror
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(16)}>
-        Test TMDB Movie List For Animation
-      </Button>
-      {movieList
-        ? movieList.map((element) => {
-            return (
-              <div>
-                <Box
-                  border="0.5rem solid black"
-                  bg="lightcoral"
-                  mr="auto"
-                  ml="auto"
-                  mb="1rem"
-                  w="30rem"
-                >
-                  <Text>Movie Title: {element.title}</Text>
-                  <Text>Overview: {element.overview}</Text>
-                </Box>
-              </div>
-            );
-          })
-        : []}
+      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
+      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
+        <div>
+          {movieList
+            ? movieList.map((element) => {
+                return (
+                  <div>
+                    <Container centerContent key={element.id}>
+                      <Link
+                        href={"/movies/" + element.id}
+                        color="black"
+                        textDecoration="none"
+                        _hover={{ color: "red", textDecoration: "underline" }}
+                      >
+                        <Text>Movie Title: {element.title}</Text>
+                        <Text>
+                          Rating:
+                          <br />
+                          {element.vote_average}
+                        </Text>
+                        <Text>Overview: {element.overview}</Text>
+                        <Text>Release Date: {element.release_date}</Text>
+                      </Link>
+                    </Container>
+                  </div>
+                );
+              })
+            : []}
+        </div>
+        {moviePosterLinkData2 ? (
+          <Box
+            w="85%"
+            h="min-content"
+            bg="black"
+            borderWidth="1rem"
+            borderRadius="md"
+            borderColor="gray"
+            borderStyle="groove"
+          >
+            <Image
+              w="100%"
+              h="100%"
+              src={moviePosterLinkData2 ? moviePosterLinkData2 : ""}
+              fallbackSrc="https://via.placeholder.com/325x500.png"
+            />
+          </Box>
+        ) : (
+          ""
+        )}
+      </SimpleGrid>
     </div>
   );
 }

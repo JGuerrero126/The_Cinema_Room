@@ -58,6 +58,10 @@ function Home() {
     ]);
   }, []);
 
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <Heading fontSize="2rem">
@@ -85,20 +89,27 @@ function Home() {
           : []}
       </Flex>
       <Divider border="null" w="80%" />
-      <Button leftIcon={<BsCardList />} onClick={() => getData()}>
-        Test TMDB Genre List
-      </Button>
-      {genrelist
-        ? genrelist.map((element) => {
-            return (
-              <div>
-                <Link href={"/genres/" + element.id}>
-                  <Text>{element.name}</Text>
-                </Link>
-              </div>
-            );
-          })
-        : []}
+      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
+      <Flex flexWrap="wrap" justify="center">
+        {genrelist
+          ? genrelist.map((element) => {
+              return (
+                <div>
+                  <Box key={element} fontSize="1.25rem" w="10rem" h="5rem">
+                    <Link
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
+                      href={"/genres/" + element.id}
+                    >
+                      <Text>{element.name}</Text>
+                    </Link>
+                  </Box>
+                </div>
+              );
+            })
+          : []}
+      </Flex>
     </div>
   );
 }

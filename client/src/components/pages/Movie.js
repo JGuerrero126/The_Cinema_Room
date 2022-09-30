@@ -20,6 +20,7 @@ function Movie() {
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { movie } = useParams();
   const [movieCredits, setMovieCredits] = useState(null);
+  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
 
   function getData() {
     console.log("movie is:");
@@ -88,15 +89,45 @@ function Movie() {
       });
   }
 
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (movieData !== null) {
+  //     getMoviePosterLink(movieData.title);
+  //   }
+  // }, [movieData]);
+
+  function getMoviePosterLink2(target) {
+    axios({
+      method: "POST",
+      url: "/movie-poster-link2/",
+      data: { movie_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMoviePosterLinkData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
-    getData();
+    getCredits(movie);
   }, []);
 
   useEffect(() => {
-    if (movieData !== null) {
-      getMoviePosterLink(movieData.title);
+    if (movieCredits !== null) {
+      getMoviePosterLink2(movieCredits.id);
     }
-  }, [movieData]);
+  }, [movieCredits]);
 
   return (
     <div>
@@ -165,79 +196,105 @@ function Movie() {
         </Box>
       </SimpleGrid>
       <Divider border="null" w="80%" />
-      <Button leftIcon={<BsCardList />} onClick={() => getCredits(155)}>
-        Test TMDB Credits for The Dark Knight
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getCredits(346)}>
-        Test TMDB Credits for Seven Samurai
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getCredits(324857)}>
-        Test TMDB Credits for Spider-Man: Into the Spider-Verse
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getCredits(1891)}>
-        Test TMDB Credits for Star Wars: The Empire Strikes Back
-      </Button>
-      {movieCredits ? (
-        <div>
+      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
+      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
+        {movieCredits ? (
+          <div>
+            <Container centerContent key={movieCredits.cast[0].id}>
+              <Link
+                href={"/actors/" + movieCredits.cast[0].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Actor: {movieCredits.cast[0].name}
+                  <br />
+                  Character: {movieCredits.cast[0].character}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={movieCredits.cast[1].id}>
+              <Link
+                href={"/actors/" + movieCredits.cast[1].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Actor: {movieCredits.cast[1].name}
+                  <br />
+                  Character: {movieCredits.cast[1].character}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={movieCredits.cast[2].id}>
+              <Link
+                href={"/actors/" + movieCredits.cast[2].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Actor: {movieCredits.cast[2].name}
+                  <br />
+                  Character: {movieCredits.cast[2].character}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={movieCredits.cast[3].id}>
+              <Link
+                href={"/actors/" + movieCredits.cast[3].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Actor: {movieCredits.cast[3].name}
+                  <br />
+                  Character: {movieCredits.cast[3].character}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={movieCredits.cast[4].id}>
+              <Link
+                href={"/actors/" + movieCredits.cast[4].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Actor: {movieCredits.cast[4].name}
+                  <br />
+                  Character: {movieCredits.cast[4].character}
+                </Text>
+              </Link>
+            </Container>
+          </div>
+        ) : (
+          []
+        )}
+        {moviePosterLinkData2 ? (
           <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
+            w="85%"
+            h="min-content"
+            bg="black"
+            borderWidth="1rem"
+            borderRadius="md"
+            borderColor="gray"
+            borderStyle="groove"
           >
-            <Text>Actor: {movieCredits.cast[0].name}</Text>
-            <Text>Character: {movieCredits.cast[0].character}</Text>
+            <Image
+              w="100%"
+              h="100%"
+              src={moviePosterLinkData2 ? moviePosterLinkData2 : ""}
+              fallbackSrc="https://via.placeholder.com/325x500.png"
+            />
           </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Actor: {movieCredits.cast[1].name}</Text>
-            <Text>Character: {movieCredits.cast[1].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Actor: {movieCredits.cast[2].name}</Text>
-            <Text>Character: {movieCredits.cast[2].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Actor: {movieCredits.cast[3].name}</Text>
-            <Text>Character: {movieCredits.cast[3].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Actor: {movieCredits.cast[4].name}</Text>
-            <Text>Character: {movieCredits.cast[4].character}</Text>
-          </Box>
-        </div>
-      ) : (
-        []
-      )}
+        ) : (
+          ""
+        )}
+      </SimpleGrid>
     </div>
   );
 }

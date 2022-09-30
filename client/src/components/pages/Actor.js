@@ -19,6 +19,7 @@ function Actor() {
   const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { actor } = useParams();
   const [actorAppearances, setActorAppearances] = useState(null);
+  const [personImageLinkData2, setPersonImageLinkData2] = useState(null);
 
   function getActor() {
     console.log("actor is:");
@@ -84,15 +85,45 @@ function Actor() {
       });
   }
 
+  // useEffect(() => {
+  //   getActor();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (actorData !== null) {
+  //     getPersonImageLink(actorData.name);
+  //   }
+  // }, [actorData]);
+
+  function getPersonImageLink2(target) {
+    axios({
+      method: "POST",
+      url: "/person-image-link2/",
+      data: { person_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setPersonImageLinkData2(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
-    getActor();
+    getAppearances(actor);
   }, []);
 
   useEffect(() => {
-    if (actorData !== null) {
-      getPersonImageLink(actorData.name);
+    if (actorAppearances !== null) {
+      getPersonImageLink2(actorAppearances.id);
     }
-  }, [actorData]);
+  }, [actorAppearances]);
 
   return (
     <div>
@@ -151,79 +182,150 @@ function Actor() {
         </Box>
       </SimpleGrid>
       <Divider border="null" w="80%" />
-      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(3894)}>
-        Test TMDB Appearances for Christian Bale
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(7450)}>
-        Test TMDB Appearances for Toshiro Mifune
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(2)}>
-        Test TMDB Appearances for Mark Hamill
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getAppearances(587506)}>
-        Test TMDB Appearances for Shameik Moore
-      </Button>
-      {actorAppearances ? (
-        <div>
+      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
+      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
+        {actorAppearances ? (
+          <div>
+            <Container centerContent key={actorAppearances.cast[0].id}>
+              <Link
+                href={"/movies/" + actorAppearances.cast[0].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Movie Title: {actorAppearances.cast[0].title}
+                  <br />
+                  Character: {actorAppearances.cast[0].character}
+                </Text>
+                <Text>
+                  Rating:
+                  <br />
+                  {actorAppearances.cast[0].vote_average}
+                </Text>
+                <Text>Description: {actorAppearances.cast[0].overview}</Text>
+                <Text>
+                  Release Date: {actorAppearances.cast[0].release_date}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={actorAppearances.cast[1].id}>
+              <Link
+                href={"/movies/" + actorAppearances.cast[1].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Movie Title: {actorAppearances.cast[1].title}
+                  <br />
+                  Character: {actorAppearances.cast[1].character}
+                </Text>
+                <Text>
+                  Rating:
+                  <br />
+                  {actorAppearances.cast[1].vote_average}
+                </Text>
+                <Text>Description: {actorAppearances.cast[1].overview}</Text>
+                <Text>
+                  Release Date: {actorAppearances.cast[1].release_date}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={actorAppearances.cast[2].id}>
+              <Link
+                href={"/movies/" + actorAppearances.cast[2].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Movie Title: {actorAppearances.cast[2].title}
+                  <br />
+                  Character: {actorAppearances.cast[2].character}
+                </Text>
+                <Text>
+                  Rating:
+                  <br />
+                  {actorAppearances.cast[2].vote_average}
+                </Text>
+                <Text>Description: {actorAppearances.cast[2].overview}</Text>
+                <Text>
+                  Release Date: {actorAppearances.cast[2].release_date}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={actorAppearances.cast[3].id}>
+              <Link
+                href={"/movies/" + actorAppearances.cast[3].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Movie Title: {actorAppearances.cast[3].title}
+                  <br />
+                  Character: {actorAppearances.cast[3].character}
+                </Text>
+                <Text>
+                  Rating:
+                  <br />
+                  {actorAppearances.cast[3].vote_average}
+                </Text>
+                <Text>Description: {actorAppearances.cast[3].overview}</Text>
+                <Text>
+                  Release Date: {actorAppearances.cast[3].release_date}
+                </Text>
+              </Link>
+            </Container>
+            <Container centerContent key={actorAppearances.cast[4].id}>
+              <Link
+                href={"/movies/" + actorAppearances.cast[4].id}
+                color="black"
+                textDecoration="none"
+                _hover={{ color: "red", textDecoration: "underline" }}
+              >
+                <Text>
+                  Movie Title: {actorAppearances.cast[4].title}
+                  <br />
+                  Character: {actorAppearances.cast[4].character}
+                </Text>
+                <Text>
+                  Rating:
+                  <br />
+                  {actorAppearances.cast[4].vote_average}
+                </Text>
+                <Text>Description: {actorAppearances.cast[4].overview}</Text>
+                <Text>
+                  Release Date: {actorAppearances.cast[4].release_date}
+                </Text>
+              </Link>
+            </Container>
+          </div>
+        ) : (
+          []
+        )}
+        {personImageLinkData2 ? (
           <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
+            w="85%"
+            h="min-content"
+            bg="black"
+            borderWidth="1rem"
+            borderRadius="md"
+            borderColor="gray"
+            borderStyle="groove"
           >
-            <Text>Movie Title: {actorAppearances.cast[0].title}</Text>
-            <Text>Character: {actorAppearances.cast[0].character}</Text>
+            <Image
+              w="100%"
+              h="100%"
+              src={personImageLinkData2 ? personImageLinkData2 : ""}
+              fallbackSrc="https://via.placeholder.com/325x500.png"
+            />
           </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Movie Title: {actorAppearances.cast[1].title}</Text>
-            <Text>Character: {actorAppearances.cast[1].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Movie Title: {actorAppearances.cast[2].title}</Text>
-            <Text>Character: {actorAppearances.cast[2].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Movie Title: {actorAppearances.cast[3].title}</Text>
-            <Text>Character: {actorAppearances.cast[3].character}</Text>
-          </Box>
-          <Box
-            border="0.5rem solid black"
-            bg="lightcoral"
-            mr="auto"
-            ml="auto"
-            mb="1rem"
-            w="15rem"
-          >
-            <Text>Movie Title: {actorAppearances.cast[4].title}</Text>
-            <Text>Character: {actorAppearances.cast[4].character}</Text>
-          </Box>
-        </div>
-      ) : (
-        []
-      )}
+        ) : (
+          ""
+        )}
+      </SimpleGrid>
     </div>
   );
 }

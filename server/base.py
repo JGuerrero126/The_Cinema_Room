@@ -180,6 +180,10 @@ def poster_link():
 
   return response_body
 
+##
+## BELOW THIS ARE THE API CALLS TO THE TMDB API
+##
+
 @app.route('/genre-list-link/', methods = ['GET'])
 def genre_link():
   
@@ -187,11 +191,8 @@ def genre_link():
 
   tmdb_genre_list = f'https://api.themoviedb.org/3/genre/movie/list?api_key={tmdb_key}&language=en-US'
 
-  print(tmdb_genre_list)
-
   with urllib.request.urlopen(tmdb_genre_list) as response:
     res = response.read()
-    print(json.loads(res))
 
   response_body = json.loads(res)['genres']
 
@@ -203,15 +204,10 @@ def genre_movies(target):
   print('GETTING LIST OF MOVIES IN GENRE')
   print(target)
 
-  # tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&include_adult=false&include_video=false&page=1&with_genres={target}'
-
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_genres={target}'
-
-  print(tmdb_movie_api_search_link)
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&region=US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_genres={target}'
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
-    print(json.loads(res))
 
   response_body = (json.loads(res))['results']
 
@@ -221,15 +217,10 @@ def genre_movies(target):
 def movie_credits(target):
   
   print('GETTING CREDITS FOR MOVIE')
-  print(target)
-
   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{target}/credits?api_key={tmdb_key}&language=en-US'
-
-  print(tmdb_movie_api_search_link)
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
-    print(json.loads(res))
 
   response_body = (json.loads(res))
 
@@ -239,17 +230,51 @@ def movie_credits(target):
 def actor_appearances(target):
   
   print('GETTING APPEARANCES FOR ACTOR')
-  print(target)
 
   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/person/{target}/movie_credits?api_key={tmdb_key}&language=en-US'
 
-  print(tmdb_movie_api_search_link)
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = (json.loads(res))
+
+  return response_body
+
+@app.route('/person-image-link2/', methods = ['POST'])
+def image_link2():
+  
+  print('GETTING ACTOR IMAGE')
+
+  person_id = request.get_json()['person_id']
+
+  tmdb_actor_api_search_link = f'https://api.themoviedb.org/3/person/{person_id}/images?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
+    res = response.read()
+    path_suffix = json.loads(res)['profiles'][0]['file_path']
+
+  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+
+  response_body = image_link
+
+  return response_body
+
+@app.route('/movie-poster-link2/', methods = ['POST'])
+def poster_link2():
+  
+  print('GETTING MOVIE POSTER')
+
+  movie_id = request.get_json()['movie_id']
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/images?api_key={tmdb_key}'
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
-    print(json.loads(res))
+    path_suffix = json.loads(res)['posters'][0]['file_path']
 
-  response_body = (json.loads(res))
+  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+
+  response_body = image_link
 
   return response_body
 
