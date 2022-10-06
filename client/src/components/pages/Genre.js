@@ -6,13 +6,11 @@ import {
   SimpleGrid,
   Box,
   Image,
-  Divider,
   Container,
-  Button,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { BsCardList } from "react-icons/bs";
+import moment from "moment";
 
 function Genre() {
   const [genreData, setGenreData] = useState(null);
@@ -21,6 +19,7 @@ function Genre() {
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
   const [movieList, setMovieList] = useState(null);
+  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
 
   const personName = "Harrison Ford";
   const movieName = "Taxi Driver";
@@ -88,7 +87,6 @@ function Genre() {
     axios({
       method: "GET",
       url: "/genre-movies/" + target,
-      // data: { genre_target: target },
     })
       .then((response) => {
         const res = response.data;
@@ -104,51 +102,150 @@ function Genre() {
       });
   }
 
-  useEffect(() => {
-    getPersonImageLink();
-  }, []);
+  // useEffect(() => {
+  //   getPersonImageLink();
+  // }, []);
 
-  useEffect(() => {
-    if (genreData !== null) {
-      getMoviePosterLink(genreData[0].title);
-    }
-  }, [genreData]);
+  // useEffect(() => {
+  //   if (genreData !== null) {
+  //     getMoviePosterLink(genreData[0].title);
+  //   }
+  // }, [genreData]);
 
-  useEffect(() => {
-    getGenre();
-  }, []);
+  // useEffect(() => {
+  //   getGenre();
+  // }, []);
 
   console.log(genre);
 
+  function getMoviePosterLink2(target) {
+    axios({
+      method: "POST",
+      url: "/movie-poster-link2/",
+      data: { movie_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMoviePosterLinkData2(photoSelector(res));
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function genreName(target) {
+    switch (parseInt(target)) {
+      case 28:
+        return "Action";
+      case 12:
+        return "Adventure";
+      case 16:
+        return "Animation";
+      case 35:
+        return "Comedy";
+      case 80:
+        return "Crime";
+      case 99:
+        return "Documentary";
+      case 18:
+        return "Drama";
+      case 10751:
+        return "Family";
+      case 14:
+        return "Fantasy";
+      case 36:
+        return "History";
+      case 27:
+        return "Horror";
+      case 10402:
+        return "Music";
+      case 9648:
+        return "Mystery";
+      case 10749:
+        return "Romance";
+      case 878:
+        return "Science Fiction";
+      case 10770:
+        return "TV Movie";
+      case 53:
+        return "Thriller";
+      case 10752:
+        return "War";
+      case 37:
+        return "Western";
+      default:
+        return "";
+    }
+  }
+
+  function photoSelector(target) {
+    try {
+      var heightArr = [];
+      var englishArr = [];
+      target.posters.forEach((el) => {
+        if (el.iso_639_1 === "en") {
+          englishArr.push(el);
+        }
+      });
+      if (englishArr.length > 0) {
+        englishArr.forEach((el) => {
+          heightArr.push(el.height);
+        });
+        var bigPhoto = Math.max(...heightArr);
+        var targetHeight = { height: bigPhoto };
+        var index;
+        englishArr.map((el) => {
+          if (el.height === targetHeight.height) {
+            index = englishArr.indexOf(el);
+          }
+        });
+        return englishArr[index].file_path;
+      } else {
+        target.posters.forEach((el) => {
+          heightArr.push(el.height);
+        });
+        var bigPhoto = Math.max(...heightArr);
+        var targetHeight = { height: bigPhoto };
+        var index;
+        target.posters.map((el) => {
+          if (el.height === targetHeight.height) {
+            index = target.posters.indexOf(el);
+          }
+        });
+        return target.posters[index].file_path;
+      }
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  useEffect(() => {
+    getMovies(genre);
+  }, []);
+
+  useEffect(() => {
+    if (movieList !== null) {
+      getMoviePosterLink2(movieList[0].id);
+    }
+  }, [movieList]);
+
   return (
     <div>
-      <Heading fontSize="2rem">Here are the top {genre} movies!</Heading>
-      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
-        <Box>
-          {genreData
-            ? genreData.map((element) => {
-                return (
-                  <Container centerContent key={element.id}>
-                    <Link
-                      href={"/movies/" + element.id}
-                      color="black"
-                      textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
-                    >
-                      <Text>Movie: {element.title}</Text>
-                      <Text>Main Genre: {element.genres[0]}</Text>
-                      <Text>Rating: {element.rating}</Text>
-                      <Text>Release Year: {element.release_year}</Text>
-                    </Link>
-                  </Container>
-                );
-              })
-            : []}
-          <Divider border="null" w="80%" />
-        </Box>
+      <Heading fontSize="2rem">
+        Here are the top {genreName(genre)} movies!
+      </Heading>
+      {moviePosterLinkData2 ? (
         <Box
-          w="85%"
-          h="fit-content"
+          w="max-content"
+          h="max-content"
+          mr="auto"
+          ml="auto"
+          bg="black"
           borderWidth="1rem"
           borderRadius="md"
           borderColor="gray"
@@ -156,44 +253,46 @@ function Genre() {
         >
           <Image
             w="100%"
-            h="100%"
-            src={moviePosterLinkData ? moviePosterLinkData : ""}
+            src={
+              moviePosterLinkData2
+                ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData2
+                : ""
+            }
             fallbackSrc="https://via.placeholder.com/325x500.png"
           />
         </Box>
+      ) : (
+        ""
+      )}
+      <SimpleGrid columns={2} width="100%">
+        {movieList
+          ? movieList.map((element) => {
+              if (movieList.indexOf(element) < 10) {
+                return (
+                  <Container centerContent key={element.id} ml="1rem" mr="1rem">
+                    <Link
+                      href={"/movies/" + element.id}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
+                    >
+                      <Text>
+                        <b>{element.title}</b>
+                      </Text>
+                      <Text>
+                        Rating:
+                        <br />
+                        <b>{element.vote_average}</b>
+                      </Text>
+                      <Text textAlign="center">{element.overview}</Text>
+                      <Text>{moment(element.release_date).format("YYYY")}</Text>
+                    </Link>
+                  </Container>
+                );
+              }
+            })
+          : []}
       </SimpleGrid>
-      <Divider border="null" w="80%" />
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(36)}>
-        Test TMDB Movie List For History
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(28)}>
-        Test TMDB Movie List For Action
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(27)}>
-        Test TMDB Movie List For Horror
-      </Button>
-      <Button leftIcon={<BsCardList />} onClick={() => getMovies(16)}>
-        Test TMDB Movie List For Animation
-      </Button>
-      {movieList
-        ? movieList.map((element) => {
-            return (
-              <div>
-                <Box
-                  border="0.5rem solid black"
-                  bg="lightcoral"
-                  mr="auto"
-                  ml="auto"
-                  mb="1rem"
-                  w="30rem"
-                >
-                  <Text>Movie Title: {element.title}</Text>
-                  <Text>Overview: {element.overview}</Text>
-                </Box>
-              </div>
-            );
-          })
-        : []}
     </div>
   );
 }
