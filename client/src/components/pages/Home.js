@@ -1,19 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import {
-  Text,
-  Heading,
-  Link,
-  Divider,
-  Box,
-  Flex,
-  Button,
-} from "@chakra-ui/react";
+import { Text, Heading, Link, Box, Flex } from "@chakra-ui/react";
 import axios from "axios";
-import { BsCardList } from "react-icons/bs";
 
 function Home() {
-  // const [profileData, setProfileData] = useState(null);
   const [genres, setGenres] = useState(null);
   const [genrelist, setGenreList] = useState(null);
 
@@ -36,27 +26,27 @@ function Home() {
       });
   }
 
-  useEffect(() => {
-    setGenres([
-      "Action",
-      "Animation",
-      "Comedy",
-      "Crime",
-      "Documentation",
-      "Drama",
-      "Family",
-      "Fantasy",
-      "Horror",
-      "Music",
-      "Reality",
-      "Romance",
-      "Sci-Fi",
-      "Sport",
-      "Thriller",
-      "War",
-      "Western",
-    ]);
-  }, []);
+  // useEffect(() => {
+  //   setGenres([
+  //     "Action",
+  //     "Animation",
+  //     "Comedy",
+  //     "Crime",
+  //     "Documentation",
+  //     "Drama",
+  //     "Family",
+  //     "Fantasy",
+  //     "Horror",
+  //     "Music",
+  //     "Reality",
+  //     "Romance",
+  //     "Sci-Fi",
+  //     "Sport",
+  //     "Thriller",
+  //     "War",
+  //     "Western",
+  //   ]);
+  // }, []);
 
   useEffect(() => {
     getData();
@@ -67,40 +57,18 @@ function Home() {
       <Heading fontSize="2rem">
         Here's all the Genres you can look through!
       </Heading>
-      <Text fontSize="2rem">This is the Home Page.</Text>
-      <Flex flexWrap="wrap" justify="center">
-        {genres
-          ? genres.map((element) => {
-              return (
-                <div>
-                  <Box key={element} fontSize="1.25rem" w="10rem" h="5rem">
-                    <Link
-                      href={"/genres/" + element.replace(/-/, "").toLowerCase()}
-                      color="black"
-                      textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
-                    >
-                      <Text>{element}</Text>
-                    </Link>
-                  </Box>
-                </div>
-              );
-            })
-          : []}
-      </Flex>
-      <Divider border="null" w="80%" />
-      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
       <Flex flexWrap="wrap" justify="center">
         {genrelist
           ? genrelist.map((element) => {
               return (
                 <div>
-                  <Box key={element} fontSize="1.25rem" w="10rem" h="5rem">
+                  <Box key={element.id} fontSize="1.25rem" w="10rem" h="5rem">
                     <Link
                       color="black"
                       textDecoration="none"
                       _hover={{ color: "red", textDecoration: "underline" }}
                       href={"/genres/" + element.id}
+                      fontWeight="bold"
                     >
                       <Text>{element.name}</Text>
                     </Link>

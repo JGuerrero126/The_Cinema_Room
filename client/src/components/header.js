@@ -11,7 +11,7 @@ function Header() {
           color="black"
           _hover={{ color: "red", textDecoration: "underline" }}
         >
-          TOP MOVIES AND ACTORS ON NETFLIX
+          TOP MOVIES AND ACTORS ON TMDB
         </Link>
       </Heading>
       <Divider border="null" w="80%" mt="1rem" />

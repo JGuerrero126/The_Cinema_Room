@@ -6,13 +6,11 @@ import {
   SimpleGrid,
   Box,
   Image,
-  Divider,
   Container,
-  Button,
+  Center,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { BsCardList } from "react-icons/bs";
 
 function Movie() {
   const [movieData2, setMovieData2] = useState(null);
@@ -21,6 +19,7 @@ function Movie() {
   const { movie } = useParams();
   const [movieCredits, setMovieCredits] = useState(null);
   const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
+  const [movieDetails, setMovieDetails] = useState(null);
 
   function getData() {
     console.log("movie is:");
@@ -108,7 +107,7 @@ function Movie() {
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setMoviePosterLinkData2(res);
+        setMoviePosterLinkData2(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -117,6 +116,63 @@ function Movie() {
           console.log(error.response.headers);
         }
       });
+  }
+
+  function getMovieDetails(target) {
+    axios({
+      method: "POST",
+      url: "/movie-details/",
+      data: { movie_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setMovieDetails(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function photoSelector(target) {
+    var heightArr = [];
+    var englishArr = [];
+    target.posters.forEach((el) => {
+      if (el.iso_639_1 === "en") {
+        englishArr.push(el);
+      }
+    });
+    if (englishArr.length > 0) {
+      englishArr.forEach((el) => {
+        heightArr.push(el.height);
+      });
+      var bigPhoto = Math.max(...heightArr);
+      var targetHeight = { height: bigPhoto };
+      var index;
+      englishArr.map((el) => {
+        if (el.height === targetHeight.height) {
+          index = englishArr.indexOf(el);
+        }
+      });
+      return englishArr[index].file_path;
+    } else {
+      target.posters.forEach((el) => {
+        heightArr.push(el.height);
+      });
+      var bigPhoto = Math.max(...heightArr);
+      var targetHeight = { height: bigPhoto };
+      var index;
+      target.posters.map((el) => {
+        if (el.height === targetHeight.height) {
+          index = target.posters.indexOf(el);
+        }
+      });
+      return target.posters[index].file_path;
+    }
   }
 
   useEffect(() => {
@@ -129,171 +185,70 @@ function Movie() {
     }
   }, [movieCredits]);
 
+  useEffect(() => {
+    getMovieDetails(movie);
+  }, []);
+
   return (
     <div>
-      {movieData && (
+      {movieDetails ? (
         <div>
-          <Heading fontSize="2rem">{movieData.title}</Heading>
-        </div>
-      )}
-      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
-        <Box>
-          {movieData && (
-            <div>
-              <p>Genres: {movieData.genres}</p>
-              <p>Rating: {movieData.rating}</p>
-              <p>Description: {movieData.description}</p>
-              <p>Release Year: {movieData.release_year}</p>
-            </div>
+          <Heading fontSize="2rem">{movieDetails.title}</Heading>
+          {moviePosterLinkData2 ? (
+            <Center>
+              <Box
+                w="fit-content"
+                bg="black"
+                borderWidth="1rem"
+                borderRadius="md"
+                borderColor="gray"
+                borderStyle="groove"
+              >
+                <Image
+                  w="100%"
+                  h="100%"
+                  src={
+                    moviePosterLinkData2
+                      ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData2
+                      : ""
+                  }
+                  fallbackSrc="https://via.placeholder.com/325x500.png"
+                />
+              </Box>
+            </Center>
+          ) : (
+            ""
           )}
-          <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
-            {movieData
-              ? movieData.actor_array.map((element) => {
-                  // console.log(element);
-                  return (
-                    <Container centerContent key={element.person_id}>
-                      <Link
-                        href={"/actors/" + element.person_id}
-                        color="black"
-                        textDecoration="none"
-                        _hover={{ color: "red", textDecoration: "underline" }}
-                      >
-                        {element.role === "ACTOR" ? (
-                          <div>
-                            <Text>
-                              Actor: {element.name}
-                              <br />
-                              Character: {element.character}
-                            </Text>
-                          </div>
-                        ) : (
-                          <div>
-                            <Text>Director: {element.name}</Text>
-                          </div>
-                        )}
-                      </Link>
-                    </Container>
-                  );
-                })
-              : []}
-          </SimpleGrid>
-          <Divider border="null" w="80%" />
-        </Box>
-        <Box
-          w="85%"
-          h="min-content"
-          borderWidth="1rem"
-          borderRadius="md"
-          borderColor="gray"
-          borderStyle="groove"
-        >
-          <Image
-            w="100%"
-            h="100%"
-            src={moviePosterLinkData ? moviePosterLinkData : ""}
-            fallbackSrc="https://via.placeholder.com/325x500.png"
-          />
-        </Box>
-      </SimpleGrid>
-      <Divider border="null" w="80%" />
-      <Heading>BELOW THIS IS THE API ONLY DATA</Heading>
-      <SimpleGrid columns={2} width="100%" ml="2rem" mr="2rem">
-        {movieCredits ? (
-          <div>
-            <Container centerContent key={movieCredits.cast[0].id}>
-              <Link
-                href={"/actors/" + movieCredits.cast[0].id}
-                color="black"
-                textDecoration="none"
-                _hover={{ color: "red", textDecoration: "underline" }}
-              >
-                <Text>
-                  Actor: {movieCredits.cast[0].name}
-                  <br />
-                  Character: {movieCredits.cast[0].character}
-                </Text>
-              </Link>
-            </Container>
-            <Container centerContent key={movieCredits.cast[1].id}>
-              <Link
-                href={"/actors/" + movieCredits.cast[1].id}
-                color="black"
-                textDecoration="none"
-                _hover={{ color: "red", textDecoration: "underline" }}
-              >
-                <Text>
-                  Actor: {movieCredits.cast[1].name}
-                  <br />
-                  Character: {movieCredits.cast[1].character}
-                </Text>
-              </Link>
-            </Container>
-            <Container centerContent key={movieCredits.cast[2].id}>
-              <Link
-                href={"/actors/" + movieCredits.cast[2].id}
-                color="black"
-                textDecoration="none"
-                _hover={{ color: "red", textDecoration: "underline" }}
-              >
-                <Text>
-                  Actor: {movieCredits.cast[2].name}
-                  <br />
-                  Character: {movieCredits.cast[2].character}
-                </Text>
-              </Link>
-            </Container>
-            <Container centerContent key={movieCredits.cast[3].id}>
-              <Link
-                href={"/actors/" + movieCredits.cast[3].id}
-                color="black"
-                textDecoration="none"
-                _hover={{ color: "red", textDecoration: "underline" }}
-              >
-                <Text>
-                  Actor: {movieCredits.cast[3].name}
-                  <br />
-                  Character: {movieCredits.cast[3].character}
-                </Text>
-              </Link>
-            </Container>
-            <Container centerContent key={movieCredits.cast[4].id}>
-              <Link
-                href={"/actors/" + movieCredits.cast[4].id}
-                color="black"
-                textDecoration="none"
-                _hover={{ color: "red", textDecoration: "underline" }}
-              >
-                <Text>
-                  Actor: {movieCredits.cast[4].name}
-                  <br />
-                  Character: {movieCredits.cast[4].character}
-                </Text>
-              </Link>
-            </Container>
-          </div>
-        ) : (
-          []
-        )}
-        {moviePosterLinkData2 ? (
-          <Box
-            w="85%"
-            h="min-content"
-            bg="black"
-            borderWidth="1rem"
-            borderRadius="md"
-            borderColor="gray"
-            borderStyle="groove"
-          >
-            <Image
-              w="100%"
-              h="100%"
-              src={moviePosterLinkData2 ? moviePosterLinkData2 : ""}
-              fallbackSrc="https://via.placeholder.com/325x500.png"
-            />
-          </Box>
-        ) : (
-          ""
-        )}
+          <Heading fontSize="1rem">{movieDetails.tagline}</Heading>
+          <Text ml="3rem" mr="3rem" textAlign="center">
+            {movieDetails.overview}
+          </Text>
+        </div>
+      ) : (
+        []
+      )}
+      <SimpleGrid columns={4} width="100%">
+        {movieCredits
+          ? movieCredits.cast.map((el) => {
+              if (el.order < 20)
+                return (
+                  <Container centerContent key={el.id}>
+                    <Link
+                      href={"/actors/" + el.id}
+                      color="black"
+                      textDecoration="none"
+                      _hover={{ color: "red", textDecoration: "underline" }}
+                    >
+                      <Text>
+                        <b>{el.character}</b>
+                        <br />
+                        {el.name}
+                      </Text>
+                    </Link>
+                  </Container>
+                );
+            })
+          : []}
       </SimpleGrid>
     </div>
   );

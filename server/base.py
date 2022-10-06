@@ -255,7 +255,7 @@ def image_link2():
 
   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
 
-  response_body = image_link
+  response_body = res
 
   return response_body
 
@@ -270,11 +270,40 @@ def poster_link2():
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
-    path_suffix = json.loads(res)['posters'][0]['file_path']
 
-  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
+  response_body = res
 
-  response_body = image_link
+  return response_body
+
+@app.route('/movie-details/', methods = ['POST'])
+def movie_details():
+  
+  print('GETTING MOVIE DETAILS')
+
+  movie_id = request.get_json()['movie_id']
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={tmdb_key}&language=en-US'
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = res
+
+  return response_body
+
+@app.route('/actor-details/', methods = ['POST'])
+def actor_details():
+  
+  print('GETTING ACTOR DETAILS')
+
+  person_id = request.get_json()['person_id']
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/person/{person_id}?api_key={tmdb_key}&language=en-US'
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = res
 
   return response_body
 
