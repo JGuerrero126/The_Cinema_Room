@@ -229,6 +229,10 @@ function Genre() {
   }, []);
 
   useEffect(() => {
+    document.getElementById("appHead").style.fontFamily = "shindler";
+  }, []);
+
+  useEffect(() => {
     if (movieList !== null) {
       getMoviePosterLink2(movieList[0].id);
     }
@@ -236,7 +240,7 @@ function Genre() {
 
   return (
     <div>
-      <Heading fontSize="2rem">
+      <Heading fontSize="2.5rem" color="white" fontFamily="Shindler">
         Here are the top {genreName(genre)} movies!
       </Heading>
       {moviePosterLinkData2 ? (
@@ -246,12 +250,14 @@ function Genre() {
           mr="auto"
           ml="auto"
           bg="black"
-          borderWidth="1rem"
-          borderRadius="md"
-          borderColor="gray"
-          borderStyle="groove"
+          border="1rem groove black"
+          boxShadow="0rem 0rem 3rem lightyellow"
+          transition="3s"
+          _hover={{ boxShadow: "none" }}
         >
           <Image
+            _hover={{ filter: "saturate(0%)" }}
+            transition="3s"
             w="100%"
             src={
               moviePosterLinkData2
@@ -272,9 +278,12 @@ function Genre() {
                   <Container centerContent key={element.id} ml="1rem" mr="1rem">
                     <Link
                       href={"/movies/" + element.id}
-                      color="black"
+                      color="white"
                       textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
+                      fontFamily="Shindler"
+                      fontSize="1.5rem"
+                      transition="1s"
+                      _hover={{ color: "silver" }}
                     >
                       <Text>
                         <b>{element.title}</b>

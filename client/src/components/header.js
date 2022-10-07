@@ -8,10 +8,14 @@ function Header() {
         <Link
           textDecoration="none"
           href="/"
-          color="black"
-          _hover={{ color: "red", textDecoration: "underline" }}
+          color="white"
+          id="appHead"
+          fontWeight="normal"
+          transition="1s"
+          _hover={{ color: "red" }}
+          fontSize="3rem"
         >
-          TOP MOVIES AND ACTORS ON TMDB
+          Film-matic
         </Link>
       </Heading>
       <Divider border="null" w="80%" mt="1rem" />

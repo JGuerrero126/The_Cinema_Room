@@ -4,7 +4,6 @@ import { Text, Heading, Link, Box, Flex } from "@chakra-ui/react";
 import axios from "axios";
 
 function Home() {
-  const [genres, setGenres] = useState(null);
   const [genrelist, setGenreList] = useState(null);
 
   function getData() {
@@ -26,49 +25,33 @@ function Home() {
       });
   }
 
-  // useEffect(() => {
-  //   setGenres([
-  //     "Action",
-  //     "Animation",
-  //     "Comedy",
-  //     "Crime",
-  //     "Documentation",
-  //     "Drama",
-  //     "Family",
-  //     "Fantasy",
-  //     "Horror",
-  //     "Music",
-  //     "Reality",
-  //     "Romance",
-  //     "Sci-Fi",
-  //     "Sport",
-  //     "Thriller",
-  //     "War",
-  //     "Western",
-  //   ]);
-  // }, []);
-
   useEffect(() => {
     getData();
   }, []);
 
   return (
     <div>
-      <Heading fontSize="2rem">
-        Here's all the Genres you can look through!
+      <Heading
+        fontSize="3rem"
+        fontWeight="normal"
+        color="white"
+        fontFamily="corleonedue"
+      >
+        Select A Genre
       </Heading>
       <Flex flexWrap="wrap" justify="center">
         {genrelist
           ? genrelist.map((element) => {
               return (
                 <div>
-                  <Box key={element.id} fontSize="1.25rem" w="10rem" h="5rem">
+                  <Box key={element.id} fontSize="2.5rem" w="10rem" h="5rem">
                     <Link
-                      color="black"
+                      color="white"
                       textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
+                      transition="1s"
+                      _hover={{ color: "red" }}
                       href={"/genres/" + element.id}
-                      fontWeight="bold"
+                      fontFamily="corleone"
                     >
                       <Text>{element.name}</Text>
                     </Link>

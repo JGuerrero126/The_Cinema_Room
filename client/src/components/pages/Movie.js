@@ -189,11 +189,22 @@ function Movie() {
     getMovieDetails(movie);
   }, []);
 
+  useEffect(() => {
+    document.getElementById("appHead").style.fontFamily = "StarJedi";
+  }, []);
+
   return (
     <div>
       {movieDetails ? (
         <div>
-          <Heading fontSize="2rem">{movieDetails.title}</Heading>
+          <Heading
+            fontWeight="normal"
+            fontSize="2rem"
+            color="gold"
+            fontFamily="DistantGalaxy"
+          >
+            {movieDetails.title.toUpperCase()}
+          </Heading>
           {moviePosterLinkData2 ? (
             <Center>
               <Box
@@ -201,8 +212,11 @@ function Movie() {
                 bg="black"
                 borderWidth="1rem"
                 borderRadius="md"
-                borderColor="gray"
+                borderColor="black"
                 borderStyle="groove"
+                boxShadow="0rem 0rem 3rem lightyellow"
+                transition="1s"
+                _hover={{ boxShadow: "0rem 0rem 3rem green" }}
               >
                 <Image
                   w="100%"
@@ -219,8 +233,22 @@ function Movie() {
           ) : (
             ""
           )}
-          <Heading fontSize="1rem">{movieDetails.tagline}</Heading>
-          <Text ml="3rem" mr="3rem" textAlign="center">
+          <Heading
+            fontSize="1.25rem"
+            color="gold"
+            fontFamily="DistantGalaxy"
+            fontWeight="normal"
+          >
+            {movieDetails.tagline}
+          </Heading>
+          <Text
+            ml="3rem"
+            mr="3rem"
+            fontSize="0.85rem"
+            textAlign="center"
+            color="gold"
+            fontFamily="DistantGalaxy"
+          >
             {movieDetails.overview}
           </Text>
         </div>
@@ -235,12 +263,15 @@ function Movie() {
                   <Container centerContent key={el.id}>
                     <Link
                       href={"/actors/" + el.id}
-                      color="black"
+                      color="gold"
                       textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
+                      fontFamily="DistantGalaxy"
+                      transition="1s"
+                      // fontSize="1rem"
+                      _hover={{ color: "white" }}
                     >
                       <Text>
-                        <b>{el.character}</b>
+                        {el.character}
                         <br />
                         {el.name}
                       </Text>
