@@ -16,7 +16,7 @@ The project uses a [React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 Pull the main branch to your machine.
 
-Get the Flask server running first by opening a virtual environment in the `server` directory, then entering `run flask`.
+Get the Flask server running first by opening a virtual environment in the `server` directory, installing the Python packages using `pip install flask pymongo dotenv`, then entering `run flask`.
 
 Then get React started in development mode. You'll need to have node installed. Then open a terminal and run `npm install` in the `client` directory. Once that's complete, enter `npm start`. You should see the website load in your browser.
 
@@ -38,6 +38,7 @@ Team members' GitHub usernames are:
 [JGuerrero126](https://github.com/JGuerrero126)
 [williampryor](https://github.com/williampryor)
 [MonsAltus](https://github.com/MonsAltus)
+[bmxnguyen](https://github.com/bmxnguyen)
 [stuart-rickard](https://github.com/stuart-rickard)
 
 Feel free to reach out!
