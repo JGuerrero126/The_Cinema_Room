@@ -166,20 +166,37 @@ function Actor() {
     getActorDetails(actor);
   }, []);
 
+  useEffect(() => {
+    document.getElementById("appHead").style.fontFamily = "OCR";
+  }, []);
+
   return (
     <div>
       {actorDetails ? (
         <div>
-          <Heading fontSize="2rem">{actorDetails.name}</Heading>
+          <Heading
+            fontWeight="normal"
+            fontSize="2rem"
+            color="green"
+            // textShadow="0rem 0rem 0.5rem lightblue"
+            fontFamily="OCR"
+          >
+            {actorDetails.name}
+          </Heading>
           <Center>
             {personImageLinkData2 ? (
               <Box
                 w="fit-content"
                 bg="black"
-                borderWidth="1rem"
+                borderWidth="0.5rem"
                 borderRadius="md"
-                borderColor="gray"
-                borderStyle="groove"
+                borderColor="green"
+                borderStyle="dashed"
+                transition="1s"
+                _hover={{
+                  boxShadow: "0rem 0rem 3rem white",
+                  borderColor: "lightgreen",
+                }}
               >
                 <Image
                   w="100%"
@@ -196,10 +213,16 @@ function Actor() {
               ""
             )}
           </Center>
-          <Text fontSize="0.95rem" ml="3rem" mr="3rem">
+          <Text
+            fontSize="1rem"
+            ml="3rem"
+            mr="3rem"
+            color="green"
+            fontFamily="OCR"
+          >
             {actorDetails.biography}
           </Text>
-          <Text>
+          <Text color="green" fontFamily="OCR">
             Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
           </Text>
         </div>
@@ -209,14 +232,19 @@ function Actor() {
       <SimpleGrid columns={3} width="100%">
         {actorAppearances
           ? actorAppearances.cast.map((el) => {
-              if (actorAppearances.cast.indexOf(el) < 10) {
+              if (actorAppearances.cast.indexOf(el) < 12) {
                 return (
                   <Container centerContent key={el.id}>
                     <Link
                       href={"/movies/" + el.id}
-                      color="black"
+                      color="green"
                       textDecoration="none"
-                      _hover={{ color: "red", textDecoration: "underline" }}
+                      fontFamily="OCR"
+                      transition="1s"
+                      _hover={{
+                        color: "lightgreen",
+                        textShadow: "0rem 0rem 1rem white",
+                      }}
                     >
                       <Text>
                         <b>{el.title}</b>
