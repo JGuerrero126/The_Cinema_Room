@@ -190,7 +190,7 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "StarJedi";
+    document.getElementById("appHead").style.fontFamily = "DistantGalaxy";
   }, []);
 
   return (
