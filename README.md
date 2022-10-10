@@ -1,4 +1,4 @@
-# Movie and Actor Explorer
+# Film-Matic - a Movie and Actor Explorer
 
 This project uses the [TMDB database](https://themoviedb.org) to present descriptions and images for movies and actors.
 
@@ -8,72 +8,47 @@ The project uses a [React](https://reactjs.org/docs/create-a-new-react-app.html)
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Questions](#questions)
 - [Contributing](#contributing)
 - [Tests](#tests)
-- [Questions](#questions)
+- [Helpful Links](#helpful-links)
 
 ## Installation
 
 Pull the main branch to your machine.
 
-Get the Flask server running first by opening a virtual environment in the `server` directory, installing the Python packages using `pip install flask pymongo dotenv`, then entering `run flask`.
+Get the [Flask](https://palletsprojects.com/p/flask/) server running first by opening a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/) in the `server` directory, installing the Python packages using `pip install flask pymongo dotenv`, then entering `run flask`.
 
-Then get React started in development mode. You'll need to have node installed. Then open a terminal and run `npm install` in the `client` directory. Once that's complete, enter `npm start`. You should see the website load in your browser.
+Then get [React](https://reactjs.org/docs/create-a-new-react-app.html) started in development mode. You'll need to have [node](https://nodejs.org/en/) installed. Then open a terminal and run `npm install` in the `client` directory. Once that's complete, enter `npm start`. The website should load in your browser.
 
 ## Usage
 
-Simply click the links.
+Simply click the links to learn about top-rated movies and actors. First search by genre, then choose a movie to learn more about the movie (description, rating, year released) and its cast. Then click on a cast member to learn more about them and other movies they have appeared in.
+
+## Questions
+
+Team members' GitHub usernames are:
+
+- [JGuerrero126](https://github.com/JGuerrero126)
+- [williampryor](https://github.com/williampryor)
+- [MonsAltus](https://github.com/MonsAltus)
+- [bmxnguyen](https://github.com/bmxnguyen)
+- [stuart-rickard](https://github.com/stuart-rickard)
+
+Feel free to reach out!
 
 ## Contributing
 
-Please feel free to contact team members.
+Please feel free to contact team members listed above if you are interested in contributing.
 
 ## Tests
 
 Tests will be added soon.
 
-## Questions
+## Helpful Links
 
-Team members' GitHub usernames are:
-[JGuerrero126](https://github.com/JGuerrero126)
-[williampryor](https://github.com/williampryor)
-[MonsAltus](https://github.com/MonsAltus)
-[bmxnguyen](https://github.com/bmxnguyen)
-[stuart-rickard](https://github.com/stuart-rickard)
-
-Feel free to reach out!
-
-## React Boilerplate
+TMDB has excellent [API documentation](https://developers.themoviedb.org/3/getting-started/introduction).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses the [Chakra UI](https://chakra-ui.com/) component library.
