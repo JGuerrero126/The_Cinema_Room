@@ -187,6 +187,8 @@ function Genre() {
     try {
       var heightArr = [];
       var englishArr = [];
+      var bigArr = [];
+      var voteArr = [];
       target.posters.forEach((el) => {
         if (el.iso_639_1 === "en") {
           englishArr.push(el);
@@ -196,28 +198,57 @@ function Genre() {
         englishArr.forEach((el) => {
           heightArr.push(el.height);
         });
-        var bigPhoto = Math.max(...heightArr);
-        var targetHeight = { height: bigPhoto };
-        var index;
-        englishArr.map((el) => {
+        let bigPhoto = Math.max(...heightArr);
+        let targetHeight = { height: bigPhoto };
+
+        englishArr.forEach((el) => {
           if (el.height === targetHeight.height) {
-            index = englishArr.indexOf(el);
+            bigArr.push(el);
           }
         });
-        return englishArr[index].file_path;
+        console.log(bigArr);
+        if (bigArr.length < 2) {
+          return bigArr[0].file_path;
+        }
+        bigArr.forEach((el) => {
+          voteArr.push(el.vote_average);
+        });
+        let bigVote = Math.max(...voteArr);
+        let targetVote = { vote_average: bigVote };
+        var index;
+        bigArr.forEach((el) => {
+          if (el.vote_average === targetVote.vote_average) {
+            index = bigArr.indexOf(el);
+          }
+        });
+        return bigArr[index].file_path;
       } else {
         target.posters.forEach((el) => {
           heightArr.push(el.height);
         });
-        var bigPhoto = Math.max(...heightArr);
-        var targetHeight = { height: bigPhoto };
+        let bigPhoto = Math.max(...heightArr);
+        let targetHeight = { height: bigPhoto };
         var index;
-        target.posters.map((el) => {
+        target.posters.forEach((el) => {
           if (el.height === targetHeight.height) {
-            index = target.posters.indexOf(el);
+            bigArr.push(el);
           }
         });
-        return target.posters[index].file_path;
+        if (bigArr.length < 2) {
+          return bigArr[0].file_path;
+        }
+        bigArr.forEach((el) => {
+          voteArr.push(el.vote_average);
+        });
+        let bigVote = Math.max(...voteArr);
+        let targetVote = { vote_average: bigVote };
+        var index;
+        bigArr.forEach((el) => {
+          if (el.vote_average === targetVote.vote_average) {
+            index = bigArr.indexOf(el);
+          }
+        });
+        return bigArr[index].file_path;
       }
     } catch (e) {
       console.log(e.message);

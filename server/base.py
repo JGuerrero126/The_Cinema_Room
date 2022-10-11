@@ -307,6 +307,40 @@ def actor_details():
 
   return response_body
 
+@app.route('/movie-keywords/', methods = ['POST'])
+def movie_keywords():
+  
+  print('GETTING KEYWORDS')
+
+  movie_id = request.get_json()['movie_id']
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/keywords?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = res
+
+  return response_body
+
+@app.route('/movie-recs/', methods = ['POST'])
+def movie_recs():
+  
+  print('GETTING RECOMMENDATIONS')
+
+  genre = request.get_json()['genre']
+  keyword = request.get_json()['keyword']
+
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = res
+
+  return response_body
+
 
 if __name__ == "__main__":
   app.run(debug=True)
