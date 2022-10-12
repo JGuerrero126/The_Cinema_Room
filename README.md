@@ -1,4 +1,4 @@
-# Film-Matic - a Movie and Actor Explorer
+# Cinema Room - a Place to Explore Movies
 
 This project uses the [TMDB database](https://themoviedb.org) to present descriptions and images for movies and actors.
 
