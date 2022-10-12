@@ -331,7 +331,7 @@ function Movie() {
           <Text
             ml="3rem"
             mr="3rem"
-            fontSize="0.85rem"
+            // fontSize="0.85rem"
             textAlign="center"
             color="gold"
             fontFamily="DistantGalaxy"
