@@ -8,9 +8,11 @@ import {
   Image,
   Container,
   Center,
+  Divider,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useParams } from "react-router";
+import moment from "moment";
 
 function Movie() {
   const [movieData2, setMovieData2] = useState(null);
@@ -20,6 +22,8 @@ function Movie() {
   const [movieCredits, setMovieCredits] = useState(null);
   const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
   const [movieDetails, setMovieDetails] = useState(null);
+  const [keywords, setKeywords] = useState(null);
+  const [recs, setRecs] = useState(null);
 
   function getData() {
     console.log("movie is:");
@@ -141,6 +145,8 @@ function Movie() {
   function photoSelector(target) {
     var heightArr = [];
     var englishArr = [];
+    var bigArr = [];
+    var voteArr = [];
     target.posters.forEach((el) => {
       if (el.iso_639_1 === "en") {
         englishArr.push(el);
@@ -150,29 +156,98 @@ function Movie() {
       englishArr.forEach((el) => {
         heightArr.push(el.height);
       });
-      var bigPhoto = Math.max(...heightArr);
-      var targetHeight = { height: bigPhoto };
-      var index;
-      englishArr.map((el) => {
+      let bigPhoto = Math.max(...heightArr);
+      let targetHeight = { height: bigPhoto };
+
+      englishArr.forEach((el) => {
         if (el.height === targetHeight.height) {
-          index = englishArr.indexOf(el);
+          bigArr.push(el);
         }
       });
-      return englishArr[index].file_path;
+      console.log(bigArr);
+      if (bigArr.length < 2) {
+        return bigArr[0].file_path;
+      }
+      bigArr.forEach((el) => {
+        voteArr.push(el.vote_average);
+      });
+      let bigVote = Math.max(...voteArr);
+      let targetVote = { vote_average: bigVote };
+      var index;
+      bigArr.forEach((el) => {
+        if (el.vote_average === targetVote.vote_average) {
+          index = bigArr.indexOf(el);
+        }
+      });
+      return bigArr[index].file_path;
     } else {
       target.posters.forEach((el) => {
         heightArr.push(el.height);
       });
-      var bigPhoto = Math.max(...heightArr);
-      var targetHeight = { height: bigPhoto };
+      let bigPhoto = Math.max(...heightArr);
+      let targetHeight = { height: bigPhoto };
       var index;
-      target.posters.map((el) => {
+      target.posters.forEach((el) => {
         if (el.height === targetHeight.height) {
-          index = target.posters.indexOf(el);
+          bigArr.push(el);
         }
       });
-      return target.posters[index].file_path;
+      if (bigArr.length < 2) {
+        return bigArr[0].file_path;
+      }
+      bigArr.forEach((el) => {
+        voteArr.push(el.vote_average);
+      });
+      let bigVote = Math.max(...voteArr);
+      let targetVote = { vote_average: bigVote };
+      var index;
+      bigArr.forEach((el) => {
+        if (el.vote_average === targetVote.vote_average) {
+          index = bigArr.indexOf(el);
+        }
+      });
+      return bigArr[index].file_path;
     }
+  }
+
+  function getKeywords(target) {
+    axios({
+      method: "POST",
+      url: "/movie-keywords/",
+      data: { movie_id: target },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setKeywords(res.keywords);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
+  function getRecs(gTarget, kTarget) {
+    axios({
+      method: "POST",
+      url: "/movie-recs/",
+      data: { genre: gTarget, keyword: kTarget },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setRecs(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
   }
 
   useEffect(() => {
@@ -190,8 +265,20 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "StarJedi";
+    document.getElementById("appHead").style.fontFamily = "DistantGalaxy";
   }, []);
+
+  useEffect(() => {
+    getKeywords(movie);
+  }, []);
+
+  useEffect(() => {
+    if (movieDetails !== null && keywords.length > 0) {
+      getRecs(movieDetails.genres[0].id, keywords[0].id);
+    }
+  }, [keywords]);
+
+  var i = 3;
 
   return (
     <div>
@@ -244,7 +331,7 @@ function Movie() {
           <Text
             ml="3rem"
             mr="3rem"
-            fontSize="0.85rem"
+            // fontSize="0.85rem"
             textAlign="center"
             color="gold"
             fontFamily="DistantGalaxy"
@@ -258,7 +345,7 @@ function Movie() {
       <SimpleGrid columns={4} width="100%">
         {movieCredits
           ? movieCredits.cast.map((el) => {
-              if (el.order < 20)
+              if (el.order < 20 && el.name !== "" && el.character !== "")
                 return (
                   <Container centerContent key={el.id}>
                     <Link
@@ -278,6 +365,45 @@ function Movie() {
                     </Link>
                   </Container>
                 );
+            })
+          : []}
+      </SimpleGrid>
+      <Divider border="null" w="80%" mt="1rem" />
+      <Heading
+        textDecoration="none"
+        color="white"
+        fontWeight="normal"
+        fontSize="3rem"
+      >
+        {" "}
+        BELOW IS THE TEST RECOMMENDATION FEATURE
+      </Heading>
+      <SimpleGrid columns={3} width="100%">
+        {recs
+          ? recs.results.map((el) => {
+              if (el.title === movieDetails.title) {
+                i++;
+                return;
+              }
+              if (recs.results.indexOf(el) < i) {
+                return (
+                  <Container centerContent key={el.id} ml="1rem" mr="1rem">
+                    <Link
+                      href={"/movies/" + el.id}
+                      color="gold"
+                      textDecoration="none"
+                      fontFamily="DistantGalaxy"
+                      transition="1s"
+                      // fontSize="1rem"
+                      _hover={{ color: "white" }}
+                    >
+                      <Text>{el.title}</Text>
+                      <Text>{el.overview}</Text>
+                      <Text>{moment(el.release_date).format("YYYY")}</Text>
+                    </Link>
+                  </Container>
+                );
+              }
             })
           : []}
       </SimpleGrid>

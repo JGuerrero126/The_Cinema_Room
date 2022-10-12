@@ -138,18 +138,34 @@ function Actor() {
 
   function photoSelector(target) {
     var heightArr = [];
+    var bigArr = [];
+    var voteArr = [];
     target.profiles.forEach((el) => {
       heightArr.push(el.height);
     });
-    var bigPhoto = Math.max(...heightArr);
-    var targetHeight = { height: bigPhoto };
+    let bigPhoto = Math.max(...heightArr);
+    let targetHeight = { height: bigPhoto };
     var index;
-    target.profiles.map((el) => {
+    target.profiles.forEach((el) => {
       if (el.height === targetHeight.height) {
-        index = target.profiles.indexOf(el);
+        bigArr.push(el);
       }
     });
-    return target.profiles[index].file_path;
+    if (bigArr.length < 2) {
+      return bigArr[0].file_path;
+    }
+    bigArr.forEach((el) => {
+      voteArr.push(el.vote_average);
+    });
+    let bigVote = Math.max(...voteArr);
+    let targetVote = { vote_average: bigVote };
+    var index;
+    bigArr.forEach((el) => {
+      if (el.vote_average === targetVote.vote_average) {
+        index = bigArr.indexOf(el);
+      }
+    });
+    return bigArr[index].file_path;
   }
 
   useEffect(() => {
@@ -196,6 +212,7 @@ function Actor() {
                 _hover={{
                   boxShadow: "0rem 0rem 3rem white",
                   borderColor: "lightgreen",
+                  borderWidth: "0.65rem",
                 }}
               >
                 <Image
@@ -244,13 +261,17 @@ function Actor() {
                       _hover={{
                         color: "lightgreen",
                         textShadow: "0rem 0rem 1rem white",
+                        fontSize: "1.15rem",
                       }}
                     >
                       <Text>
                         <b>{el.title}</b>
                         <br />
-                        Character: {el.character}
-                        <br />
+                        {el.character === "" ? (
+                          ""
+                        ) : (
+                          <div>Character: {el.character}</div>
+                        )}
                         {moment(el.release_date).format("YYYY")}
                       </Text>
                     </Link>

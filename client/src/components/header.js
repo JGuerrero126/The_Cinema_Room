@@ -15,7 +15,7 @@ function Header() {
           _hover={{ color: "red" }}
           fontSize="3rem"
         >
-          Film-matic
+          Cinema Room
         </Link>
       </Heading>
       <Divider border="null" w="80%" mt="1rem" />
