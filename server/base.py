@@ -3,6 +3,7 @@ from flask import Flask
 from flask import request
 from bson.json_util import dumps
 from dotenv import load_dotenv
+from flask_cors import CORS, cross_origin
 import urllib.request
 import urllib.parse
 import json
@@ -10,13 +11,15 @@ import os
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../client/build', static_url_path='')
+CORS(app)
 tmdb_key = os.getenv("TMDB_KEY")
 
 client = MongoClient("mongodb://localhost:27017")
 db = client.six_three_db
 
 @app.route('/actors/<person_id>')
+@cross_origin()
 def actor(person_id):
   print(person_id)
   # need to convert person_id string to number
@@ -65,6 +68,7 @@ def actor(person_id):
   return response_body
 
 @app.route('/movies/<id>')
+@cross_origin()
 def movie(id):
   print(id)
   movie = db.titles.find_one({'id': id})
@@ -99,6 +103,7 @@ def movie(id):
   return response_body
 
 @app.route('/genres/<genre>')
+@cross_origin()
 def genres(genre):
   movies = db.titles.find({'type': "MOVIE","production_countries_array": {"$in":["US", "UK", "JP"]}, "imdb_score": {"$gt": 0}, "genres_array": {"$in":[genre]}}).sort("imdb_score", -1).limit(5)
   print(movies)
@@ -123,6 +128,7 @@ def genres(genre):
   return response_body
 
 @app.route('/person-image-link/', methods = ['POST'])
+@cross_origin()
 def image_link():
   
   print('image_link')
@@ -152,6 +158,7 @@ def image_link():
   return response_body
 
 @app.route('/movie-poster-link/', methods = ['POST'])
+@cross_origin()
 def poster_link():
   
   print('poster_link')
@@ -185,6 +192,7 @@ def poster_link():
 ##
 
 @app.route('/genre-list-link/', methods = ['GET'])
+@cross_origin()
 def genre_link():
   
   print('GETTING LIST OF GENRES')
@@ -199,6 +207,7 @@ def genre_link():
   return response_body
 
 @app.route('/genre-movies/<target>', methods = ['GET'])
+@cross_origin()
 def genre_movies(target):
   
   print('GETTING LIST OF MOVIES IN GENRE')
@@ -214,6 +223,7 @@ def genre_movies(target):
   return response_body
 
 @app.route('/movie-credits/<target>', methods = ['GET'])
+@cross_origin()
 def movie_credits(target):
   
   print('GETTING CREDITS FOR MOVIE')
@@ -227,6 +237,7 @@ def movie_credits(target):
   return response_body
 
 @app.route('/actor-appearances/<target>', methods = ['GET'])
+@cross_origin()
 def actor_appearances(target):
   
   print('GETTING APPEARANCES FOR ACTOR')
@@ -241,6 +252,7 @@ def actor_appearances(target):
   return response_body
 
 @app.route('/person-image-link2/', methods = ['POST'])
+@cross_origin()
 def image_link2():
   
   print('GETTING ACTOR IMAGE')
@@ -260,6 +272,7 @@ def image_link2():
   return response_body
 
 @app.route('/movie-poster-link2/', methods = ['POST'])
+@cross_origin()
 def poster_link2():
   
   print('GETTING MOVIE POSTER')
@@ -276,6 +289,7 @@ def poster_link2():
   return response_body
 
 @app.route('/movie-details/', methods = ['POST'])
+@cross_origin()
 def movie_details():
   
   print('GETTING MOVIE DETAILS')
@@ -292,6 +306,7 @@ def movie_details():
   return response_body
 
 @app.route('/actor-details/', methods = ['POST'])
+@cross_origin()
 def actor_details():
   
   print('GETTING ACTOR DETAILS')
@@ -308,6 +323,7 @@ def actor_details():
   return response_body
 
 @app.route('/movie-keywords/', methods = ['POST'])
+@cross_origin()
 def movie_keywords():
   
   print('GETTING KEYWORDS')
@@ -324,6 +340,7 @@ def movie_keywords():
   return response_body
 
 @app.route('/movie-recs/', methods = ['POST'])
+@cross_origin()
 def movie_recs():
   
   print('GETTING RECOMMENDATIONS')
@@ -340,6 +357,11 @@ def movie_recs():
   response_body = res
 
   return response_body
+
+@app.route('/')
+@cross_origin()
+def serve():
+  return send_from_directory(app.static_folder, 'index.html')
 
 
 if __name__ == "__main__":
