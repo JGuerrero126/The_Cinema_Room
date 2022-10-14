@@ -11,7 +11,7 @@ import os
 
 load_dotenv()
 
-app = Flask(__name__, static_folder='../client/build', static_url_path='')
+app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 tmdb_key = os.getenv("TMDB_KEY")
 
