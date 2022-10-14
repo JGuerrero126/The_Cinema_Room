@@ -1,12 +1,16 @@
 {
-  "name": "act_group63",
+  "name": "act_group_63",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.14.1"
+  },
   "description": "",
   "main": "server/base.py",
   "scripts": {
     "start": "node server/server.js --ignore client",
     "develop": "concurrently \"server/venv/Scripts/activate && flask run\" \"cd client && npm start\"",
     "flask": "/server/venv/Scripts/activate",
+    "install": "cd client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
   },

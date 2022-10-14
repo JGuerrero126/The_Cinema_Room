@@ -1,6 +1,9 @@
 {
   "name": "act_group_63",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "engines": {
+    "node": "16.14.1"
+  },
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
