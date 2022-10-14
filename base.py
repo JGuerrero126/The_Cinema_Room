@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask import request
 from bson.json_util import dumps
 from dotenv import load_dotenv
