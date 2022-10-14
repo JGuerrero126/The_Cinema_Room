@@ -7,7 +7,7 @@
   "description": "",
   "main": "server/base.py",
   "scripts": {
-    "start": "node server/server.js --ignore client",
+    "start": "cd client && npm run start",
     "develop": "concurrently \"server/venv/Scripts/activate && flask run\" \"cd client && npm start\"",
     "flask": "/server/venv/Scripts/activate",
     "install": "cd client && npm i",
