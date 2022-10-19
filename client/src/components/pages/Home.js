@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Text, Heading, Link, Box, Flex } from "@chakra-ui/react";
 import axios from "axios";
+import { urlPrefix } from "../../utils/constants";
 
 function Home() {
   const [genrelist, setGenreList] = useState(null);
@@ -9,7 +10,7 @@ function Home() {
   function getData() {
     axios({
       method: "GET",
-      url: "/genre-list-link/",
+      url: urlPrefix + "/genre-list-link/",
     })
       .then((response) => {
         const res = response.data;

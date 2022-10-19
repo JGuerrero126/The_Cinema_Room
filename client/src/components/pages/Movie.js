@@ -11,6 +11,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
 
@@ -30,7 +31,7 @@ function Movie() {
     console.log(movie);
     axios({
       method: "GET",
-      url: "/movies/" + movie,
+      url: urlPrefix + "/movies/" + movie,
     })
       .then((response) => {
         const res = response.data;
@@ -55,7 +56,7 @@ function Movie() {
   function getMoviePosterLink(target) {
     axios({
       method: "POST",
-      url: "/movie-poster-link/",
+      url: urlPrefix + "/movie-poster-link/",
       data: { movie_name: target },
     })
       .then((response) => {
@@ -76,7 +77,7 @@ function Movie() {
     console.log("STARTING THE REQUEST");
     axios({
       method: "GET",
-      url: "/movie-credits/" + target,
+      url: urlPrefix + "/movie-credits/" + target,
     })
       .then((response) => {
         const res = response.data;
@@ -105,7 +106,7 @@ function Movie() {
   function getMoviePosterLink2(target) {
     axios({
       method: "POST",
-      url: "/movie-poster-link2/",
+      url: urlPrefix + "/movie-poster-link2/",
       data: { movie_id: target },
     })
       .then((response) => {
@@ -125,7 +126,7 @@ function Movie() {
   function getMovieDetails(target) {
     axios({
       method: "POST",
-      url: "/movie-details/",
+      url: urlPrefix + "/movie-details/",
       data: { movie_id: target },
     })
       .then((response) => {
@@ -218,7 +219,7 @@ function Movie() {
   function getKeywords(target) {
     axios({
       method: "POST",
-      url: "/movie-keywords/",
+      url: urlPrefix + "/movie-keywords/",
       data: { movie_id: target },
     })
       .then((response) => {
@@ -238,7 +239,7 @@ function Movie() {
   function getRecs(gTarget, kTarget) {
     axios({
       method: "POST",
-      url: "/movie-recs/",
+      url: urlPrefix + "/movie-recs/",
       data: { genre: gTarget, keyword: kTarget },
     })
       .then((response) => {

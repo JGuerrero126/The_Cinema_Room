@@ -9,6 +9,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
 
@@ -27,7 +28,7 @@ function Genre() {
   function getGenre() {
     axios({
       method: "GET",
-      url: "/genres/" + genre,
+      url: urlPrefix + "/genres/" + genre,
     })
       .then((response) => {
         const res = response.data;
@@ -46,7 +47,7 @@ function Genre() {
   function getPersonImageLink() {
     axios({
       method: "POST",
-      url: "/person-image-link/",
+      url: urlPrefix + "/person-image-link/",
       data: { person_name: personName },
     })
       .then((response) => {
@@ -66,7 +67,7 @@ function Genre() {
   function getMoviePosterLink(target) {
     axios({
       method: "POST",
-      url: "/movie-poster-link/",
+      url: urlPrefix + "/movie-poster-link/",
       data: { movie_name: target },
     })
       .then((response) => {
@@ -86,7 +87,7 @@ function Genre() {
   function getMovies(target) {
     axios({
       method: "GET",
-      url: "/genre-movies/" + target,
+      url: urlPrefix + "/genre-movies/" + target,
     })
       .then((response) => {
         const res = response.data;
@@ -121,7 +122,7 @@ function Genre() {
   function getMoviePosterLink2(target) {
     axios({
       method: "POST",
-      url: "/movie-poster-link2/",
+      url: urlPrefix + "/movie-poster-link2/",
       data: { movie_id: target },
     })
       .then((response) => {
