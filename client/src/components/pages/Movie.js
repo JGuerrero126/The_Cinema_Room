@@ -153,6 +153,7 @@ function Movie() {
       }
     });
     if (englishArr.length > 0) {
+      console.log("USING ENGLISH ARRAY");
       englishArr.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -166,6 +167,7 @@ function Movie() {
       });
       console.log(bigArr);
       if (bigArr.length < 2) {
+        console.log("USING SINGLE BIG FILE PATH");
         return bigArr[0].file_path;
       }
       bigArr.forEach((el) => {
@@ -179,8 +181,11 @@ function Movie() {
           index = bigArr.indexOf(el);
         }
       });
+      console.log("USING BIG ENGLISH FILE PATH");
+      console.log(bigArr[index].file_path);
       return bigArr[index].file_path;
     } else {
+      console.log("USING NON-ENGLISH ARRAY");
       target.posters.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -251,17 +256,9 @@ function Movie() {
   }
 
   useEffect(() => {
-    getCredits(movie);
-  }, []);
-
-  useEffect(() => {
-    if (movieCredits !== null) {
-      getMoviePosterLink2(movieCredits.id);
-    }
-  }, [movieCredits]);
-
-  useEffect(() => {
     getMovieDetails(movie);
+    getCredits(movie);
+    getKeywords(movie);
   }, []);
 
   useEffect(() => {
@@ -269,8 +266,10 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    getKeywords(movie);
-  }, []);
+    if (movieCredits !== null) {
+      getMoviePosterLink2(movieCredits.id);
+    }
+  }, [movieCredits]);
 
   useEffect(() => {
     if (movieDetails !== null && keywords.length > 0) {
@@ -318,7 +317,7 @@ function Movie() {
               </Box>
             </Center>
           ) : (
-            ""
+            []
           )}
           <Heading
             fontSize="1.25rem"
@@ -368,16 +367,23 @@ function Movie() {
             })
           : []}
       </SimpleGrid>
-      <Divider border="null" w="80%" mt="1rem" />
-      <Heading
-        textDecoration="none"
-        color="white"
-        fontWeight="normal"
-        fontSize="3rem"
-      >
-        {" "}
-        BELOW IS THE TEST RECOMMENDATION FEATURE
-      </Heading>
+      {recs ? (
+        <div>
+          <Divider border="null" w="80%" mt="1rem" />
+          <Heading
+            textDecoration="none"
+            color="white"
+            fontWeight="normal"
+            fontSize="3rem"
+            fontFamily="DistantGalaxy"
+          >
+            {" "}
+            RECOMMENDATIONS (Beta)
+          </Heading>
+        </div>
+      ) : (
+        []
+      )}
       <SimpleGrid columns={3} width="100%">
         {recs
           ? recs.results.map((el) => {
