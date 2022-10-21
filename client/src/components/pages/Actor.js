@@ -10,6 +10,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
 
@@ -26,7 +27,7 @@ function Actor() {
     console.log(actor);
     axios({
       method: "GET",
-      url: "/actors/" + actor,
+      url: urlPrefix + "/actors/" + actor,
     })
       .then((response) => {
         const res = response.data;
@@ -49,7 +50,7 @@ function Actor() {
   function getPersonImageLink(target) {
     axios({
       method: "POST",
-      url: "/person-image-link/",
+      url: urlPrefix + "/person-image-link/",
       data: { person_name: target },
     })
       .then((response) => {
@@ -69,7 +70,7 @@ function Actor() {
   function getAppearances(target) {
     axios({
       method: "GET",
-      url: "/actor-appearances/" + target,
+      url: urlPrefix + "/actor-appearances/" + target,
     })
       .then((response) => {
         const res = response.data;
@@ -98,7 +99,7 @@ function Actor() {
   function getPersonImageLink2(target) {
     axios({
       method: "POST",
-      url: "/person-image-link2/",
+      url: urlPrefix + "/person-image-link2/",
       data: { person_id: target },
     })
       .then((response) => {
@@ -119,7 +120,7 @@ function Actor() {
   function getActorDetails(target) {
     axios({
       method: "POST",
-      url: "/actor-details/",
+      url: urlPrefix + "/actor-details/",
       data: { person_id: target },
     })
       .then((response) => {
