@@ -44,8 +44,8 @@ function Home() {
         {genrelist
           ? genrelist.map((element) => {
               return (
-                <div>
-                  <Box key={element.id} fontSize="2.5rem" w="10rem" h="5rem">
+                <div key={element.id}>
+                  <Box fontSize="2.5rem" w="10rem" h="5rem">
                     <Link
                       color="white"
                       textDecoration="none"

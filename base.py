@@ -13,6 +13,7 @@ load_dotenv()
 
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 tmdb_key = os.getenv("TMDB_KEY")
 
 # client = MongoClient("mongodb://localhost:27017")
@@ -251,8 +252,8 @@ def actor_appearances(target):
 
   return response_body
 
-@app.route('/person-image-link2/', methods = ['POST'])
-@cross_origin()
+@app.route('/person-image-link2/', methods = ['POST', 'OPTIONS'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def image_link2():
   
   print('GETTING ACTOR IMAGE')
@@ -272,7 +273,7 @@ def image_link2():
   return response_body
 
 @app.route('/movie-poster-link2/', methods = ['POST'])
-@cross_origin()
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def poster_link2():
   
   print('GETTING MOVIE POSTER')
@@ -280,6 +281,7 @@ def poster_link2():
   movie_id = request.get_json()['movie_id']
 
   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/images?api_key={tmdb_key}'
+  
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
@@ -288,8 +290,8 @@ def poster_link2():
 
   return response_body
 
-@app.route('/movie-details/', methods = ['POST'])
-@cross_origin()
+@app.route('/movie-details/', methods = ['POST', 'OPTIONS'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def movie_details():
   
   print('GETTING MOVIE DETAILS')
@@ -305,8 +307,8 @@ def movie_details():
 
   return response_body
 
-@app.route('/actor-details/', methods = ['POST'])
-@cross_origin()
+@app.route('/actor-details/', methods = ['POST', 'OPTIONS'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def actor_details():
   
   print('GETTING ACTOR DETAILS')
@@ -322,8 +324,8 @@ def actor_details():
 
   return response_body
 
-@app.route('/movie-keywords/', methods = ['POST'])
-@cross_origin()
+@app.route('/movie-keywords/', methods = ['POST', 'OPTIONS'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def movie_keywords():
   
   print('GETTING KEYWORDS')
@@ -345,11 +347,10 @@ def movie_recs():
   
   print('GETTING RECOMMENDATIONS')
 
-  genre = request.get_json()['genre']
   keyword = request.get_json()['keyword']
+  genres = request.get_json()['genres']
 
-
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genres}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()
