@@ -272,7 +272,7 @@ def image_link2():
 
   return response_body
 
-@app.route('/movie-poster-link2/', methods = ['POST'])
+@app.route('/movie-poster-link2/', methods = ['POST', 'OPTIONS'])
 @cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def poster_link2():
   
@@ -281,9 +281,12 @@ def poster_link2():
   movie_id = request.get_json()['movie_id']
 
   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/images?api_key={tmdb_key}'
+
+  req = urllib.request.Request(tmdb_movie_api_search_link)
+  req.add_header("Access-Control-Allow-Origin", "*")
   
 
-  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+  with urllib.request.urlopen(req) as response:
     res = response.read()
 
   response_body = res
@@ -300,7 +303,10 @@ def movie_details():
 
   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={tmdb_key}&language=en-US'
 
-  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+  req = urllib.request.Request(tmdb_movie_api_search_link)
+  req.add_header("Access-Control-Allow-Origin", "*")
+
+  with urllib.request.urlopen(req) as response:
     res = response.read()
 
   response_body = res

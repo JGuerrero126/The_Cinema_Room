@@ -300,9 +300,11 @@ function Actor() {
                             {el.character === "" ? (
                               ""
                             ) : (
-                              <span>{el.character}</span>
+                              <span>
+                                {el.character}
+                                <br />
+                              </span>
                             )}
-                            <br />
                             {moment(el.release_date).format("YYYY")}
                           </Text>
                         </Link>

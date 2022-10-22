@@ -160,7 +160,7 @@ function Movie() {
       }
     });
     if (englishArr.length > 0) {
-      console.log("USING ENGLISH ARRAY");
+      // console.log("USING ENGLISH ARRAY");
       englishArr.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -172,9 +172,9 @@ function Movie() {
           bigArr.push(el);
         }
       });
-      console.log(bigArr);
+      // console.log(bigArr);
       if (bigArr.length < 2) {
-        console.log("USING SINGLE BIG FILE PATH");
+        // console.log("USING SINGLE BIG FILE PATH");
         return bigArr[0].file_path;
       }
       bigArr.forEach((el) => {
@@ -188,11 +188,11 @@ function Movie() {
           index = bigArr.indexOf(el);
         }
       });
-      console.log("USING BIG ENGLISH FILE PATH");
-      console.log(bigArr[index].file_path);
+      // console.log("USING BIG ENGLISH FILE PATH");
+      // console.log(bigArr[index].file_path);
       return bigArr[index].file_path;
     } else {
-      console.log("USING NON-ENGLISH ARRAY");
+      // console.log("USING NON-ENGLISH ARRAY");
       target.posters.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -296,7 +296,7 @@ function Movie() {
     }
   }, [movieDetails, keywords]);
 
-  var i = 3;
+  var i = 12;
 
   return (
     <div>
@@ -448,56 +448,100 @@ function Movie() {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
+      <Divider border="null" w="80%" mt="1rem" />
       {recs ? (
-        <div>
-          <Divider border="null" w="80%" mt="1rem" />
-          <Heading
-            textDecoration="none"
-            color="white"
-            fontWeight="normal"
-            fontSize="3rem"
-            fontFamily="DistantGalaxy"
-          >
-            {" "}
-            RECOMMENDATIONS (Beta)
-          </Heading>
-        </div>
+        <Accordion allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton bg="transparent">
+                <Box
+                  flex="1"
+                  textAlign="center"
+                  textDecoration="none"
+                  color="white"
+                  fontWeight="normal"
+                  fontSize="3rem"
+                  fontFamily="DistantGalaxy"
+                >
+                  RECOMMENDATIONS (Beta)
+                  <AccordionIcon color="white" />
+                </Box>
+              </AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <SimpleGrid minChildWidth="15rem">
+                {recs
+                  ? recs.results.map((el) => {
+                      if (el.title === movieDetails.title) {
+                        i++;
+                        return;
+                      }
+                      if (recs.results.indexOf(el) < i) {
+                        return (
+                          <Container
+                            centerContent
+                            key={el.id}
+                            ml="1rem"
+                            mr="1rem"
+                          >
+                            <Link
+                              href={"/movies/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="1s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.title}</u>
+                              </Text>
+                              <Text>
+                                Rating: <br />
+                                {el.vote_average}
+                              </Text>
+                              <Center>
+                                <Box
+                                  w="fit-content"
+                                  bg="black"
+                                  borderWidth="1rem"
+                                  borderRadius="md"
+                                  borderColor="goldenrod"
+                                  borderStyle="groove"
+                                  transition="1s"
+                                  _hover={{ borderColor: "gold" }}
+                                >
+                                  <Image
+                                    w="100%"
+                                    h="100%"
+                                    src={
+                                      `https://image.tmdb.org/t/p/w500` +
+                                      el.poster_path
+                                    }
+                                    fallbackSrc="https://via.placeholder.com/325x500.png"
+                                  />
+                                </Box>
+                              </Center>
+                              {moment(el.release_date).format("YYYY") ===
+                              "Invalid date" ? (
+                                <div></div>
+                              ) : (
+                                <Text>
+                                  {moment(el.release_date).format("YYYY")}
+                                </Text>
+                              )}
+                            </Link>
+                          </Container>
+                        );
+                      }
+                    })
+                  : []}
+              </SimpleGrid>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       ) : (
         []
       )}
-      <SimpleGrid columns={3} width="100%">
-        {recs
-          ? recs.results.map((el) => {
-              if (el.title === movieDetails.title) {
-                i++;
-                return;
-              }
-              if (recs.results.indexOf(el) < i) {
-                return (
-                  <Container centerContent key={el.id} ml="1rem" mr="1rem">
-                    <Link
-                      href={"/movies/" + el.id}
-                      color="gold"
-                      textDecoration="none"
-                      fontFamily="DistantGalaxy"
-                      transition="1s"
-                      _hover={{ color: "white" }}
-                    >
-                      <Text>{el.title}</Text>
-                      <Text>{el.overview}</Text>
-                      {moment(el.release_date).format("YYYY") ===
-                      "Invalid date" ? (
-                        <div></div>
-                      ) : (
-                        <Text>{moment(el.release_date).format("YYYY")}</Text>
-                      )}
-                    </Link>
-                  </Container>
-                );
-              }
-            })
-          : []}
-      </SimpleGrid>
     </div>
   );
 }
