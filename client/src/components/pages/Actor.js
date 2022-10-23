@@ -8,6 +8,12 @@ import {
   Image,
   Container,
   Center,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -247,41 +253,114 @@ function Actor() {
       ) : (
         ""
       )}
-      <SimpleGrid columns={3} width="100%">
-        {actorAppearances
-          ? actorAppearances.cast.map((el) => {
-              if (actorAppearances.cast.indexOf(el) < 12) {
-                return (
-                  <Container centerContent key={el.id}>
-                    <Link
-                      href={"/movies/" + el.id}
-                      color="green"
-                      textDecoration="none"
-                      fontFamily="OCR"
-                      transition="1s"
-                      _hover={{
-                        color: "lightgreen",
-                        textShadow: "0rem 0rem 1rem white",
-                        fontSize: "1.15rem",
-                      }}
-                    >
-                      <Text>
-                        <b>{el.title}</b>
-                        <br />
-                        {el.character === "" ? (
-                          ""
-                        ) : (
-                          <div>Character: {el.character}</div>
-                        )}
-                        {moment(el.release_date).format("YYYY")}
-                      </Text>
-                    </Link>
-                  </Container>
-                );
-              }
-            })
-          : []}
-      </SimpleGrid>
+      <Accordion allowMultiple>
+        <AccordionItem>
+          <h2>
+            <AccordionButton bg="transparent">
+              <Box
+                flex="1"
+                textAlign="center"
+                color="green"
+                textDecoration="none"
+                fontFamily="OCR"
+                fontSize="2rem"
+              >
+                Actor Appearances
+                <AccordionIcon color="green" />
+              </Box>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <Wrap justify="center" spacing="1.5rem">
+              {actorAppearances
+                ? actorAppearances.cast.map((el) => {
+                    // if (actorAppearances.cast.indexOf(el) < 12) {
+                    return (
+                      <Container centerContent key={el.id}>
+                        <Link
+                          href={"/movies/" + el.id}
+                          color="green"
+                          textDecoration="none"
+                          fontFamily="OCR"
+                          transition="1s"
+                          _hover={{
+                            color: "lightgreen",
+                            textShadow: "0rem 0rem 1rem white",
+                            fontSize: "1.15rem",
+                          }}
+                        >
+                          <Text>
+                            <u>{el.title}</u>
+                            <br />
+                            {el.character === "" ? (
+                              ""
+                            ) : (
+                              <span>
+                                {el.character}
+                                <br />
+                              </span>
+                            )}
+                            {moment(el.release_date).format("YYYY")}
+                          </Text>
+                        </Link>
+                      </Container>
+                    );
+                    // }
+                  })
+                : []}
+            </Wrap>
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+          <h2>
+            <AccordionButton bg="transparent">
+              <Box
+                flex="1"
+                textAlign="center"
+                color="green"
+                textDecoration="none"
+                fontFamily="OCR"
+                fontSize="2rem"
+              >
+                Behind The Scenes
+                <AccordionIcon color="green" />
+              </Box>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <Wrap justify="center" spacing="1.5rem">
+              {actorAppearances
+                ? actorAppearances.crew.map((el) => {
+                    // if (actorAppearances.cast.indexOf(el) < 12) {
+                    return (
+                      <Container centerContent key={el.credit_id}>
+                        <Link
+                          href={"/movies/" + el.id}
+                          color="green"
+                          textDecoration="none"
+                          fontFamily="OCR"
+                          transition="1s"
+                          _hover={{
+                            color: "lightgreen",
+                            textShadow: "0rem 0rem 1rem white",
+                            fontSize: "1.15rem",
+                          }}
+                        >
+                          <Text>
+                            <u>{el.title}</u>
+                            <br />
+                            {el.job}
+                          </Text>
+                        </Link>
+                      </Container>
+                    );
+                    // }
+                  })
+                : []}
+            </Wrap>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 }

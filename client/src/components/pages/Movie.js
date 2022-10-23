@@ -9,6 +9,12 @@ import {
   Container,
   Center,
   Divider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -278,7 +284,7 @@ function Movie() {
     }
   }, [keywords]);
 
-  var i = 3;
+  var i = 12;
 
   return (
     <div>
@@ -342,78 +348,192 @@ function Movie() {
       ) : (
         []
       )}
-      <SimpleGrid columns={4} width="100%">
-        {movieCredits
-          ? movieCredits.cast.map((el) => {
-              if (el.order < 20 && el.name !== "" && el.character !== "")
-                return (
-                  <Container centerContent key={el.id}>
-                    <Link
-                      href={"/actors/" + el.id}
-                      color="gold"
-                      textDecoration="none"
-                      fontFamily="DistantGalaxy"
-                      transition="1s"
-                      // fontSize="1rem"
-                      _hover={{ color: "white" }}
-                    >
-                      <Text>
-                        {el.character}
-                        <br />
-                        {el.name}
-                      </Text>
-                    </Link>
-                  </Container>
-                );
-            })
-          : []}
-      </SimpleGrid>
+      <Accordion allowMultiple>
+        <AccordionItem>
+          <h2>
+            <AccordionButton bg="transparent">
+              <Box
+                flex="1"
+                textAlign="center"
+                color="gold"
+                fontFamily="DistantGalaxy"
+                fontSize="2rem"
+              >
+                Cast
+                <AccordionIcon color="gold" />
+              </Box>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <Wrap justify="center" spacing="1.5rem">
+              {movieCredits
+                ? movieCredits.cast.map((el) => {
+                    if (el.name !== "" && el.character !== "")
+                      return (
+                        <Container centerContent key={el.cast_id}>
+                          <Link
+                            href={"/actors/" + el.id}
+                            color="gold"
+                            textDecoration="none"
+                            fontFamily="DistantGalaxy"
+                            transition="2s"
+                            _hover={{ color: "white" }}
+                          >
+                            <Text>
+                              <u>{el.character}</u>
+                              <br />
+                              {el.name}
+                            </Text>
+                          </Link>
+                        </Container>
+                      );
+                  })
+                : []}
+            </Wrap>
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+          <h2>
+            <AccordionButton bg="transparent">
+              <Box
+                flex="1"
+                textAlign="center"
+                color="gold"
+                fontFamily="DistantGalaxy"
+                transition="1s"
+                fontSize="2rem"
+              >
+                Crew
+                <AccordionIcon color="gold" />
+              </Box>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <Wrap justify="center" spacing="1.5rem">
+              {movieCredits
+                ? movieCredits.crew.map((el) => {
+                    return (
+                      <Container centerContent key={el.credit_id}>
+                        <Link
+                          href=""
+                          color="gold"
+                          textDecoration="none"
+                          fontFamily="DistantGalaxy"
+                          transition="2s"
+                          _hover={{ color: "white" }}
+                        >
+                          <Text>
+                            <u>{el.job}</u>
+                            <br />
+                            {el.name}
+                          </Text>
+                        </Link>
+                      </Container>
+                    );
+                  })
+                : []}
+            </Wrap>
+          </AccordionPanel>
+        </AccordionItem>
+      </Accordion>
+      <Divider border="null" w="80%" mt="1rem" />
       {recs ? (
-        <div>
-          <Divider border="null" w="80%" mt="1rem" />
-          <Heading
-            textDecoration="none"
-            color="white"
-            fontWeight="normal"
-            fontSize="3rem"
-            fontFamily="DistantGalaxy"
-          >
-            {" "}
-            RECOMMENDATIONS (Beta)
-          </Heading>
-        </div>
+        <Accordion allowMultiple>
+          <AccordionItem>
+            <h2>
+              <AccordionButton bg="transparent">
+                <Box
+                  flex="1"
+                  textAlign="center"
+                  textDecoration="none"
+                  color="white"
+                  fontWeight="normal"
+                  fontSize="3rem"
+                  fontFamily="DistantGalaxy"
+                >
+                  RECOMMENDATIONS (Beta)
+                  <AccordionIcon color="white" />
+                </Box>
+              </AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <SimpleGrid minChildWidth="15rem">
+                {recs
+                  ? recs.results.map((el) => {
+                      if (el.title === movieDetails.title) {
+                        i++;
+                        return;
+                      }
+                      if (recs.results.indexOf(el) < i) {
+                        return (
+                          <Container
+                            centerContent
+                            key={el.id}
+                            ml="1rem"
+                            mr="1rem"
+                          >
+                            <Link
+                              href={"/movies/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="1s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.title}</u>
+                              </Text>
+                              {el.vote_average === 0 ? (
+                                <div></div>
+                              ) : (
+                                <Text>
+                                  Rating: <br />
+                                  {el.vote_average}
+                                </Text>
+                              )}
+                              <Center>
+                                <Box
+                                  w="fit-content"
+                                  bg="black"
+                                  borderWidth="1rem"
+                                  borderRadius="md"
+                                  borderColor="goldenrod"
+                                  borderStyle="groove"
+                                  transition="1s"
+                                  _hover={{ borderColor: "gold" }}
+                                >
+                                  <Image
+                                    w="100%"
+                                    h="100%"
+                                    src={
+                                      `https://image.tmdb.org/t/p/w500` +
+                                      el.poster_path
+                                    }
+                                    fallbackSrc="https://via.placeholder.com/325x500.png"
+                                  />
+                                </Box>
+                              </Center>
+                              {moment(el.release_date).format("YYYY") ===
+                              "Invalid date" ? (
+                                <Text>Not Yet Released</Text>
+                              ) : (
+                                <Text>
+                                  {moment(el.release_date).format("YYYY")}
+                                </Text>
+                              )}
+                            </Link>
+                          </Container>
+                        );
+                      }
+                    })
+                  : []}
+              </SimpleGrid>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       ) : (
         []
       )}
-      <SimpleGrid columns={3} width="100%">
-        {recs
-          ? recs.results.map((el) => {
-              if (el.title === movieDetails.title) {
-                i++;
-                return;
-              }
-              if (recs.results.indexOf(el) < i) {
-                return (
-                  <Container centerContent key={el.id} ml="1rem" mr="1rem">
-                    <Link
-                      href={"/movies/" + el.id}
-                      color="gold"
-                      textDecoration="none"
-                      fontFamily="DistantGalaxy"
-                      transition="1s"
-                      // fontSize="1rem"
-                      _hover={{ color: "white" }}
-                    >
-                      <Text>{el.title}</Text>
-                      <Text>{el.overview}</Text>
-                      <Text>{moment(el.release_date).format("YYYY")}</Text>
-                    </Link>
-                  </Container>
-                );
-              }
-            })
-          : []}
-      </SimpleGrid>
     </div>
   );
 }
