@@ -9,6 +9,12 @@ import {
   Container,
   Center,
   Divider,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -278,7 +284,7 @@ function Movie() {
     }
   }, [keywords]);
 
-  var i = 3;
+  var i = 12;
 
   return (
     <div>
@@ -477,10 +483,14 @@ function Movie() {
                               <Text>
                                 <u>{el.title}</u>
                               </Text>
-                              <Text>
-                                Rating: <br />
-                                {el.vote_average}
-                              </Text>
+                              {el.vote_average === 0 ? (
+                                <div></div>
+                              ) : (
+                                <Text>
+                                  Rating: <br />
+                                  {el.vote_average}
+                                </Text>
+                              )}
                               <Center>
                                 <Box
                                   w="fit-content"
@@ -505,7 +515,7 @@ function Movie() {
                               </Center>
                               {moment(el.release_date).format("YYYY") ===
                               "Invalid date" ? (
-                                <div></div>
+                                <Text>Not Yet Released</Text>
                               ) : (
                                 <Text>
                                   {moment(el.release_date).format("YYYY")}
