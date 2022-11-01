@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Text, Heading, Link, Box, Flex } from "@chakra-ui/react";
+import { Text, Heading, Link, Box, Flex, Input, Button } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
 function Home() {
   const [genrelist, setGenreList] = useState(null);
-
+  const [search, setSearch] = useState('');
+  const handleChange = (event) => setSearch(event.target.value)
   function getData() {
     axios({
       method: "GET",
@@ -31,7 +32,12 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div> 
+      <Input value={search} onChange={handleChange} placeholder='Movie..' width="15rem"/>
+      <Button colorScheme='blue'
+      onClick={()=>{
+        console.log(search);
+      }} >Search</Button>
       <Heading
         fontSize="3rem"
         fontWeight="normal"
@@ -44,7 +50,7 @@ function Home() {
         {genrelist
           ? genrelist.map((element) => {
               return (
-                <div>
+                <div key={element.id}>
                   <Box key={element.id} fontSize="2.5rem" w="10rem" h="5rem">
                     <Link
                       color="white"

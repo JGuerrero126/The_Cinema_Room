@@ -251,6 +251,21 @@ def actor_appearances(target):
 
   return response_body
 
+@app.route('/search/<target>', methods = ['GET'])
+@cross_origin()
+def search_movie(target):
+  
+  print('GETTING DATA FOR SEARCHED MOVIE')
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/search/{target}/movie?api_key={tmdb_key}&language=en-US'
+
+  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+    res = response.read()
+
+  response_body = (json.loads(res))
+
+  return response_body
+
 @app.route('/person-image-link2/', methods = ['POST'])
 @cross_origin()
 def image_link2():
