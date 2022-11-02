@@ -10,7 +10,7 @@ import Movies from "./components/pages/Movies";
 function App() {
   return (
     <div className="App">
-      <Router>
+      {/* <Router> */}
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
           <Route path="/actors/:actor" element={<Actor />} />
           <Route path="/search/:movie" element={<Movies />} />
         </Routes>
-      </Router>
+      {/* </Router> */}
     </div>
   );
 }
