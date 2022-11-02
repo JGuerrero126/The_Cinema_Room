@@ -1,40 +1,67 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import React from "react";
+import "@testing-library/jest-dom";
+// import { App, LocationDisplay } from "./app";
 import App from "./App";
-import Home from "./components/pages/Home";
-import { unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { BrowserRouter, MemoryRouter } from "react-router-dom";
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+// test("full app rendering/navigating", () => {
+//   render(<App />, { wrapper: BrowserRouter });
+//   // const user = userEvent.setup();
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
+//   // verify page content for default route
+//   expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
 
-test("renders The Cinema Room", () => {
-  render(<App />);
-  const elementWithSpecificText = screen.getByText(/The Cinema Room/i);
-  expect(elementWithSpecificText).toBeInTheDocument();
-});
-
-it("renders Select A Genre in Home page", () => {
-  act(() => {
-    render(<Home />, container);
-  });
-  const elementWithSpecificText = screen.getByText(/Select A Genre/i);
-  expect(elementWithSpecificText).toBeInTheDocument();
-});
-
-// it("renders Select A Genre in Home page", () => {
-//   act(() => {
-//     render(<Home />, container);
-//   });
-//   expect(container.textContent).toBe("Select A Genre");
+//   // verify page content for expected route after navigating
+//   // await user.click(screen.getByText(/about/i));
+//   // expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
 // });
+
+test("landing on Home page", () => {
+  const slashRoute = "/";
+
+  render(
+    <MemoryRouter initialEntries={[slashRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
+});
+
+test("landing on Genre page", () => {
+  const genreRoute = "/genres/35"; // this is the route for comedies
+
+  render(
+    <MemoryRouter initialEntries={[genreRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText(/Here are the top/i)).toBeInTheDocument();
+});
+
+test("landing on Movie page", () => {
+  const movieRoute = "/movies/1891"; // this is the route for The Empire Strikes Back
+
+  render(
+    <MemoryRouter initialEntries={[movieRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText(/Cast/i)).toBeInTheDocument();
+});
+
+test("landing on Actor page", () => {
+  const actorRoute = "/actors/2"; // this is the route for Mark Hamill
+
+  render(
+    <MemoryRouter initialEntries={[actorRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText(/Actor Appearances/i)).toBeInTheDocument();
+});
