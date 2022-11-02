@@ -13,10 +13,13 @@ function Movies() {
   const handleChange = (event) => setUserInput(event.target.value)
   
   function setKeywords() {
-    console.log(movie)
+    var keyword = movie;
+    if (userInput) {
+      keyword = userInput;
+    }
     axios({
       method: "GET",
-      url: urlPrefix + "/search/" + movie,
+      url: urlPrefix + "/search/" + keyword,
     })
       .then((response) => {
         const res = response.data;
