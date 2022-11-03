@@ -242,11 +242,11 @@ function Movie() {
       });
   }
 
-  function getRecs(gTarget, kTarget) {
+  function getRecs(target) {
     axios({
       method: "POST",
       url: urlPrefix + "/movie-recs/",
-      data: { genre: gTarget, keyword: kTarget },
+      data: { movie_id: target },
     })
       .then((response) => {
         const res = response.data;
@@ -279,10 +279,10 @@ function Movie() {
   }, [movieCredits]);
 
   useEffect(() => {
-    if (movieDetails !== null && keywords.length > 0) {
-      getRecs(movieDetails.genres[0].id, keywords[0].id);
+    if (movieDetails !== null) {
+      getRecs(movie);
     }
-  }, [keywords]);
+  }, [movieDetails]);
 
   var i = 12;
 
@@ -365,31 +365,37 @@ function Movie() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            <Wrap justify="center" spacing="1.5rem">
+            <SimpleGrid
+              justify="center"
+              spacing="1.5rem"
+              minChildWidth="10rem"
+              ml="1rem"
+              mr="1rem"
+            >
               {movieCredits
                 ? movieCredits.cast.map((el) => {
-                    if (el.name !== "" && el.character !== "")
-                      return (
-                        <Container centerContent key={el.cast_id}>
-                          <Link
-                            href={"/actors/" + el.id}
-                            color="gold"
-                            textDecoration="none"
-                            fontFamily="DistantGalaxy"
-                            transition="2s"
-                            _hover={{ color: "white" }}
-                          >
-                            <Text>
-                              <u>{el.character}</u>
-                              <br />
-                              {el.name}
-                            </Text>
-                          </Link>
-                        </Container>
-                      );
+                    // if (el.name !== "" && el.character !== "")
+                    return (
+                      <Container centerContent key={el.cast_id}>
+                        <Link
+                          href={"/actors/" + el.id}
+                          color="gold"
+                          textDecoration="none"
+                          fontFamily="DistantGalaxy"
+                          transition="2s"
+                          _hover={{ color: "white" }}
+                        >
+                          <Text>
+                            <u>{el.character}</u>
+                            <br />
+                            {el.name}
+                          </Text>
+                        </Link>
+                      </Container>
+                    );
                   })
                 : []}
-            </Wrap>
+            </SimpleGrid>
           </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -409,13 +415,19 @@ function Movie() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            <Wrap justify="center" spacing="1.5rem">
+            <SimpleGrid
+              justify="center"
+              spacing="1.5rem"
+              minChildWidth="10rem"
+              ml="1rem"
+              mr="1rem"
+            >
               {movieCredits
                 ? movieCredits.crew.map((el) => {
                     return (
                       <Container centerContent key={el.credit_id}>
                         <Link
-                          href=""
+                          href={"/crew/" + el.id}
                           color="gold"
                           textDecoration="none"
                           fontFamily="DistantGalaxy"
@@ -432,12 +444,12 @@ function Movie() {
                     );
                   })
                 : []}
-            </Wrap>
+            </SimpleGrid>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
       <Divider border="null" w="80%" mt="1rem" />
-      {recs ? (
+      {recs && recs.results.length > 0 ? (
         <Accordion allowMultiple>
           <AccordionItem>
             <h2>
@@ -451,7 +463,7 @@ function Movie() {
                   fontSize="3rem"
                   fontFamily="DistantGalaxy"
                 >
-                  RECOMMENDATIONS (Beta)
+                  RECOMMENDATIONS
                   <AccordionIcon color="white" />
                 </Box>
               </AccordionButton>
@@ -460,71 +472,70 @@ function Movie() {
               <SimpleGrid minChildWidth="15rem">
                 {recs
                   ? recs.results.map((el) => {
-                      if (el.title === movieDetails.title) {
-                        i++;
-                        return;
-                      }
-                      if (recs.results.indexOf(el) < i) {
-                        return (
-                          <Container
-                            centerContent
-                            key={el.id}
-                            ml="1rem"
-                            mr="1rem"
+                      // if (el.title === movieDetails.title) {
+                      //   i++;
+                      //   return;
+                      // }
+                      // if (recs.results.indexOf(el) < i) {
+                      return (
+                        <Container
+                          centerContent
+                          key={el.id}
+                          ml="1rem"
+                          mr="1rem"
+                        >
+                          <Link
+                            href={"/movies/" + el.id}
+                            color="gold"
+                            textDecoration="none"
+                            fontFamily="DistantGalaxy"
+                            transition="1s"
+                            _hover={{ color: "white" }}
                           >
-                            <Link
-                              href={"/movies/" + el.id}
-                              color="gold"
-                              textDecoration="none"
-                              fontFamily="DistantGalaxy"
-                              transition="1s"
-                              _hover={{ color: "white" }}
-                            >
+                            <Text h="3rem">
+                              <u>{el.title}</u>
+                            </Text>
+                            {el.vote_average === 0 ? (
+                              <div></div>
+                            ) : (
                               <Text>
-                                <u>{el.title}</u>
+                                Rating: <br />
+                                {el.vote_average}
                               </Text>
-                              {el.vote_average === 0 ? (
-                                <div></div>
-                              ) : (
-                                <Text>
-                                  Rating: <br />
-                                  {el.vote_average}
-                                </Text>
-                              )}
-                              <Center>
-                                <Box
-                                  w="fit-content"
-                                  bg="black"
-                                  borderWidth="1rem"
-                                  borderRadius="md"
-                                  borderColor="goldenrod"
-                                  borderStyle="groove"
-                                  transition="1s"
-                                  _hover={{ borderColor: "gold" }}
-                                >
-                                  <Image
-                                    w="100%"
-                                    h="100%"
-                                    src={
-                                      `https://image.tmdb.org/t/p/w500` +
-                                      el.poster_path
-                                    }
-                                    fallbackSrc="https://via.placeholder.com/325x500.png"
-                                  />
-                                </Box>
-                              </Center>
-                              {moment(el.release_date).format("YYYY") ===
-                              "Invalid date" ? (
-                                <Text>Not Yet Released</Text>
-                              ) : (
-                                <Text>
-                                  {moment(el.release_date).format("YYYY")}
-                                </Text>
-                              )}
-                            </Link>
-                          </Container>
-                        );
-                      }
+                            )}
+                            <Center>
+                              <Box
+                                w="fit-content"
+                                bg="black"
+                                borderWidth="1rem"
+                                borderRadius="md"
+                                borderColor="goldenrod"
+                                borderStyle="groove"
+                                transition="1s"
+                                _hover={{ borderColor: "gold" }}
+                              >
+                                <Image
+                                  w="100%"
+                                  h="100%"
+                                  src={
+                                    `https://image.tmdb.org/t/p/w500` +
+                                    el.poster_path
+                                  }
+                                  fallbackSrc="https://via.placeholder.com/325x500.png"
+                                />
+                              </Box>
+                            </Center>
+                            {moment(el.release_date).format("YYYY") ===
+                            "Invalid date" ? (
+                              <Text>Not Yet Released</Text>
+                            ) : (
+                              <Text>
+                                {moment(el.release_date).format("YYYY")}
+                              </Text>
+                            )}
+                          </Link>
+                        </Container>
+                      );
                     })
                   : []}
               </SimpleGrid>

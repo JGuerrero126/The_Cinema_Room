@@ -345,11 +345,14 @@ def movie_recs():
   
   print('GETTING RECOMMENDATIONS')
 
-  genre = request.get_json()['genre']
-  keyword = request.get_json()['keyword']
+  # genre = request.get_json()['genre']
+  # keyword = request.get_json()['keyword']
+  movie_id = request.get_json()['movie_id']
 
 
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+  # tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key={tmdb_key}&language=en-US&page=1'
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()

@@ -4,7 +4,7 @@ import { Divider, Heading, Link } from "@chakra-ui/react";
 function Header() {
   return (
     <div>
-      <Heading>
+      <Heading id="headTop">
         <Link
           textDecoration="none"
           href="/"
