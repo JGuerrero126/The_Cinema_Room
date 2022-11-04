@@ -13,7 +13,6 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -153,7 +152,6 @@ function Actor() {
     document.getElementById("appHead").style.color = "gold";
     document.getElementById("appHead").style.textShadow =
       "0.3rem 0.3rem 0rem darkred";
-    // document.getElementById("headTop").style.backgroundColor = "darkred";
     document.getElementById("appHead").textContent = document
       .getElementById("appHead")
       .textContent.toUpperCase();
@@ -164,6 +162,7 @@ function Actor() {
       {actorDetails ? (
         <div>
           <Heading
+            mt="1rem"
             fontWeight="normal"
             fontSize="2rem"
             color="gold"
@@ -172,170 +171,279 @@ function Actor() {
           >
             {actorDetails.name.toUpperCase()}
           </Heading>
-          <Center>
+          <Center mt="1rem">
             {personImageLinkData2 ? (
-              <Box
-                w="fit-content"
-                bg="black"
-                borderWidth="1rem"
-                borderRadius="md"
-                borderColor="gold"
-                borderStyle="groove"
-                transition="1s"
-                _hover={{
-                  boxShadow: "0rem 0rem 3rem darkred",
-                  borderColor: "darkred",
-                }}
-              >
-                <Image
-                  w="100%"
-                  h="100%"
-                  src={
-                    personImageLinkData2
-                      ? `https://image.tmdb.org/t/p/w500` + personImageLinkData2
-                      : ""
-                  }
-                  fallbackSrc="https://via.placeholder.com/325x500.png"
-                />
-              </Box>
+              <div>
+                <Center>
+                  <Image
+                    borderWidth="1rem"
+                    borderRadius="md"
+                    borderColor="gold"
+                    borderStyle="groove"
+                    transition="1s"
+                    _hover={{
+                      boxShadow: "0rem 0rem 3rem darkred",
+                      borderColor: "darkred",
+                    }}
+                    w="100%"
+                    h="100%"
+                    src={
+                      personImageLinkData2
+                        ? `https://image.tmdb.org/t/p/w500` +
+                          personImageLinkData2
+                        : ""
+                    }
+                    fallbackSrc="https://via.placeholder.com/325x500.png"
+                  />
+                </Center>
+                <Text fontSize="1rem" color="gold" fontFamily="Bus" mt="1rem">
+                  Best Known For: {actorDetails.known_for_department}
+                </Text>
+              </div>
             ) : (
-              ""
+              <Text fontSize="1rem" color="gold" fontFamily="Bus" mt="1rem">
+                Best Known For: {actorDetails.known_for_department}
+              </Text>
             )}
           </Center>
-          <Text
-            fontSize="1rem"
-            ml="3rem"
-            mr="3rem"
-            color="gold"
-            fontFamily="Bus"
-          >
-            {actorDetails.biography}
-          </Text>
-          <Text color="gold" fontFamily="Bus">
-            Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
-          </Text>
+          {actorDetails.biography === "" ? (
+            ""
+          ) : (
+            <Text
+              mt="1rem"
+              fontSize="1rem"
+              ml="3rem"
+              mr="3rem"
+              color="gold"
+              fontFamily="Bus"
+            >
+              {actorDetails.biography}
+            </Text>
+          )}
+          {moment(actorDetails.birthday).format("MMMM DD, YYYY") ===
+          "Invalid date" ? (
+            ""
+          ) : (
+            <Text fontSize="1rem" color="gold" fontFamily="Bus" mt="1rem">
+              Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
+            </Text>
+          )}
         </div>
       ) : (
         ""
       )}
-      <Accordion allowMultiple>
-        <AccordionItem>
-          <h2>
-            <AccordionButton bg="transparent">
-              <Box
-                flex="1"
-                textAlign="center"
-                color="gold"
-                textDecoration="none"
-                fontFamily="Bus"
-                fontSize="2rem"
-              >
-                Crew work
-                <AccordionIcon color="gold" />
-              </Box>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel>
-            <SimpleGrid
-              justify="center"
-              spacing="1.5rem"
-              minChildWidth="10rem"
-              ml="1rem"
-              mr="1rem"
-            >
-              {actorAppearances
-                ? actorAppearances.crew.map((el) => {
-                    // if (actorAppearances.cast.indexOf(el) < 12) {
-                    return (
-                      <Container centerContent key={el.credit_id}>
-                        <Link
-                          href={"/movies/" + el.id}
-                          color="gold"
-                          textDecoration="none"
-                          fontFamily="Ben"
-                          transition="1s"
-                          _hover={{
-                            color: "white",
-                            textShadow: "0.2rem 0.2rem 2rem gold",
-                          }}
-                        >
-                          <Text>
-                            <u>{el.title}</u>
-                            <br />
-                            {el.job}
-                          </Text>
-                        </Link>
-                      </Container>
-                    );
-                    // }
-                  })
-                : []}
-            </SimpleGrid>
-          </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <h2>
-            <AccordionButton bg="transparent">
-              <Box
-                flex="1"
-                textAlign="center"
-                color="gold"
-                textDecoration="none"
-                fontFamily="Bus"
-                fontSize="2rem"
-              >
-                On The Big Screen
-                <AccordionIcon color="gold" />
-              </Box>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel>
-            <SimpleGrid
-              justify="center"
-              spacing="1.5rem"
-              minChildWidth="10rem"
-              ml="1rem"
-              mr="1rem"
-            >
-              {actorAppearances
-                ? actorAppearances.cast.map((el) => {
-                    // if (actorAppearances.cast.indexOf(el) < 12) {
-                    return (
-                      <Container centerContent key={el.id}>
-                        <Link
-                          href={"/movies/" + el.id}
-                          color="gold"
-                          textDecoration="none"
-                          fontFamily="Ben"
-                          transition="1s"
-                          _hover={{
-                            color: "white",
-                            textShadow: "0.2rem 0.2rem 2rem gold",
-                          }}
-                        >
-                          <Text>
-                            <u>{el.title}</u>
-                            <br />
-                            {el.character === "" ? (
-                              ""
-                            ) : (
-                              <span>
-                                {el.character}
+      {actorAppearances ? (
+        <Accordion allowMultiple>
+          {actorAppearances.crew.length > 0 ? (
+            <AccordionItem>
+              <h2>
+                <AccordionButton
+                  bg="transparent"
+                  _focus=""
+                  borderColor=""
+                  _before=""
+                  _after=""
+                  outline="0.5rem solid black"
+                  outlineOffset=""
+                >
+                  <Box
+                    flex="1"
+                    textAlign="center"
+                    color="gold"
+                    textDecoration="none"
+                    fontFamily="Bus"
+                    fontSize="2rem"
+                  >
+                    Crew work
+                    <AccordionIcon color="gold" />
+                  </Box>
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                <SimpleGrid
+                  justify="center"
+                  spacing="1.5rem"
+                  minChildWidth="15rem"
+                  ml="1rem"
+                  mr="1rem"
+                >
+                  {actorAppearances
+                    ? actorAppearances.crew.map((el) => {
+                        // if (actorAppearances.cast.indexOf(el) < 12) {
+                        return (
+                          <Container
+                            centerContent
+                            key={el.character}
+                            ml="1rem"
+                            mr="1rem"
+                          >
+                            <Link
+                              href={"/movies/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="Ben"
+                              transition="1s"
+                              _hover={{
+                                color: "white",
+                                textShadow: "0.2rem 0.2rem 2rem gold",
+                              }}
+                            >
+                              <Text h="3rem">
+                                <u>{el.title}</u>
+                                <br /> {el.job}
+                              </Text>
+                              {el.vote_average === 0 ? (
+                                <div></div>
+                              ) : (
+                                <Text>
+                                  <br />
+                                  Rating: <br />
+                                  {el.vote_average}
+                                </Text>
+                              )}
+
+                              <Center>
+                                <Image
+                                  borderWidth="1rem"
+                                  borderRadius="md"
+                                  borderColor="goldenrod"
+                                  borderStyle="groove"
+                                  transition="1s"
+                                  w="100%"
+                                  _hover={{ borderColor: "gold" }}
+                                  src={
+                                    `https://image.tmdb.org/t/p/w500` +
+                                    el.poster_path
+                                  }
+                                  fallbackSrc="https://via.placeholder.com/325x500.png"
+                                />
+                              </Center>
+                              {moment(el.release_date).format("YYYY") ===
+                              "Invalid date" ? (
+                                <Text>Not Yet Released</Text>
+                              ) : (
+                                <Text>
+                                  {moment(el.release_date).format("YYYY")}
+                                </Text>
+                              )}
+                            </Link>
+                          </Container>
+                        );
+                        // }
+                      })
+                    : []}
+                </SimpleGrid>
+              </AccordionPanel>
+            </AccordionItem>
+          ) : (
+            " "
+          )}
+          {actorAppearances.cast.length > 0 ? (
+            <AccordionItem>
+              <h2>
+                <AccordionButton
+                  bg="transparent"
+                  _focus=""
+                  borderColor=""
+                  _before=""
+                  _after=""
+                  outline="0.5rem solid black"
+                  outlineOffset=""
+                >
+                  <Box
+                    flex="1"
+                    textAlign="center"
+                    color="gold"
+                    textDecoration="none"
+                    fontFamily="Bus"
+                    fontSize="2rem"
+                  >
+                    On The Big Screen
+                    <AccordionIcon color="gold" />
+                  </Box>
+                </AccordionButton>
+              </h2>
+              <AccordionPanel>
+                <SimpleGrid
+                  justify="center"
+                  spacing="1.5rem"
+                  minChildWidth="15rem"
+                  ml="1rem"
+                  mr="1rem"
+                >
+                  {actorAppearances
+                    ? actorAppearances.cast.map((el) => {
+                        // if (actorAppearances.cast.indexOf(el) < 12) {
+                        return (
+                          <Container
+                            centerContent
+                            key={el.credit_id}
+                            ml="1rem"
+                            mr="1rem"
+                          >
+                            <Link
+                              href={"/movies/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="Ben"
+                              transition="1s"
+                              _hover={{
+                                color: "white",
+                                textShadow: "0.2rem 0.2rem 2rem gold",
+                              }}
+                            >
+                              <Text h="4rem">
+                                <u>{el.title}</u>
                                 <br />
-                              </span>
-                            )}
-                            {moment(el.release_date).format("YYYY")}
-                          </Text>
-                        </Link>
-                      </Container>
-                    );
-                    // }
-                  })
-                : []}
-            </SimpleGrid>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
+                                {el.character === "" ? (
+                                  ""
+                                ) : (
+                                  <span>
+                                    {el.character}
+                                    <br />
+                                  </span>
+                                )}
+                              </Text>
+                              <Center>
+                                <Image
+                                  borderWidth="1rem"
+                                  borderRadius="md"
+                                  borderColor="goldenrod"
+                                  borderStyle="groove"
+                                  transition="1s"
+                                  _hover={{ borderColor: "gold" }}
+                                  w="100%"
+                                  src={
+                                    `https://image.tmdb.org/t/p/w500` +
+                                    el.poster_path
+                                  }
+                                  fallbackSrc="https://via.placeholder.com/325x500.png"
+                                />
+                              </Center>
+                              {moment(el.release_date).format("YYYY") ===
+                              "Invalid date" ? (
+                                <Text>Not Yet Released</Text>
+                              ) : (
+                                <Text>
+                                  {moment(el.release_date).format("YYYY")}
+                                </Text>
+                              )}
+                            </Link>
+                          </Container>
+                        );
+                        // }
+                      })
+                    : []}
+                </SimpleGrid>
+              </AccordionPanel>
+            </AccordionItem>
+          ) : (
+            " "
+          )}
+        </Accordion>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

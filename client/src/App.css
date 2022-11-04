@@ -54,7 +54,8 @@
   src: URL("./assets/fonts/ITCBenguiatStdBoldCn.OTF") format("truetype");
 }
 
-body {
+#root,
+:root {
   background-color: black;
   /* font-family: "Corleone"; */
 }

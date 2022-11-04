@@ -14,7 +14,6 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -22,62 +21,12 @@ import { useParams } from "react-router";
 import moment from "moment";
 
 function Movie() {
-  const [movieData2, setMovieData2] = useState(null);
-  const [movieData, setMovieData] = useState(null);
-  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { movie } = useParams();
   const [movieCredits, setMovieCredits] = useState(null);
-  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
+  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const [movieDetails, setMovieDetails] = useState(null);
   const [keywords, setKeywords] = useState(null);
   const [recs, setRecs] = useState(null);
-
-  function getData() {
-    console.log("movie is:");
-    console.log(movie);
-    axios({
-      method: "GET",
-      url: urlPrefix + "/movies/" + movie,
-    })
-      .then((response) => {
-        const res = response.data;
-        setMovieData({
-          title: res.title,
-          genres: res.genres,
-          rating: res.rating,
-          description: res.description,
-          release_year: res.release_year,
-          actor_array: res.actor_array,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getMoviePosterLink(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/movie-poster-link/",
-      data: { movie_name: target },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setMoviePosterLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
 
   function getCredits(target) {
     console.log("STARTING THE REQUEST");
@@ -99,26 +48,16 @@ function Movie() {
       });
   }
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (movieData !== null) {
-  //     getMoviePosterLink(movieData.title);
-  //   }
-  // }, [movieData]);
-
-  function getMoviePosterLink2(target) {
+  function getMoviePosterLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/movie-poster-link2/",
+      url: urlPrefix + "/movie-poster-link/",
       data: { movie_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setMoviePosterLinkData2(photoSelector(res));
+        setMoviePosterLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -160,7 +99,6 @@ function Movie() {
       }
     });
     if (englishArr.length > 0) {
-      console.log("USING ENGLISH ARRAY");
       englishArr.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -172,9 +110,7 @@ function Movie() {
           bigArr.push(el);
         }
       });
-      console.log(bigArr);
       if (bigArr.length < 2) {
-        console.log("USING SINGLE BIG FILE PATH");
         return bigArr[0].file_path;
       }
       bigArr.forEach((el) => {
@@ -188,11 +124,8 @@ function Movie() {
           index = bigArr.indexOf(el);
         }
       });
-      console.log("USING BIG ENGLISH FILE PATH");
-      console.log(bigArr[index].file_path);
       return bigArr[index].file_path;
     } else {
-      console.log("USING NON-ENGLISH ARRAY");
       target.posters.forEach((el) => {
         heightArr.push(el.height);
       });
@@ -266,6 +199,7 @@ function Movie() {
     getMovieDetails(movie);
     getCredits(movie);
     getKeywords(movie);
+    getMoviePosterLink(movie);
   }, []);
 
   useEffect(() => {
@@ -273,24 +207,17 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    if (movieCredits !== null) {
-      getMoviePosterLink2(movieCredits.id);
-    }
-  }, [movieCredits]);
-
-  useEffect(() => {
     if (movieDetails !== null) {
       getRecs(movie);
     }
   }, [movieDetails]);
-
-  var i = 12;
 
   return (
     <div>
       {movieDetails ? (
         <div>
           <Heading
+            mt="1rem"
             fontWeight="normal"
             fontSize="2rem"
             color="gold"
@@ -298,11 +225,9 @@ function Movie() {
           >
             {movieDetails.title.toUpperCase()}
           </Heading>
-          {moviePosterLinkData2 ? (
-            <Center>
-              <Box
-                w="fit-content"
-                bg="black"
+          {moviePosterLinkData ? (
+            <Center mt="1rem">
+              <Image
                 borderWidth="1rem"
                 borderRadius="md"
                 borderColor="black"
@@ -310,18 +235,13 @@ function Movie() {
                 boxShadow="0rem 0rem 3rem lightyellow"
                 transition="1s"
                 _hover={{ boxShadow: "0rem 0rem 3rem green" }}
-              >
-                <Image
-                  w="100%"
-                  h="100%"
-                  src={
-                    moviePosterLinkData2
-                      ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData2
-                      : ""
-                  }
-                  fallbackSrc="https://via.placeholder.com/325x500.png"
-                />
-              </Box>
+                src={
+                  moviePosterLinkData
+                    ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
+                    : ""
+                }
+                fallbackSrc="https://via.placeholder.com/325x500.png"
+              />
             </Center>
           ) : (
             []
@@ -331,10 +251,12 @@ function Movie() {
             color="gold"
             fontFamily="DistantGalaxy"
             fontWeight="normal"
+            mt="1rem"
           >
             {movieDetails.tagline}
           </Heading>
           <Text
+            mt="1rem"
             ml="3rem"
             mr="3rem"
             // fontSize="0.85rem"
@@ -351,7 +273,15 @@ function Movie() {
       <Accordion allowMultiple>
         <AccordionItem>
           <h2>
-            <AccordionButton bg="transparent">
+            <AccordionButton
+              bg="transparent"
+              _focus=""
+              borderColor=""
+              _before=""
+              _after=""
+              outline="0.5rem solid black"
+              outlineOffset=""
+            >
               <Box
                 flex="1"
                 textAlign="center"
@@ -400,7 +330,11 @@ function Movie() {
         </AccordionItem>
         <AccordionItem>
           <h2>
-            <AccordionButton bg="transparent">
+            <AccordionButton
+              bg="transparent"
+              outline="0.5rem solid black"
+              outlineOffset=""
+            >
               <Box
                 flex="1"
                 textAlign="center"
@@ -448,12 +382,18 @@ function Movie() {
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
-      <Divider border="null" w="80%" mt="1rem" />
+      <Center>
+        <Divider border="null" w="80%" mt="1rem" />
+      </Center>
       {recs && recs.results.length > 0 ? (
         <Accordion allowMultiple>
           <AccordionItem>
             <h2>
-              <AccordionButton bg="transparent">
+              <AccordionButton
+                bg="transparent"
+                outline="0.5rem solid black"
+                outlineOffset=""
+              >
                 <Box
                   flex="1"
                   textAlign="center"
@@ -483,6 +423,7 @@ function Movie() {
                           key={el.id}
                           ml="1rem"
                           mr="1rem"
+                          mb="1rem"
                         >
                           <Link
                             href={"/movies/" + el.id}
@@ -492,38 +433,31 @@ function Movie() {
                             transition="1s"
                             _hover={{ color: "white" }}
                           >
-                            <Text h="3rem">
-                              <u>{el.title}</u>
-                            </Text>
-                            {el.vote_average === 0 ? (
-                              <div></div>
-                            ) : (
+                            <Container h="9rem">
                               <Text>
-                                Rating: <br />
-                                {el.vote_average}
+                                <u>{el.title}</u>
                               </Text>
-                            )}
+                              {el.vote_average === 0 ? (
+                                <div></div>
+                              ) : (
+                                <Text>
+                                  Rating: <br />
+                                  {el.vote_average}
+                                </Text>
+                              )}
+                            </Container>
                             <Center>
-                              <Box
-                                w="fit-content"
-                                bg="black"
-                                borderWidth="1rem"
-                                borderRadius="md"
-                                borderColor="goldenrod"
-                                borderStyle="groove"
+                              <Image
+                                border="0.5rem groove goldenrod"
                                 transition="1s"
-                                _hover={{ borderColor: "gold" }}
-                              >
-                                <Image
-                                  w="100%"
-                                  h="100%"
-                                  src={
-                                    `https://image.tmdb.org/t/p/w500` +
-                                    el.poster_path
-                                  }
-                                  fallbackSrc="https://via.placeholder.com/325x500.png"
-                                />
-                              </Box>
+                                _hover={{ borderColor: "white" }}
+                                w="100%"
+                                src={
+                                  `https://image.tmdb.org/t/p/w500` +
+                                  el.poster_path
+                                }
+                                fallbackSrc="https://via.placeholder.com/325x500.png"
+                              />
                             </Center>
                             {moment(el.release_date).format("YYYY") ===
                             "Invalid date" ? (
