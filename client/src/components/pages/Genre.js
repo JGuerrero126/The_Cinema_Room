@@ -7,6 +7,7 @@ import {
   Box,
   Image,
   Container,
+  Center,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -14,75 +15,9 @@ import { useParams } from "react-router";
 import moment from "moment";
 
 function Genre() {
-  const [genreData, setGenreData] = useState(null);
-  const [genreData2, setGenreData2] = useState(null);
-  const [personImageLinkData, setPersonImageLinkData] = useState(null);
-  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
   const [movieList, setMovieList] = useState(null);
-  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
-
-  const personName = "Harrison Ford";
-  const movieName = "Taxi Driver";
-
-  function getGenre() {
-    axios({
-      method: "GET",
-      url: urlPrefix + "/genres/" + genre,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setGenreData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getPersonImageLink() {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/person-image-link/",
-      data: { person_name: personName },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setPersonImageLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getMoviePosterLink(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/movie-poster-link/",
-      data: { movie_name: target },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setMoviePosterLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
 
   function getMovies(target) {
     axios({
@@ -103,32 +38,16 @@ function Genre() {
       });
   }
 
-  // useEffect(() => {
-  //   getPersonImageLink();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (genreData !== null) {
-  //     getMoviePosterLink(genreData[0].title);
-  //   }
-  // }, [genreData]);
-
-  // useEffect(() => {
-  //   getGenre();
-  // }, []);
-
-  console.log(genre);
-
-  function getMoviePosterLink2(target) {
+  function getMoviePosterLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/movie-poster-link2/",
+      url: urlPrefix + "/movie-poster-link/",
       data: { movie_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setMoviePosterLinkData2(photoSelector(res));
+        setMoviePosterLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -207,7 +126,6 @@ function Genre() {
             bigArr.push(el);
           }
         });
-        console.log(bigArr);
         if (bigArr.length < 2) {
           return bigArr[0].file_path;
         }
@@ -266,48 +184,45 @@ function Genre() {
 
   useEffect(() => {
     if (movieList !== null) {
-      getMoviePosterLink2(movieList[0].id);
+      getMoviePosterLink(movieList[0].id);
     }
   }, [movieList]);
 
   return (
     <div>
-      <Heading fontSize="2.5rem" color="white" fontFamily="Shindler">
+      <Heading fontSize="2.5rem" color="white" fontFamily="Shindler" mt="1rem">
         Here are the top {genreName(genre)} movies!
       </Heading>
-      {moviePosterLinkData2 ? (
-        <Box
-          w="max-content"
-          h="max-content"
-          mr="auto"
-          ml="auto"
-          bg="black"
-          border="1rem groove black"
-          boxShadow="0rem 0rem 3rem lightyellow"
-          transition="3s"
-          _hover={{ boxShadow: "none" }}
-        >
+      {moviePosterLinkData ? (
+        <Center mt="2rem">
           <Image
-            _hover={{ filter: "saturate(0%)" }}
+            border="1rem groove black"
+            boxShadow="0rem 0rem 3rem lightyellow"
+            _hover={{ boxShadow: "none", filter: "saturate(0%)" }}
             transition="3s"
-            w="100%"
             src={
-              moviePosterLinkData2
-                ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData2
+              moviePosterLinkData
+                ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
                 : ""
             }
             fallbackSrc="https://via.placeholder.com/325x500.png"
           />
-        </Box>
+        </Center>
       ) : (
         ""
       )}
-      <SimpleGrid columns={2} width="100%">
+      <SimpleGrid columns={2} width="100%" mt="2rem">
         {movieList
           ? movieList.map((element) => {
               if (movieList.indexOf(element) < 10) {
                 return (
-                  <Container centerContent key={element.id} ml="1rem" mr="1rem">
+                  <Container
+                    centerContent
+                    key={element.id}
+                    mt="1rem"
+                    ml="1rem"
+                    mr="1rem"
+                  >
                     <Link
                       href={"/movies/" + element.id}
                       color="white"
@@ -318,7 +233,9 @@ function Genre() {
                       _hover={{ color: "silver" }}
                     >
                       <Text>
-                        <b>{element.title}</b>
+                        <b>
+                          <u>{element.title}</u>
+                        </b>
                       </Text>
                       <Text>
                         Rating:

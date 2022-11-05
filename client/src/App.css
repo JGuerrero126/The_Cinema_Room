@@ -39,7 +39,23 @@
   src: URL("./assets/fonts/OCR\ A\ Std\ Regular.ttf") format("truetype");
 }
 
-body {
+@font-face {
+  font-family: "Chen";
+  src: URL("./assets/fonts/Aachen\ Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bus";
+  src: URL("./assets/fonts/ITC\ Busorama\ Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ben";
+  src: URL("./assets/fonts/ITCBenguiatStdBoldCn.OTF") format("truetype");
+}
+
+#root,
+:root {
   background-color: black;
   /* font-family: "Corleone"; */
 }
