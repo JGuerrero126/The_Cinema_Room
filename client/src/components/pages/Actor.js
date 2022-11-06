@@ -253,7 +253,7 @@ function Actor() {
             </SimpleGrid>
           </AccordionPanel>
         </AccordionItem>
-        {actorAppearances.crew.length > 0 ? (
+        {actorAppearances && actorAppearances.crew.length > 0 ? (
           <AccordionItem>
             <h2>
               <AccordionButton
