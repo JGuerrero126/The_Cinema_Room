@@ -31,7 +31,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div id="home-page">
       <Heading
         mt="2rem"
         fontSize="3rem"
