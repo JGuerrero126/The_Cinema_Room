@@ -18,6 +18,8 @@ function App() {
         <Route path="/genres/:genre" element={<Genre />} />
         <Route path="/movies/:movie" element={<Movie />} />
         <Route path="/actors/:actor" element={<Actor />} />
+        <Route path="/movie/:search" element={<Movies />} />
+        <Route path="/crew/:member" element={<Crew />} />
       </Routes>
       {/* </Router> */}
     </div>
