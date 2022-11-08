@@ -46,6 +46,7 @@ function Movies() {
         onChange={handleChange}
         placeholder="Movie.."
         width="15rem"
+        color="white"
       />
       <Button
         onClick={() => {

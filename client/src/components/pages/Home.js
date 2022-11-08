@@ -52,6 +52,7 @@ function Home() {
         onChange={handleChange}
         placeholder="Movie.."
         width="15rem"
+        color="white"
       />
       <Button
         colorScheme="blue"
