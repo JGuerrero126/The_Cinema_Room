@@ -32,13 +32,14 @@ function Home() {
   }, []);
 
   return (
-    <div> 
+    <div id="home-page"> 
       <Input value={search} onChange={handleChange} placeholder='Movie..' width="15rem"/>
       <Button colorScheme='blue'
       onClick={()=>{
         console.log(search);
       }} >Search</Button>
       <Heading
+        mt="2rem"
         fontSize="3rem"
         fontWeight="normal"
         color="white"
@@ -46,24 +47,22 @@ function Home() {
       >
         Select A Genre
       </Heading>
-      <Flex flexWrap="wrap" justify="center">
+      <Flex mt="2rem" flexWrap="wrap" justify="center">
         {genrelist
           ? genrelist.map((element) => {
               return (
-                <div key={element.id}>
-                  <Box key={element.id} fontSize="2.5rem" w="10rem" h="5rem">
-                    <Link
-                      color="white"
-                      textDecoration="none"
-                      transition="1s"
-                      _hover={{ color: "red" }}
-                      href={"/genres/" + element.id}
-                      fontFamily="corleone"
-                    >
-                      <Text>{element.name}</Text>
-                    </Link>
-                  </Box>
-                </div>
+                <Box key={element.id} fontSize="2.5rem" w="12rem" h="6rem">
+                  <Link
+                    color="white"
+                    textDecoration="none"
+                    transition="1s"
+                    _hover={{ color: "red" }}
+                    href={"/genres/" + element.id}
+                    fontFamily="corleone"
+                  >
+                    <Text>{element.name}</Text>
+                  </Link>
+                </Box>
               );
             })
           : []}

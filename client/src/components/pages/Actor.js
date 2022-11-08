@@ -21,57 +21,10 @@ import { useParams } from "react-router";
 import moment from "moment";
 
 function Actor() {
-  const [actorData, setActorData] = useState(null);
-  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { actor } = useParams();
   const [actorAppearances, setActorAppearances] = useState(null);
-  const [personImageLinkData2, setPersonImageLinkData2] = useState(null);
+  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const [actorDetails, setActorDetails] = useState(null);
-
-  function getActor() {
-    console.log("actor is:");
-    console.log(actor);
-    axios({
-      method: "GET",
-      url: urlPrefix + "/actors/" + actor,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setActorData({
-          name: res.name,
-          character: res.character,
-          appearances_array: res.appearances_array,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getPersonImageLink(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/person-image-link/",
-      data: { person_name: target },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setPersonImageLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
 
   function getAppearances(target) {
     axios({
@@ -92,27 +45,17 @@ function Actor() {
       });
   }
 
-  // useEffect(() => {
-  //   getActor();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (actorData !== null) {
-  //     getPersonImageLink(actorData.name);
-  //   }
-  // }, [actorData]);
-
-  function getPersonImageLink2(target) {
+  function getPersonImageLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/person-image-link2/",
+      url: urlPrefix + "/person-image-link/",
       data: { person_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         console.log(photoSelector(res));
-        setPersonImageLinkData2(photoSelector(res));
+        setPersonImageLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -177,16 +120,8 @@ function Actor() {
 
   useEffect(() => {
     getAppearances(actor);
-  }, []);
-
-  useEffect(() => {
-    if (actorAppearances !== null) {
-      getPersonImageLink2(actorAppearances.id);
-    }
-  }, [actorAppearances]);
-
-  useEffect(() => {
     getActorDetails(actor);
+    getPersonImageLink(actor);
   }, []);
 
   useEffect(() => {
@@ -198,46 +133,42 @@ function Actor() {
       {actorDetails ? (
         <div>
           <Heading
+            mt="1rem"
             fontWeight="normal"
             fontSize="2rem"
             color="green"
-            // textShadow="0rem 0rem 0.5rem lightblue"
             fontFamily="OCR"
           >
             {actorDetails.name}
           </Heading>
-          <Center>
-            {personImageLinkData2 ? (
-              <Box
-                w="fit-content"
-                bg="black"
-                borderWidth="0.5rem"
-                borderRadius="md"
-                borderColor="green"
-                borderStyle="dashed"
-                transition="1s"
-                _hover={{
-                  boxShadow: "0rem 0rem 3rem white",
-                  borderColor: "lightgreen",
-                  borderWidth: "0.65rem",
-                }}
-              >
+          <Center mt="1rem">
+            {personImageLinkData ? (
+              <div>
                 <Image
+                  borderWidth="0.5rem"
+                  borderRadius="md"
+                  borderColor="green"
+                  borderStyle="dashed"
+                  transition="1s"
+                  _hover={{
+                    boxShadow: "0rem 0rem 3rem white",
+                    borderColor: "lightgreen",
+                  }}
                   w="100%"
-                  h="100%"
                   src={
-                    personImageLinkData2
-                      ? `https://image.tmdb.org/t/p/w500` + personImageLinkData2
+                    personImageLinkData
+                      ? `https://image.tmdb.org/t/p/w500` + personImageLinkData
                       : ""
                   }
                   fallbackSrc="https://via.placeholder.com/325x500.png"
                 />
-              </Box>
+              </div>
             ) : (
               ""
             )}
           </Center>
           <Text
+            mt="1rem"
             fontSize="1rem"
             ml="3rem"
             mr="3rem"
@@ -246,7 +177,7 @@ function Actor() {
           >
             {actorDetails.biography}
           </Text>
-          <Text color="green" fontFamily="OCR">
+          <Text color="green" fontFamily="OCR" mt="1rem">
             Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
           </Text>
         </div>
@@ -256,7 +187,15 @@ function Actor() {
       <Accordion allowMultiple>
         <AccordionItem>
           <h2>
-            <AccordionButton bg="transparent">
+            <AccordionButton
+              bg="transparent"
+              _focus=""
+              borderColor=""
+              _before=""
+              _after=""
+              outline="0.5rem solid black"
+              outlineOffset=""
+            >
               <Box
                 flex="1"
                 textAlign="center"
@@ -271,10 +210,15 @@ function Actor() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            <Wrap justify="center" spacing="1.5rem">
+            <SimpleGrid
+              justify="center"
+              spacing="1.5rem"
+              minChildWidth="15rem"
+              ml="1rem"
+              mr="1rem"
+            >
               {actorAppearances
                 ? actorAppearances.cast.map((el) => {
-                    // if (actorAppearances.cast.indexOf(el) < 12) {
                     return (
                       <Container centerContent key={el.id}>
                         <Link
@@ -286,7 +230,6 @@ function Actor() {
                           _hover={{
                             color: "lightgreen",
                             textShadow: "0rem 0rem 1rem white",
-                            fontSize: "1.15rem",
                           }}
                         >
                           <Text>
@@ -305,61 +248,75 @@ function Actor() {
                         </Link>
                       </Container>
                     );
-                    // }
                   })
                 : []}
-            </Wrap>
+            </SimpleGrid>
           </AccordionPanel>
         </AccordionItem>
-        <AccordionItem>
-          <h2>
-            <AccordionButton bg="transparent">
-              <Box
-                flex="1"
-                textAlign="center"
-                color="green"
-                textDecoration="none"
-                fontFamily="OCR"
-                fontSize="2rem"
+        {actorAppearances && actorAppearances.crew.length > 0 ? (
+          <AccordionItem>
+            <h2>
+              <AccordionButton
+                bg="transparent"
+                _focus=""
+                borderColor=""
+                _before=""
+                _after=""
+                outline="0.5rem solid black"
+                outlineOffset=""
               >
-                Behind The Scenes
-                <AccordionIcon color="green" />
-              </Box>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel>
-            <Wrap justify="center" spacing="1.5rem">
-              {actorAppearances
-                ? actorAppearances.crew.map((el) => {
-                    // if (actorAppearances.cast.indexOf(el) < 12) {
-                    return (
-                      <Container centerContent key={el.credit_id}>
-                        <Link
-                          href={"/movies/" + el.id}
-                          color="green"
-                          textDecoration="none"
-                          fontFamily="OCR"
-                          transition="1s"
-                          _hover={{
-                            color: "lightgreen",
-                            textShadow: "0rem 0rem 1rem white",
-                            fontSize: "1.15rem",
-                          }}
-                        >
-                          <Text>
-                            <u>{el.title}</u>
-                            <br />
-                            {el.job}
-                          </Text>
-                        </Link>
-                      </Container>
-                    );
-                    // }
-                  })
-                : []}
-            </Wrap>
-          </AccordionPanel>
-        </AccordionItem>
+                <Box
+                  flex="1"
+                  textAlign="center"
+                  color="green"
+                  textDecoration="none"
+                  fontFamily="OCR"
+                  fontSize="2rem"
+                >
+                  Behind The Scenes
+                  <AccordionIcon color="green" />
+                </Box>
+              </AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <SimpleGrid
+                justify="center"
+                spacing="1.5rem"
+                minChildWidth="15rem"
+                ml="1rem"
+                mr="1rem"
+              >
+                {actorAppearances
+                  ? actorAppearances.crew.map((el) => {
+                      return (
+                        <Container centerContent key={el.credit_id}>
+                          <Link
+                            href={"/movies/" + el.id}
+                            color="green"
+                            textDecoration="none"
+                            fontFamily="OCR"
+                            transition="1s"
+                            _hover={{
+                              color: "lightgreen",
+                              textShadow: "0rem 0rem 1rem white",
+                            }}
+                          >
+                            <Text>
+                              <u>{el.title}</u>
+                              <br />
+                              {el.job}
+                            </Text>
+                          </Link>
+                        </Container>
+                      );
+                    })
+                  : []}
+              </SimpleGrid>
+            </AccordionPanel>
+          </AccordionItem>
+        ) : (
+          ""
+        )}
       </Accordion>
     </div>
   );

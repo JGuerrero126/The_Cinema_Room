@@ -6,19 +6,7 @@ import "@testing-library/jest-dom";
 import App from "./App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 
-// test("full app rendering/navigating", () => {
-//   render(<App />, { wrapper: BrowserRouter });
-//   // const user = userEvent.setup();
-
-//   // verify page content for default route
-//   expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
-
-//   // verify page content for expected route after navigating
-//   // await user.click(screen.getByText(/about/i));
-//   // expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
-// });
-
-test("landing on Home page", () => {
+test("landing on Home page (by text)", () => {
   const slashRoute = "/";
 
   render(
@@ -28,6 +16,18 @@ test("landing on Home page", () => {
   );
 
   expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
+});
+
+test("landing on Home page (by id)", () => {
+  const slashRoute = "/";
+
+  render(
+    <MemoryRouter initialEntries={[slashRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(document.getElementById("home-page")).toBeInTheDocument();
 });
 
 test("landing on Genre page", () => {
@@ -42,6 +42,7 @@ test("landing on Genre page", () => {
   expect(screen.getByText(/Here are the top/i)).toBeInTheDocument();
 });
 
+// the movie page test has log errors
 test("landing on Movie page", () => {
   const movieRoute = "/movies/1891"; // this is the route for The Empire Strikes Back
 
@@ -64,4 +65,16 @@ test("landing on Actor page", () => {
   );
 
   expect(screen.getByText(/Actor Appearances/i)).toBeInTheDocument();
+});
+
+test("landing on Crew page", () => {
+  const crewRoute = "/crew/491"; // this is the route for John Williams
+
+  render(
+    <MemoryRouter initialEntries={[crewRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(document.getElementById("crew-page")).toBeInTheDocument();
 });

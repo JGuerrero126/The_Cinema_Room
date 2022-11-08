@@ -6,19 +6,19 @@ import Actor from "./components/pages/Actor";
 import Movie from "./components/pages/Movie";
 import Genre from "./components/pages/Genre";
 import Movies from "./components/pages/Movies";
+import Crew from "./components/pages/Crew";
 
 function App() {
   return (
     <div className="App">
       {/* <Router> */}
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/genres/:genre" element={<Genre />} />
-          <Route path="/movies/:movie" element={<Movie />} />
-          <Route path="/actors/:actor" element={<Actor />} />
-          <Route path="/search/:movie" element={<Movies />} />
-        </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/genres/:genre" element={<Genre />} />
+        <Route path="/movies/:movie" element={<Movie />} />
+        <Route path="/actors/:actor" element={<Actor />} />
+      </Routes>
       {/* </Router> */}
     </div>
   );
