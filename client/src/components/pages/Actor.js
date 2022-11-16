@@ -212,7 +212,7 @@ function Actor() {
             <SimpleGrid
               justify="center"
               spacing="1.5rem"
-              minChildWidth="15rem"
+              minChildWidth="20rem"
               ml="1rem"
               mr="1rem"
             >

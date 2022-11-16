@@ -22,7 +22,7 @@ import moment from "moment";
 function Actor() {
   const { member } = useParams();
   const [actorAppearances, setActorAppearances] = useState(null);
-  const [personImageLinkData2, setPersonImageLinkData2] = useState(null);
+  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const [actorDetails, setActorDetails] = useState(null);
 
   function getAppearances(target) {
@@ -44,17 +44,17 @@ function Actor() {
       });
   }
 
-  function getPersonImageLink2(target) {
+  function getPersonImageLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/person-image-link2/",
+      url: urlPrefix + "/person-image-link/",
       data: { person_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         console.log(photoSelector(res));
-        setPersonImageLinkData2(photoSelector(res));
+        setPersonImageLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -95,14 +95,9 @@ function Actor() {
       // We push only the height property of each element, we do this so we can find the biggest images we can.
       heightArr.push(el.height);
     });
-    // Next, we use a "Math.max" method to get the biggest possible number in the array containing all of the heights in the array. We store that value in a variable.
-    let bigPhoto = Math.max(...heightArr);
-    // We then take that variable and use it to make a custom object with a height property, with that property being set to the variable we just made.
-    let targetHeight = { height: bigPhoto };
-    // We again loop back through the array of objects we initially received.
     target.profiles.forEach((el) => {
       // However this time, we check to see if the current elements height property matches the height property of our custom made object.
-      if (el.height === targetHeight.height) {
+      if (el.height === Math.max(...heightArr)) {
         // If it does then we push the element into the array that will contain all the biggest images that we received.
         bigArr.push(el);
       }
@@ -116,13 +111,11 @@ function Actor() {
     bigArr.forEach((el) => {
       voteArr.push(el.vote_average);
     });
-    let bigVote = Math.max(...voteArr);
-    let targetVote = { vote_average: bigVote };
     var index;
     // We loop through the array containing the biggest images, searching for the element that matches the vote average we found in the previous steps.
     bigArr.forEach((el) => {
       // We set up a simple "if" statement to handle it.
-      if (el.vote_average === targetVote.vote_average) {
+      if (el.vote_average === Math.max(...voteArr)) {
         // Once it is found, we set the empty variable we created one step ago to contain the "indexOF" the current element in the biggest height array.
         index = bigArr.indexOf(el);
       }
@@ -138,7 +131,7 @@ function Actor() {
 
   useEffect(() => {
     if (actorAppearances !== null) {
-      getPersonImageLink2(actorAppearances.id);
+      getPersonImageLink(actorAppearances.id);
     }
   }, [actorAppearances]);
 
@@ -172,7 +165,7 @@ function Actor() {
             {actorDetails.name.toUpperCase()}
           </Heading>
           <Center mt="1rem">
-            {personImageLinkData2 ? (
+            {personImageLinkData ? (
               <div>
                 <Center>
                   <Image
@@ -188,9 +181,9 @@ function Actor() {
                     w="100%"
                     h="100%"
                     src={
-                      personImageLinkData2
+                      personImageLinkData
                         ? `https://image.tmdb.org/t/p/w500` +
-                          personImageLinkData2
+                          personImageLinkData
                         : ""
                     }
                     fallbackSrc="https://via.placeholder.com/325x500.png"

@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import {
   Button,
   Center,
-  Container,
   Divider,
   Drawer,
   DrawerBody,
@@ -14,47 +13,33 @@ import {
   Heading,
   Input,
   Link,
-  Stack,
+  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
-  const inputField = useRef();
+  const btnRef = React.useRef();
 
   return (
     <div>
-      {/* <Stack spacing={4} direction="row">
-        <Button ref={btnRef} colorScheme="black" onClick={onOpen}>
-          Open
-        </Button>
-        <Drawer
-          trapFocus={false}
-          isOpen={isOpen}
-          placement="left"
-          onClose={onClose}
-          initialFocusRef={inputField}
-          finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
-
-            <DrawerBody>
-              <Input ref={inputField} placeholder="Type here..." />
-            </DrawerBody>
-
-            <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme="blue">Save</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </Stack> */}
+      <Button ref={btnRef} bg="red" onClick={onOpen}>
+        Open
+      </Button>
+      <Drawer
+        placement="left"
+        isOpen={isOpen}
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerBody>
+            <Text>Yo</Text>
+            <Button>Test</Button>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
       <Heading id="headTop" mt="1rem">
         <Link
           textDecoration="none"

@@ -205,8 +205,10 @@ function Movie() {
   useMemo(() => {
     if (movieDetails !== null && keywords !== null) {
       if (movieDetails.genres.length > 0 && keywords.length > 0) {
+        console.log("USING THE KEYWORDS");
         getRecs(movie, movieDetails.genres[0].id, keywords[0].id);
       } else {
+        console.log("USING THE DEFAULT");
         getRecs(movie);
       }
     }
@@ -391,6 +393,10 @@ function Movie() {
             <h2>
               <AccordionButton
                 bg="transparent"
+                _focus=""
+                borderColor=""
+                _before=""
+                _after=""
                 outline="0.5rem solid black"
                 outlineOffset=""
               >

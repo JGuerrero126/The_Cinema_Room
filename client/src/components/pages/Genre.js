@@ -8,6 +8,7 @@ import {
   Image,
   Container,
   Center,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -201,7 +202,7 @@ function Genre() {
       ) : (
         ""
       )}
-      <SimpleGrid columns={2} width="100%" mt="2rem">
+      <Wrap justify="center" spacing="2rem" mt="2rem">
         {movieList
           ? movieList.map((element) => {
               if (movieList.indexOf(element) < 10) {
@@ -240,7 +241,7 @@ function Genre() {
               }
             })
           : []}
-      </SimpleGrid>
+      </Wrap>
     </div>
   );
 }
