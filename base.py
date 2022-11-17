@@ -195,6 +195,19 @@ def movie_recs():
       response_body = res
       return response_body
 
+@app.route('/top-movies/', methods = ['GET'])
+@cross_origin()
+def top_movies():
+  
+  print('GETTING TOP MOVIES IN THE WORLD')
+
+  top_movie_search = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_watch_monetization_types=flatrate'
+
+  with urllib.request.urlopen(top_movie_search) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
 @app.errorhandler(404)
 def not_found(e):
   return send_from_directory(app.static_folder, 'index.html')
