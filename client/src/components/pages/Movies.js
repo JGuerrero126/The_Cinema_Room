@@ -70,7 +70,7 @@ function Movies() {
         ml="1rem"
         mr="1rem"
       >
-        {searchedMovie
+        {searchedMovie && searchedMovie.results.length > 0
           ? searchedMovie.results.map((element) => {
               return (
                 <Container centerContent key={element.id} maxW="md">
@@ -112,7 +112,15 @@ function Movies() {
                 </Container>
               );
             })
-          : []}
+          : (
+            <Text 
+              color="white"
+              fontFamily="Shindler"
+              fontSize="1.5rem"
+              transition="1s"
+              _hover={{ color: "silver" }}
+            > Sorry we couldn't find any results. Please try again.</Text>
+          )}
       </SimpleGrid>
     </div>
   );
