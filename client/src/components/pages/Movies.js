@@ -58,6 +58,7 @@ function Movies() {
       <Button
         onClick={() => {
           setKeywords(userInput);
+          window.location.href = "http://localhost:3000/movie/" + userInput
         }}
         colorScheme="blue"
       >
