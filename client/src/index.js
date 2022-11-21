@@ -8,13 +8,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
-  <StrictMode>
-    <Router>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </Router>
-  </StrictMode>
+  // <StrictMode>
+  <Router>
+    <ChakraProvider>
+      <App />
+    </ChakraProvider>
+  </Router>
+  // </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

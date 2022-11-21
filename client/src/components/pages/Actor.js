@@ -87,35 +87,34 @@ function Actor() {
   }
 
   function photoSelector(target) {
-    var heightArr = [];
-    var bigArr = [];
-    var voteArr = [];
-    target.profiles.forEach((el) => {
-      heightArr.push(el.height);
-    });
-    let bigPhoto = Math.max(...heightArr);
-    let targetHeight = { height: bigPhoto };
-    var index;
-    target.profiles.forEach((el) => {
-      if (el.height === targetHeight.height) {
-        bigArr.push(el);
+    try {
+      var heightArr = [];
+      var bigArr = [];
+      var voteArr = [];
+      target.profiles.forEach((el) => {
+        heightArr.push(el.height);
+      });
+      target.profiles.forEach((el) => {
+        if (el.height === Math.max(...heightArr)) {
+          bigArr.push(el);
+        }
+      });
+      if (bigArr.length < 2) {
+        return bigArr[0].file_path;
       }
-    });
-    if (bigArr.length < 2) {
-      return bigArr[0].file_path;
+      bigArr.forEach((el) => {
+        voteArr.push(el.vote_average);
+      });
+      var index;
+      bigArr.forEach((el) => {
+        if (el.vote_average === Math.max(...voteArr)) {
+          index = bigArr.indexOf(el);
+        }
+      });
+      return bigArr[index].file_path;
+    } catch (e) {
+      console.log(e.message);
     }
-    bigArr.forEach((el) => {
-      voteArr.push(el.vote_average);
-    });
-    let bigVote = Math.max(...voteArr);
-    let targetVote = { vote_average: bigVote };
-    var index;
-    bigArr.forEach((el) => {
-      if (el.vote_average === targetVote.vote_average) {
-        index = bigArr.indexOf(el);
-      }
-    });
-    return bigArr[index].file_path;
   }
 
   useEffect(() => {
@@ -213,7 +212,7 @@ function Actor() {
             <SimpleGrid
               justify="center"
               spacing="1.5rem"
-              minChildWidth="15rem"
+              minChildWidth="20rem"
               ml="1rem"
               mr="1rem"
             >

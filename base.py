@@ -15,6 +15,22 @@ app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 tmdb_key = os.getenv("TMDB_KEY")
 
+def rec_source(target):
+  try:
+    genre = target['genre']
+    keyword = target['keyword']
+    if genre == 0 | keyword == 0:
+      raise ValueError
+    print(f"GENRE DETECTED: {genre}")
+    print(f"KEYWORD DETECTED: {keyword}") 
+    customRec = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+    return customRec
+  except:
+    movie_id = target['movie_id']
+    print("NO KEYWORD OR GENRE") 
+    defaultRec = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key={tmdb_key}&language=en-US&page=1'
+    return defaultRec
+
 # client = MongoClient("mongodb://localhost:27017")
 # db = client.six_three_db
 
@@ -189,21 +205,23 @@ def movie_recs():
   
   print('GETTING RECOMMENDATIONS')
 
-  # genre = request.get_json()['genre']
-  # keyword = request.get_json()['keyword']
-  movie_id = request.get_json()['movie_id']
+  with urllib.request.urlopen(rec_source(request.get_json())) as response:
+      res = response.read()
+      response_body = res
+      return response_body
 
+@app.route('/top-movies/', methods = ['GET'])
+@cross_origin()
+def top_movies():
+  
+  print('GETTING TOP MOVIES IN THE WORLD')
 
-  # tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+  top_movie_search = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_watch_monetization_types=flatrate'
 
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key={tmdb_key}&language=en-US&page=1'
-
-  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
-    res = response.read()
-
-  response_body = res
-
-  return response_body
+  with urllib.request.urlopen(top_movie_search) as response:
+      res = response.read()
+      response_body = res
+      return response_body
 
 @app.errorhandler(404)
 def not_found(e):
