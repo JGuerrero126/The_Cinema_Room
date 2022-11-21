@@ -8,6 +8,7 @@ import {
   Image,
   Container,
   Center,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -118,11 +119,8 @@ function Genre() {
         englishArr.forEach((el) => {
           heightArr.push(el.height);
         });
-        let bigPhoto = Math.max(...heightArr);
-        let targetHeight = { height: bigPhoto };
-
         englishArr.forEach((el) => {
-          if (el.height === targetHeight.height) {
+          if (el.height === Math.max(...heightArr)) {
             bigArr.push(el);
           }
         });
@@ -132,11 +130,9 @@ function Genre() {
         bigArr.forEach((el) => {
           voteArr.push(el.vote_average);
         });
-        let bigVote = Math.max(...voteArr);
-        let targetVote = { vote_average: bigVote };
         var index;
         bigArr.forEach((el) => {
-          if (el.vote_average === targetVote.vote_average) {
+          if (el.vote_average === Math.max(...voteArr)) {
             index = bigArr.indexOf(el);
           }
         });
@@ -145,11 +141,8 @@ function Genre() {
         target.posters.forEach((el) => {
           heightArr.push(el.height);
         });
-        let bigPhoto = Math.max(...heightArr);
-        let targetHeight = { height: bigPhoto };
-        var index;
         target.posters.forEach((el) => {
-          if (el.height === targetHeight.height) {
+          if (el.height === Math.max(...heightArr)) {
             bigArr.push(el);
           }
         });
@@ -159,11 +152,9 @@ function Genre() {
         bigArr.forEach((el) => {
           voteArr.push(el.vote_average);
         });
-        let bigVote = Math.max(...voteArr);
-        let targetVote = { vote_average: bigVote };
         var index;
         bigArr.forEach((el) => {
-          if (el.vote_average === targetVote.vote_average) {
+          if (el.vote_average === Math.max(...voteArr)) {
             index = bigArr.indexOf(el);
           }
         });
@@ -211,7 +202,7 @@ function Genre() {
       ) : (
         ""
       )}
-      <SimpleGrid columns={2} width="100%" mt="2rem">
+      <Wrap justify="center" spacing="2rem" mt="2rem">
         {movieList
           ? movieList.map((element) => {
               if (movieList.indexOf(element) < 10) {
@@ -250,7 +241,7 @@ function Genre() {
               }
             })
           : []}
-      </SimpleGrid>
+      </Wrap>
     </div>
   );
 }
