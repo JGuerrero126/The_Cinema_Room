@@ -180,7 +180,7 @@ function Genre() {
   }, [movieList]);
 
   return (
-    <div>
+    <div data-testid="genre-page">
       <Heading fontSize="2.5rem" color="white" fontFamily="Shindler" mt="1rem">
         Here are the top {genreName(genre)} movies!
       </Heading>

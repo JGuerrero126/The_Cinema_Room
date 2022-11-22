@@ -128,7 +128,7 @@ function Actor() {
   }, []);
 
   return (
-    <div>
+    <div data-testid="actor-page">
       {actorDetails ? (
         <div>
           <Heading

@@ -215,7 +215,7 @@ function Movie() {
   }, [movieDetails, keywords]);
 
   return (
-    <div>
+    <div data-testid="movie-page">
       {movieDetails ? (
         <div>
           <Heading
