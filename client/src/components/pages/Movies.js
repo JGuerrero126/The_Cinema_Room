@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Input, Button } from "@chakra-ui/react";
+// import { Input, Button } from "@chakra-ui/react";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import {
@@ -18,13 +18,14 @@ function Movies() {
   // create state to hold returned movie data
   const [searchedMovie, setSearchedMovie] = useState(null);
   // create state for holding search input
-  const [userInput, setUserInput] = useState("");
-  const handleChange = (event) => setUserInput(event.target.value);
+  // const [userInput, setUserInput] = useState("");
+  // const handleChange = (event) => setUserInput(event.target.value);
   function setKeywords() {
-    var keyword = search.split(" ").concat("%20");
-    if (userInput) {
-      keyword = userInput.split(" ").concat("%20");
-    }
+    var keyword = search.split(" ").concat("%20")
+    // var keyword = search.split(" ").concat("%20");
+    // if (userInput) {
+    //   keyword = userInput.split(" ").concat("%20");
+    // }
     axios({
       method: "GET",
       url: urlPrefix + "/search/" + keyword,
@@ -48,7 +49,7 @@ function Movies() {
 
   return (
     <div>
-      <Input
+      {/* <Input
         value={userInput}
         onChange={handleChange}
         placeholder="Movie.."
@@ -63,7 +64,7 @@ function Movies() {
         colorScheme="blue"
       >
         Search
-      </Button>
+      </Button> */}
       <SimpleGrid
         justify="center"
         spacing="1.5rem"

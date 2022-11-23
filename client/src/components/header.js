@@ -18,10 +18,13 @@ import {
   Link,
   Text,
   useDisclosure,
+  InputRightElement,
+  InputGroup,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { urlPrefix } from "../utils/constants";
+// import { useNavigate } from "react-router-dom";
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -46,6 +49,15 @@ function Header() {
         }
       });
   }
+  
+  // const navigate = useNavigate();
+  const changeRoute = (word) => {
+    // let path = `/movie/` + word;
+    // navigate(path);
+    window.location.href = "http://localhost:3000/movie/" + search
+  };
+  const [search, setSearch] = useState("");
+  const handleChange = (event) => setSearch(event.target.value);
 
   useEffect(() => {
     getTopMovies();
@@ -83,15 +95,26 @@ function Header() {
             THE CINEMA ROOM
           </DrawerHeader>
           <DrawerBody bg="black" borderRight="0.25rem snow inset">
-            <Input
-              bg="snow"
-              placeholder="Search For A Movie Here!"
-              _placeholder={{ color: "inherit" }}
-              textColor="black"
-            />
-            <Button mt="0.5rem" bg="black" border=".10rem solid white">
-              Search
-            </Button>
+            <InputGroup size="xs">
+              <Input
+                value={search}
+                onChange={handleChange}
+                bg="snow"
+                placeholder="Search For A Movie!"
+                _placeholder={{ color: "inherit" }}
+                textColor="black"
+              />
+              <Button
+                color="white"
+                bg="black"
+                border=".10rem solid white"
+                onClick={() => {
+                  changeRoute(search);
+                }}
+              >
+                Search
+              </Button>
+            </InputGroup>
             <Divider mt="1rem" mb="1rem" />
             <Text textAlign="center" mb="1rem">
               <b>
