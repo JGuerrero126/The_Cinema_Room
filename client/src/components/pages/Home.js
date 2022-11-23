@@ -14,11 +14,11 @@ import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
 function Home() {
-  const navigate = useNavigate(); 
-  const changeRoute= (word) => { 
-    let path = `/movie/` + word; 
+  const navigate = useNavigate();
+  const changeRoute = (word) => {
+    let path = `/movie/` + word;
     navigate(path);
-  }
+  };
   const [genrelist, setGenreList] = useState(null);
   const [search, setSearch] = useState("");
   const handleChange = (event) => setSearch(event.target.value);
@@ -46,7 +46,7 @@ function Home() {
   }, []);
 
   return (
-    <div id="home-page">
+    <div data-testid="home-page">
       <Input
         value={search}
         onChange={handleChange}

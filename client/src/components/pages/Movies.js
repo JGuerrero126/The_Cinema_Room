@@ -47,7 +47,7 @@ function Movies() {
   }, []);
 
   return (
-    <div>
+    <div data-testid="movies-page">
       <Input
         value={userInput}
         onChange={handleChange}
