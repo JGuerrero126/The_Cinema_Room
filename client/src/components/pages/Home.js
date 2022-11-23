@@ -62,7 +62,7 @@ function Home() {
         }}
       >
         Search
-      </Button> */}
+      </Button>  */}
       <Heading
         mt="2rem"
         fontSize="3rem"

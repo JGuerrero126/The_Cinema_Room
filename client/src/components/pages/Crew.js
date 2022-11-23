@@ -151,7 +151,7 @@ function Actor() {
   }, []);
 
   return (
-    <div id="crew-page">
+    <div data-testid="crew-page">
       {actorDetails ? (
         <div>
           <Heading

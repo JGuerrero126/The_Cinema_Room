@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 import App from "./App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
 
-test("landing on Home page (by text)", () => {
+test("landing on Home page", () => {
   const slashRoute = "/";
 
   render(
@@ -15,19 +15,7 @@ test("landing on Home page (by text)", () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByText(/Select A Genre/i)).toBeInTheDocument();
-});
-
-test("landing on Home page (by id)", () => {
-  const slashRoute = "/";
-
-  render(
-    <MemoryRouter initialEntries={[slashRoute]}>
-      <App />
-    </MemoryRouter>
-  );
-
-  expect(document.getElementById("home-page")).toBeInTheDocument();
+  expect(screen.getByTestId("home-page")).toBeInTheDocument();
 });
 
 test("landing on Genre page", () => {
@@ -39,10 +27,9 @@ test("landing on Genre page", () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByText(/Here are the top/i)).toBeInTheDocument();
+  expect(screen.getByTestId("genre-page")).toBeInTheDocument();
 });
 
-// the movie page test has log errors
 test("landing on Movie page", () => {
   const movieRoute = "/movies/1891"; // this is the route for The Empire Strikes Back
 
@@ -52,7 +39,7 @@ test("landing on Movie page", () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByText(/Cast/i)).toBeInTheDocument();
+  expect(screen.getByTestId("movie-page")).toBeInTheDocument();
 });
 
 test("landing on Actor page", () => {
@@ -64,7 +51,19 @@ test("landing on Actor page", () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByText(/Actor Appearances/i)).toBeInTheDocument();
+  expect(screen.getByTestId("actor-page")).toBeInTheDocument();
+});
+
+test("landing on Movies page", () => {
+  const moviesRoute = "/movie/star%20wars"; // this is the route for a search for "star wars"
+
+  render(
+    <MemoryRouter initialEntries={[moviesRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByTestId("movies-page")).toBeInTheDocument();
 });
 
 test("landing on Crew page", () => {
@@ -76,5 +75,5 @@ test("landing on Crew page", () => {
     </MemoryRouter>
   );
 
-  expect(document.getElementById("crew-page")).toBeInTheDocument();
+  expect(screen.getByTestId("crew-page")).toBeInTheDocument();
 });
