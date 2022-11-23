@@ -191,6 +191,24 @@ function Movie() {
       });
   }
 
+  function setMovieHistory(movie) {
+    var movieHistory = JSON.parse(localStorage.getItem("history") || "[]");
+    let currentMovie = { title: movie.title, id: movie.id };
+    if (movieHistory.find((e) => e.title === currentMovie.title)) {
+      console.log("Movie already in history");
+    } else if (movieHistory.length === 5) {
+      console.log(
+        "History full, removing oldest movie and adding current movie"
+      );
+      movieHistory.pop();
+      movieHistory.unshift(currentMovie);
+      localStorage.setItem("history", JSON.stringify(movieHistory));
+    } else {
+      movieHistory.unshift(currentMovie);
+      localStorage.setItem("history", JSON.stringify(movieHistory));
+    }
+  }
+
   useEffect(() => {
     getMovieDetails(movie);
     getCredits(movie);
@@ -214,6 +232,10 @@ function Movie() {
     }
   }, [movieDetails, keywords]);
 
+  useEffect(() => {
+    if (movieDetails !== null) setMovieHistory(movieDetails);
+  }, [movieDetails]);
+
   return (
     <div data-testid="movie-page">
       {movieDetails ? (
@@ -236,6 +258,7 @@ function Movie() {
                 borderStyle="groove"
                 boxShadow="0rem 0rem 3rem lightyellow"
                 transition="1s"
+                maxW="90vw"
                 _hover={{ boxShadow: "0rem 0rem 3rem green" }}
                 src={
                   moviePosterLinkData
@@ -249,7 +272,7 @@ function Movie() {
             []
           )}
           <Heading
-            fontSize="1.25rem"
+            fontSize={["4vw", "1.25rem"]}
             color="gold"
             fontFamily="DistantGalaxy"
             fontWeight="normal"
@@ -261,7 +284,7 @@ function Movie() {
             mt="1rem"
             ml="3rem"
             mr="3rem"
-            // fontSize="0.85rem"
+            fontSize={["4vw", "1rem"]}
             textAlign="center"
             color="gold"
             fontFamily="DistantGalaxy"
@@ -406,7 +429,7 @@ function Movie() {
                   textDecoration="none"
                   color="white"
                   fontWeight="normal"
-                  fontSize="3rem"
+                  fontSize={["8vw", "3rem"]}
                   fontFamily="DistantGalaxy"
                 >
                   RECOMMENDATIONS
@@ -415,20 +438,14 @@ function Movie() {
               </AccordionButton>
             </h2>
             <AccordionPanel>
-              <SimpleGrid minChildWidth="16rem">
+              <SimpleGrid minChildWidth="15rem" ml="1rem" mr="1rem">
                 {recs
                   ? recs.results.map((el) => {
                       if (el.title === movieDetails.title) {
                         return;
                       }
                       return (
-                        <Container
-                          centerContent
-                          key={el.id}
-                          ml="1rem"
-                          mr="1rem"
-                          mb="2rem"
-                        >
+                        <Container centerContent key={el.id} mb="2rem">
                           <Link
                             href={"/movies/" + el.id}
                             color="gold"

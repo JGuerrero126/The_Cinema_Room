@@ -178,15 +178,14 @@ function Actor() {
                       boxShadow: "0rem 0rem 3rem darkred",
                       borderColor: "darkred",
                     }}
-                    w="100%"
-                    h="100%"
+                    maxW="90vw"
                     src={
                       personImageLinkData
                         ? `https://image.tmdb.org/t/p/w500` +
                           personImageLinkData
                         : ""
                     }
-                    fallbackSrc="https://via.placeholder.com/325x500.png"
+                    fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                   />
                 </Center>
                 <Text fontSize="1rem" color="gold" fontFamily="Bus" mt="1rem">
@@ -204,9 +203,9 @@ function Actor() {
           ) : (
             <Text
               mt="1rem"
-              fontSize="1rem"
-              ml="3rem"
-              mr="3rem"
+              fontSize={["4vw", "1rem"]}
+              ml={["1rem", "3rem"]}
+              mr={["1rem", "3rem"]}
               color="gold"
               fontFamily="Bus"
             >
@@ -264,12 +263,7 @@ function Actor() {
                     ? actorAppearances.crew.map((el) => {
                         // if (actorAppearances.cast.indexOf(el) < 12) {
                         return (
-                          <Container
-                            centerContent
-                            key={el.character}
-                            ml="1rem"
-                            mr="1rem"
-                          >
+                          <Container centerContent key={el.character}>
                             <Link
                               href={"/movies/" + el.id}
                               color="gold"
@@ -368,12 +362,7 @@ function Actor() {
                     ? actorAppearances.cast.map((el) => {
                         // if (actorAppearances.cast.indexOf(el) < 12) {
                         return (
-                          <Container
-                            centerContent
-                            key={el.credit_id}
-                            ml="1rem"
-                            mr="1rem"
-                          >
+                          <Container centerContent key={el.credit_id}>
                             <Link
                               href={"/movies/" + el.id}
                               color="gold"

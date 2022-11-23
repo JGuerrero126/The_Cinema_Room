@@ -153,7 +153,7 @@ function Actor() {
                     boxShadow: "0rem 0rem 3rem white",
                     borderColor: "lightgreen",
                   }}
-                  w="100%"
+                  maxW="90vw"
                   src={
                     personImageLinkData
                       ? `https://image.tmdb.org/t/p/w500` + personImageLinkData
@@ -168,9 +168,9 @@ function Actor() {
           </Center>
           <Text
             mt="1rem"
-            fontSize="1rem"
-            ml="3rem"
-            mr="3rem"
+            fontSize={["4vw", "1rem"]}
+            ml={["1rem", "3rem"]}
+            mr={["1rem", "3rem"]}
             color="green"
             fontFamily="OCR"
           >
@@ -201,7 +201,7 @@ function Actor() {
                 color="green"
                 textDecoration="none"
                 fontFamily="OCR"
-                fontSize="2rem"
+                fontSize={[" 6vw", "2rem"]}
               >
                 Actor Appearances
                 <AccordionIcon color="green" />
@@ -270,7 +270,7 @@ function Actor() {
                   color="green"
                   textDecoration="none"
                   fontFamily="OCR"
-                  fontSize="2rem"
+                  fontSize={[" 6vw", "2rem"]}
                 >
                   Behind The Scenes
                   <AccordionIcon color="green" />
