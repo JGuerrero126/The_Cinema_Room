@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Input, Button } from "@chakra-ui/react";
+// import { Input, Button } from "@chakra-ui/react";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import {
@@ -18,13 +18,14 @@ function Movies() {
   // create state to hold returned movie data
   const [searchedMovie, setSearchedMovie] = useState(null);
   // create state for holding search input
-  const [userInput, setUserInput] = useState("");
-  const handleChange = (event) => setUserInput(event.target.value);
+  // const [userInput, setUserInput] = useState("");
+  // const handleChange = (event) => setUserInput(event.target.value);
   function setKeywords() {
-    var keyword = search.split(" ").concat("%20");
-    if (userInput) {
-      keyword = userInput.split(" ").concat("%20");
-    }
+    var keyword = search.split(" ").concat("%20")
+    // var keyword = search.split(" ").concat("%20");
+    // if (userInput) {
+    //   keyword = userInput.split(" ").concat("%20");
+    // }
     axios({
       method: "GET",
       url: urlPrefix + "/search/" + keyword,
@@ -48,21 +49,6 @@ function Movies() {
 
   return (
     <div data-testid="movies-page">
-      <Input
-        value={userInput}
-        onChange={handleChange}
-        placeholder="Movie.."
-        width="15rem"
-        color="white"
-      />
-      <Button
-        onClick={() => {
-          setKeywords(userInput);
-        }}
-        colorScheme="blue"
-      >
-        Search
-      </Button>
       <SimpleGrid
         justify="center"
         spacing="1.5rem"
@@ -70,7 +56,7 @@ function Movies() {
         ml="1rem"
         mr="1rem"
       >
-        {searchedMovie
+        {searchedMovie && searchedMovie.results.length > 0
           ? searchedMovie.results.map((element) => {
               return (
                 <Container centerContent key={element.id} maxW="md">
@@ -112,7 +98,15 @@ function Movies() {
                 </Container>
               );
             })
-          : []}
+          : (
+            <Text 
+              color="white"
+              fontFamily="Shindler"
+              fontSize="1.5rem"
+              transition="1s"
+              _hover={{ color: "silver" }}
+            > Sorry we couldn't find any results. Please try again.</Text>
+          )}
       </SimpleGrid>
     </div>
   );

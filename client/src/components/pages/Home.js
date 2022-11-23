@@ -14,14 +14,14 @@ import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
 function Home() {
-  const navigate = useNavigate();
-  const changeRoute = (word) => {
-    let path = `/movie/` + word;
-    navigate(path);
-  };
+  // const navigate = useNavigate(); 
+  // const changeRoute= (word) => { 
+  //   let path = `/movie/` + word; 
+  //   navigate(path);
+  // }
   const [genrelist, setGenreList] = useState(null);
-  const [search, setSearch] = useState("");
-  const handleChange = (event) => setSearch(event.target.value);
+  // const [search, setSearch] = useState("");
+  // const handleChange = (event) => setSearch(event.target.value);
   function getData() {
     axios({
       method: "GET",
@@ -47,22 +47,6 @@ function Home() {
 
   return (
     <div data-testid="home-page">
-      <Input
-        value={search}
-        onChange={handleChange}
-        placeholder="Movie.."
-        width="15rem"
-        color="white"
-      />
-      <Button
-        colorScheme="blue"
-        onClick={() => {
-          changeRoute(search);
-          console.log(search);
-        }}
-      >
-        Search
-      </Button>
       <Heading
         mt="2rem"
         fontSize="3rem"
