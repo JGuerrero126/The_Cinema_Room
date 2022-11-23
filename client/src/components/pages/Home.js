@@ -46,23 +46,7 @@ function Home() {
   }, []);
 
   return (
-    <div id="home-page">
-      {/* <Input
-        value={search}
-        onChange={handleChange}
-        placeholder="Movie.."
-        width="15rem"
-        color="white"
-      />
-      <Button
-        colorScheme="blue"
-        onClick={() => {
-          changeRoute(search);
-          console.log(search);
-        }}
-      >
-        Search
-      </Button>  */}
+    <div data-testid="home-page">
       <Heading
         mt="2rem"
         fontSize="3rem"

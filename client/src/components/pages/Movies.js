@@ -48,23 +48,7 @@ function Movies() {
   }, []);
 
   return (
-    <div>
-      {/* <Input
-        value={userInput}
-        onChange={handleChange}
-        placeholder="Movie.."
-        width="15rem"
-        color="white"
-      />
-      <Button
-        onClick={() => {
-          setKeywords(userInput);
-          window.location.href = "http://localhost:3000/movie/" + userInput
-        }}
-        colorScheme="blue"
-      >
-        Search
-      </Button> */}
+    <div data-testid="movies-page">
       <SimpleGrid
         justify="center"
         spacing="1.5rem"
