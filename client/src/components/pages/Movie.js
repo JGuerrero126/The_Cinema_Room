@@ -209,6 +209,82 @@ function Movie() {
     }
   }
 
+  function organizeCrew(crew) {
+    const directorArr = [];
+    const soundArr = [];
+    const writingArr = [];
+    const productionArr = [];
+    const cameraArr = [];
+    const artArr = [];
+    const costumeMakeUpArr = [];
+    const editingArr = [];
+    const genArr = [];
+    const vfxArr = [];
+    const lightingArr = [];
+    crew.forEach((el) => {
+      if (el.department === "Directing") {
+        directorArr.push(el);
+      }
+      if (el.department === "Sound") {
+        soundArr.push(el);
+      }
+      if (el.department === "Writing") {
+        writingArr.push(el);
+      }
+      if (el.department === "Production") {
+        productionArr.push(el);
+      }
+      if (el.department === "Camera") {
+        cameraArr.push(el);
+      }
+      if (el.department === "Art") {
+        artArr.push(el);
+      }
+      if (el.department === "Costume & Make-Up") {
+        costumeMakeUpArr.push(el);
+      }
+      if (el.department === "Editing") {
+        editingArr.push(el);
+      }
+      if (el.department === "Crew") {
+        genArr.push(el);
+      }
+      if (el.department === "Visual Effects") {
+        vfxArr.push(el);
+      }
+      if (el.department === "Lighting") {
+        lightingArr.push(el);
+      }
+    });
+    console.log(directorArr);
+    console.log(soundArr);
+    console.log(writingArr);
+    console.log(productionArr);
+    console.log(cameraArr);
+    console.log(artArr);
+    console.log(costumeMakeUpArr);
+    console.log(editingArr);
+    console.log(genArr);
+    console.log(vfxArr);
+    console.log(lightingArr);
+    console.log(
+      "Sorted Crew Count: " +
+        (directorArr.length +
+          soundArr.length +
+          writingArr.length +
+          productionArr.length +
+          cameraArr.length +
+          artArr.length +
+          costumeMakeUpArr.length +
+          editingArr.length +
+          genArr.length +
+          vfxArr.length +
+          lightingArr.length)
+    );
+    console.log("Director: " + directorArr[0].name);
+    console.log("Unsorted Crew Count: " + crew.length);
+  }
+
   useEffect(() => {
     getMovieDetails(movie);
     getCredits(movie);
@@ -235,6 +311,10 @@ function Movie() {
   useEffect(() => {
     if (movieDetails !== null) setMovieHistory(movieDetails);
   }, [movieDetails]);
+
+  useEffect(() => {
+    if (movieCredits !== null) organizeCrew(movieCredits.crew);
+  }, [movieCredits]);
 
   return (
     <div data-testid="movie-page">
@@ -429,7 +509,7 @@ function Movie() {
                   textDecoration="none"
                   color="white"
                   fontWeight="normal"
-                  fontSize={["8vw", "3rem"]}
+                  fontSize={["7vw", "3rem"]}
                   fontFamily="DistantGalaxy"
                 >
                   RECOMMENDATIONS

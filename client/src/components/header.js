@@ -87,7 +87,7 @@ function Header() {
         left="0"
         ml={["", "2rem"]}
         mt={["0.5rem", ""]}
-        width={["90vw", ""]}
+        width={["90vw", "initial"]}
       >
         <HamburgerIcon />
       </Button>
