@@ -19,6 +19,9 @@ import {
   Text,
   useDisclosure,
   InputRightElement,
+  Stack,
+  Radio,
+  RadioGroup,
   InputGroup,
 } from "@chakra-ui/react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
@@ -49,15 +52,20 @@ function Header() {
         }
       });
   }
-  
+
   // const navigate = useNavigate();
   const changeRoute = (word) => {
     // let path = `/movie/` + word;
     // navigate(path);
-    window.location.href = "http://localhost:3000/movie/" + search
+    window.location.href = "http://localhost:3000/movie/" + search;
   };
   const [search, setSearch] = useState("");
   const handleChange = (event) => setSearch(event.target.value);
+
+  const [radio, setRadio] = React.useState("1");
+  // const addDropDown = (number) => {
+  //   return number
+  // }
 
   useEffect(() => {
     getTopMovies();
@@ -95,6 +103,22 @@ function Header() {
             THE CINEMA ROOM
           </DrawerHeader>
           <DrawerBody bg="black" borderRight="0.25rem snow inset">
+            <Text textAlign="center" mb=".5rem">
+              <b>
+                <u>SEARCH MOVIE BY</u>
+              </b>
+            </Text>
+            <RadioGroup onChange={setRadio} value={radio}>
+              <Stack direction="column" color="white" mb="1rem">
+                <Radio value="1">Movie Name</Radio>
+                <Radio value="2">Person</Radio>
+                <Radio value="3">Year</Radio>
+                <Radio value="4">Rating</Radio>
+              </Stack>
+            </RadioGroup>
+            <Container>
+              {/* If certain radio is selected, drop down menu for that specific selection will appear here */}
+            </Container>
             <InputGroup size="xs">
               <Input
                 value={search}
@@ -107,6 +131,7 @@ function Header() {
               <Button
                 color="white"
                 bg="black"
+                marginLeft=".50rem"
                 border=".10rem solid white"
                 onClick={() => {
                   changeRoute(search);
