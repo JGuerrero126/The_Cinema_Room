@@ -53,19 +53,17 @@ function Header() {
       });
   }
 
-  // const navigate = useNavigate();
-  const changeRoute = (word) => {
-    // let path = `/movie/` + word;
-    // navigate(path);
-    window.location.href = "http://localhost:3000/movie/" + search;
-  };
   const [search, setSearch] = useState("");
   const handleChange = (event) => setSearch(event.target.value);
 
   const [radio, setRadio] = React.useState("1");
-  // const addDropDown = (number) => {
-  //   return number
-  // }
+  
+   const changeRoute = (word) => {
+    // let path = `/movie/` + word;
+    // navigate(path);
+    
+    window.location.href = "http://localhost:3000/movie/" + radio + "/" + search;
+  };
 
   useEffect(() => {
     getTopMovies();
@@ -110,15 +108,12 @@ function Header() {
             </Text>
             <RadioGroup onChange={setRadio} value={radio}>
               <Stack direction="column" color="white" mb="1rem">
-                <Radio value="1">Movie Name</Radio>
-                <Radio value="2">Person</Radio>
-                <Radio value="3">Year</Radio>
-                <Radio value="4">Rating</Radio>
+                <Radio value="1">TITLE</Radio>
+                <Radio value="2">PERSON</Radio>
+                {/* <Radio value="3">Year</Radio>
+                <Radio value="4">Rating</Radio> */}
               </Stack>
             </RadioGroup>
-            <Container>
-              {/* If certain radio is selected, drop down menu for that specific selection will appear here */}
-            </Container>
             <InputGroup size="xs">
               <Input
                 value={search}
