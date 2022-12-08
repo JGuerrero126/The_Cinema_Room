@@ -14,6 +14,7 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Flex,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -27,6 +28,18 @@ function Movie() {
   const [movieDetails, setMovieDetails] = useState(null);
   const [keywords, setKeywords] = useState(null);
   const [recs, setRecs] = useState(null);
+  const [director, setDirector] = useState(null);
+  const [sound, setSound] = useState(null);
+  const [writers, setWriters] = useState(null);
+  const [production, setProduction] = useState(null);
+  const [camera, setCamera] = useState(null);
+  const [art, setArt] = useState(null);
+  const [costumeMakeUp, setCostumeMakeUp] = useState(null);
+  const [editors, setEditors] = useState(null);
+  const [generalCrew, setGeneralCrew] = useState(null);
+  const [vfx, setVFX] = useState(null);
+  const [lighting, setLighting] = useState(null);
+  const [crewSorted, setCrewSorted] = useState(false);
 
   function getCredits(target) {
     console.log("STARTING THE REQUEST");
@@ -209,7 +222,7 @@ function Movie() {
     }
   }
 
-  function organizeCrew(crew) {
+  async function organizeCrew(crew) {
     const directorArr = [];
     const soundArr = [];
     const writingArr = [];
@@ -221,52 +234,46 @@ function Movie() {
     const genArr = [];
     const vfxArr = [];
     const lightingArr = [];
-    crew.forEach((el) => {
-      if (el.department === "Directing") {
-        directorArr.push(el);
-      }
-      if (el.department === "Sound") {
-        soundArr.push(el);
-      }
-      if (el.department === "Writing") {
-        writingArr.push(el);
-      }
-      if (el.department === "Production") {
-        productionArr.push(el);
-      }
-      if (el.department === "Camera") {
-        cameraArr.push(el);
-      }
-      if (el.department === "Art") {
-        artArr.push(el);
-      }
-      if (el.department === "Costume & Make-Up") {
-        costumeMakeUpArr.push(el);
-      }
-      if (el.department === "Editing") {
-        editingArr.push(el);
-      }
-      if (el.department === "Crew") {
-        genArr.push(el);
-      }
-      if (el.department === "Visual Effects") {
-        vfxArr.push(el);
-      }
-      if (el.department === "Lighting") {
-        lightingArr.push(el);
+    await crew.forEach((el) => {
+      switch (el.department) {
+        case "Directing":
+          console.log("DIRECTOR FOUND");
+          directorArr.push(el);
+          break;
+        case "Sound":
+          soundArr.push(el);
+          break;
+        case "Writing":
+          writingArr.push(el);
+          break;
+        case "Production":
+          productionArr.push(el);
+          break;
+        case "Camera":
+          cameraArr.push(el);
+          break;
+        case "Art":
+          artArr.push(el);
+          break;
+        case "Costume & Make-Up":
+          costumeMakeUpArr.push(el);
+          break;
+        case "Editing":
+          editingArr.push(el);
+          break;
+        case "Crew":
+          genArr.push(el);
+          break;
+        case "Visual Effects":
+          vfxArr.push(el);
+          break;
+        case "Lighting":
+          lightingArr.push(el);
+          break;
+        default:
+          console.log("Unable to sort: " + el.name);
       }
     });
-    console.log(directorArr);
-    console.log(soundArr);
-    console.log(writingArr);
-    console.log(productionArr);
-    console.log(cameraArr);
-    console.log(artArr);
-    console.log(costumeMakeUpArr);
-    console.log(editingArr);
-    console.log(genArr);
-    console.log(vfxArr);
-    console.log(lightingArr);
     console.log(
       "Sorted Crew Count: " +
         (directorArr.length +
@@ -283,6 +290,18 @@ function Movie() {
     );
     console.log("Director: " + directorArr[0].name);
     console.log("Unsorted Crew Count: " + crew.length);
+    setDirector(directorArr);
+    setSound(soundArr);
+    setWriters(writingArr);
+    setProduction(productionArr);
+    setCamera(cameraArr);
+    setArt(artArr);
+    setCostumeMakeUp(costumeMakeUpArr);
+    setEditors(editingArr);
+    setGeneralCrew(genArr);
+    setVFX(vfxArr);
+    setLighting(lightingArr);
+    setCrewSorted(true);
   }
 
   useEffect(() => {
@@ -315,6 +334,23 @@ function Movie() {
   useEffect(() => {
     if (movieCredits !== null) organizeCrew(movieCredits.crew);
   }, [movieCredits]);
+
+  useEffect(() => {
+    if (crewSorted === true) {
+      console.log("Full Crew Added");
+      console.log(director);
+      console.log(sound);
+      console.log(writers);
+      console.log(production);
+      console.log(camera);
+      console.log(art);
+      console.log(costumeMakeUp);
+      console.log(editors);
+      console.log(generalCrew);
+      console.log(vfx);
+      console.log(lighting);
+    }
+  }, [crewSorted]);
 
   return (
     <div data-testid="movie-page">
@@ -577,6 +613,43 @@ function Movie() {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
+      ) : (
+        []
+      )}
+      {crewSorted ? (
+        <Flex
+          justify="center"
+          // spacing="1.5rem"
+          // minChildWidth="10rem"
+          ml="1rem"
+          mr="1rem"
+          // maxWidth="90vw"
+          alignItems="center"
+          gap="2"
+        >
+          {director && director.length > 0
+            ? director.map((el) => {
+                return (
+                  <Container centerContent key={el.id}>
+                    <Link
+                      href={"/crew/" + el.id}
+                      color="gold"
+                      textDecoration="none"
+                      fontFamily="DistantGalaxy"
+                      transition="2s"
+                      _hover={{ color: "white" }}
+                    >
+                      <Text>
+                        <u>{el.job}</u>
+                        <br />
+                        {el.name}
+                      </Text>
+                    </Link>
+                  </Container>
+                );
+              })
+            : []}
+        </Flex>
       ) : (
         []
       )}
