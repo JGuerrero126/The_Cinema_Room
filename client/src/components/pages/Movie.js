@@ -29,16 +29,16 @@ function Movie() {
   const [keywords, setKeywords] = useState(null);
   const [recs, setRecs] = useState(null);
   const [director, setDirector] = useState(null);
-  const [sound, setSound] = useState(null);
-  const [writers, setWriters] = useState(null);
   const [production, setProduction] = useState(null);
+  const [writers, setWriters] = useState(null);
+  const [editors, setEditors] = useState(null);
+  const [sound, setSound] = useState(null);
   const [camera, setCamera] = useState(null);
   const [art, setArt] = useState(null);
   const [costumeMakeUp, setCostumeMakeUp] = useState(null);
-  const [editors, setEditors] = useState(null);
-  const [generalCrew, setGeneralCrew] = useState(null);
   const [vfx, setVFX] = useState(null);
   const [lighting, setLighting] = useState(null);
+  const [generalCrew, setGeneralCrew] = useState(null);
   const [crewSorted, setCrewSorted] = useState(false);
 
   function getCredits(target) {
@@ -490,14 +490,7 @@ function Movie() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            <SimpleGrid
-              justify="center"
-              spacing="1.5rem"
-              minChildWidth="10rem"
-              ml="1rem"
-              mr="1rem"
-            >
-              {movieCredits
+            {/* {movieCredits
                 ? movieCredits.crew.map((el) => {
                     return (
                       <Container centerContent key={el.credit_id}>
@@ -518,8 +511,497 @@ function Movie() {
                       </Container>
                     );
                   })
-                : []}
-            </SimpleGrid>
+                : []} */}
+            {crewSorted ? (
+              <div>
+                {director && director.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                    >
+                      The Directors
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {director.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {production && production.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Producers
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {production.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {writers && writers.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Writers
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {writers.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {editors && editors.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Editors
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {editors.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {sound && sound.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Sound Team
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {sound.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {camera && camera.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Camera Crew
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {camera.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {art && art.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Art Department
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {art.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {costumeMakeUp && costumeMakeUp.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Costume & Make-Up Team
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {costumeMakeUp.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {vfx && vfx.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Visual Effects Team
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {vfx.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+                {lighting && lighting.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Lighting Crew
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {lighting.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+
+                {generalCrew && generalCrew.length > 0 ? (
+                  <div>
+                    <Text
+                      color="gold"
+                      textDecoration="underline"
+                      fontFamily="DistantGalaxy"
+                      fontSize="1.5rem"
+                      mb="1rem"
+                      mt="1rem"
+                    >
+                      The Crew
+                    </Text>
+                    <SimpleGrid
+                      justify="center"
+                      spacing="1.5rem"
+                      minChildWidth="10rem"
+                      ml="1rem"
+                      mr="1rem"
+                    >
+                      {generalCrew.map((el) => {
+                        return (
+                          <Container centerContent key={el.credit_id}>
+                            <Link
+                              href={"/crew/" + el.id}
+                              color="gold"
+                              textDecoration="none"
+                              fontFamily="DistantGalaxy"
+                              transition="2s"
+                              _hover={{ color: "white" }}
+                            >
+                              <Text>
+                                <u>{el.job}</u>
+                                <br />
+                                {el.name}
+                              </Text>
+                            </Link>
+                          </Container>
+                        );
+                      })}
+                    </SimpleGrid>
+                  </div>
+                ) : (
+                  []
+                )}
+              </div>
+            ) : (
+              []
+            )}
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
@@ -561,7 +1043,7 @@ function Movie() {
                         return;
                       }
                       return (
-                        <Container centerContent key={el.id} mb="2rem">
+                        <Container centerContent key={el.credit_id} mb="2rem">
                           <Link
                             href={"/movies/" + el.id}
                             color="gold"
@@ -613,43 +1095,6 @@ function Movie() {
             </AccordionPanel>
           </AccordionItem>
         </Accordion>
-      ) : (
-        []
-      )}
-      {crewSorted ? (
-        <Flex
-          justify="center"
-          // spacing="1.5rem"
-          // minChildWidth="10rem"
-          ml="1rem"
-          mr="1rem"
-          // maxWidth="90vw"
-          alignItems="center"
-          gap="2"
-        >
-          {director && director.length > 0
-            ? director.map((el) => {
-                return (
-                  <Container centerContent key={el.id}>
-                    <Link
-                      href={"/crew/" + el.id}
-                      color="gold"
-                      textDecoration="none"
-                      fontFamily="DistantGalaxy"
-                      transition="2s"
-                      _hover={{ color: "white" }}
-                    >
-                      <Text>
-                        <u>{el.job}</u>
-                        <br />
-                        {el.name}
-                      </Text>
-                    </Link>
-                  </Container>
-                );
-              })
-            : []}
-        </Flex>
       ) : (
         []
       )}
