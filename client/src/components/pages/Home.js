@@ -1,17 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {IpynbRenderer} from "react-ipynb-renderer";
-import ipynb from "./movie_data.ipynb/";
-
-export const Component = () => {
-  return (
-    <IpynbRenderer
-    ipynb={ipynb}
-    />
-  );
-};
-
+import { IpynbRenderer } from "react-ipynb-renderer";
+import ipynb from "../movie_data.ipynb";
 import {
   Text,
   Heading,
@@ -23,6 +14,10 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
+
+export const Component = () => {
+  return <IpynbRenderer ipynb={ipynb} />;
+};
 
 function Home() {
   // const navigate = useNavigate();
@@ -98,16 +93,11 @@ function Home() {
         fontWeight="normal"
         color="white"
         fontFamily="corleonedue"
-        >
-          Data
+      >
+        Data
       </Heading>
-      
-      
     </div>
-  
   );
-            
 }
-
 
 export default Home;
