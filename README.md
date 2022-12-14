@@ -23,7 +23,7 @@ Then get [React](https://reactjs.org/docs/create-a-new-react-app.html) started i
 
 ## Usage
 
-Simply click the links to learn about top-rated movies and actors. First search by genre, then choose a movie to learn more about the movie (description, rating, year released) and its cast. Then click on a cast member to learn more about them and other movies they have appeared in.
+Simply click the links to learn about top-rated movies and actors. Search by genre, movie name, or actor name. If you search for a moview, for example, the description, rating, year released, and cast will be displayed. Then, for example, you can click on a cast member to learn more about them and other movies they have appeared in.
 
 ## Questions
 
@@ -33,6 +33,7 @@ Team members' GitHub usernames are:
 - [williampryor](https://github.com/williampryor)
 - [MonsAltus](https://github.com/MonsAltus)
 - [bmxnguyen](https://github.com/bmxnguyen)
+- [ycheng2021](https://github.com/ycheng2021)
 - [stuart-rickard](https://github.com/stuart-rickard)
 
 Feel free to reach out!
@@ -43,7 +44,7 @@ Please feel free to contact team members listed above if you are interested in c
 
 ## Tests
 
-Tests will be added soon.
+Tests for the React portion of the project can be run by opening the `client` directory and running `npm run test`.
 
 ## Helpful Links
 

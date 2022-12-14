@@ -19,6 +19,9 @@ import {
   Text,
   useDisclosure,
   InputRightElement,
+  Stack,
+  Radio,
+  RadioGroup,
   InputGroup,
 } from "@chakra-ui/react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
@@ -50,21 +53,24 @@ function Header() {
         }
       });
   }
-
   function getMovieHistory() {
     var movieHistory = JSON.parse(localStorage.getItem("history") || "[]");
     setHistory(movieHistory);
     console.log(movieHistory);
   }
 
-  // const navigate = useNavigate();
+  const [search, setSearch] = useState("");
+  const handleChange = (event) => setSearch(event.target.value);
+
+  const [radio, setRadio] = React.useState("1");
+
   const changeRoute = (word) => {
     // let path = `/movie/` + word;
     // navigate(path);
-    window.location.href = "http://localhost:3000/movie/" + search;
+
+    window.location.href =
+      "http://localhost:3000/movie/" + radio + "/" + search;
   };
-  const [search, setSearch] = useState("");
-  const handleChange = (event) => setSearch(event.target.value);
 
   useEffect(() => {
     getTopMovies();
@@ -108,6 +114,19 @@ function Header() {
             THE CINEMA ROOM
           </DrawerHeader>
           <DrawerBody bg="black" borderRight="0.25rem snow inset">
+            <Text textAlign="center" mb=".5rem">
+              <b>
+                <u>SEARCH MOVIE BY</u>
+              </b>
+            </Text>
+            <RadioGroup onChange={setRadio} value={radio}>
+              <Stack direction="column" color="white" mb="1rem">
+                <Radio value="1">TITLE</Radio>
+                <Radio value="2">PERSON</Radio>
+                {/* <Radio value="3">Year</Radio>
+                <Radio value="4">Rating</Radio> */}
+              </Stack>
+            </RadioGroup>
             <InputGroup size="xs">
               <Input
                 value={search}
@@ -120,6 +139,7 @@ function Header() {
               <Button
                 color="white"
                 bg="black"
+                marginLeft=".50rem"
                 border=".10rem solid white"
                 onClick={() => {
                   changeRoute(search);

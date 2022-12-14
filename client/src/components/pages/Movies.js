@@ -14,18 +14,17 @@ import {
 import moment from "moment";
 
 function Movies() {
+  const url = window.location.href;
+  const type = url.split("/").slice(-2).shift();
   const { search } = useParams();
   // create state to hold returned movie data
   const [searchedMovie, setSearchedMovie] = useState(null);
-  // create state for holding search input
-  // const [userInput, setUserInput] = useState("");
-  // const handleChange = (event) => setUserInput(event.target.value);
-  function setKeywords() {
-    var keyword = search.split(" ").concat("%20")
-    // var keyword = search.split(" ").concat("%20");
-    // if (userInput) {
-    //   keyword = userInput.split(" ").concat("%20");
-    // }
+  // returned person data
+  const [searchedPerson, setSearchedPerson] = useState(null);
+  // api uses array so if search is more than one word, split by space and sort into array
+  const keyword = search.split(" ");
+  function searchMovie() {
+    // api call to get movie data
     axios({
       method: "GET",
       url: urlPrefix + "/search/" + keyword,
@@ -43,8 +42,33 @@ function Movies() {
       });
   }
 
+  function searchPerson() {
+    // api call to get data on searched person
+    axios({
+      method: "GET",
+      url: urlPrefix + "/person/" + keyword,
+    })
+      .then((response) => {
+        const res = response.data;
+        setSearchedPerson(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
-    setKeywords();
+    // if type is movie then search by movie name
+    if (type === "1") {
+      searchMovie();
+      // if type is person then search by person
+    } else {
+      searchPerson();
+    }
   }, []);
 
   return (
@@ -98,15 +122,54 @@ function Movies() {
                 </Container>
               );
             })
-          : (
-            <Text 
-              color="white"
-              fontFamily="Shindler"
-              fontSize="1.5rem"
-              transition="1s"
-              _hover={{ color: "silver" }}
-            > Sorry we couldn't find any results. Please try again.</Text>
-          )}
+          : []}
+        {searchedPerson && searchedPerson.results.length > 0 ? (
+          searchedPerson.results.map((element) => {
+            return (
+              <Container centerContent key={element.id} maxW="md">
+                <Link
+                  href={"/crew/" + element.id}
+                  color="white"
+                  textDecoration="none"
+                  fontFamily="Shindler"
+                  fontSize="1.5rem"
+                  transition="1s"
+                  _hover={{ color: "silver" }}
+                >
+                  <Text>
+                    <b>
+                      <u>{element.name}</u>
+                    </b>
+                  </Text>
+                  <Center mt="2rem">
+                    <Image
+                      border="1rem groove black"
+                      boxShadow="0rem 0rem 3rem lightyellow"
+                      _hover={{ boxShadow: "none", filter: "saturate(0%)" }}
+                      transition="3s"
+                      src={
+                        `https://image.tmdb.org/t/p/w500` + element.profile_path
+                      }
+                      fallbackSrc="https://via.placeholder.com/325x500.png"
+                    />
+                  </Center>
+                  <Text>Known For {element.known_for_department}</Text>
+                </Link>
+              </Container>
+            );
+          })
+        ) : (
+          <Text
+            color="white"
+            fontFamily="Shindler"
+            fontSize="1.5rem"
+            transition="1s"
+            _hover={{ color: "silver" }}
+          >
+            {" "}
+            Sorry we couldn't find any results. Please try again.
+          </Text>
+        )}
       </SimpleGrid>
     </div>
   );

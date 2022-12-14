@@ -1,6 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {IpynbRenderer} from "react-ipynb-renderer";
+import ipynb from "./movie_data.ipynb/";
+
+export const Component = () => {
+  return (
+    <IpynbRenderer
+    ipynb={ipynb}
+    />
+  );
+};
+
 import {
   Text,
   Heading,
@@ -81,8 +92,22 @@ function Home() {
             })
           : []}
       </Flex>
+      <Heading
+        mt="2rem"
+        fontSize="3rem"
+        fontWeight="normal"
+        color="white"
+        fontFamily="corleonedue"
+        >
+          Data
+      </Heading>
+      
+      
     </div>
+  
   );
+            
 }
+
 
 export default Home;
