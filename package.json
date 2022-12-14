@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@chakra-ui/react": "^2.3.7",
-    "react-ipynb-renderer": "^2.0.0"
-  }
-}
