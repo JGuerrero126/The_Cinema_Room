@@ -181,7 +181,12 @@ function Genre() {
 
   return (
     <div data-testid="genre-page">
-      <Heading fontSize="2.5rem" color="white" fontFamily="Shindler" mt="1rem">
+      <Heading
+        fontSize={["10vw", "2.5rem"]}
+        color="white"
+        fontFamily="Shindler"
+        mt="1rem"
+      >
         Here are the top {genreName(genre)} movies!
       </Heading>
       {moviePosterLinkData ? (
@@ -191,6 +196,7 @@ function Genre() {
             boxShadow="0rem 0rem 3rem lightyellow"
             _hover={{ boxShadow: "none", filter: "saturate(0%)" }}
             transition="3s"
+            maxW="90vw"
             src={
               moviePosterLinkData
                 ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
@@ -219,11 +225,11 @@ function Genre() {
                       color="white"
                       textDecoration="none"
                       fontFamily="Shindler"
-                      fontSize="1.5rem"
+                      fontSize={["5vw", "1.5rem"]}
                       transition="1s"
                       _hover={{ color: "silver" }}
                     >
-                      <Text>
+                      <Text fontSize={["7vw", "1.75rem"]}>
                         <b>
                           <u>{element.title}</u>
                         </b>

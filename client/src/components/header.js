@@ -33,6 +33,7 @@ function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const [topMovies, setTopMovies] = useState(null);
+  const [history, setHistory] = useState(null);
 
   function getTopMovies() {
     axios({
@@ -52,21 +53,31 @@ function Header() {
         }
       });
   }
+  function getMovieHistory() {
+    var movieHistory = JSON.parse(localStorage.getItem("history") || "[]");
+    setHistory(movieHistory);
+    console.log(movieHistory);
+  }
 
   const [search, setSearch] = useState("");
   const handleChange = (event) => setSearch(event.target.value);
 
   const [radio, setRadio] = React.useState("1");
-  
-   const changeRoute = (word) => {
+
+  const changeRoute = (word) => {
     // let path = `/movie/` + word;
     // navigate(path);
-    
-    window.location.href = "http://localhost:3000/movie/" + radio + "/" + search;
+
+    window.location.href =
+      "http://localhost:3000/movie/" + radio + "/" + search;
   };
 
   useEffect(() => {
     getTopMovies();
+  }, []);
+
+  useEffect(() => {
+    getMovieHistory();
   }, []);
 
   var i = 1;
@@ -78,9 +89,11 @@ function Header() {
         bg="black"
         border=".10rem solid white"
         onClick={onOpen}
-        position="absolute"
+        position={["relative", "absolute"]}
         left="0"
-        ml="2rem"
+        ml={["", "2rem"]}
+        mt={["0.5rem", ""]}
+        width={["90vw", "initial"]}
       >
         <HamburgerIcon />
       </Button>
@@ -163,49 +176,48 @@ function Header() {
                 })
               : []}
             <Divider mt="1rem" mb="1rem" />
-            <Text textAlign="center" mb="1rem">
-              <b>
-                <u>RECENTLY VIEWED MOVIES</u>
-              </b>
-            </Text>
-            <Container key="0" mb="0.25rem" borderBottom="0.10rem solid snow">
-              <Link href="" color="white" fontSize="1rem">
-                <Text textAlign="left">Mad Max: Fury Road</Text>
-              </Link>
-            </Container>
-            <Container key="0" mb="0.25rem" borderBottom="0.10rem solid snow">
-              <Link href="" color="white" fontSize="1rem">
-                <Text textAlign="left">Bullet Train</Text>
-              </Link>
-            </Container>
-            <Container key="0" mb="0.25rem" borderBottom="0.10rem solid snow">
-              <Link href="" color="white" fontSize="1rem">
-                <Text textAlign="left">Bronson</Text>
-              </Link>
-            </Container>
-            <Container key="0" mb="0.25rem" borderBottom="0.10rem solid snow">
-              <Link href="" color="white" fontSize="1rem">
-                <Text textAlign="left">RoboCop</Text>
-              </Link>
-            </Container>
-            <Container key="0" mb="0.25rem" borderBottom="0.10rem solid snow">
-              <Link href="" color="white" fontSize="1rem">
-                <Text textAlign="left">Nacho Libre</Text>
-              </Link>
-            </Container>
+            {history && history.length > 0 ? (
+              <div>
+                <Text textAlign="center" mb="1rem">
+                  <b>
+                    <u>RECENTLY VIEWED MOVIES</u>
+                  </b>
+                </Text>
+                {history.map((el) => {
+                  return (
+                    <Container
+                      key={el.id}
+                      mb="0.25rem"
+                      borderBottom="0.10rem solid snow"
+                    >
+                      <Link
+                        href={"/movies/" + el.id}
+                        color="white"
+                        fontSize="1rem"
+                      >
+                        <Text textAlign="left">{el.title}</Text>
+                      </Link>
+                    </Container>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
       <Heading id="headTop" mt="1rem">
         <Link
           textDecoration="none"
+          textAlign="center"
           href="/"
           color="white"
           id="appHead"
           fontWeight="normal"
           transition="1s"
           _hover={{ color: "red" }}
-          fontSize="3rem"
+          fontSize={["10vw", "3rem"]}
         >
           The Cinema Room
         </Link>

@@ -25,9 +25,9 @@ import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
 function Home() {
-  // const navigate = useNavigate(); 
-  // const changeRoute= (word) => { 
-  //   let path = `/movie/` + word; 
+  // const navigate = useNavigate();
+  // const changeRoute= (word) => {
+  //   let path = `/movie/` + word;
   //   navigate(path);
   // }
   const [genrelist, setGenreList] = useState(null);
@@ -60,7 +60,7 @@ function Home() {
     <div data-testid="home-page">
       <Heading
         mt="2rem"
-        fontSize="3rem"
+        fontSize={["10vw", "3rem"]}
         fontWeight="normal"
         color="white"
         fontFamily="corleonedue"
@@ -71,7 +71,12 @@ function Home() {
         {genrelist
           ? genrelist.map((element) => {
               return (
-                <Box key={element.id} fontSize="2.5rem" w="12rem" h="6rem">
+                <Box
+                  key={element.id}
+                  fontSize={["8vw", "2.5rem"]}
+                  w="12rem"
+                  h="6rem"
+                >
                   <Link
                     color="white"
                     textDecoration="none"
