@@ -21,7 +21,7 @@ function App() {
         <Route path="/actors/:actor" element={<Actor />} />
         <Route path="/movie/:type/:search" element={<Movies />} />
         <Route path="/crew/:member" element={<Crew />} />
-        <Route path="/test" element={<TestPage />} />
+        <Route path="/test/:testParam" element={<TestPage />} />
       </Routes>
       {/* </Router> */}
     </div>

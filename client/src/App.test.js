@@ -31,20 +31,22 @@ import { BrowserRouter, MemoryRouter } from "react-router-dom";
 // });
 
 test("landing on Test page", async () => {
-  const testRoute = "/test";
+  const testRoute = "/test/28"; // 28 is the genre number for "action"
+
   // function doNothing() {}
 
   // async function wait() {
   //   setTimeout(doNothing, 2000);
   // }
 
-  render(
+  await render(
     <MemoryRouter initialEntries={[testRoute]}>
       <App />
     </MemoryRouter>
   );
 
   // await wait();
+
   expect(screen.getByTestId("test-page")).toBeInTheDocument();
 });
 
