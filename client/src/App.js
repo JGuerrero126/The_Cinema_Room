@@ -7,6 +7,7 @@ import Movie from "./components/pages/Movie";
 import Genre from "./components/pages/Genre";
 import Movies from "./components/pages/Movies";
 import Crew from "./components/pages/Crew";
+import Watchlist from "./components/pages/Watchlist";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/actors/:actor" element={<Actor />} />
         <Route path="/movie/:type/:search" element={<Movies />} />
         <Route path="/crew/:member" element={<Crew />} />
+        <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
       {/* </Router> */}
     </div>

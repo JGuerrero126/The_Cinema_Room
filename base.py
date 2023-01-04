@@ -238,6 +238,21 @@ def top_movies():
       response_body = res
       return response_body
 
+@app.route('/watch-providers/', methods = ['POST'])
+@cross_origin()
+def watch_providers():
+
+  movie_id = request.get_json()['movie_id']
+  
+  print('GETTING WATCH PROVIDERS')
+
+  watch_providers_list = f'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(watch_providers_list) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
 @app.errorhandler(404)
 def not_found(e):
   return send_from_directory(app.static_folder, 'index.html')
