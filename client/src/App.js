@@ -8,6 +8,7 @@ import Genre from "./components/pages/Genre";
 import Movies from "./components/pages/Movies";
 import Crew from "./components/pages/Crew";
 import Watchlist from "./components/pages/Watchlist";
+import TestPage from "./components/pages/TestPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/movie/:type/:search" element={<Movies />} />
         <Route path="/crew/:member" element={<Crew />} />
         <Route path="/watchlist" element={<Watchlist />} />
+        <Route path="/test" element={<TestPage />} />
       </Routes>
       {/* </Router> */}
     </div>
