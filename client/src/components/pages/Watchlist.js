@@ -9,13 +9,16 @@ import {
   Input,
   Button,
   Image,
+  Select,
+  Center,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
+import WatchProvider from "../WatchProviders.js";
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState(null);
-  const [watchProviders, setWatchProviders] = useState(null);
+  const [userRegion, setUserRegion] = useState("US");
 
   function getWatchlist() {
     var watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
@@ -23,35 +26,12 @@ function Watchlist() {
     setWatchlist(watchlist);
   }
 
-  function getWatchProviders(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/watch-providers/",
-      data: { movie_id: target },
-    }).then((res) => {
-      console.log(res.data.results);
-      return res.data.results;
-    });
-  }
-
   useEffect(() => {
     getWatchlist();
   }, []);
-
   useEffect(() => {
-    if (watchlist !== null) {
-      var value;
-      async function test() {
-        var result = await watchlist.map(async (el) => {
-          await getWatchProviders(el.id);
-        });
-        value = await result;
-      }
-      test();
-      const val = value;
-      console.log(val);
-    }
-  }, [watchlist]);
+    console.log(userRegion);
+  }, [userRegion]);
 
   return (
     <div data-testid="home-page">
@@ -64,6 +44,27 @@ function Watchlist() {
       >
         Watchlist
       </Heading>
+      <Center>
+        <Select
+          placeholder="Select Preferred Region"
+          size="lg"
+          w="40rem"
+          bg="white"
+          variant="outline"
+          textColor="black"
+          onChange={(e) => setUserRegion(e.target.value)}
+        >
+          <option value="AU">Australia</option>
+          <option value="CA">Canada</option>
+          <option value="GB">United Kingdom</option>
+          <option value="IE">Ireland</option>
+          <option value="IN">India</option>
+          <option value="JP">Japan</option>
+          <option value="KR">South Korea</option>
+          <option value="MX">Mexico</option>
+          <option value="US">United States</option>
+        </Select>
+      </Center>
       <Flex mt="2rem" flexWrap="wrap" justify="center">
         {watchlist && watchlist.length > 0 ? (
           <div>
@@ -71,7 +72,12 @@ function Watchlist() {
               return (
                 <div key={el.id}>
                   <Text>{el.title}</Text>
-                  <Image src={`https://image.tmdb.org/t/p/w500` + el.poster} />
+                  <Image
+                    border="0.5rem solid white"
+                    w="16rem"
+                    src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                  />
+                  <WatchProvider movie={el.id} region={userRegion} />
                 </div>
               );
             })}
@@ -80,6 +86,12 @@ function Watchlist() {
           <Text>Watchlist Not Found! :( </Text>
         )}
       </Flex>
+      <footer>
+        <Text>
+          The Cinema Room uses JustWatch for all streaming links shown on this
+          page.
+        </Text>
+      </footer>
     </div>
   );
 }
