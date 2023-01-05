@@ -28,7 +28,7 @@ function WatchProvider({ movie, region }) {
           </Link>
         </div>
       ) : (
-        <Text>Watch providers Not found</Text>
+        <Text>No Streaming Links available</Text>
       )}
     </div>
   );

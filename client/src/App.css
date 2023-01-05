@@ -67,3 +67,12 @@
 .App {
   text-align: center;
 }
+
+.watchFooter {
+  position: absolute;
+  bottom: 0;
+}
+
+.watchlist {
+  height: 90vh;
+}

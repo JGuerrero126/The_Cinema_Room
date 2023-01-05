@@ -11,6 +11,7 @@ import {
   Image,
   Select,
   Center,
+  Container,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -34,7 +35,7 @@ function Watchlist() {
   }, [userRegion]);
 
   return (
-    <div data-testid="home-page">
+    <div data-testid="home-page" className="watchlist">
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}
@@ -65,32 +66,27 @@ function Watchlist() {
           <option value="US">United States</option>
         </Select>
       </Center>
-      <Flex mt="2rem" flexWrap="wrap" justify="center">
-        {watchlist && watchlist.length > 0 ? (
-          <div>
-            {watchlist.map((el) => {
-              return (
-                <div key={el.id}>
-                  <Text>{el.title}</Text>
-                  <Image
-                    border="0.5rem solid white"
-                    w="16rem"
-                    src={`https://image.tmdb.org/t/p/w500` + el.poster}
-                  />
-                  <WatchProvider movie={el.id} region={userRegion} />
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <Text>Watchlist Not Found! :( </Text>
-        )}
-      </Flex>
-      <footer>
-        <Text>
-          The Cinema Room uses JustWatch for all streaming links shown on this
-          page.
-        </Text>
+      {watchlist && watchlist.length > 0 ? (
+        <Flex mt="2rem" flexWrap="wrap" justify="center">
+          {watchlist.map((el) => {
+            return (
+              <Container key={el.id} w="max-content">
+                <Text>{el.title}</Text>
+                <Image
+                  border="0.5rem solid white"
+                  w="16rem"
+                  src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                />
+                <WatchProvider movie={el.id} region={userRegion} />
+              </Container>
+            );
+          })}
+        </Flex>
+      ) : (
+        <Text>Watchlist Not Found!</Text>
+      )}
+      <footer className="watchFooter">
+        <Text>All links courtesy of JustWatch</Text>
       </footer>
     </div>
   );
