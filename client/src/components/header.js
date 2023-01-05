@@ -123,8 +123,7 @@ function Header() {
               <Stack direction="column" color="white" mb="1rem">
                 <Radio value="1">TITLE</Radio>
                 <Radio value="2">PERSON</Radio>
-                {/* <Radio value="3">Year</Radio>
-                <Radio value="4">Rating</Radio> */}
+                <Radio value="3">YEAR</Radio>
               </Stack>
             </RadioGroup>
             <InputGroup size="xs">
