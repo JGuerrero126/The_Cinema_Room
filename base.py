@@ -134,7 +134,7 @@ def search_year(target):
   
   print('GETTING DATA FOR SEARCHED MOVIE')
 
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&region=US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year={target}'
+  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&region=US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year={target}'
 
   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
     res = response.read()

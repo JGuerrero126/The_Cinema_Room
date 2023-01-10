@@ -25,6 +25,7 @@ function Movies() {
   const [searchedYear, setSearchedYear] = useState(null);
   // api uses array so if search is more than one word, split by space and sort into array
   const keyword = search.split(" ");
+
   function searchMovie() {
     // api call to get movie data
     axios({
@@ -69,6 +70,10 @@ function Movies() {
     // api call to get data on searched person
     axios({
       method: "GET",
+      // params: {
+      //   primary_release_year: keyword,
+      //   sort_by: sortBy,
+      // },
       url: urlPrefix + "/year/" + keyword,
     })
       .then((response) => {
@@ -85,6 +90,10 @@ function Movies() {
       });
   }
 
+  // function changeSort() {
+  //   console.log(type)
+  //   console.log(sortBy)
+  // }
   useEffect(() => {
     switch (type) {
       case "1":

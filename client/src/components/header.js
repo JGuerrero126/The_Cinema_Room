@@ -23,6 +23,7 @@ import {
   Radio,
   RadioGroup,
   InputGroup,
+  Select,
 } from "@chakra-ui/react";
 import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
@@ -63,6 +64,7 @@ function Header() {
   const handleChange = (event) => setSearch(event.target.value);
 
   const [radio, setRadio] = React.useState("1");
+  const [sortBy, setSortBy] = useState("popularity.desc");
 
   const changeRoute = (word) => {
     // let path = `/movie/` + word;
@@ -124,6 +126,33 @@ function Header() {
                 <Radio value="1">TITLE</Radio>
                 <Radio value="2">PERSON</Radio>
                 <Radio value="3">YEAR</Radio>
+                {radio === "3" ? (
+                  <Select
+                    placeholder="Sort By"
+                    onChange={(e) => setSortBy(e.target.value)}
+                    value={sortBy}
+                    color="white"
+                  >
+                    <option
+                      style={{ color: "black" }}
+                      value="original_title.asc"
+                    >
+                      Alphabetically
+                    </option>
+                    <option
+                      style={{ color: "black" }}
+                      value="vote_average.desc"
+                    >
+                      Rating
+                    </option>
+                    <option
+                      style={{ color: "black" }}
+                      value="primary_release_date.asc"
+                    >
+                      Release Date
+                    </option>
+                  </Select>
+                ) : null}
               </Stack>
             </RadioGroup>
             <InputGroup size="xs">
