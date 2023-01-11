@@ -17,11 +17,12 @@ import {
   Flex,
   IconButton,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
-import moment from "moment";
+import moment, { duration } from "moment";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 function Movie() {
@@ -45,6 +46,7 @@ function Movie() {
   const [crewSorted, setCrewSorted] = useState(false);
   const [favorited, setFavorited] = useState(fetchFavorite(movie));
   const [onWatchlist, setOnWatchlist] = useState(fetchWatchlist(movie));
+  const toast = useToast();
 
   function getCredits(target) {
     console.log("STARTING THE REQUEST");
@@ -317,11 +319,25 @@ function Movie() {
     var favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     let currentMovie = { title: movie.title, id: movie.id };
     if (favorites.find((e) => e.title === currentMovie.title)) {
+      toast({
+        title: "Favorites Updated",
+        description: "Movie removed from Favorites",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
       let index = favorites.findIndex((el) => el.title === currentMovie.title);
       console.log(index);
       favorites.splice(index, 1);
       localStorage.setItem("favorites", JSON.stringify(favorites));
     } else {
+      toast({
+        title: "Favorites Updated",
+        description: "Movie added to Favorites",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
       favorites.push(currentMovie);
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
@@ -348,11 +364,25 @@ function Movie() {
       poster: movie.poster_path,
     };
     if (watchlist.find((e) => e.title === currentMovie.title)) {
+      toast({
+        title: "Watchlist Updated",
+        description: "Movie removed from Watchlist",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
       let index = watchlist.findIndex((el) => el.title === currentMovie.title);
       console.log(index);
       watchlist.splice(index, 1);
       localStorage.setItem("watchlist", JSON.stringify(watchlist));
     } else {
+      toast({
+        title: "Watchlist Updated",
+        description: "Movie added to Watchlist",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
       watchlist.push(currentMovie);
       localStorage.setItem("watchlist", JSON.stringify(watchlist));
     }

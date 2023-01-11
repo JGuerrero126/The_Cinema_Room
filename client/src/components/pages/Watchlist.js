@@ -12,6 +12,11 @@ import {
   Select,
   Center,
   Container,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -70,15 +75,21 @@ function Watchlist() {
         <Flex mt="2rem" flexWrap="wrap" justify="center">
           {watchlist.map((el) => {
             return (
-              <Container key={el.id} w="max-content">
-                <Text>{el.title}</Text>
+              <Card
+                key={el.id}
+                direction="row"
+                maxW="95%"
+                minW="75%"
+                mb="1rem"
+                paddingRight="1rem"
+              >
                 <Image
-                  border="0.5rem solid white"
+                  border="0.25rem solid white"
                   w="16rem"
                   src={`https://image.tmdb.org/t/p/w500` + el.poster}
                 />
                 <WatchProvider movie={el.id} region={userRegion} />
-              </Container>
+              </Card>
             );
           })}
         </Flex>
