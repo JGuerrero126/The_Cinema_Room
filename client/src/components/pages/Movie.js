@@ -15,11 +15,15 @@ import {
   AccordionIcon,
   AccordionPanel,
   Flex,
+  IconButton,
+  Button,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
-import moment from "moment";
+import moment, { duration } from "moment";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 function Movie() {
   const { movie } = useParams();
@@ -40,6 +44,9 @@ function Movie() {
   const [lighting, setLighting] = useState(null);
   const [generalCrew, setGeneralCrew] = useState(null);
   const [crewSorted, setCrewSorted] = useState(false);
+  const [favorited, setFavorited] = useState(fetchFavorite(movie));
+  const [onWatchlist, setOnWatchlist] = useState(fetchWatchlist(movie));
+  const toast = useToast();
 
   function getCredits(target) {
     console.log("STARTING THE REQUEST");
@@ -237,7 +244,6 @@ function Movie() {
     await crew.forEach((el) => {
       switch (el.department) {
         case "Directing":
-          console.log("DIRECTOR FOUND");
           directorArr.push(el);
           break;
         case "Sound":
@@ -304,6 +310,92 @@ function Movie() {
     setCrewSorted(true);
   }
 
+  function favoriteCheck() {
+    setFavorite(movieDetails);
+    return favorited === true ? setFavorited(false) : setFavorited(true);
+  }
+
+  function setFavorite(movie) {
+    var favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    let currentMovie = { title: movie.title, id: movie.id };
+    if (favorites.find((e) => e.title === currentMovie.title)) {
+      toast({
+        title: "Favorites Updated",
+        description: "Movie removed from Favorites",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
+      let index = favorites.findIndex((el) => el.title === currentMovie.title);
+      console.log(index);
+      favorites.splice(index, 1);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    } else {
+      toast({
+        title: "Favorites Updated",
+        description: "Movie added to Favorites",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
+      favorites.push(currentMovie);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  }
+
+  function fetchFavorite(id) {
+    var favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (favorites.find((e) => e.id === parseInt(id))) {
+      return true;
+    }
+    return false;
+  }
+
+  function watchlistCheck() {
+    setWatchlist(movieDetails);
+    return onWatchlist === true ? setOnWatchlist(false) : setOnWatchlist(true);
+  }
+
+  function setWatchlist(movie) {
+    var watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
+    let currentMovie = {
+      title: movie.title,
+      id: movie.id,
+      poster: movie.poster_path,
+    };
+    if (watchlist.find((e) => e.title === currentMovie.title)) {
+      toast({
+        title: "Watchlist Updated",
+        description: "Movie removed from Watchlist",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
+      let index = watchlist.findIndex((el) => el.title === currentMovie.title);
+      console.log(index);
+      watchlist.splice(index, 1);
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    } else {
+      toast({
+        title: "Watchlist Updated",
+        description: "Movie added to Watchlist",
+        status: "info",
+        duration: 3000,
+        isClosable: true,
+      });
+      watchlist.push(currentMovie);
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+    }
+  }
+
+  function fetchWatchlist(id) {
+    var watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
+    if (watchlist.find((e) => e.id === parseInt(id))) {
+      return true;
+    }
+    return false;
+  }
+
   useEffect(() => {
     getMovieDetails(movie);
     getCredits(movie);
@@ -336,6 +428,10 @@ function Movie() {
   }, [movieCredits]);
 
   useEffect(() => {
+    console.log(favorited);
+  }, [favorited]);
+
+  useEffect(() => {
     if (crewSorted === true) {
       console.log("Full Crew Added");
       console.log(director);
@@ -366,7 +462,7 @@ function Movie() {
             {movieDetails.title.toUpperCase()}
           </Heading>
           {moviePosterLinkData ? (
-            <Center mt="1rem">
+            <Center mt="1rem" position="relative">
               <Image
                 borderWidth="1rem"
                 borderRadius="md"
@@ -383,9 +479,57 @@ function Movie() {
                 }
                 fallbackSrc="https://via.placeholder.com/325x500.png"
               />
+              {favorited === true ? (
+                <IconButton
+                  colorScheme="transparent"
+                  color="red"
+                  aria-label="Favorite Movie"
+                  icon={<AiFillHeart />}
+                  onClick={() => favoriteCheck()}
+                  fontSize="4xl"
+                  position="absolute"
+                  bottom="-10"
+                />
+              ) : (
+                <IconButton
+                  colorScheme="transparent"
+                  color="red"
+                  aria-label="Favorite Movie"
+                  icon={<AiOutlineHeart />}
+                  onClick={() => favoriteCheck()}
+                  fontSize="4xl"
+                  position="absolute"
+                  bottom="-10"
+                />
+              )}
             </Center>
           ) : (
             []
+          )}
+          {onWatchlist === true ? (
+            <Button
+              mt="3rem"
+              color="gold"
+              bg="snow"
+              fontFamily="DistantGalaxy"
+              fontWeight="normal"
+              _hover={{ color: "white", bg: "transparent" }}
+              onClick={() => watchlistCheck()}
+            >
+              Movie Added To Watchlist!
+            </Button>
+          ) : (
+            <Button
+              mt="3rem"
+              color="gold"
+              bg="snow"
+              fontFamily="DistantGalaxy"
+              fontWeight="normal"
+              _hover={{ color: "white", bg: "transparent" }}
+              onClick={() => watchlistCheck()}
+            >
+              Add Movie To Watchlist?
+            </Button>
           )}
           <Heading
             fontSize={["4vw", "1.25rem"]}
@@ -490,28 +634,6 @@ function Movie() {
             </AccordionButton>
           </h2>
           <AccordionPanel>
-            {/* {movieCredits
-                ? movieCredits.crew.map((el) => {
-                    return (
-                      <Container centerContent key={el.credit_id}>
-                        <Link
-                          href={"/crew/" + el.id}
-                          color="gold"
-                          textDecoration="none"
-                          fontFamily="DistantGalaxy"
-                          transition="2s"
-                          _hover={{ color: "white" }}
-                        >
-                          <Text>
-                            <u>{el.job}</u>
-                            <br />
-                            {el.name}
-                          </Text>
-                        </Link>
-                      </Container>
-                    );
-                  })
-                : []} */}
             {crewSorted ? (
               <div>
                 {director && director.length > 0 ? (
@@ -1043,7 +1165,7 @@ function Movie() {
                         return;
                       }
                       return (
-                        <Container centerContent key={el.credit_id} mb="2rem">
+                        <Container centerContent key={el.id} mb="2rem">
                           <Link
                             href={"/movies/" + el.id}
                             color="gold"

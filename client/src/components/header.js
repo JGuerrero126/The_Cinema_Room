@@ -35,6 +35,7 @@ function Header() {
   const btnRef = React.useRef();
   const [topMovies, setTopMovies] = useState(null);
   const [history, setHistory] = useState(null);
+  const [favorites, setFavorites] = useState(null);
 
   function getTopMovies() {
     axios({
@@ -60,6 +61,12 @@ function Header() {
     console.log(movieHistory);
   }
 
+  function getFavorites() {
+    var favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    setFavorites(favorites);
+    console.log(favorites);
+  }
+
   const [search, setSearch] = useState("");
   const handleChange = (event) => setSearch(event.target.value);
 
@@ -80,6 +87,7 @@ function Header() {
 
   useEffect(() => {
     getMovieHistory();
+    getFavorites();
   }, []);
 
   var i = 1;
@@ -204,6 +212,35 @@ function Header() {
                 })
               : []}
             <Divider mt="1rem" mb="1rem" />
+            {favorites && favorites.length > 0 ? (
+              <div>
+                <Text textAlign="center" mb="1rem">
+                  <b>
+                    <u>FAVORITE MOVIES</u>
+                  </b>
+                </Text>
+                {favorites.map((el) => {
+                  return (
+                    <Container
+                      key={el.id}
+                      mb="0.25rem"
+                      borderBottom="0.10rem solid snow"
+                    >
+                      <Link
+                        href={"/movies/" + el.id}
+                        color="white"
+                        fontSize="1rem"
+                      >
+                        <Text textAlign="left">{el.title}</Text>
+                      </Link>
+                    </Container>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
+            <Divider mt="1rem" mb="1rem" />
             {history && history.length > 0 ? (
               <div>
                 <Text textAlign="center" mb="1rem">
@@ -232,6 +269,14 @@ function Header() {
             ) : (
               ""
             )}
+            <Divider mt="1rem" mb="1rem" />
+            <Text textAlign="center" mb="1rem">
+              <Link href="/watchlist">
+                <b>
+                  <u>GO TO WATCHLIST</u>
+                </b>
+              </Link>
+            </Text>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
