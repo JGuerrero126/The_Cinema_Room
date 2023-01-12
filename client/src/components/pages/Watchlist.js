@@ -56,8 +56,8 @@ function Watchlist() {
           size="lg"
           w="40rem"
           bg="white"
-          variant="outline"
           textColor="black"
+          iconColor="black"
           onChange={(e) => setUserRegion(e.target.value)}
         >
           <option value="AU">Australia</option>
@@ -79,16 +79,19 @@ function Watchlist() {
                 key={el.id}
                 direction="row"
                 maxW="95%"
-                minW="75%"
-                mb="1rem"
+                minW="min-content"
+                margin="1rem"
                 paddingRight="1rem"
+                align="center"
               >
                 <Image
-                  border="0.25rem solid white"
-                  w="16rem"
+                  w="18rem"
                   src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                  marginRight="1rem"
                 />
-                <WatchProvider movie={el.id} region={userRegion} />
+                <CardBody>
+                  <WatchProvider movie={el.id} region={userRegion} />
+                </CardBody>
               </Card>
             );
           })}
