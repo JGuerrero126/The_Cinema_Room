@@ -1,10 +1,24 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import "@testing-library/jest-dom";
 // import { App, LocationDisplay } from "./app";
 import App from "./App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { urlPrefix } from "./utils/constants";
+
+var axios = require("axios");
+var MockAdapter = require("axios-mock-adapter");
+
+// This sets the mock adapter on the default instance
+var mock = new MockAdapter(axios);
+
+// Mock any GET request to /users
+// arguments for reply are (status, data, headers)
+
+// axios.get("/users").then(function (response) {
+//   console.log(response.data);
+// });
 
 // test("landing on Home page", () => {
 //   const slashRoute = "/";
@@ -33,21 +47,38 @@ import { BrowserRouter, MemoryRouter } from "react-router-dom";
 test("landing on Test page", async () => {
   const testRoute = "/test/28"; // 28 is the genre number for "action"
 
+  mock.onGet("/users").reply(200, {
+    users: [{ id: 1, name: "John Smith" }],
+  });
+
+  mock.onGet(urlPrefix + "/top-movies/").reply(200, {
+    users: [{ id: 2, name: "Jane Smith" }],
+  });
+
   // function doNothing() {}
 
   // async function wait() {
   //   setTimeout(doNothing, 2000);
   // }
 
-  await render(
-    <MemoryRouter initialEntries={[testRoute]}>
-      <App />
-    </MemoryRouter>
-  );
+  act(() => {
+    render(
+      <MemoryRouter initialEntries={[testRoute]}>
+        <App />
+      </MemoryRouter>
+    );
+  });
 
   // await wait();
 
-  expect(screen.getByTestId("test-page")).toBeInTheDocument();
+  // act(()=>{
+
+  // })
+  // test axios call to jane smith
+
+  await waitFor(() => {
+    expect(screen.getByTestId("test-page")).toBeInTheDocument();
+  });
 });
 
 // test("landing on Movie page", () => {

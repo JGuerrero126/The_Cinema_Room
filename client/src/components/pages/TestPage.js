@@ -3,20 +3,28 @@ import { Heading } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
+// var passedFromAxios = "before";
 
 function TestPage() {
   const { testParam } = useParams();
-  console.log("testParam is: " + testParam);
+  // console.log("testParam is: " + testParam);
+  const [axiosResult, setAxiosResult] = useState(null);
+  // console.log("TestPage says: " + passedFromAxios);
 
-  function getMovies(target) {
+  function getAxiosTest(target) {
+    // passedFromAxios = "after";
+    // console.log("getAxiosTest says: " + passedFromAxios);
     axios({
       method: "GET",
-      url: urlPrefix + "/genre-movies/" + target,
+      // url: urlPrefix + "/genre-movies/" + target,
+      url: "/users",
     })
       .then((response) => {
+        // const res = "preview of mock";
         const res = response.data;
+        console.log("/users response is:");
         console.log(res);
-        // setMovieList(res);
+        setAxiosResult(res);
       })
       .catch((error) => {
         if (error.response) {
@@ -27,18 +35,21 @@ function TestPage() {
       });
   }
 
-  function wait() {
-    function consoleAnError() {
-      console.error("error within wait");
-    }
-    setTimeout(consoleAnError, 500);
-  }
+  // function wait() {
+  //   function consoleAnError() {
+  //     console.error("error within wait");
+  //   }
+  //   setTimeout(consoleAnError, 500);
+  // }
 
-  wait();
+  // wait();
 
-  getMovies(testParam);
+  useEffect(() => {
+    getAxiosTest(testParam);
+  }, []);
 
-  console.error("top level error");
+  // console.error("top level error");
+  // console.log("just before return says: " + passedFromAxios);
 
   return (
     <div data-testid="test-page">
@@ -49,7 +60,11 @@ function TestPage() {
         color="white"
         fontFamily="corleonedue"
       >
+        {/* {axiosResult
+          ? "there is a result " + axiosResult + " " + passedFromAxios + " "
+          : "no result" + axiosResult + " " + passedFromAxios + " "} */}
         testParam is: {testParam}
+        {/* passed is: {passedFromAxios} */}
       </Heading>
     </div>
   );
