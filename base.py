@@ -128,20 +128,20 @@ def search_person(target):
 
   return response_body
 
-@app.route('/year/<target>', methods = ['GET'])
-@cross_origin()
-def search_year(target):
+# @app.route('/year/<target>', methods = ['GET'])
+# @cross_origin()
+# def search_year(target):
   
-  print('GETTING DATA FOR SEARCHED MOVIE')
+#   print('GETTING DATA FOR SEARCHED MOVIE')
 
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&region=US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year={target}'
+#   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&region=US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year={target}'
 
-  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
-    res = response.read()
+#   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
+#     res = response.read()
 
-  response_body = (json.loads(res))
+#   response_body = (json.loads(res))
 
-  return response_body
+#   return response_body
 
 @app.route('/person-image-link/', methods = ['POST'])
 @cross_origin()

@@ -11,8 +11,8 @@ import {
   Image,
   Select,
   Center,
-  Container,
   Card,
+  Container,
   CardHeader,
   CardBody,
   CardFooter,
@@ -75,7 +75,7 @@ function Watchlist() {
         <Flex mt="2rem" flexWrap="wrap" justify="center">
           {watchlist.map((el) => {
             return (
-              <Card
+              <Box
                 key={el.id}
                 direction="row"
                 maxW="95%"
@@ -89,7 +89,7 @@ function Watchlist() {
                   src={`https://image.tmdb.org/t/p/w500` + el.poster}
                 />
                 <WatchProvider movie={el.id} region={userRegion} />
-              </Card>
+              </Box>
             );
           })}
         </Flex>

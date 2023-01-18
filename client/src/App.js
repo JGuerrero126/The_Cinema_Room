@@ -20,7 +20,7 @@ function App() {
         <Route path="/genres/:genre" element={<Genre />} />
         <Route path="/movies/:movie" element={<Movie />} />
         <Route path="/actors/:actor" element={<Actor />} />
-        <Route path="/movie/:type/:search" element={<Movies />} />
+        <Route path="/movie/:type/:sort/:search" element={<Movies />} />
         <Route path="/crew/:member" element={<Crew />} />
         <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/test" element={<TestPage />} />

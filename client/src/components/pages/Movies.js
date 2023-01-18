@@ -15,14 +15,15 @@ import moment from "moment";
 
 function Movies() {
   const url = window.location.href;
-  const type = url.split("/").slice(-2).shift();
+  const type = url.split("/").slice(-3).shift();
+  const sortBy = url.split("/").slice(-2).shift();
   const { search } = useParams();
   // create state to hold returned movie data
-  const [searchedMovie, setSearchedMovie] = useState(null);
+  const [searchedMovie, setSearchedMovie] = useState("");
   // returned person data
-  const [searchedPerson, setSearchedPerson] = useState(null);
+  const [searchedPerson, setSearchedPerson] = useState("");
   // returned year data
-  const [searchedYear, setSearchedYear] = useState(null);
+  const [searchedYear, setSearchedYear] = useState("");
   // api uses array so if search is more than one word, split by space and sort into array
   const keyword = search.split(" ");
 
@@ -67,14 +68,32 @@ function Movies() {
   }
 
   function searchYear() {
-    // api call to get data on searched person
+    // api call to get data on searched year
+    // axios
+    //   .get(
+    //     `https://api.themoviedb.org/3/discover/movie?&language=en-US&region=US&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
+    //     {
+    //       params: {
+    //         api_key: "e3da5d8280ad89306acf3ea4061ead8c",
+    //         primary_release_year: searchedYear,
+    //         sort_by: sortBy,
+    //       },
+    //     }
+    //   )
+    //   .then(function (response) {
+    //     console.log(response.data);
+    //   })
+    //   .catch(function (error) {
+    //     console.error(error);
+    //   });
     axios({
       method: "GET",
       // params: {
-      //   primary_release_year: keyword,
+      //   api_key: "e3da5d8280ad89306acf3ea4061ead8c",
+      //   primary_release_year: search,
       //   sort_by: sortBy,
       // },
-      url: urlPrefix + "/year/" + keyword,
+      url: "https://api.themoviedb.org/3/discover/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&region=US&sort_by=" + sortBy +"&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year=" + search,
     })
       .then((response) => {
         const res = response.data;
@@ -90,10 +109,6 @@ function Movies() {
       });
   }
 
-  // function changeSort() {
-  //   console.log(type)
-  //   console.log(sortBy)
-  // }
   useEffect(() => {
     switch (type) {
       case "1":
@@ -104,6 +119,9 @@ function Movies() {
         break;
       case "3":
         searchYear();
+        console.log(type)
+        console.log(sortBy)
+        console.log(search);
         break;
       default:
         console.log("there is an error determining type");

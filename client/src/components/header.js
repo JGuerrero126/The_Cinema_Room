@@ -78,7 +78,7 @@ function Header() {
     // navigate(path);
 
     window.location.href =
-      "http://localhost:3000/movie/" + radio + "/" + search;
+      "http://localhost:3000/movie/" + radio + "/" + sortBy + "/" + search;
   };
 
   useEffect(() => {
@@ -149,9 +149,9 @@ function Header() {
                     </option>
                     <option
                       style={{ color: "black" }}
-                      value="vote_average.desc"
+                      value="popularity.desc"
                     >
-                      Rating
+                      Popularity
                     </option>
                     <option
                       style={{ color: "black" }}
@@ -160,7 +160,7 @@ function Header() {
                       Release Date
                     </option>
                   </Select>
-                ) : null}
+                ) : []}
               </Stack>
             </RadioGroup>
             <InputGroup size="xs">
