@@ -38,6 +38,9 @@ function Watchlist() {
   useEffect(() => {
     console.log(userRegion);
   }, [userRegion]);
+  useEffect(() => {
+    document.getElementById("appHead").style.fontFamily = "Yasashii";
+  }, []);
 
   return (
     <div data-testid="home-page" className="watchlist">
@@ -45,19 +48,22 @@ function Watchlist() {
         mt="2rem"
         fontSize={["10vw", "3rem"]}
         fontWeight="normal"
-        color="white"
-        fontFamily="corleonedue"
+        color="gold"
+        fontFamily="Yasashii"
+        textShadow="0 0 0.15rem white"
+        _hover={{ textShadow: "0 0 0.95rem white" }}
+        transition="1s"
       >
-        Watchlist
+        WATCHLIST
       </Heading>
       <Center>
         <Select
           placeholder="Select Preferred Region"
           size="lg"
-          w="40rem"
+          w="15rem"
           bg="white"
-          variant="outline"
           textColor="black"
+          iconColor="black"
           onChange={(e) => setUserRegion(e.target.value)}
         >
           <option value="AU">Australia</option>
@@ -72,27 +78,32 @@ function Watchlist() {
         </Select>
       </Center>
       {watchlist && watchlist.length > 0 ? (
-        <Flex mt="2rem" flexWrap="wrap" justify="center">
+        <VStack mt="2rem" flexWrap="wrap" justify="center">
           {watchlist.map((el) => {
             return (
               <Card
                 key={el.id}
                 direction="row"
                 maxW="95%"
-                minW="75%"
-                mb="1rem"
+                minW="min-content"
+                margin="1rem"
                 paddingRight="1rem"
+                align="center"
+                bg="purple.900"
+                color="goldenrod"
               >
                 <Image
-                  border="0.25rem solid white"
-                  w="16rem"
+                  w="18rem"
                   src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                  marginRight="1rem"
                 />
-                <WatchProvider movie={el.id} region={userRegion} />
+                <CardBody>
+                  <WatchProvider movie={el.id} region={userRegion} />
+                </CardBody>
               </Card>
             );
           })}
-        </Flex>
+        </VStack>
       ) : (
         <Text>Watchlist Not Found!</Text>
       )}
