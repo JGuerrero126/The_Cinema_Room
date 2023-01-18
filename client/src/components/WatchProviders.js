@@ -25,18 +25,23 @@ function WatchProvider({ movie, region }) {
         <div>
           {watchProviders[region].buy ? (
             <div>
-              <Text>Available for Purchase at the following services:</Text>
-              <Flex direction="row">
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+                Available for Purchase at the following services:
+              </Text>
+              <Flex direction="row" wrap="wrap">
                 {watchProviders[region].buy.map((el) => {
                   return (
-                    <VStack key={el.provider_id} w="3rem" mr=".5rem" ml=".5rem">
+                    <div key={el.provider_id}>
                       <Image
+                        w="3rem"
+                        mr=".5rem"
+                        ml=".5rem"
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
                         }
                       />
-                    </VStack>
+                    </div>
                   );
                 })}
               </Flex>
@@ -46,18 +51,23 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].rent ? (
             <div>
-              <Text>Available to Rent at the following services:</Text>
-              <Flex direction="row">
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+                Available to Rent at the following services:
+              </Text>
+              <Flex direction="row" wrap="wrap">
                 {watchProviders[region].rent.map((el) => {
                   return (
-                    <VStack key={el.provider_id} w="3rem" mr=".5rem" ml=".5rem">
+                    <div key={el.provider_id}>
                       <Image
+                        w="3rem"
+                        mr=".5rem"
+                        ml=".5rem"
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
                         }
                       />
-                    </VStack>
+                    </div>
                   );
                 })}
               </Flex>
@@ -67,20 +77,23 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].flatrate ? (
             <div>
-              <Text>
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
                 Available with Subscription at the following services:
               </Text>
-              <Flex direction="row">
+              <Flex direction="row" wrap="wrap">
                 {watchProviders[region].flatrate.map((el) => {
                   return (
-                    <VStack key={el.provider_id} w="3rem" mr=".5rem" ml=".5rem">
+                    <div key={el.provider_id}>
                       <Image
+                        w="3rem"
+                        mr=".5rem"
+                        ml=".5rem"
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
                         }
                       />
-                    </VStack>
+                    </div>
                   );
                 })}
               </Flex>
@@ -88,12 +101,28 @@ function WatchProvider({ movie, region }) {
           ) : (
             <div></div>
           )}
-          <Link isExternal href={watchProviders[region].link}>
-            <Text>Links Found For {region}</Text>
+          <Link
+            isExternal
+            href={watchProviders[region].link}
+            fontFamily="YasashiiR"
+          >
+            <Text fontSize="1.25rem" mt="1rem">
+              Click Here For Links To Services
+            </Text>
           </Link>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            Current Region: {region}
+          </Text>
         </div>
       ) : (
-        <Text>No Streaming Links available</Text>
+        <div>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            No Streaming Links available
+          </Text>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            Current Region: {region}
+          </Text>
+        </div>
       )}
     </div>
   );
