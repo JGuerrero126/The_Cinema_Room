@@ -81,7 +81,7 @@ function Watchlist() {
         <VStack mt="2rem" flexWrap="wrap" justify="center">
           {watchlist.map((el) => {
             return (
-              <Box
+              <Card
                 key={el.id}
                 direction="row"
                 maxW="95%"
