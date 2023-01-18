@@ -25,7 +25,9 @@ function WatchProvider({ movie, region }) {
         <div>
           {watchProviders[region].buy ? (
             <div>
-              <Text>Available for Purchase at the following services:</Text>
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+                Available for Purchase at the following services:
+              </Text>
               <Flex direction="row" wrap="wrap">
                 {watchProviders[region].buy.map((el) => {
                   return (
@@ -49,7 +51,9 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].rent ? (
             <div>
-              <Text>Available to Rent at the following services:</Text>
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+                Available to Rent at the following services:
+              </Text>
               <Flex direction="row" wrap="wrap">
                 {watchProviders[region].rent.map((el) => {
                   return (
@@ -73,7 +77,7 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].flatrate ? (
             <div>
-              <Text>
+              <Text fontSize="1.25rem" fontFamily="YasashiiR">
                 Available with Subscription at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -97,15 +101,27 @@ function WatchProvider({ movie, region }) {
           ) : (
             <div></div>
           )}
-          <Link isExternal href={watchProviders[region].link}>
-            <Text mt="1rem">Click Here For Links To Services</Text>
+          <Link
+            isExternal
+            href={watchProviders[region].link}
+            fontFamily="YasashiiR"
+          >
+            <Text fontSize="1.25rem" mt="1rem">
+              Click Here For Links To Services
+            </Text>
           </Link>
-          <Text>Current Region: {region}</Text>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            Current Region: {region}
+          </Text>
         </div>
       ) : (
         <div>
-          <Text>No Streaming Links available</Text>
-          <Text>Current Region: {region}</Text>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            No Streaming Links available
+          </Text>
+          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+            Current Region: {region}
+          </Text>
         </div>
       )}
     </div>

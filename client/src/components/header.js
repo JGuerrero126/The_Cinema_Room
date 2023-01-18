@@ -24,7 +24,7 @@ import {
   RadioGroup,
   InputGroup,
 } from "@chakra-ui/react";
-import { HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { urlPrefix } from "../utils/constants";
 // import { useNavigate } from "react-router-dom";
@@ -78,6 +78,16 @@ function Header() {
     window.location.href =
       "http://localhost:3000/movie/" + radio + "/" + search;
   };
+
+  function removeFromMH(movie) {
+    var movieHistory = JSON.parse(localStorage.getItem("history") || "[]");
+    if (movieHistory.find((e) => e.title === movie)) {
+      let index = movieHistory.findIndex((el) => el.title === movie);
+      movieHistory.splice(index, 1);
+      localStorage.setItem("history", JSON.stringify(movieHistory));
+      setHistory(movieHistory);
+    }
+  }
 
   useEffect(() => {
     getTopMovies();
@@ -232,8 +242,14 @@ function Header() {
                         color="white"
                         fontSize="1rem"
                       >
-                        <Text textAlign="left">{el.title}</Text>
+                        {el.title}
                       </Link>
+                      <CloseIcon
+                        boxSize="0.75rem"
+                        float="right"
+                        onClick={() => removeFromMH(el.title)}
+                        cursor="pointer"
+                      />
                     </Container>
                   );
                 })}

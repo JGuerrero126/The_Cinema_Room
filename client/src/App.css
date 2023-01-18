@@ -54,6 +54,21 @@
   src: URL("./assets/fonts/ITCBenguiatStdBoldCn.OTF") format("truetype");
 }
 
+/* @font-face {
+  font-family: "EvilDead";
+  src: URL("./assets/fonts/EVILDEAD.TTF") format("truetype");
+} */
+
+@font-face {
+  font-family: "Yasashii";
+  src: URL("./assets/fonts/Yasashii\ W01\ Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "YasashiiR";
+  src: URL("./assets/fonts/Yasashii\ W01\ Regular.ttf") format("truetype");
+}
+
 #root,
 :root {
   background-color: black;
@@ -69,10 +84,5 @@
 }
 
 .watchFooter {
-  position: absolute;
   bottom: 0;
-}
-
-.watchlist {
-  height: 90vh;
 }

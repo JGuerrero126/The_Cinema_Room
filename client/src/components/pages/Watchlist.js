@@ -38,6 +38,9 @@ function Watchlist() {
   useEffect(() => {
     console.log(userRegion);
   }, [userRegion]);
+  useEffect(() => {
+    document.getElementById("appHead").style.fontFamily = "Yasashii";
+  }, []);
 
   return (
     <div data-testid="home-page" className="watchlist">
@@ -45,16 +48,19 @@ function Watchlist() {
         mt="2rem"
         fontSize={["10vw", "3rem"]}
         fontWeight="normal"
-        color="white"
-        fontFamily="corleonedue"
+        color="gold"
+        fontFamily="Yasashii"
+        textShadow="0 0 0.15rem white"
+        _hover={{ textShadow: "0 0 0.95rem white" }}
+        transition="1s"
       >
-        Watchlist
+        WATCHLIST
       </Heading>
       <Center>
         <Select
           placeholder="Select Preferred Region"
           size="lg"
-          w="40rem"
+          w="15rem"
           bg="white"
           textColor="black"
           iconColor="black"
@@ -72,7 +78,7 @@ function Watchlist() {
         </Select>
       </Center>
       {watchlist && watchlist.length > 0 ? (
-        <Flex mt="2rem" flexWrap="wrap" justify="center">
+        <VStack mt="2rem" flexWrap="wrap" justify="center">
           {watchlist.map((el) => {
             return (
               <Card
@@ -83,6 +89,8 @@ function Watchlist() {
                 margin="1rem"
                 paddingRight="1rem"
                 align="center"
+                bg="purple.900"
+                color="goldenrod"
               >
                 <Image
                   w="18rem"
@@ -95,7 +103,7 @@ function Watchlist() {
               </Card>
             );
           })}
-        </Flex>
+        </VStack>
       ) : (
         <Text>Watchlist Not Found!</Text>
       )}
