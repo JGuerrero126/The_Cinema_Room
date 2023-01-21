@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IpynbRenderer } from "react-ipynb-renderer";
+// import { IpynbRenderer } from "react-ipynb-renderer";
 import ipynb from "../movie_data.ipynb";
 import {
   Text,
@@ -15,9 +15,9 @@ import {
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
-export const Component = () => {
-  return <IpynbRenderer ipynb={ipynb} />;
-};
+// export const Component = () => {
+//   return <IpynbRenderer ipynb={ipynb} />;
+// };
 
 function Home() {
   // const navigate = useNavigate();
