@@ -11,6 +11,8 @@ import {
   Flex,
   Input,
   Button,
+  Container,
+  Image,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -26,6 +28,7 @@ function Home() {
   //   navigate(path);
   // }
   const [genrelist, setGenreList] = useState(null);
+  const [topRated, setTopRated] = useState(null);
   // const [search, setSearch] = useState("");
   // const handleChange = (event) => setSearch(event.target.value);
   function getData() {
@@ -47,8 +50,28 @@ function Home() {
       });
   }
 
+  function getTopRated() {
+    axios({
+      method: "GET",
+      url: urlPrefix + "/top-rated/",
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res.results);
+        setTopRated(res.results);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
   useEffect(() => {
     getData();
+    getTopRated();
   }, []);
 
   return (
@@ -59,6 +82,7 @@ function Home() {
         fontWeight="normal"
         color="white"
         fontFamily="corleonedue"
+        textDecoration="underline"
       >
         Select A Genre
       </Heading>
@@ -96,6 +120,41 @@ function Home() {
       >
         Data
       </Heading>
+      <Heading
+        mt="2rem"
+        fontSize={["10vw", "3rem"]}
+        fontWeight="normal"
+        color="white"
+        fontFamily="corleonedue"
+        textDecoration="underline"
+      >
+        Top Rated Movies Of All Time
+      </Heading>
+      <Flex mt="1rem" flexWrap="wrap" justify="center">
+        {topRated
+          ? topRated.map((el) => {
+              if (topRated.indexOf(el) < 5)
+                return (
+                  <Container
+                    centerContent
+                    key={el.id}
+                    mb="2rem"
+                    maxWidth="18rem"
+                  >
+                    <Link href={"/movies/" + el.id}>
+                      <Image
+                        border="0.5rem groove #141414"
+                        transition="1s"
+                        _hover={{ borderColor: "gray" }}
+                        src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
+                        fallbackSrc="https://via.placeholder.com/325x500.png"
+                      />
+                    </Link>
+                  </Container>
+                );
+            })
+          : []}
+      </Flex>
     </div>
   );
 }
