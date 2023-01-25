@@ -1,30 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Heading } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
-// var passedFromAxios = "before";
 
 function TestPage() {
   const { testParam } = useParams();
-  // console.log("testParam is: " + testParam);
-  const [axiosResult, setAxiosResult] = useState(null);
-  // console.log("TestPage says: " + passedFromAxios);
+  const [axiosResponse, setAxiosResponse] = useState(null);
+  console.log(axiosResponse);
 
   function getAxiosTest(target) {
-    // passedFromAxios = "after";
-    // console.log("getAxiosTest says: " + passedFromAxios);
     axios({
       method: "GET",
-      // url: urlPrefix + "/genre-movies/" + target,
-      url: "/users",
+      url: urlPrefix + "/test/" + target,
     })
       .then((response) => {
-        // const res = "preview of mock";
         const res = response.data;
         console.log("/users response is:");
         console.log(res);
-        setAxiosResult(res.name);
+        setAxiosResponse(res.name);
       })
       .catch((error) => {
         if (error.response) {
@@ -35,38 +29,31 @@ function TestPage() {
       });
   }
 
-  // function wait() {
-  //   function consoleAnError() {
-  //     console.error("error within wait");
-  //   }
-  //   setTimeout(consoleAnError, 500);
-  // }
-
-  // wait();
-
   useEffect(() => {
     getAxiosTest(testParam);
   }, []);
 
-  // console.error("top level error");
-  // console.log("just before return says: " + passedFromAxios);
-
   return (
     <div data-testid="test-page">
-      <Heading
-        mt="2rem"
-        fontSize={["10vw", "3rem"]}
-        fontWeight="normal"
-        color="white"
-        fontFamily="corleonedue"
+      <Text
+        color="gold"
+        fontFamily="Arial"
+        fontSize="1.5rem"
+        mb="1rem"
+        mt="1rem"
       >
-        {/* {axiosResult
-          ? "there is a result " + axiosResult + " " + passedFromAxios + " "
-          : "no result" + axiosResult + " " + passedFromAxios + " "} */}
         testParam is: {testParam}
-        here is axiosResult: {axiosResult}
-        {/* passed is: {passedFromAxios} */}
-      </Heading>
+      </Text>
+      <Text
+        color="gold"
+        fontFamily="Arial"
+        fontSize="1.5rem"
+        mb="1rem"
+        mt="1rem"
+      >
+        {/* because there's no route on the server for /test there will be no response on the localhost render; but there will be a response for testing render because of the mock */}
+        axiosResponse is: {axiosResponse}
+      </Text>
     </div>
   );
 }
