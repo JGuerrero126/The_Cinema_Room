@@ -24,7 +24,7 @@ function TestPage() {
         const res = response.data;
         console.log("/users response is:");
         console.log(res);
-        setAxiosResult(res);
+        setAxiosResult(res.name);
       })
       .catch((error) => {
         if (error.response) {
@@ -64,6 +64,7 @@ function TestPage() {
           ? "there is a result " + axiosResult + " " + passedFromAxios + " "
           : "no result" + axiosResult + " " + passedFromAxios + " "} */}
         testParam is: {testParam}
+        here is axiosResult: {axiosResult}
         {/* passed is: {passedFromAxios} */}
       </Heading>
     </div>

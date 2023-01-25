@@ -74,10 +74,14 @@ test("landing on Test page", async () => {
   // act(()=>{
 
   // })
-  // test axios call to jane smith
 
+  // test axios call to jane smith
   await waitFor(() => {
     expect(screen.getByTestId("test-page")).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    expect(screen.getByText("testParam")).toBeInTheDocument();
   });
 });
 
