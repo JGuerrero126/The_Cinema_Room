@@ -1,42 +1,56 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import "@testing-library/jest-dom";
 // import { App, LocationDisplay } from "./app";
 import App from "./App";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { urlPrefix } from "./utils/constants";
 
-// test("landing on Home page", () => {
-//   const slashRoute = "/";
+var axios = require("axios");
+var MockAdapter = require("axios-mock-adapter");
 
-//   render(
-//     <MemoryRouter initialEntries={[slashRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+// This sets the mock adapter on the default instance
+var mock = new MockAdapter(axios);
 
-//   expect(screen.getByTestId("home-page")).toBeInTheDocument();
-// });
+test("landing on Home page", () => {
+  const slashRoute = "/";
 
-// test("landing on Genre page", async () => {
-//   const genreRoute = "/genres/35"; // this is the route for comedies
+  // note this test is not using axios mocks
 
-//   render(
-//     <MemoryRouter initialEntries={[genreRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+  render(
+    <MemoryRouter initialEntries={[slashRoute]}>
+      <App />
+    </MemoryRouter>
+  );
 
-//   expect(screen.getByTestId("genre-page")).toBeInTheDocument();
-// });
+  expect(screen.getByTestId("home-page")).toBeInTheDocument();
+});
+
+test("landing on Genre page", async () => {
+  const genreRoute = "/genres/35"; // this is the route for comedies
+
+  // note this test is not using axios mocks
+
+  render(
+    <MemoryRouter initialEntries={[genreRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByTestId("genre-page")).toBeInTheDocument();
+});
 
 test("landing on Test page", async () => {
-  const testRoute = "/test";
-  // function doNothing() {}
+  const testRoute = "/test/01";
 
-  // async function wait() {
-  //   setTimeout(doNothing, 2000);
-  // }
+  mock.onGet(urlPrefix + "/test/01").reply(200, {
+    test: [{ example: "an example" }],
+  });
+
+  mock.onGet(urlPrefix + "/top-movies/").reply(200, {
+    users: [{ id: 2, name: "Jane Smith" }],
+  });
 
   render(
     <MemoryRouter initialEntries={[testRoute]}>
@@ -44,54 +58,61 @@ test("landing on Test page", async () => {
     </MemoryRouter>
   );
 
-  // await wait();
   expect(screen.getByTestId("test-page")).toBeInTheDocument();
 });
 
-// test("landing on Movie page", () => {
-//   const movieRoute = "/movies/1891"; // this is the route for The Empire Strikes Back
+test("landing on Movie page", () => {
+  const movieRoute = "/movies/1891"; // this is the route for The Empire Strikes Back
 
-//   render(
-//     <MemoryRouter initialEntries={[movieRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+  // note this test is not using axios mocks
 
-//   expect(screen.getByTestId("movie-page")).toBeInTheDocument();
-// });
+  render(
+    <MemoryRouter initialEntries={[movieRoute]}>
+      <App />
+    </MemoryRouter>
+  );
 
-// test("landing on Actor page", () => {
-//   const actorRoute = "/actors/2"; // this is the route for Mark Hamill
+  expect(screen.getByTestId("movie-page")).toBeInTheDocument();
+});
 
-//   render(
-//     <MemoryRouter initialEntries={[actorRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+test("landing on Actor page", () => {
+  const actorRoute = "/actors/2"; // this is the route for Mark Hamill
 
-//   expect(screen.getByTestId("actor-page")).toBeInTheDocument();
-// });
+  // note this test is not using axios mocks
 
-// test("landing on Movies page", () => {
-//   const moviesRoute = "/movie/1/star%20wars"; // this is the route for a search for "star wars"
+  render(
+    <MemoryRouter initialEntries={[actorRoute]}>
+      <App />
+    </MemoryRouter>
+  );
 
-//   render(
-//     <MemoryRouter initialEntries={[moviesRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+  expect(screen.getByTestId("actor-page")).toBeInTheDocument();
+});
 
-//   expect(screen.getByTestId("movies-page")).toBeInTheDocument();
-// });
+test("landing on Movies page", () => {
+  const moviesRoute = "/movie/1/popularity.desc/star%20wars"; // this is the route for a search for "star wars"
 
-// test("landing on Crew page", () => {
-//   const crewRoute = "/crew/491"; // this is the route for John Williams
+  // note this test is not using axios mocks
 
-//   render(
-//     <MemoryRouter initialEntries={[crewRoute]}>
-//       <App />
-//     </MemoryRouter>
-//   );
+  render(
+    <MemoryRouter initialEntries={[moviesRoute]}>
+      <App />
+    </MemoryRouter>
+  );
 
-//   expect(screen.getByTestId("crew-page")).toBeInTheDocument();
-// });
+  expect(screen.getByTestId("movies-page")).toBeInTheDocument();
+});
+
+test("landing on Crew page", () => {
+  const crewRoute = "/crew/491"; // this is the route for John Williams
+
+  // note this test is not using axios mocks
+
+  render(
+    <MemoryRouter initialEntries={[crewRoute]}>
+      <App />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByTestId("crew-page")).toBeInTheDocument();
+});
