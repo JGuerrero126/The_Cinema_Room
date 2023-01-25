@@ -69,6 +69,19 @@
   src: URL("./assets/fonts/Yasashii\ W01\ Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SouvenirB";
+  src: URL("./assets/fonts/Souvenir-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "SouvenirD";
+  src: URL("./assets/fonts/Souvenir-Demi.otf") format("opentype");
+}
+@font-face {
+  font-family: "SouvenirM";
+  src: URL("./assets/fonts/Souvenir-Medium.otf") format("opentype");
+}
+
 #root,
 :root {
   background-color: black;

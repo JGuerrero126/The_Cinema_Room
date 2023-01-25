@@ -155,6 +155,16 @@ function Home() {
             })
           : []}
       </Flex>
+      <Link
+        mt="2rem"
+        fontSize={["10vw", "2rem"]}
+        fontWeight="normal"
+        color="white"
+        fontFamily="corleonedue"
+        href="/toprated"
+      >
+        Click Here For Full Top Rated List
+      </Link>
     </div>
   );
 }
