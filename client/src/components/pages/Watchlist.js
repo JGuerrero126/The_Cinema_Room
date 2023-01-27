@@ -78,38 +78,54 @@ function Watchlist() {
         </Select>
       </Center>
       {watchlist && watchlist.length > 0 ? (
-        <VStack mt="2rem" flexWrap="wrap" justify="center">
-          {watchlist.map((el) => {
-            return (
-              <Card
-                key={el.id}
-                direction="row"
-                maxW="95%"
-                minW="min-content"
-                margin="1rem"
-                paddingRight="1rem"
-                align="center"
-                bg="purple.900"
-                color="goldenrod"
-              >
-                <Image
-                  w="18rem"
-                  src={`https://image.tmdb.org/t/p/w500` + el.poster}
-                  marginRight="1rem"
-                />
-                <CardBody>
-                  <WatchProvider movie={el.id} region={userRegion} />
-                </CardBody>
-              </Card>
-            );
-          })}
-        </VStack>
+        <div>
+          <VStack mt="2rem" flexWrap="wrap" justify="center">
+            {watchlist.map((el) => {
+              return (
+                <Card
+                  key={el.id}
+                  direction={["column", "row"]}
+                  maxW="95%"
+                  minW="min-content"
+                  margin="1rem"
+                  paddingRight={["0", "1rem"]}
+                  align="center"
+                  bg="purple.900"
+                  color="goldenrod"
+                >
+                  <Image
+                    w={["", "18rem"]}
+                    src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                    marginRight={["0", "1rem"]}
+                  />
+                  <CardBody>
+                    <WatchProvider movie={el.id} region={userRegion} />
+                  </CardBody>
+                </Card>
+              );
+            })}
+          </VStack>
+          <footer className="watchFooter">
+            <Text>All links courtesy of JustWatch</Text>
+          </footer>
+        </div>
       ) : (
-        <Text>Watchlist Not Found!</Text>
+        <Container fontFamily="Yasashii" textAlign="center" mt="3rem">
+          <Text fontSize="1.5rem" mt="1rem">
+            You currently have no movies on your watchlist.
+          </Text>
+          <Text fontSize="1.5rem" mt="1rem">
+            Why not go back to the{" "}
+            <Link href="/" textColor="goldenrod">
+              Home Page
+            </Link>{" "}
+            and find something cool to watch?
+          </Text>
+        </Container>
       )}
-      <footer className="watchFooter">
+      {/* <footer className="watchFooter">
         <Text>All links courtesy of JustWatch</Text>
-      </footer>
+      </footer> */}
     </div>
   );
 }

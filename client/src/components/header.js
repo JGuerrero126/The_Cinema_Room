@@ -245,11 +245,12 @@ function Header() {
                     </Container>
                   );
                 })}
+                <Divider mt="1rem" mb="1rem" />
               </div>
             ) : (
               ""
             )}
-            <Divider mt="1rem" mb="1rem" />
+
             {history && history.length > 0 ? (
               <div>
                 <Text textAlign="center" mb="1rem">
@@ -280,11 +281,12 @@ function Header() {
                     </Container>
                   );
                 })}
+                <Divider mt="1rem" mb="1rem" />
               </div>
             ) : (
               ""
             )}
-            <Divider mt="1rem" mb="1rem" />
+
             <Text textAlign="center" mb="1rem">
               <Link href="/watchlist">
                 <b>
@@ -305,7 +307,7 @@ function Header() {
           fontWeight="normal"
           transition="1s"
           _hover={{ color: "red" }}
-          fontSize={["10vw", "3rem"]}
+          fontSize={["9vw", "3rem"]}
         >
           The Cinema Room
         </Link>

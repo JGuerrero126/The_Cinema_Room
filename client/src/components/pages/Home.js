@@ -74,11 +74,15 @@ function Home() {
     getTopRated();
   }, []);
 
+  useEffect(() => {
+    document.getElementById("appHead").style.fontSize = "3rem";
+  }, []);
+
   return (
     <div data-testid="home-page">
       <Heading
         mt="2rem"
-        fontSize={["10vw", "3rem"]}
+        fontSize={["12vw", "3rem"]}
         fontWeight="normal"
         color="white"
         fontFamily="corleonedue"
@@ -92,7 +96,7 @@ function Home() {
               return (
                 <Box
                   key={element.id}
-                  fontSize={["8vw", "2.5rem"]}
+                  fontSize={["9vw", "2.5rem"]}
                   w="12rem"
                   h="6rem"
                 >
@@ -157,7 +161,7 @@ function Home() {
       </Flex>
       <Link
         mt="2rem"
-        fontSize={["10vw", "2rem"]}
+        fontSize={["8vw", "2rem"]}
         fontWeight="normal"
         color="white"
         fontFamily="corleonedue"

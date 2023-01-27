@@ -171,6 +171,7 @@ function Genre() {
 
   useEffect(() => {
     document.getElementById("appHead").style.fontFamily = "shindler";
+    document.getElementById("appHead").style.fontSize = "3rem";
   }, []);
 
   useEffect(() => {

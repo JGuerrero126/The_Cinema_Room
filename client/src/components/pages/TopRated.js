@@ -109,7 +109,7 @@ function Home() {
         fontFamily="SouvenirM"
         textDecoration="underline"
       >
-        Top Rated Movies Of All Time
+        Top Rated Movies
       </Heading>
       <Flex mt="1rem" flexWrap="wrap" justify="center">
         {topRated
@@ -117,18 +117,18 @@ function Home() {
               return (
                 <Card
                   key={el.id}
-                  direction="row"
+                  direction={["column", "row"]}
                   maxW="95%"
                   minW="min-content"
                   margin="1rem"
-                  paddingRight="1rem"
+                  paddingRight={["0", "1rem"]}
                   align="center"
                   fontFamily="SouvenirM"
                 >
                   <Image
-                    w="18rem"
+                    w={["", "18rem"]}
                     src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
-                    marginRight="1rem"
+                    marginRight={["0", "1rem"]}
                   />
                   <CardBody>
                     <Heading fontFamily="SouvenirM">
