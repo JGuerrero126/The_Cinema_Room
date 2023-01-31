@@ -18,13 +18,12 @@ import {
   CardFooter,
   VStack,
 } from "@chakra-ui/react";
-import axios from "axios";
-import { urlPrefix } from "../../utils/constants";
 import WatchProvider from "../WatchProviders.js";
 
 function Watchlist() {
   const [watchlist, setWatchlist] = useState(null);
   const [userRegion, setUserRegion] = useState("US");
+  const watchFont = "Gill";
 
   function getWatchlist() {
     var watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
@@ -39,7 +38,7 @@ function Watchlist() {
     console.log(userRegion);
   }, [userRegion]);
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "Yasashii";
+    document.getElementById("appHead").style.fontFamily = watchFont;
   }, []);
 
   return (
@@ -48,8 +47,7 @@ function Watchlist() {
         mt="2rem"
         fontSize={["10vw", "3rem"]}
         fontWeight="normal"
-        color="gold"
-        fontFamily="Yasashii"
+        fontFamily={watchFont}
         textShadow="0 0 0.15rem white"
         _hover={{ textShadow: "0 0 0.95rem white" }}
         transition="1s"
@@ -90,11 +88,9 @@ function Watchlist() {
                   margin="1rem"
                   paddingRight={["0", "1rem"]}
                   align="center"
-                  bg="purple.900"
-                  color="goldenrod"
                 >
                   <Image
-                    w={["", "18rem"]}
+                    w={["", "19rem"]}
                     src={`https://image.tmdb.org/t/p/w500` + el.poster}
                     marginRight={["0", "1rem"]}
                   />
@@ -110,7 +106,7 @@ function Watchlist() {
           </footer>
         </div>
       ) : (
-        <Container fontFamily="Yasashii" textAlign="center" mt="3rem">
+        <Container fontFamily={watchFont} textAlign="center" mt="3rem">
           <Text fontSize="1.5rem" mt="1rem">
             You currently have no movies on your watchlist.
           </Text>
@@ -123,9 +119,6 @@ function Watchlist() {
           </Text>
         </Container>
       )}
-      {/* <footer className="watchFooter">
-        <Text>All links courtesy of JustWatch</Text>
-      </footer> */}
     </div>
   );
 }

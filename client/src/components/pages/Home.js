@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { IpynbRenderer } from "react-ipynb-renderer";
-import ipynb from "../movie_data.ipynb";
+// import ipynb from "../movie_data.ipynb";
 import {
   Text,
   Heading,
@@ -31,6 +31,10 @@ function Home() {
   const [topRated, setTopRated] = useState(null);
   // const [search, setSearch] = useState("");
   // const handleChange = (event) => setSearch(event.target.value);
+
+  const homeHeadingFont = "corleonedue";
+  const homeTextFont = "corleone";
+
   function getData() {
     axios({
       method: "GET",
@@ -85,7 +89,7 @@ function Home() {
         fontSize={["12vw", "3rem"]}
         fontWeight="normal"
         color="white"
-        fontFamily="corleonedue"
+        fontFamily={homeHeadingFont}
         textDecoration="underline"
       >
         Select A Genre
@@ -106,7 +110,7 @@ function Home() {
                     transition="1s"
                     _hover={{ color: "red" }}
                     href={"/genres/" + element.id}
-                    fontFamily="corleone"
+                    fontFamily={homeTextFont}
                   >
                     <Text>{element.name}</Text>
                   </Link>
@@ -120,7 +124,7 @@ function Home() {
         fontSize="3rem"
         fontWeight="normal"
         color="white"
-        fontFamily="corleonedue"
+        fontFamily={homeHeadingFont}
       >
         Data
       </Heading>
@@ -129,7 +133,7 @@ function Home() {
         fontSize={["10vw", "3rem"]}
         fontWeight="normal"
         color="white"
-        fontFamily="corleonedue"
+        fontFamily={homeHeadingFont}
         textDecoration="underline"
       >
         Top Rated Movies Of All Time
@@ -164,7 +168,7 @@ function Home() {
         fontSize={["8vw", "2rem"]}
         fontWeight="normal"
         color="white"
-        fontFamily="corleonedue"
+        fontFamily={homeHeadingFont}
         href="/toprated"
       >
         Click Here For Full Top Rated List

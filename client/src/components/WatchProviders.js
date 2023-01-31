@@ -5,6 +5,7 @@ import { urlPrefix } from "../utils/constants";
 
 function WatchProvider({ movie, region }) {
   const [watchProviders, setWatchProviders] = useState(null);
+  const watchFont = "Gill";
 
   function getWatchProviders(target) {
     axios({
@@ -25,7 +26,7 @@ function WatchProvider({ movie, region }) {
         <div>
           {watchProviders[region].buy ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+              <Text fontSize="1.25rem" fontFamily={watchFont}>
                 Available for Purchase at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -51,7 +52,7 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].rent ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+              <Text fontSize="1.25rem" fontFamily={watchFont}>
                 Available to Rent at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -77,7 +78,7 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].flatrate ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily="YasashiiR">
+              <Text fontSize="1.25rem" fontFamily={watchFont}>
                 Available with Subscription at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -104,22 +105,22 @@ function WatchProvider({ movie, region }) {
           <Link
             isExternal
             href={watchProviders[region].link}
-            fontFamily="YasashiiR"
+            fontFamily={watchFont}
           >
             <Text fontSize="1.25rem" mt="1rem">
               Click Here For Links To Services
             </Text>
           </Link>
-          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+          <Text fontSize="1.25rem" fontFamily={watchFont}>
             Current Region: {region}
           </Text>
         </div>
       ) : (
         <div>
-          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+          <Text fontSize="1.25rem" fontFamily={watchFont}>
             No Streaming Links available
           </Text>
-          <Text fontSize="1.25rem" fontFamily="YasashiiR">
+          <Text fontSize="1.25rem" fontFamily={watchFont}>
             Current Region: {region}
           </Text>
         </div>

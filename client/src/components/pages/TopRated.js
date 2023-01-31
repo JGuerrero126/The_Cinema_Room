@@ -22,6 +22,7 @@ function Home() {
   const [topRated, setTopRated] = useState(null);
   const [watchlistUpdated, watchlistSet] = useState(null);
   const toast = useToast();
+  const topFont = "SouvenirM";
 
   function getTopRated() {
     axios({
@@ -89,12 +90,11 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "SouvenirM";
+    document.getElementById("appHead").style.fontFamily = topFont;
     document.getElementById("appHead").style.fontWeight = "Bold";
     document.getElementById("appHead").textContent = document
       .getElementById("appHead")
       .textContent.toUpperCase();
-    // document.getElementById("appHead").style.textShadow = "0 0 0.5rem white";
   }, []);
 
   var i = 1;
@@ -104,9 +104,8 @@ function Home() {
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}
-        // fontWeight="normal"
         color="white"
-        fontFamily="SouvenirM"
+        fontFamily={topFont}
         textDecoration="underline"
       >
         Top Rated Movies
@@ -123,7 +122,7 @@ function Home() {
                   margin="1rem"
                   paddingRight={["0", "1rem"]}
                   align="center"
-                  fontFamily="SouvenirM"
+                  fontFamily={topFont}
                 >
                   <Image
                     w={["", "18rem"]}
@@ -131,7 +130,7 @@ function Home() {
                     marginRight={["0", "1rem"]}
                   />
                   <CardBody>
-                    <Heading fontFamily="SouvenirM">
+                    <Heading fontFamily={topFont}>
                       #{i++} {el.title}
                     </Heading>
                     {moment(el.release_date).format("YYYY") ===
@@ -144,15 +143,13 @@ function Home() {
                     )}
                     <Text>Rated: {el.vote_average}</Text>
                     <Text>{el.overview}</Text>
-                    {fetchWatchlist(el.id) === true ? (
-                      <Button mt="2rem" onClick={() => setWatchlist(el)}>
-                        Movie Added To Watchlist!
-                      </Button>
-                    ) : (
-                      <Button mt="2rem" onClick={(e) => setWatchlist(el)}>
-                        Add Movie To Watchlist?
-                      </Button>
-                    )}
+                    <Button mt="2rem" onClick={(e) => setWatchlist(el)}>
+                      {fetchWatchlist(el.id) === true ? (
+                        <Text>Movie Added To Watchlist!</Text>
+                      ) : (
+                        <Text>Add Movie To Watchlist?</Text>
+                      )}
+                    </Button>
                   </CardBody>
                 </Card>
               );

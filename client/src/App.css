@@ -82,6 +82,11 @@
   src: URL("./assets/fonts/Souvenir-Medium.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Gill";
+  src: URL("./assets/fonts/GILLSANS.ttf") format("truetype");
+}
+
 #root,
 :root {
   background-color: black;

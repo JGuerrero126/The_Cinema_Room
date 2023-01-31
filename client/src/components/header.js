@@ -275,6 +275,7 @@ function Header() {
                       <CloseIcon
                         boxSize="0.75rem"
                         float="right"
+                        mt="0.35rem"
                         onClick={() => removeFromMH(el.title)}
                         cursor="pointer"
                       />
