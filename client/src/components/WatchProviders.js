@@ -5,7 +5,7 @@ import { urlPrefix } from "../utils/constants";
 
 function WatchProvider({ movie, region }) {
   const [watchProviders, setWatchProviders] = useState(null);
-  const watchFont = "Gill";
+  const watchFont = "GothamL";
 
   function getWatchProviders(target) {
     axios({

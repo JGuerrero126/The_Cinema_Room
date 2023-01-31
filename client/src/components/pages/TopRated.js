@@ -127,6 +127,7 @@ function Home() {
                   <Image
                     w={["", "18rem"]}
                     src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
+                    fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                     marginRight={["0", "1rem"]}
                   />
                   <CardBody>

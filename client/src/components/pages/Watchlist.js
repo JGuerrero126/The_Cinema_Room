@@ -23,7 +23,7 @@ import WatchProvider from "../WatchProviders.js";
 function Watchlist() {
   const [watchlist, setWatchlist] = useState(null);
   const [userRegion, setUserRegion] = useState("US");
-  const watchFont = "Gill";
+  const watchFont = "GothamM";
 
   function getWatchlist() {
     var watchlist = JSON.parse(localStorage.getItem("watchlist") || "[]");
@@ -46,7 +46,7 @@ function Watchlist() {
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}
-        fontWeight="normal"
+        // fontWeight="normal"
         fontFamily={watchFont}
         textShadow="0 0 0.15rem white"
         _hover={{ textShadow: "0 0 0.95rem white" }}
@@ -92,6 +92,7 @@ function Watchlist() {
                   <Image
                     w={["", "19rem"]}
                     src={`https://image.tmdb.org/t/p/w500` + el.poster}
+                    fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                     marginRight={["0", "1rem"]}
                   />
                   <CardBody>
