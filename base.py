@@ -268,6 +268,32 @@ def watch_providers():
       response_body = res
       return response_body
 
+@app.route('/trending/', methods = ['GET'])
+@cross_origin()
+def trending():
+  
+  print('GETTING WEEKLY TRENDING MOVIES')
+
+  trending_movies = f'https://api.themoviedb.org/3/trending/movie/week?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(trending_movies) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
+@app.route('/top-rated/', methods = ['GET'])
+@cross_origin()
+def top_rated():
+  
+  print('GETTING TOP MOVIES OF ALL TIME')
+
+  top_rated= f'https://api.themoviedb.org/3/movie/top_rated?api_key={tmdb_key}&language=en-US&page=1'
+
+  with urllib.request.urlopen(top_rated) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
 @app.errorhandler(404)
 def not_found(e):
   return send_from_directory(app.static_folder, 'index.html')

@@ -19,12 +19,14 @@ import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
+import { photoSelector } from "../portraitSelector";
 
 function Actor() {
   const { actor } = useParams();
   const [actorAppearances, setActorAppearances] = useState(null);
   const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const [actorDetails, setActorDetails] = useState(null);
+  const actorFont = "OCR";
 
   function getAppearances(target) {
     axios({
@@ -86,37 +88,6 @@ function Actor() {
       });
   }
 
-  function photoSelector(target) {
-    try {
-      var heightArr = [];
-      var bigArr = [];
-      var voteArr = [];
-      target.profiles.forEach((el) => {
-        heightArr.push(el.height);
-      });
-      target.profiles.forEach((el) => {
-        if (el.height === Math.max(...heightArr)) {
-          bigArr.push(el);
-        }
-      });
-      if (bigArr.length < 2) {
-        return bigArr[0].file_path;
-      }
-      bigArr.forEach((el) => {
-        voteArr.push(el.vote_average);
-      });
-      var index;
-      bigArr.forEach((el) => {
-        if (el.vote_average === Math.max(...voteArr)) {
-          index = bigArr.indexOf(el);
-        }
-      });
-      return bigArr[index].file_path;
-    } catch (e) {
-      console.log(e.message);
-    }
-  }
-
   useEffect(() => {
     getAppearances(actor);
     getActorDetails(actor);
@@ -124,7 +95,7 @@ function Actor() {
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "OCR";
+    document.getElementById("appHead").style.fontFamily = actorFont;
   }, []);
 
   return (
@@ -136,7 +107,7 @@ function Actor() {
             fontWeight="normal"
             fontSize="2rem"
             color="green"
-            fontFamily="OCR"
+            fontFamily={actorFont}
           >
             {actorDetails.name}
           </Heading>
@@ -172,11 +143,11 @@ function Actor() {
             ml={["1rem", "3rem"]}
             mr={["1rem", "3rem"]}
             color="green"
-            fontFamily="OCR"
+            fontFamily={actorFont}
           >
             {actorDetails.biography}
           </Text>
-          <Text color="green" fontFamily="OCR" mt="1rem">
+          <Text color="green" fontFamily={actorFont} mt="1rem">
             Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
           </Text>
         </div>
@@ -200,7 +171,7 @@ function Actor() {
                 textAlign="center"
                 color="green"
                 textDecoration="none"
-                fontFamily="OCR"
+                fontFamily={actorFont}
                 fontSize={[" 6vw", "2rem"]}
               >
                 Actor Appearances
@@ -224,7 +195,7 @@ function Actor() {
                           href={"/movies/" + el.id}
                           color="green"
                           textDecoration="none"
-                          fontFamily="OCR"
+                          fontFamily={actorFont}
                           transition="1s"
                           _hover={{
                             color: "lightgreen",
@@ -269,7 +240,7 @@ function Actor() {
                   textAlign="center"
                   color="green"
                   textDecoration="none"
-                  fontFamily="OCR"
+                  fontFamily={actorFont}
                   fontSize={[" 6vw", "2rem"]}
                 >
                   Behind The Scenes
@@ -293,7 +264,7 @@ function Actor() {
                             href={"/movies/" + el.id}
                             color="green"
                             textDecoration="none"
-                            fontFamily="OCR"
+                            fontFamily={actorFont}
                             transition="1s"
                             _hover={{
                               color: "lightgreen",

@@ -33,19 +33,19 @@ import { urlPrefix } from "../utils/constants";
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const [topMovies, setTopMovies] = useState(null);
+  const [trendingMovies, setTrendingMovies] = useState(null);
   const [history, setHistory] = useState(null);
   const [favorites, setFavorites] = useState(null);
 
-  function getTopMovies() {
+  function getTrendingMovies() {
     axios({
       method: "GET",
-      url: urlPrefix + "/top-movies/",
+      url: urlPrefix + "/trending/",
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setTopMovies(res.results);
+        setTrendingMovies(res.results);
       })
       .catch((error) => {
         if (error.response) {
@@ -92,7 +92,7 @@ function Header() {
   }
 
   useEffect(() => {
-    getTopMovies();
+    getTrendingMovies();
   }, []);
 
   useEffect(() => {
@@ -157,10 +157,7 @@ function Header() {
                     >
                       Alphabetically
                     </option>
-                    <option
-                      style={{ color: "black" }}
-                      value="popularity.desc"
-                    >
+                    <option style={{ color: "black" }} value="popularity.desc">
                       Popularity
                     </option>
                     <option
@@ -170,7 +167,9 @@ function Header() {
                       Release Date
                     </option>
                   </Select>
-                ) : []}
+                ) : (
+                  []
+                )}
               </Stack>
             </RadioGroup>
             <InputGroup size="xs">
@@ -197,11 +196,11 @@ function Header() {
             <Divider mt="1rem" mb="1rem" />
             <Text textAlign="center" mb="1rem">
               <b>
-                <u>CURRENT TOP 20 MOVIES</u>
+                <u>TRENDING MOVIES THIS WEEK</u>
               </b>
             </Text>
-            {topMovies
-              ? topMovies.map((element) => {
+            {trendingMovies
+              ? trendingMovies.map((element) => {
                   return (
                     <Container
                       key={element.id}
@@ -246,11 +245,12 @@ function Header() {
                     </Container>
                   );
                 })}
+                <Divider mt="1rem" mb="1rem" />
               </div>
             ) : (
               ""
             )}
-            <Divider mt="1rem" mb="1rem" />
+
             {history && history.length > 0 ? (
               <div>
                 <Text textAlign="center" mb="1rem">
@@ -275,17 +275,19 @@ function Header() {
                       <CloseIcon
                         boxSize="0.75rem"
                         float="right"
+                        mt="0.35rem"
                         onClick={() => removeFromMH(el.title)}
                         cursor="pointer"
                       />
                     </Container>
                   );
                 })}
+                <Divider mt="1rem" mb="1rem" />
               </div>
             ) : (
               ""
             )}
-            <Divider mt="1rem" mb="1rem" />
+
             <Text textAlign="center" mb="1rem">
               <Link href="/watchlist">
                 <b>
@@ -306,7 +308,7 @@ function Header() {
           fontWeight="normal"
           transition="1s"
           _hover={{ color: "red" }}
-          fontSize={["10vw", "3rem"]}
+          fontSize={["9vw", "3rem"]}
         >
           The Cinema Room
         </Link>

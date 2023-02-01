@@ -14,11 +14,15 @@ import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
+import { genreName } from "../genreName";
+import { photoSelector } from "../posterSelector";
 
 function Genre() {
   const { genre } = useParams();
   const [movieList, setMovieList] = useState(null);
   const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
+
+  const genreFont = "Shindler";
 
   function getMovies(target) {
     axios({
@@ -59,118 +63,13 @@ function Genre() {
       });
   }
 
-  function genreName(target) {
-    switch (parseInt(target)) {
-      case 28:
-        return "Action";
-      case 12:
-        return "Adventure";
-      case 16:
-        return "Animation";
-      case 35:
-        return "Comedy";
-      case 80:
-        return "Crime";
-      case 99:
-        return "Documentary";
-      case 18:
-        return "Drama";
-      case 10751:
-        return "Family";
-      case 14:
-        return "Fantasy";
-      case 36:
-        return "History";
-      case 27:
-        return "Horror";
-      case 10402:
-        return "Music";
-      case 9648:
-        return "Mystery";
-      case 10749:
-        return "Romance";
-      case 878:
-        return "Science Fiction";
-      case 10770:
-        return "TV Movie";
-      case 53:
-        return "Thriller";
-      case 10752:
-        return "War";
-      case 37:
-        return "Western";
-      default:
-        return "";
-    }
-  }
-
-  function photoSelector(target) {
-    try {
-      var heightArr = [];
-      var englishArr = [];
-      var bigArr = [];
-      var voteArr = [];
-      target.posters.forEach((el) => {
-        if (el.iso_639_1 === "en") {
-          englishArr.push(el);
-        }
-      });
-      if (englishArr.length > 0) {
-        englishArr.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        englishArr.forEach((el) => {
-          if (el.height === Math.max(...heightArr)) {
-            bigArr.push(el);
-          }
-        });
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === Math.max(...voteArr)) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      } else {
-        target.posters.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        target.posters.forEach((el) => {
-          if (el.height === Math.max(...heightArr)) {
-            bigArr.push(el);
-          }
-        });
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === Math.max(...voteArr)) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
-  }
-
   useEffect(() => {
     getMovies(genre);
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "shindler";
+    document.getElementById("appHead").style.fontFamily = genreFont;
+    document.getElementById("appHead").style.fontSize = "3rem";
   }, []);
 
   useEffect(() => {
@@ -184,7 +83,7 @@ function Genre() {
       <Heading
         fontSize={["10vw", "2.5rem"]}
         color="white"
-        fontFamily="Shindler"
+        fontFamily={genreFont}
         mt="1rem"
       >
         Here are the top {genreName(genre)} movies!
@@ -202,7 +101,7 @@ function Genre() {
                 ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
                 : ""
             }
-            fallbackSrc="https://via.placeholder.com/325x500.png"
+            fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
           />
         </Center>
       ) : (
@@ -224,7 +123,7 @@ function Genre() {
                       href={"/movies/" + element.id}
                       color="white"
                       textDecoration="none"
-                      fontFamily="Shindler"
+                      fontFamily={genreFont}
                       fontSize={["5vw", "1.5rem"]}
                       transition="1s"
                       _hover={{ color: "silver" }}
