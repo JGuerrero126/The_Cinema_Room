@@ -7,6 +7,9 @@ function WatchProvider({ movie, region }) {
   const [watchProviders, setWatchProviders] = useState(null);
   const watchFont = "GothamL";
 
+  const iconStyle = { w: ["3rem", "2rem"], mr: ".5rem", ml: ".5rem" };
+  const textStyle = {};
+
   function getWatchProviders(target) {
     axios({
       method: "POST",
@@ -34,9 +37,7 @@ function WatchProvider({ movie, region }) {
                   return (
                     <div key={el.provider_id}>
                       <Image
-                        w="3rem"
-                        mr=".5rem"
-                        ml=".5rem"
+                        sx={iconStyle}
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
@@ -60,9 +61,7 @@ function WatchProvider({ movie, region }) {
                   return (
                     <div key={el.provider_id}>
                       <Image
-                        w="3rem"
-                        mr=".5rem"
-                        ml=".5rem"
+                        sx={iconStyle}
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
@@ -86,9 +85,7 @@ function WatchProvider({ movie, region }) {
                   return (
                     <div key={el.provider_id}>
                       <Image
-                        w="3rem"
-                        mr=".5rem"
-                        ml=".5rem"
+                        sx={iconStyle}
                         src={
                           "https://www.themoviedb.org/t/p/original/" +
                           el.logo_path
