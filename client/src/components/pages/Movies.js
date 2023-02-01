@@ -70,31 +70,8 @@ function Movies() {
   }
 
   function searchYear() {
-    // api call to get data on searched year
-    // axios
-    //   .get(
-    //     `https://api.themoviedb.org/3/discover/movie?&language=en-US&region=US&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
-    //     {
-    //       params: {
-    //         api_key: "e3da5d8280ad89306acf3ea4061ead8c",
-    //         primary_release_year: searchedYear,
-    //         sort_by: sortBy,
-    //       },
-    //     }
-    //   )
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
     axios({
       method: "GET",
-      // params: {
-      //   api_key: "e3da5d8280ad89306acf3ea4061ead8c",
-      //   primary_release_year: search,
-      //   sort_by: sortBy,
-      // },
       url: "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&region=US&sort_by=" + sortBy +"&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year=" + search,
     })
       .then((response) => {
