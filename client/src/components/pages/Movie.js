@@ -22,8 +22,9 @@ import {
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
-import moment, { duration } from "moment";
+import moment from "moment";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { photoSelector } from "../posterSelector";
 
 function Movie() {
   const { movie } = useParams();
@@ -47,6 +48,7 @@ function Movie() {
   const [favorited, setFavorited] = useState(fetchFavorite(movie));
   const [onWatchlist, setOnWatchlist] = useState(fetchWatchlist(movie));
   const toast = useToast();
+  const movieFont = "DistantGalaxy";
 
   function getCredits(target) {
     console.log("STARTING THE REQUEST");
@@ -106,67 +108,6 @@ function Movie() {
           console.log(error.response.headers);
         }
       });
-  }
-
-  function photoSelector(target) {
-    try {
-      var heightArr = [];
-      var englishArr = [];
-      var bigArr = [];
-      var voteArr = [];
-      target.posters.forEach((el) => {
-        if (el.iso_639_1 === "en") {
-          englishArr.push(el);
-        }
-      });
-      if (englishArr.length > 0) {
-        englishArr.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        englishArr.forEach((el) => {
-          if (el.height === Math.max(...heightArr)) {
-            bigArr.push(el);
-          }
-        });
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === Math.max(...voteArr)) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      } else {
-        target.posters.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        target.posters.forEach((el) => {
-          if (el.height === Math.max(...heightArr)) {
-            bigArr.push(el);
-          }
-        });
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === Math.max(...voteArr)) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
   }
 
   function getKeywords(target) {
@@ -404,7 +345,7 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "DistantGalaxy";
+    document.getElementById("appHead").style.fontFamily = movieFont;
   }, []);
 
   useMemo(() => {
@@ -457,7 +398,7 @@ function Movie() {
             fontWeight="normal"
             fontSize="2rem"
             color="gold"
-            fontFamily="DistantGalaxy"
+            fontFamily={movieFont}
           >
             {movieDetails.title.toUpperCase()}
           </Heading>
@@ -477,64 +418,41 @@ function Movie() {
                     ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
                     : ""
                 }
-                fallbackSrc="https://via.placeholder.com/325x500.png"
+                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
               />
-              {favorited === true ? (
-                <IconButton
-                  colorScheme="transparent"
-                  color="red"
-                  aria-label="Favorite Movie"
-                  icon={<AiFillHeart />}
-                  onClick={() => favoriteCheck()}
-                  fontSize="4xl"
-                  position="absolute"
-                  bottom="-10"
-                />
-              ) : (
-                <IconButton
-                  colorScheme="transparent"
-                  color="red"
-                  aria-label="Favorite Movie"
-                  icon={<AiOutlineHeart />}
-                  onClick={() => favoriteCheck()}
-                  fontSize="4xl"
-                  position="absolute"
-                  bottom="-10"
-                />
-              )}
+              <IconButton
+                colorScheme="transparent"
+                color="red"
+                aria-label="Favorite Movie"
+                icon={favorited === true ? <AiFillHeart /> : <AiOutlineHeart />}
+                onClick={() => favoriteCheck()}
+                fontSize="4xl"
+                position="absolute"
+                bottom="-10"
+              />
             </Center>
           ) : (
             []
           )}
-          {onWatchlist === true ? (
-            <Button
-              mt="3rem"
-              color="gold"
-              bg="snow"
-              fontFamily="DistantGalaxy"
-              fontWeight="normal"
-              _hover={{ color: "white", bg: "transparent" }}
-              onClick={() => watchlistCheck()}
-            >
-              Movie Added To Watchlist!
-            </Button>
-          ) : (
-            <Button
-              mt="3rem"
-              color="gold"
-              bg="snow"
-              fontFamily="DistantGalaxy"
-              fontWeight="normal"
-              _hover={{ color: "white", bg: "transparent" }}
-              onClick={() => watchlistCheck()}
-            >
-              Add Movie To Watchlist?
-            </Button>
-          )}
+          <Button
+            mt="3rem"
+            color="white"
+            bg="#708090"
+            fontFamily={movieFont}
+            fontWeight="normal"
+            _hover={{ color: "black", bg: "white" }}
+            onClick={() => watchlistCheck()}
+          >
+            {onWatchlist === true ? (
+              <Text>Movie Added To Watchlist!</Text>
+            ) : (
+              <Text>Add Movie To Watchlist?</Text>
+            )}
+          </Button>
           <Heading
             fontSize={["4vw", "1.25rem"]}
             color="gold"
-            fontFamily="DistantGalaxy"
+            fontFamily={movieFont}
             fontWeight="normal"
             mt="1rem"
           >
@@ -547,7 +465,7 @@ function Movie() {
             fontSize={["4vw", "1rem"]}
             textAlign="center"
             color="gold"
-            fontFamily="DistantGalaxy"
+            fontFamily={movieFont}
           >
             {movieDetails.overview}
           </Text>
@@ -571,7 +489,7 @@ function Movie() {
                 flex="1"
                 textAlign="center"
                 color="gold"
-                fontFamily="DistantGalaxy"
+                fontFamily={movieFont}
                 fontSize="2rem"
               >
                 Cast
@@ -596,7 +514,7 @@ function Movie() {
                           href={"/actors/" + el.id}
                           color="gold"
                           textDecoration="none"
-                          fontFamily="DistantGalaxy"
+                          fontFamily={movieFont}
                           transition="2s"
                           _hover={{ color: "white" }}
                         >
@@ -624,7 +542,7 @@ function Movie() {
                 flex="1"
                 textAlign="center"
                 color="gold"
-                fontFamily="DistantGalaxy"
+                fontFamily={movieFont}
                 transition="1s"
                 fontSize="2rem"
               >
@@ -641,7 +559,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                     >
@@ -661,7 +579,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -684,7 +602,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -705,7 +623,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -728,7 +646,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -749,7 +667,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -772,7 +690,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -793,7 +711,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -816,7 +734,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -837,7 +755,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -860,7 +778,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -881,7 +799,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -904,7 +822,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -925,7 +843,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -948,7 +866,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -969,7 +887,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -992,7 +910,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -1013,7 +931,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -1036,7 +954,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -1057,7 +975,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -1081,7 +999,7 @@ function Movie() {
                     <Text
                       color="gold"
                       textDecoration="underline"
-                      fontFamily="DistantGalaxy"
+                      fontFamily={movieFont}
                       fontSize="1.5rem"
                       mb="1rem"
                       mt="1rem"
@@ -1102,7 +1020,7 @@ function Movie() {
                               href={"/crew/" + el.id}
                               color="gold"
                               textDecoration="none"
-                              fontFamily="DistantGalaxy"
+                              fontFamily={movieFont}
                               transition="2s"
                               _hover={{ color: "white" }}
                             >
@@ -1150,7 +1068,7 @@ function Movie() {
                   color="white"
                   fontWeight="normal"
                   fontSize={["7vw", "3rem"]}
-                  fontFamily="DistantGalaxy"
+                  fontFamily={movieFont}
                 >
                   RECOMMENDATIONS
                   <AccordionIcon color="white" />
@@ -1170,7 +1088,7 @@ function Movie() {
                             href={"/movies/" + el.id}
                             color="gold"
                             textDecoration="none"
-                            fontFamily="DistantGalaxy"
+                            fontFamily={movieFont}
                             transition="1s"
                             _hover={{ color: "white" }}
                           >
@@ -1197,7 +1115,7 @@ function Movie() {
                                   `https://image.tmdb.org/t/p/w500` +
                                   el.poster_path
                                 }
-                                fallbackSrc="https://via.placeholder.com/325x500.png"
+                                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                               />
                             </Center>
                             {moment(el.release_date).format("YYYY") ===

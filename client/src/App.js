@@ -9,6 +9,7 @@ import Movies from "./components/pages/Movies";
 import Crew from "./components/pages/Crew";
 import Watchlist from "./components/pages/Watchlist";
 import TestPage from "./components/pages/TestPage";
+import TopRated from "./components/pages/TopRated";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path="/movie/:type/:sort/:search" element={<Movies />} />
         <Route path="/crew/:member" element={<Crew />} />
         <Route path="/watchlist" element={<Watchlist />} />
+
+        <Route path="/toprated" element={<TopRated />} />
         <Route path="/test/:testParam" element={<TestPage />} />
       </Routes>
       {/* </Router> */}
