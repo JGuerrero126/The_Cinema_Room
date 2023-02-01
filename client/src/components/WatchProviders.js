@@ -8,7 +8,7 @@ function WatchProvider({ movie, region }) {
   const watchFont = "GothamL";
 
   const iconStyle = { w: ["3rem", "2rem"], mr: ".5rem", ml: ".5rem" };
-  const textStyle = {};
+  const textStyle = { fontSize: ["1.25rem", "1rem"] };
 
   function getWatchProviders(target) {
     axios({
@@ -29,7 +29,7 @@ function WatchProvider({ movie, region }) {
         <div>
           {watchProviders[region].buy ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily={watchFont}>
+              <Text sx={textStyle} fontFamily={watchFont}>
                 Available for Purchase at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -53,7 +53,7 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].rent ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily={watchFont}>
+              <Text sx={textStyle} fontFamily={watchFont}>
                 Available to Rent at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -77,7 +77,7 @@ function WatchProvider({ movie, region }) {
           )}
           {watchProviders[region].flatrate ? (
             <div>
-              <Text fontSize="1.25rem" fontFamily={watchFont}>
+              <Text sx={textStyle} fontFamily={watchFont}>
                 Available with Subscription at the following services:
               </Text>
               <Flex direction="row" wrap="wrap">
@@ -104,20 +104,20 @@ function WatchProvider({ movie, region }) {
             href={watchProviders[region].link}
             fontFamily={watchFont}
           >
-            <Text fontSize="1.25rem" mt="1rem">
+            <Text sx={textStyle} mt="1rem">
               Click Here For Links To Services
             </Text>
           </Link>
-          <Text fontSize="1.25rem" fontFamily={watchFont}>
+          <Text sx={textStyle} fontFamily={watchFont}>
             Current Region: {region}
           </Text>
         </div>
       ) : (
         <div>
-          <Text fontSize="1.25rem" fontFamily={watchFont}>
+          <Text sx={textStyle} fontFamily={watchFont}>
             No Streaming Links available
           </Text>
-          <Text fontSize="1.25rem" fontFamily={watchFont}>
+          <Text sx={textStyle} fontFamily={watchFont}>
             Current Region: {region}
           </Text>
         </div>

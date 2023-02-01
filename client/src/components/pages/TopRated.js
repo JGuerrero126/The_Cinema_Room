@@ -116,19 +116,19 @@ function Home() {
               return (
                 <Card
                   key={el.id}
-                  direction={["column", "row"]}
+                  direction={["column", "column", "row"]}
                   maxW="95%"
                   minW="min-content"
-                  margin="1rem"
-                  paddingRight={["0", "1rem"]}
+                  margin="1.5rem"
+                  paddingRight={["0", "0", "1rem"]}
                   align="center"
                   fontFamily={topFont}
                 >
                   <Image
-                    w={["", "18rem"]}
+                    w={["", "", "18rem"]}
                     src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
                     fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
-                    marginRight={["0", "1rem"]}
+                    marginRight={["0", "0", "1rem"]}
                   />
                   <CardBody>
                     <Heading fontFamily={topFont}>
@@ -143,7 +143,7 @@ function Home() {
                       </Text>
                     )}
                     <Text>Rated: {el.vote_average}</Text>
-                    <Text>{el.overview}</Text>
+                    <Text fontSize="0.90rem">{el.overview}</Text>
                     <Button mt="2rem" onClick={(e) => setWatchlist(el)}>
                       {fetchWatchlist(el.id) === true ? (
                         <Text>Movie Added To Watchlist!</Text>
