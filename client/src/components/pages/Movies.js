@@ -13,7 +13,9 @@ import {
 } from "@chakra-ui/react";
 import moment from "moment";
 
+
 function Movies() {
+  const apiKey = process.env.TMDB_KEY
   const url = window.location.href;
   const type = url.split("/").slice(-3).shift();
   const sortBy = url.split("/").slice(-2).shift();
@@ -93,7 +95,7 @@ function Movies() {
       //   primary_release_year: search,
       //   sort_by: sortBy,
       // },
-      url: "https://api.themoviedb.org/3/discover/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&region=US&sort_by=" + sortBy +"&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year=" + search,
+      url: "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&region=US&sort_by=" + sortBy +"&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year=" + search,
     })
       .then((response) => {
         const res = response.data;
