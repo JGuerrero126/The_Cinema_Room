@@ -115,7 +115,7 @@ function Header() {
         mt={["0.5rem", ""]}
         width={["90vw", "initial"]}
       >
-        <HamburgerIcon />
+        <HamburgerIcon color="snow" />
       </Button>
       <Drawer
         placement="left"
@@ -130,11 +130,12 @@ function Header() {
             bg="black"
             borderRight="0.25rem snow inset"
             textAlign="center"
+            color="snow"
           >
             THE CINEMA ROOM
           </DrawerHeader>
           <DrawerBody bg="black" borderRight="0.25rem snow inset">
-            <Text textAlign="center" mb=".5rem">
+            <Text textAlign="center" mb=".5rem" color="snow">
               <b>
                 <u>SEARCH MOVIE BY</u>
               </b>
@@ -194,7 +195,7 @@ function Header() {
               </Button>
             </InputGroup>
             <Divider mt="1rem" mb="1rem" />
-            <Text textAlign="center" mb="1rem">
+            <Text textAlign="center" mb="1rem" color="snow">
               <b>
                 <u>TRENDING MOVIES THIS WEEK</u>
               </b>
@@ -223,7 +224,7 @@ function Header() {
             <Divider mt="1rem" mb="1rem" />
             {favorites && favorites.length > 0 ? (
               <div>
-                <Text textAlign="center" mb="1rem">
+                <Text textAlign="center" mb="1rem" color="snow">
                   <b>
                     <u>FAVORITE MOVIES</u>
                   </b>
@@ -253,7 +254,7 @@ function Header() {
 
             {history && history.length > 0 ? (
               <div>
-                <Text textAlign="center" mb="1rem">
+                <Text textAlign="center" mb="1rem" color="snow">
                   <b>
                     <u>RECENTLY VIEWED MOVIES</u>
                   </b>
@@ -289,7 +290,7 @@ function Header() {
             )}
 
             <Text textAlign="center" mb="1rem">
-              <Link href="/watchlist">
+              <Link href="/watchlist" color="snow">
                 <b>
                   <u>GO TO WATCHLIST</u>
                 </b>

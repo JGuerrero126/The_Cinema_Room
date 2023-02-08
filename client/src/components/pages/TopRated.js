@@ -123,13 +123,17 @@ function Home() {
                   paddingRight={["0", "0", "1rem"]}
                   align="center"
                   fontFamily={topFont}
+                  textColor="snow"
+                  bg="gray.800"
                 >
-                  <Image
-                    w={["", "", "18rem"]}
-                    src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
-                    fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
-                    marginRight={["0", "0", "1rem"]}
-                  />
+                  <Link href={"/movies/" + el.id}>
+                    <Image
+                      w={["", "", "18rem"]}
+                      src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
+                      fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                      marginRight={["0", "0", "1rem"]}
+                    />
+                  </Link>
                   <CardBody>
                     <Heading fontFamily={topFont}>
                       #{i++} {el.title}
@@ -144,7 +148,13 @@ function Home() {
                     )}
                     <Text>Rated: {el.vote_average}</Text>
                     <Text fontSize="0.90rem">{el.overview}</Text>
-                    <Button mt="2rem" onClick={(e) => setWatchlist(el)}>
+                    <Button
+                      mt="2rem"
+                      onClick={(e) => setWatchlist(el)}
+                      textColor="black"
+                      _active={{ textColor: "white", bg: "gray.900" }}
+                      _hover={{ textColor: "black", bg: "gray.500" }}
+                    >
                       {fetchWatchlist(el.id) === true ? (
                         <Text>Movie Added To Watchlist!</Text>
                       ) : (
