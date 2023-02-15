@@ -279,6 +279,7 @@ function Header() {
                         mt="0.35rem"
                         onClick={() => removeFromMH(el.title)}
                         cursor="pointer"
+                        color="snow"
                       />
                     </Container>
                   );

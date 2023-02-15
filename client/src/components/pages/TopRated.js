@@ -135,9 +135,12 @@ function Home() {
                     />
                   </Link>
                   <CardBody>
-                    <Heading fontFamily={topFont}>
-                      #{i++} {el.title}
-                    </Heading>
+                    <Link href={"/movies/" + el.id}>
+                      <Heading fontFamily={topFont}>
+                        #{i++} {el.title}
+                      </Heading>
+                    </Link>
+
                     {moment(el.release_date).format("YYYY") ===
                     "Invalid date" ? (
                       <Text>Not Yet Released</Text>
