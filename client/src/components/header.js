@@ -142,6 +142,37 @@ function Header() {
             <RadioGroup onChange={setRadio} value={radio}>
               <Stack direction="column" color="white" mb="1rem">
                 <Radio value="1">TITLE</Radio>
+                {radio === "1" ? (
+                  <div>
+                    <Text mb=".5rem">Sort By</Text>
+                    <Select
+                      onChange={(e) => setSortBy(e.target.value)}
+                      value={sortBy}
+                      color="white"
+                    >
+                      {/* <option
+                        style={{ color: "black" }}
+                        value="original_title.asc"
+                      >
+                        Alphabetically
+                      </option> */}
+                      <option
+                        style={{ color: "black" }}
+                        value="popularity"
+                      >
+                        Popularity
+                      </option>
+                      <option
+                        style={{ color: "black" }}
+                        value="release_date"
+                      >
+                        Release Date
+                      </option>
+                    </Select>
+                  </div>
+                ) : (
+                  []
+                )}
                 <Radio value="2">PERSON</Radio>
                 <Radio value="3">YEAR</Radio>
                 {radio === "3" ? (

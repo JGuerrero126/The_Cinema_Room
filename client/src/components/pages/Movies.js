@@ -53,6 +53,14 @@ function Movies() {
         : 1
     })
   }
+  function sortDataByTime(data, property) {  
+    return data.sort((a, b) => {
+      return moment(a[property],"YYYY-M-D").valueOf() >= moment(b[property], "YYYY-M-D").valueOf()
+        ? -1
+        : 1
+    })
+  }
+  var ts = moment("10/15/2014 9:00", "M/D/YYYY H:mm").valueOf();
 
   function searchMovie() {
     // api call to get movie data
@@ -67,7 +75,8 @@ function Movies() {
         console.log(res);
         setSearchedMovie(res);
         checkSearchData();
-        sortDataBy(res.results, "popularity");
+        sortDataBy(res.results, sortBy);
+        sortDataByTime(res.results, sortBy);
         console.log(searchedMovie)
       })
       .catch((error) => {
@@ -188,7 +197,7 @@ function Movies() {
                       <b>{element.vote_average}</b>
                     </Text>
                     <Text textAlign="center">{element.overview}</Text>
-                    <Text>{moment(element.release_date).format("YYYY")}</Text>
+                    <Text>{moment(element.release_date).format("MM/DD/YYYY")}</Text>
                   </Link>
                 </Container>
               );
