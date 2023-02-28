@@ -40,18 +40,25 @@ function Movies() {
     }
   }
 
+  function checkSearchData() {
+    if (searchedMovie.length < 1 || searchedPerson.length < 1 || searchedYear.length < 1) {
+      subPage();
+    }
+  }
+
   function searchMovie() {
     // api call to get movie data
     axios({
       method: "GET",
       url:
-        "https://api.themoviedb.org/3/search/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&query=" +
+        "https://api.themoviedb.org/3/search/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
         search,
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         setSearchedMovie(res);
+        checkSearchData();
       })
       .catch((error) => {
         if (error.response) {
@@ -75,6 +82,7 @@ function Movies() {
         const res = response.data;
         console.log(res);
         setSearchedYear(res);
+        checkSearchData();
       })
       .catch((error) => {
         if (error.response) {
@@ -89,13 +97,14 @@ function Movies() {
     axios({
       method: "GET",
       url:
-        "https://api.themoviedb.org/3/search/person?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&query=" +
+        "https://api.themoviedb.org/3/search/person?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
         keyword,
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         setSearchedPerson(res);
+        checkSearchData();
       })
       .catch((error) => {
         if (error.response) {
