@@ -46,6 +46,14 @@ function Movies() {
     }
   }
 
+  function sortDataBy(data, property) {  
+    return data.sort((a, b) => {
+      return a[property] >= b[property]
+        ? -1
+        : 1
+    })
+  }
+
   function searchMovie() {
     // api call to get movie data
     axios({
@@ -59,6 +67,8 @@ function Movies() {
         console.log(res);
         setSearchedMovie(res);
         checkSearchData();
+        sortDataBy(res.results, "popularity");
+        console.log(searchedMovie)
       })
       .catch((error) => {
         if (error.response) {
