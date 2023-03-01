@@ -60,7 +60,6 @@ function Movies() {
         : 1
     })
   }
-  var ts = moment("10/15/2014 9:00", "M/D/YYYY H:mm").valueOf();
 
   function searchMovie() {
     // api call to get movie data
