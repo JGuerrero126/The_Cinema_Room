@@ -3,6 +3,7 @@ import axios from "axios";
 // import { Input, Button } from "@chakra-ui/react";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
+import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import {
   Text,
   Link,
@@ -10,6 +11,7 @@ import {
   Container,
   Center,
   SimpleGrid,
+  Flex,
 } from "@chakra-ui/react";
 import moment from "moment";
 
@@ -26,37 +28,55 @@ function Movies() {
   const [searchedYear, setSearchedYear] = useState("");
   // api uses array so if search is more than one word, split by space and sort into array
   const keyword = search.split(" ");
+  const [pageNum, setPageNum] = useState(1);;
+
+  function addPage(){
+    setPageNum(pageNum + 1);
+  }
+
+  function subPage(){
+    if (pageNum > 1) {
+      setPageNum(pageNum - 1);
+    }
+  }
+
+  function checkSearchData() {
+    if (searchedMovie.length < 1 || searchedPerson.length < 1 || searchedYear.length < 1) {
+      subPage();
+    }
+  }
+
+  function sortDataBy(data, property) {  
+    return data.sort((a, b) => {
+      return a[property] >= b[property]
+        ? -1
+        : 1
+    })
+  }
+  function sortDataByTime(data, property) {  
+    return data.sort((a, b) => {
+      return moment(a[property],"YYYY-M-D").valueOf() >= moment(b[property], "YYYY-M-D").valueOf()
+        ? -1
+        : 1
+    })
+  }
 
   function searchMovie() {
     // api call to get movie data
     axios({
       method: "GET",
-      url: urlPrefix + "/search/" + keyword,
+      url:
+        "https://api.themoviedb.org/3/search/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
+        search,
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         setSearchedMovie(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function searchPerson() {
-    // api call to get data on searched person
-    axios({
-      method: "GET",
-      url: urlPrefix + "/person/" + keyword,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setSearchedPerson(res);
+        checkSearchData();
+        sortDataBy(res.results, sortBy);
+        sortDataByTime(res.results, sortBy);
+        console.log(searchedMovie)
       })
       .catch((error) => {
         if (error.response) {
@@ -68,37 +88,19 @@ function Movies() {
   }
 
   function searchYear() {
-    // api call to get data on searched year
-    // axios
-    //   .get(
-    //     `https://api.themoviedb.org/3/discover/movie?&language=en-US&region=US&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
-    //     {
-    //       params: {
-    //         api_key: "e3da5d8280ad89306acf3ea4061ead8c",
-    //         primary_release_year: searchedYear,
-    //         sort_by: sortBy,
-    //       },
-    //     }
-    //   )
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.error(error);
-    //   });
     axios({
       method: "GET",
-      // params: {
-      //   api_key: "e3da5d8280ad89306acf3ea4061ead8c",
-      //   primary_release_year: search,
-      //   sort_by: sortBy,
-      // },
-      url: "https://api.themoviedb.org/3/discover/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&region=US&sort_by=" + sortBy +"&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&primary_release_year=" + search,
+      url:
+        "https://api.themoviedb.org/3/discover/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&region=US&sort_by=" +
+        sortBy +
+        "&include_adult=false&include_video=false&page=" + pageNum + "&with_watch_monetization_types=flatrate&primary_release_year=" +
+        search,
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         setSearchedYear(res);
+        checkSearchData();
       })
       .catch((error) => {
         if (error.response) {
@@ -108,6 +110,29 @@ function Movies() {
         }
       });
   }
+
+  function searchPerson() {
+    axios({
+      method: "GET",
+      url:
+        "https://api.themoviedb.org/3/search/person?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
+        keyword,
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+        setSearchedPerson(res);
+        checkSearchData();
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }
+      });
+  }
+
 
   useEffect(() => {
     switch (type) {
@@ -119,14 +144,11 @@ function Movies() {
         break;
       case "3":
         searchYear();
-        console.log(type)
-        console.log(sortBy)
-        console.log(search);
         break;
       default:
         console.log("there is an error determining type");
     }
-  }, []);
+  }, [pageNum]);
 
   return (
     <div data-testid="movies-page">
@@ -140,7 +162,7 @@ function Movies() {
         {searchedMovie && searchedMovie.results.length > 0
           ? searchedMovie.results.map((element) => {
               return (
-                <Container centerContent key={element.id} maxW="md">
+                <Container centerContent key={element.id} maxW="md" pb="3rem">
                   <Link
                     href={"/movies/" + element.id}
                     color="white"
@@ -174,7 +196,7 @@ function Movies() {
                       <b>{element.vote_average}</b>
                     </Text>
                     <Text textAlign="center">{element.overview}</Text>
-                    <Text>{moment(element.release_date).format("YYYY")}</Text>
+                    <Text>{moment(element.release_date).format("MM/DD/YYYY")}</Text>
                   </Link>
                 </Container>
               );
@@ -183,7 +205,7 @@ function Movies() {
         {searchedPerson && searchedPerson.results.length > 0
           ? searchedPerson.results.map((element) => {
               return (
-                <Container centerContent key={element.id} maxW="md">
+                <Container centerContent key={element.id} maxW="md" pb="3rem">
                   <Link
                     href={"/crew/" + element.id}
                     color="white"
@@ -220,7 +242,7 @@ function Movies() {
         {searchedYear && searchedYear.results.length > 0
           ? searchedYear.results.map((element) => {
               return (
-                <Container centerContent key={element.id} maxW="md">
+                <Container centerContent key={element.id} maxW="md" pb="3rem">
                   <Link
                     href={"/movies/" + element.id}
                     color="white"
@@ -255,6 +277,13 @@ function Movies() {
             })
           : []}
       </SimpleGrid>
+      <Container pb="1rem" justifyContent= "center">
+        <Flex direction="row" justifyContent="space-around">
+          <ArrowLeftIcon color="white" onClick={subPage}></ArrowLeftIcon>
+          <Text color="white">Page {pageNum}</Text>
+          <ArrowRightIcon color="white" onClick={addPage}></ArrowRightIcon>
+        </Flex>
+      </Container>
     </div>
   );
 }
