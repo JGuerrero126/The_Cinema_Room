@@ -125,7 +125,7 @@ function Header() {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
+          <DrawerCloseButton color="snow" />
           <DrawerHeader
             bg="black"
             borderRight="0.25rem snow inset"
@@ -157,16 +157,10 @@ function Header() {
                       >
                         Alphabetically
                       </option> */}
-                      <option
-                        style={{ color: "black" }}
-                        value="popularity"
-                      >
+                      <option style={{ color: "black" }} value="popularity">
                         Popularity
                       </option>
-                      <option
-                        style={{ color: "black" }}
-                        value="release_date"
-                      >
+                      <option style={{ color: "black" }} value="release_date">
                         Release Date
                       </option>
                     </Select>
