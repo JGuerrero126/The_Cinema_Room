@@ -119,7 +119,7 @@ function Home() {
             })
           : []}
       </Flex>
-      <Heading
+      {/* <Heading
         mt="2rem"
         fontSize="3rem"
         fontWeight="normal"
@@ -127,7 +127,7 @@ function Home() {
         fontFamily={homeHeadingFont}
       >
         Data
-      </Heading>
+      </Heading> */}
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}
