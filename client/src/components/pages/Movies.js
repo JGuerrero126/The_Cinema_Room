@@ -40,8 +40,8 @@ function Movies() {
     }
   }
 
-  function checkSearchData() {
-    if (searchedMovie.length < 1 || searchedPerson.length < 1 || searchedYear.length < 1) {
+  function checkSearchData(data) {
+    if (data.length < 1) {
       subPage();
     }
   }
@@ -73,10 +73,10 @@ function Movies() {
         const res = response.data;
         console.log(res);
         setSearchedMovie(res);
-        checkSearchData();
+        console.log(pageNum);
         sortDataBy(res.results, sortBy);
         sortDataByTime(res.results, sortBy);
-        console.log(searchedMovie)
+        checkSearchData(res.results);
       })
       .catch((error) => {
         if (error.response) {
@@ -100,7 +100,8 @@ function Movies() {
         const res = response.data;
         console.log(res);
         setSearchedYear(res);
-        checkSearchData();
+        console.log(pageNum);
+        checkSearchData(res.results);
       })
       .catch((error) => {
         if (error.response) {
@@ -122,7 +123,7 @@ function Movies() {
         const res = response.data;
         console.log(res);
         setSearchedPerson(res);
-        checkSearchData();
+        checkSearchData(res.results);
       })
       .catch((error) => {
         if (error.response) {
