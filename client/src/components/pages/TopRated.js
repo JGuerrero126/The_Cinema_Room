@@ -116,24 +116,31 @@ function Home() {
               return (
                 <Card
                   key={el.id}
-                  direction={["column", "row"]}
+                  direction={["column", "column", "row"]}
                   maxW="95%"
                   minW="min-content"
-                  margin="1rem"
-                  paddingRight={["0", "1rem"]}
+                  margin="1.5rem"
+                  paddingRight={["0", "0", "1rem"]}
                   align="center"
                   fontFamily={topFont}
+                  textColor="snow"
+                  bg="gray.800"
                 >
-                  <Image
-                    w={["", "18rem"]}
-                    src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
-                    fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
-                    marginRight={["0", "1rem"]}
-                  />
+                  <Link href={"/movies/" + el.id}>
+                    <Image
+                      w={["", "", "18rem"]}
+                      src={`https://image.tmdb.org/t/p/w500` + el.poster_path}
+                      fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                      marginRight={["0", "0", "1rem"]}
+                    />
+                  </Link>
                   <CardBody>
-                    <Heading fontFamily={topFont}>
-                      #{i++} {el.title}
-                    </Heading>
+                    <Link href={"/movies/" + el.id}>
+                      <Heading fontFamily={topFont}>
+                        #{i++} {el.title}
+                      </Heading>
+                    </Link>
+
                     {moment(el.release_date).format("YYYY") ===
                     "Invalid date" ? (
                       <Text>Not Yet Released</Text>
@@ -143,8 +150,14 @@ function Home() {
                       </Text>
                     )}
                     <Text>Rated: {el.vote_average}</Text>
-                    <Text>{el.overview}</Text>
-                    <Button mt="2rem" onClick={(e) => setWatchlist(el)}>
+                    <Text fontSize="0.90rem">{el.overview}</Text>
+                    <Button
+                      mt="2rem"
+                      onClick={(e) => setWatchlist(el)}
+                      textColor="black"
+                      _active={{ textColor: "white", bg: "gray.900" }}
+                      _hover={{ textColor: "black", bg: "gray.500" }}
+                    >
                       {fetchWatchlist(el.id) === true ? (
                         <Text>Movie Added To Watchlist!</Text>
                       ) : (

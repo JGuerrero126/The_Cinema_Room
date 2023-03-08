@@ -437,10 +437,11 @@ function Movie() {
           <Button
             mt="3rem"
             color="white"
-            bg="#708090"
+            bg="gray.700"
             fontFamily={movieFont}
             fontWeight="normal"
-            _hover={{ color: "black", bg: "white" }}
+            _active={{ textColor: "white", bg: "gray.900" }}
+            _hover={{ textColor: "snow", bg: "gray.500" }}
             onClick={() => watchlistCheck()}
           >
             {onWatchlist === true ? (

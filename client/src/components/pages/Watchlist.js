@@ -48,9 +48,10 @@ function Watchlist() {
         fontSize={["10vw", "3rem"]}
         // fontWeight="normal"
         fontFamily={watchFont}
-        textShadow="0 0 0.15rem white"
+        // textShadow="0 0 0.15rem white"
         _hover={{ textShadow: "0 0 0.95rem white" }}
-        transition="1s"
+        transition="0.2s"
+        textColor="snow"
       >
         WATCHLIST
       </Heading>
@@ -88,6 +89,8 @@ function Watchlist() {
                   margin="1rem"
                   paddingRight={["0", "1rem"]}
                   align="center"
+                  bg="gray.800"
+                  textColor="snow"
                 >
                   <Image
                     w={["", "19rem"]}
