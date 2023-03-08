@@ -74,7 +74,8 @@ function Movies() {
         console.log(res);
         setSearchedMovie(res);
         console.log(pageNum);
-        sortDataBy(res.results, sortBy);
+        console.log(sortBy)
+        sortDataBy(res.results, sortBy.split(".")[0]);
         sortDataByTime(res.results, sortBy);
         checkSearchData(res.results);
       })
@@ -99,6 +100,7 @@ function Movies() {
       .then((response) => {
         const res = response.data;
         console.log(res);
+        console.log(search)
         setSearchedYear(res);
         console.log(pageNum);
         checkSearchData(res.results);
@@ -183,13 +185,18 @@ function Movies() {
                           `https://image.tmdb.org/t/p/w500` +
                           element.poster_path
                         }
-                        fallbackSrc="https://via.placeholder.com/325x500.png"
+                        fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                       />
                     </Center>
                     <Text fontSize="2rem">
                       <b>
                         <u>{element.title}</u>
                       </b>
+                    </Text>
+                    <Text>
+                      Popularity:
+                      <br />
+                      <b>{element.popularity}</b>
                     </Text>
                     <Text>
                       Rating:
@@ -226,7 +233,7 @@ function Movies() {
                           `https://image.tmdb.org/t/p/w500` +
                           element.profile_path
                         }
-                        fallbackSrc="https://via.placeholder.com/325x500.png"
+                        fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                       />
                     </Center>
                     <Text fontSize="2rem">
@@ -263,7 +270,7 @@ function Movies() {
                           `https://image.tmdb.org/t/p/w500` +
                           element.poster_path
                         }
-                        fallbackSrc="https://via.placeholder.com/325x500.png"
+                        fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                       />
                     </Center>{" "}
                     <Text fontSize="2rem">
