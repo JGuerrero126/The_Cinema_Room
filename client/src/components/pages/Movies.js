@@ -100,7 +100,7 @@ function Movies() {
       .then((response) => {
         const res = response.data;
         console.log(res);
-        console.log(search)
+        console.log(sortBy)
         setSearchedYear(res);
         console.log(pageNum);
         checkSearchData(res.results);
