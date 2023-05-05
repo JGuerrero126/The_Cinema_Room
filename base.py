@@ -248,6 +248,53 @@ def top_rated():
       res = response.read()
       response_body = res
       return response_body
+  
+@app.route('/search-movie/', methods = ['POST'])
+@cross_origin()
+def search_movie():
+  
+  print('SEARCHING FOR MOVIE')
+  pageNum = request.get_json()["pageNum"]
+  search = request.get_json()["search"]
+
+  search_movie= f'https://api.themoviedb.org/3/search/movie?api_key={tmdb_key}&language=en-US&page={pageNum}&query={search}'
+
+  with urllib.request.urlopen(search_movie) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+  
+@app.route('/search-year/', methods = ['POST'])
+@cross_origin()
+def search_year():
+  
+  print('SEARCHING BY YEAR')
+  sortBy = request.get_json()["sortBy"]
+  pageNum = request.get_json()["pageNum"]
+  search = request.get_json()["search"]
+
+  search_year= f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&region=US&sort_by={sortBy}&include_adult=false&include_video=false&page={pageNum}&with_watch_monetization_types=flatrate&primary_release_year={search}'
+
+  with urllib.request.urlopen(search_year) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+  
+@app.route('/search-person/', methods = ['POST'])
+@cross_origin()
+def search_person():
+  
+  print('SEARCHING FOR PERSON')
+  pageNum = request.get_json()["pageNum"]
+  keyword = request.get_json()["keyword"]
+
+  search_person= f'https://api.themoviedb.org/3/search/person?api_key={tmdb_key}&language=en-US&page={pageNum}&query={keyword}'
+
+  with urllib.request.urlopen(search_person) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
 
 @app.errorhandler(404)
 def not_found(e):
