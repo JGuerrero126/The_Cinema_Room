@@ -28,13 +28,13 @@ function Movies() {
   const [searchedYear, setSearchedYear] = useState("");
   // api uses array so if search is more than one word, split by space and sort into array
   const keyword = search.split(" ");
-  const [pageNum, setPageNum] = useState(1);;
+  const [pageNum, setPageNum] = useState(1);
 
-  function addPage(){
+  function addPage() {
     setPageNum(pageNum + 1);
   }
 
-  function subPage(){
+  function subPage() {
     if (pageNum > 1) {
       setPageNum(pageNum - 1);
     }
@@ -46,35 +46,34 @@ function Movies() {
     }
   }
 
-  function sortDataBy(data, property) {  
+  function sortDataBy(data, property) {
     return data.sort((a, b) => {
-      return a[property] >= b[property]
-        ? -1
-        : 1
-    })
+      return a[property] >= b[property] ? -1 : 1;
+    });
   }
-  function sortDataByTime(data, property) {  
+  function sortDataByTime(data, property) {
     return data.sort((a, b) => {
-      return moment(a[property],"YYYY-M-D").valueOf() >= moment(b[property], "YYYY-M-D").valueOf()
+      return moment(a[property], "YYYY-M-D").valueOf() >=
+        moment(b[property], "YYYY-M-D").valueOf()
         ? -1
-        : 1
-    })
+        : 1;
+    });
   }
 
   function searchMovie() {
     // api call to get movie data
+    console.log(pageNum, search);
     axios({
-      method: "GET",
-      url:
-        "https://api.themoviedb.org/3/search/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
-        search,
+      method: "POST",
+      url: urlPrefix + "/search-movie/",
+      data: { pageNum: pageNum.toString(), search: search.replace(" ", "%20") },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         setSearchedMovie(res);
         console.log(pageNum);
-        console.log(sortBy)
+        console.log(sortBy);
         sortDataBy(res.results, sortBy.split(".")[0]);
         sortDataByTime(res.results, sortBy);
         checkSearchData(res.results);
@@ -90,17 +89,14 @@ function Movies() {
 
   function searchYear() {
     axios({
-      method: "GET",
-      url:
-        "https://api.themoviedb.org/3/discover/movie?api_key=e3da5d8280ad89306acf3ea4061ead8c&region=US&sort_by=" +
-        sortBy +
-        "&include_adult=false&include_video=false&page=" + pageNum + "&with_watch_monetization_types=flatrate&primary_release_year=" +
-        search,
+      method: "POST",
+      url: urlPrefix + "/search-year/",
+      data: { pageNum: pageNum.toString(), search: search, sortBy: sortBy },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
-        console.log(sortBy)
+        console.log(sortBy);
         setSearchedYear(res);
         console.log(pageNum);
         checkSearchData(res.results);
@@ -116,10 +112,9 @@ function Movies() {
 
   function searchPerson() {
     axios({
-      method: "GET",
-      url:
-        "https://api.themoviedb.org/3/search/person?api_key=e3da5d8280ad89306acf3ea4061ead8c&language=en-US&page=" + pageNum  + "&query=" +
-        keyword,
+      method: "POST",
+      url: urlPrefix + "/search-person/",
+      data: { pageNum: pageNum.toString(), keyword: keyword },
     })
       .then((response) => {
         const res = response.data;
@@ -136,17 +131,19 @@ function Movies() {
       });
   }
 
-
   useEffect(() => {
     switch (type) {
       case "1":
         searchMovie();
+        // console.log(<div>{env.TMDB_KEY}</div>);
         break;
       case "2":
         searchPerson();
+        // console.log(env.TEST);
         break;
       case "3":
         searchYear();
+        // console.log(env.TEST);
         break;
       default:
         console.log("there is an error determining type");
@@ -204,7 +201,9 @@ function Movies() {
                       <b>{element.vote_average}</b>
                     </Text>
                     <Text textAlign="center">{element.overview}</Text>
-                    <Text>{moment(element.release_date).format("MM/DD/YYYY")}</Text>
+                    <Text>
+                      {moment(element.release_date).format("MM/DD/YYYY")}
+                    </Text>
                   </Link>
                 </Container>
               );
@@ -285,7 +284,7 @@ function Movies() {
             })
           : []}
       </SimpleGrid>
-      <Container pb="1rem" justifyContent= "center">
+      <Container pb="1rem" justifyContent="center">
         <Flex direction="row" justifyContent="space-around">
           <ArrowLeftIcon color="white" onClick={subPage}></ArrowLeftIcon>
           <Text color="white">Page {pageNum}</Text>
