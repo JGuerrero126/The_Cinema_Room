@@ -508,7 +508,6 @@ function Movie() {
             >
               {movieCredits
                 ? movieCredits.cast.map((el) => {
-                    // if (el.name !== "" && el.character !== "")
                     return (
                       <Container centerContent key={el.cast_id}>
                         <Link

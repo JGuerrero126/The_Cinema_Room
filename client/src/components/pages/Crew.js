@@ -228,7 +228,6 @@ function Actor() {
                 >
                   {actorAppearances
                     ? actorAppearances.crew.map((el) => {
-                        // if (actorAppearances.cast.indexOf(el) < 12) {
                         return (
                           <Container centerContent key={el.character}>
                             <Link
@@ -247,7 +246,11 @@ function Actor() {
                                 <br /> {el.job}
                               </Text>
                               {el.vote_average === 0 ? (
-                                <div></div>
+                                <Text>
+                                  <br />
+                                  Rating: <br />
+                                  No Rating Provided
+                                </Text>
                               ) : (
                                 <Text>
                                   <br />
@@ -268,7 +271,7 @@ function Actor() {
                                     `https://image.tmdb.org/t/p/w500` +
                                     el.poster_path
                                   }
-                                  fallbackSrc="https://via.placeholder.com/325x500.png"
+                                  fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
                                 />
                               </Center>
                               {moment(el.release_date).format("YYYY") ===
@@ -282,7 +285,6 @@ function Actor() {
                             </Link>
                           </Container>
                         );
-                        // }
                       })
                     : []}
                 </SimpleGrid>
@@ -326,7 +328,6 @@ function Actor() {
                 >
                   {actorAppearances
                     ? actorAppearances.cast.map((el) => {
-                        // if (actorAppearances.cast.indexOf(el) < 12) {
                         return (
                           <Container centerContent key={el.credit_id}>
                             <Link
@@ -379,7 +380,6 @@ function Actor() {
                             </Link>
                           </Container>
                         );
-                        // }
                       })
                     : []}
                 </SimpleGrid>

@@ -1,36 +1,20 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { IpynbRenderer } from "react-ipynb-renderer";
-// import ipynb from "../movie_data.ipynb";
 import {
   Text,
   Heading,
   Link,
   Box,
   Flex,
-  Input,
-  Button,
   Container,
   Image,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 
-// export const Component = () => {
-//   return <IpynbRenderer ipynb={ipynb} />;
-// };
-
 function Home() {
-  // const navigate = useNavigate();
-  // const changeRoute= (word) => {
-  //   let path = `/movie/` + word;
-  //   navigate(path);
-  // }
   const [genrelist, setGenreList] = useState(null);
   const [topRated, setTopRated] = useState(null);
-  // const [search, setSearch] = useState("");
-  // const handleChange = (event) => setSearch(event.target.value);
 
   const homeHeadingFont = "corleonedue";
   const homeTextFont = "corleone";
@@ -119,15 +103,6 @@ function Home() {
             })
           : []}
       </Flex>
-      {/* <Heading
-        mt="2rem"
-        fontSize="3rem"
-        fontWeight="normal"
-        color="white"
-        fontFamily={homeHeadingFont}
-      >
-        Data
-      </Heading> */}
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}

@@ -3,8 +3,6 @@ import {
   Text,
   Heading,
   Link,
-  SimpleGrid,
-  Box,
   Image,
   Container,
   Center,

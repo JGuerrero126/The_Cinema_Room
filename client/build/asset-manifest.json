@@ -1,23 +1,37 @@
 {
   "files": {
-    "main.css": "/static/css/main.80124b95.css",
-    "main.js": "/static/js/main.ed4ed49c.js",
+    "main.css": "/static/css/main.92f1eddf.css",
+    "main.js": "/static/js/main.a85443d2.js",
     "static/js/787.132718bd.chunk.js": "/static/js/787.132718bd.chunk.js",
     "static/media/SfDistantGalaxyAlternate-OE4d.ttf": "/static/media/SfDistantGalaxyAlternate-OE4d.e3b462706fe080a1d46b.ttf",
     "static/media/SfDistantGalaxy-0l3d.ttf": "/static/media/SfDistantGalaxy-0l3d.ee1b4a3597465caa4073.ttf",
     "static/media/CorleoneDue.TTF": "/static/media/CorleoneDue.a733aca4a157618c1ef5.TTF",
     "static/media/Corleone.TTF": "/static/media/Corleone.5c6be1d91beabc100e41.TTF",
+    "static/media/GothamBook.ttf": "/static/media/GothamBook.58fb9151c57e59668f17.ttf",
+    "static/media/GothamLight.ttf": "/static/media/GothamLight.03e7ff609ba3bf798fa4.ttf",
+    "static/media/GothamMedium.ttf": "/static/media/GothamMedium.0a910c0b9d50be6aa3dc.ttf",
+    "static/media/GILLSANS.ttf": "/static/media/GILLSANS.0a4db5a548a37d6e1a65.ttf",
     "static/media/Starjedi Regular.ttf": "/static/media/Starjedi Regular.8d577dc1e1755c4860f3.ttf",
+    "static/media/GothamBold.ttf": "/static/media/GothamBold.108854bb27dee2dce854.ttf",
+    "static/media/Aachen Bold.ttf": "/static/media/Aachen Bold.d7ee529cf942fe2d9056.ttf",
+    "static/media/ITCBenguiatStdBoldCn.OTF": "/static/media/ITCBenguiatStdBoldCn.30e7617db14411c495a7.OTF",
+    "static/media/Yasashii W01 Regular.ttf": "/static/media/Yasashii W01 Regular.a0f7efbadd9912abd180.ttf",
+    "static/media/Yasashii W01 Bold.ttf": "/static/media/Yasashii W01 Bold.4499c1e08893e9219f98.ttf",
+    "static/media/Souvenir-Demi.otf": "/static/media/Souvenir-Demi.9786adc98400b770fee8.otf",
+    "static/media/Souvenir-Bold.otf": "/static/media/Souvenir-Bold.fa45181196d4faf39f88.otf",
+    "static/media/Souvenir-Medium.otf": "/static/media/Souvenir-Medium.9959646853068720230d.otf",
+    "static/media/Gotham-Thin.otf": "/static/media/Gotham-Thin.6447770f7eb4c8885d73.otf",
     "static/media/OCR A Std Regular.ttf": "/static/media/OCR A Std Regular.69ad6aa98a96f9b4d4c9.ttf",
+    "static/media/ITC Busorama Bold.otf": "/static/media/ITC Busorama Bold.b74fad10b51d911f7829.otf",
     "static/media/ShindlerFont_by_Juan_Casco.ttf": "/static/media/ShindlerFont_by_Juan_Casco.b9f591154879f1c30394.ttf",
     "static/media/matrix.ttf": "/static/media/matrix.5dca1e2a70b092f17674.ttf",
     "index.html": "/index.html",
-    "main.80124b95.css.map": "/static/css/main.80124b95.css.map",
-    "main.ed4ed49c.js.map": "/static/js/main.ed4ed49c.js.map",
+    "main.92f1eddf.css.map": "/static/css/main.92f1eddf.css.map",
+    "main.a85443d2.js.map": "/static/js/main.a85443d2.js.map",
     "787.132718bd.chunk.js.map": "/static/js/787.132718bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80124b95.css",
-    "static/js/main.ed4ed49c.js"
+    "static/css/main.92f1eddf.css",
+    "static/js/main.a85443d2.js"
   ]
 }

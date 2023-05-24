@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { Input, Button } from "@chakra-ui/react";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
@@ -135,15 +134,12 @@ function Movies() {
     switch (type) {
       case "1":
         searchMovie();
-        // console.log(<div>{env.TMDB_KEY}</div>);
         break;
       case "2":
         searchPerson();
-        // console.log(env.TEST);
         break;
       case "3":
         searchYear();
-        // console.log(env.TEST);
         break;
       default:
         console.log("there is an error determining type");

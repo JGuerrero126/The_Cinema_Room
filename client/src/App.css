@@ -54,11 +54,6 @@
   src: URL("./assets/fonts/ITCBenguiatStdBoldCn.OTF") format("truetype");
 }
 
-/* @font-face {
-  font-family: "EvilDead";
-  src: URL("./assets/fonts/EVILDEAD.TTF") format("truetype");
-} */
-
 @font-face {
   font-family: "Yasashii";
   src: URL("./assets/fonts/Yasashii\ W01\ Bold.ttf") format("truetype");
@@ -115,7 +110,6 @@
 #root,
 :root {
   background-color: black;
-  /* font-family: "Corleone"; */
 }
 
 #appHead {
