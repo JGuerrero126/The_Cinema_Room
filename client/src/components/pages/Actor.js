@@ -13,7 +13,6 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
@@ -183,7 +182,7 @@ function Actor() {
             <SimpleGrid
               justify="center"
               spacing="1.5rem"
-              minChildWidth="20rem"
+              minChildWidth="15rem"
               ml="1rem"
               mr="1rem"
             >
@@ -213,7 +212,43 @@ function Actor() {
                                 <br />
                               </span>
                             )}
-                            {moment(el.release_date).format("YYYY")}
+                            {el.vote_average === 0 ? (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                No Rating Provided
+                              </Text>
+                            ) : (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                {el.vote_average}
+                              </Text>
+                            )}
+                            <Center>
+                              <Image
+                                borderWidth="0.5rem"
+                                borderRadius="md"
+                                borderColor="green"
+                                borderStyle="dashed"
+                                transition="1s"
+                                w="100%"
+                                _hover={{ borderColor: "lightgreen" }}
+                                src={
+                                  `https://image.tmdb.org/t/p/w500` +
+                                  el.poster_path
+                                }
+                                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                              />
+                            </Center>
+                            {moment(el.release_date).format("YYYY") ===
+                            "Invalid date" ? (
+                              <Text>Not Yet Released</Text>
+                            ) : (
+                              <Text>
+                                {moment(el.release_date).format("YYYY")}
+                              </Text>
+                            )}
                           </Text>
                         </Link>
                       </Container>
@@ -253,6 +288,7 @@ function Actor() {
                 justify="center"
                 spacing="1.5rem"
                 minChildWidth="15rem"
+                // maxChildWidth="10rem"
                 ml="1rem"
                 mr="1rem"
               >
@@ -271,11 +307,47 @@ function Actor() {
                               textShadow: "0rem 0rem 1rem white",
                             }}
                           >
-                            <Text>
+                            <Text h="3rem">
                               <u>{el.title}</u>
-                              <br />
-                              {el.job}
+                              <br /> {el.job}
                             </Text>
+                            {el.vote_average === 0 ? (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                No Rating Provided
+                              </Text>
+                            ) : (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                {el.vote_average}
+                              </Text>
+                            )}
+                            <Center>
+                              <Image
+                                borderWidth="0.5rem"
+                                borderRadius="md"
+                                borderColor="green"
+                                borderStyle="dashed"
+                                transition="1s"
+                                w="100%"
+                                _hover={{ borderColor: "lightgreen" }}
+                                src={
+                                  `https://image.tmdb.org/t/p/w500` +
+                                  el.poster_path
+                                }
+                                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                              />
+                            </Center>
+                            {moment(el.release_date).format("YYYY") ===
+                            "Invalid date" ? (
+                              <Text>Not Yet Released</Text>
+                            ) : (
+                              <Text>
+                                {moment(el.release_date).format("YYYY")}
+                              </Text>
+                            )}
                           </Link>
                         </Container>
                       );

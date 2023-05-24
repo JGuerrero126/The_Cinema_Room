@@ -4,18 +4,12 @@ import {
   Text,
   Heading,
   Link,
-  Box,
-  Flex,
-  Input,
-  Button,
   Image,
   Select,
   Center,
   Card,
   Container,
-  CardHeader,
   CardBody,
-  CardFooter,
   VStack,
 } from "@chakra-ui/react";
 import WatchProvider from "../WatchProviders.js";
@@ -46,9 +40,7 @@ function Watchlist() {
       <Heading
         mt="2rem"
         fontSize={["10vw", "3rem"]}
-        // fontWeight="normal"
         fontFamily={watchFont}
-        // textShadow="0 0 0.15rem white"
         _hover={{ textShadow: "0 0 0.95rem white" }}
         transition="0.2s"
         textColor="snow"

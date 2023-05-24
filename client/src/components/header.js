@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  AbsoluteCenter,
   Button,
   Center,
   Container,
@@ -9,26 +8,22 @@ import {
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  Flex,
   Heading,
   Input,
   Link,
   Text,
   useDisclosure,
-  InputRightElement,
   Stack,
   Radio,
   RadioGroup,
   InputGroup,
   Select,
 } from "@chakra-ui/react";
-import { CloseIcon, HamburgerIcon, SearchIcon } from "@chakra-ui/icons";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { urlPrefix } from "../utils/constants";
-// import { useNavigate } from "react-router-dom";
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -74,9 +69,6 @@ function Header() {
   const [sortBy, setSortBy] = useState("popularity.desc");
 
   const changeRoute = (word) => {
-    // let path = `/movie/` + word;
-    // navigate(path);
-
     window.location.href =
       "http://localhost:3000/movie/" + radio + "/" + sortBy + "/" + search;
   };
@@ -151,12 +143,6 @@ function Header() {
                       value={sortBy}
                       color="white"
                     >
-                      {/* <option
-                        style={{ color: "black" }}
-                        value="original_title.asc"
-                      >
-                        Alphabetically
-                      </option> */}
                       <option style={{ color: "black" }} value="popularity">
                         Popularity
                       </option>
