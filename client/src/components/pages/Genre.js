@@ -3,86 +3,24 @@ import {
   Text,
   Heading,
   Link,
-  SimpleGrid,
-  Box,
   Image,
   Container,
+  Center,
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
+import { genreName } from "../genreName";
+import { photoSelector } from "../posterSelector";
 
 function Genre() {
-  const [genreData, setGenreData] = useState(null);
-  const [genreData2, setGenreData2] = useState(null);
-  const [personImageLinkData, setPersonImageLinkData] = useState(null);
-  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
   const { genre } = useParams();
   const [movieList, setMovieList] = useState(null);
-  const [moviePosterLinkData2, setMoviePosterLinkData2] = useState(null);
+  const [moviePosterLinkData, setMoviePosterLinkData] = useState(null);
 
-  const personName = "Harrison Ford";
-  const movieName = "Taxi Driver";
-
-  function getGenre() {
-    axios({
-      method: "GET",
-      url: urlPrefix + "/genres/" + genre,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setGenreData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getPersonImageLink() {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/person-image-link/",
-      data: { person_name: personName },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setPersonImageLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getMoviePosterLink(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/movie-poster-link/",
-      data: { movie_name: target },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setMoviePosterLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  const genreFont = "Shindler";
 
   function getMovies(target) {
     axios({
@@ -103,32 +41,16 @@ function Genre() {
       });
   }
 
-  // useEffect(() => {
-  //   getPersonImageLink();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (genreData !== null) {
-  //     getMoviePosterLink(genreData[0].title);
-  //   }
-  // }, [genreData]);
-
-  // useEffect(() => {
-  //   getGenre();
-  // }, []);
-
-  console.log(genre);
-
-  function getMoviePosterLink2(target) {
+  function getMoviePosterLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/movie-poster-link2/",
+      url: urlPrefix + "/movie-poster-link/",
       data: { movie_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setMoviePosterLinkData2(photoSelector(res));
+        setMoviePosterLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -139,186 +61,75 @@ function Genre() {
       });
   }
 
-  function genreName(target) {
-    switch (parseInt(target)) {
-      case 28:
-        return "Action";
-      case 12:
-        return "Adventure";
-      case 16:
-        return "Animation";
-      case 35:
-        return "Comedy";
-      case 80:
-        return "Crime";
-      case 99:
-        return "Documentary";
-      case 18:
-        return "Drama";
-      case 10751:
-        return "Family";
-      case 14:
-        return "Fantasy";
-      case 36:
-        return "History";
-      case 27:
-        return "Horror";
-      case 10402:
-        return "Music";
-      case 9648:
-        return "Mystery";
-      case 10749:
-        return "Romance";
-      case 878:
-        return "Science Fiction";
-      case 10770:
-        return "TV Movie";
-      case 53:
-        return "Thriller";
-      case 10752:
-        return "War";
-      case 37:
-        return "Western";
-      default:
-        return "";
-    }
-  }
-
-  function photoSelector(target) {
-    try {
-      var heightArr = [];
-      var englishArr = [];
-      var bigArr = [];
-      var voteArr = [];
-      target.posters.forEach((el) => {
-        if (el.iso_639_1 === "en") {
-          englishArr.push(el);
-        }
-      });
-      if (englishArr.length > 0) {
-        englishArr.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        let bigPhoto = Math.max(...heightArr);
-        let targetHeight = { height: bigPhoto };
-
-        englishArr.forEach((el) => {
-          if (el.height === targetHeight.height) {
-            bigArr.push(el);
-          }
-        });
-        console.log(bigArr);
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        let bigVote = Math.max(...voteArr);
-        let targetVote = { vote_average: bigVote };
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === targetVote.vote_average) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      } else {
-        target.posters.forEach((el) => {
-          heightArr.push(el.height);
-        });
-        let bigPhoto = Math.max(...heightArr);
-        let targetHeight = { height: bigPhoto };
-        var index;
-        target.posters.forEach((el) => {
-          if (el.height === targetHeight.height) {
-            bigArr.push(el);
-          }
-        });
-        if (bigArr.length < 2) {
-          return bigArr[0].file_path;
-        }
-        bigArr.forEach((el) => {
-          voteArr.push(el.vote_average);
-        });
-        let bigVote = Math.max(...voteArr);
-        let targetVote = { vote_average: bigVote };
-        var index;
-        bigArr.forEach((el) => {
-          if (el.vote_average === targetVote.vote_average) {
-            index = bigArr.indexOf(el);
-          }
-        });
-        return bigArr[index].file_path;
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
-  }
-
   useEffect(() => {
     getMovies(genre);
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "shindler";
+    document.getElementById("appHead").style.fontFamily = genreFont;
+    document.getElementById("appHead").style.fontSize = "3rem";
   }, []);
 
   useEffect(() => {
     if (movieList !== null) {
-      getMoviePosterLink2(movieList[0].id);
+      getMoviePosterLink(movieList[0].id);
     }
   }, [movieList]);
 
   return (
-    <div>
-      <Heading fontSize="2.5rem" color="white" fontFamily="Shindler">
+    <div data-testid="genre-page">
+      <Heading
+        fontSize={["10vw", "2.5rem"]}
+        color="white"
+        fontFamily={genreFont}
+        mt="1rem"
+      >
         Here are the top {genreName(genre)} movies!
       </Heading>
-      {moviePosterLinkData2 ? (
-        <Box
-          w="max-content"
-          h="max-content"
-          mr="auto"
-          ml="auto"
-          bg="black"
-          border="1rem groove black"
-          boxShadow="0rem 0rem 3rem lightyellow"
-          transition="3s"
-          _hover={{ boxShadow: "none" }}
-        >
+      {moviePosterLinkData ? (
+        <Center mt="2rem">
           <Image
-            _hover={{ filter: "saturate(0%)" }}
+            border="1rem groove black"
+            boxShadow="0rem 0rem 3rem lightyellow"
+            _hover={{ boxShadow: "none", filter: "saturate(0%)" }}
             transition="3s"
-            w="100%"
+            maxW="90vw"
             src={
-              moviePosterLinkData2
-                ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData2
+              moviePosterLinkData
+                ? `https://image.tmdb.org/t/p/w500` + moviePosterLinkData
                 : ""
             }
-            fallbackSrc="https://via.placeholder.com/325x500.png"
+            fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
           />
-        </Box>
+        </Center>
       ) : (
         ""
       )}
-      <SimpleGrid columns={2} width="100%">
+      <Wrap justify="center" spacing="2rem" mt="2rem">
         {movieList
           ? movieList.map((element) => {
               if (movieList.indexOf(element) < 10) {
                 return (
-                  <Container centerContent key={element.id} ml="1rem" mr="1rem">
+                  <Container
+                    centerContent
+                    key={element.id}
+                    mt="1rem"
+                    ml="1rem"
+                    mr="1rem"
+                  >
                     <Link
                       href={"/movies/" + element.id}
                       color="white"
                       textDecoration="none"
-                      fontFamily="Shindler"
-                      fontSize="1.5rem"
+                      fontFamily={genreFont}
+                      fontSize={["5vw", "1.5rem"]}
                       transition="1s"
                       _hover={{ color: "silver" }}
                     >
-                      <Text>
-                        <b>{element.title}</b>
+                      <Text fontSize={["7vw", "1.75rem"]}>
+                        <b>
+                          <u>{element.title}</u>
+                        </b>
                       </Text>
                       <Text>
                         Rating:
@@ -333,7 +144,7 @@ function Genre() {
               }
             })
           : []}
-      </SimpleGrid>
+      </Wrap>
     </div>
   );
 }

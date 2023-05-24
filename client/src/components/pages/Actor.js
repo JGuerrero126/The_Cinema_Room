@@ -8,64 +8,24 @@ import {
   Image,
   Container,
   Center,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { urlPrefix } from "../../utils/constants";
 import { useParams } from "react-router";
 import moment from "moment";
+import { photoSelector } from "../portraitSelector";
 
 function Actor() {
-  const [actorData, setActorData] = useState(null);
-  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const { actor } = useParams();
   const [actorAppearances, setActorAppearances] = useState(null);
-  const [personImageLinkData2, setPersonImageLinkData2] = useState(null);
+  const [personImageLinkData, setPersonImageLinkData] = useState(null);
   const [actorDetails, setActorDetails] = useState(null);
-
-  function getActor() {
-    console.log("actor is:");
-    console.log(actor);
-    axios({
-      method: "GET",
-      url: urlPrefix + "/actors/" + actor,
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setActorData({
-          name: res.name,
-          character: res.character,
-          appearances_array: res.appearances_array,
-        });
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
-
-  function getPersonImageLink(target) {
-    axios({
-      method: "POST",
-      url: urlPrefix + "/person-image-link/",
-      data: { person_name: target },
-    })
-      .then((response) => {
-        const res = response.data;
-        console.log(res);
-        setPersonImageLinkData(res);
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.log(error.response);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        }
-      });
-  }
+  const actorFont = "OCR";
 
   function getAppearances(target) {
     axios({
@@ -86,27 +46,17 @@ function Actor() {
       });
   }
 
-  // useEffect(() => {
-  //   getActor();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (actorData !== null) {
-  //     getPersonImageLink(actorData.name);
-  //   }
-  // }, [actorData]);
-
-  function getPersonImageLink2(target) {
+  function getPersonImageLink(target) {
     axios({
       method: "POST",
-      url: urlPrefix + "/person-image-link2/",
+      url: urlPrefix + "/person-image-link/",
       data: { person_id: target },
     })
       .then((response) => {
         const res = response.data;
         console.log(res);
         console.log(photoSelector(res));
-        setPersonImageLinkData2(photoSelector(res));
+        setPersonImageLinkData(photoSelector(res));
       })
       .catch((error) => {
         if (error.response) {
@@ -137,151 +87,279 @@ function Actor() {
       });
   }
 
-  function photoSelector(target) {
-    var heightArr = [];
-    var bigArr = [];
-    var voteArr = [];
-    target.profiles.forEach((el) => {
-      heightArr.push(el.height);
-    });
-    let bigPhoto = Math.max(...heightArr);
-    let targetHeight = { height: bigPhoto };
-    var index;
-    target.profiles.forEach((el) => {
-      if (el.height === targetHeight.height) {
-        bigArr.push(el);
-      }
-    });
-    if (bigArr.length < 2) {
-      return bigArr[0].file_path;
-    }
-    bigArr.forEach((el) => {
-      voteArr.push(el.vote_average);
-    });
-    let bigVote = Math.max(...voteArr);
-    let targetVote = { vote_average: bigVote };
-    var index;
-    bigArr.forEach((el) => {
-      if (el.vote_average === targetVote.vote_average) {
-        index = bigArr.indexOf(el);
-      }
-    });
-    return bigArr[index].file_path;
-  }
-
   useEffect(() => {
     getAppearances(actor);
-  }, []);
-
-  useEffect(() => {
-    if (actorAppearances !== null) {
-      getPersonImageLink2(actorAppearances.id);
-    }
-  }, [actorAppearances]);
-
-  useEffect(() => {
     getActorDetails(actor);
+    getPersonImageLink(actor);
   }, []);
 
   useEffect(() => {
-    document.getElementById("appHead").style.fontFamily = "OCR";
+    document.getElementById("appHead").style.fontFamily = actorFont;
   }, []);
 
   return (
-    <div>
+    <div data-testid="actor-page">
       {actorDetails ? (
         <div>
           <Heading
+            mt="1rem"
             fontWeight="normal"
             fontSize="2rem"
             color="green"
-            // textShadow="0rem 0rem 0.5rem lightblue"
-            fontFamily="OCR"
+            fontFamily={actorFont}
           >
             {actorDetails.name}
           </Heading>
-          <Center>
-            {personImageLinkData2 ? (
-              <Box
-                w="fit-content"
-                bg="black"
-                borderWidth="0.5rem"
-                borderRadius="md"
-                borderColor="green"
-                borderStyle="dashed"
-                transition="1s"
-                _hover={{
-                  boxShadow: "0rem 0rem 3rem white",
-                  borderColor: "lightgreen",
-                  borderWidth: "0.65rem",
-                }}
-              >
+          <Center mt="1rem">
+            {personImageLinkData ? (
+              <div>
                 <Image
-                  w="100%"
-                  h="100%"
+                  borderWidth="0.5rem"
+                  borderRadius="md"
+                  borderColor="green"
+                  borderStyle="dashed"
+                  transition="1s"
+                  _hover={{
+                    boxShadow: "0rem 0rem 3rem white",
+                    borderColor: "lightgreen",
+                  }}
+                  maxW="90vw"
                   src={
-                    personImageLinkData2
-                      ? `https://image.tmdb.org/t/p/w500` + personImageLinkData2
+                    personImageLinkData
+                      ? `https://image.tmdb.org/t/p/w500` + personImageLinkData
                       : ""
                   }
                   fallbackSrc="https://via.placeholder.com/325x500.png"
                 />
-              </Box>
+              </div>
             ) : (
               ""
             )}
           </Center>
           <Text
-            fontSize="1rem"
-            ml="3rem"
-            mr="3rem"
+            mt="1rem"
+            fontSize={["4vw", "1rem"]}
+            ml={["1rem", "3rem"]}
+            mr={["1rem", "3rem"]}
             color="green"
-            fontFamily="OCR"
+            fontFamily={actorFont}
           >
             {actorDetails.biography}
           </Text>
-          <Text color="green" fontFamily="OCR">
+          <Text color="green" fontFamily={actorFont} mt="1rem">
             Birthday: {moment(actorDetails.birthday).format("MMMM DD, YYYY")}
           </Text>
         </div>
       ) : (
         ""
       )}
-      <SimpleGrid columns={3} width="100%">
-        {actorAppearances
-          ? actorAppearances.cast.map((el) => {
-              if (actorAppearances.cast.indexOf(el) < 12) {
-                return (
-                  <Container centerContent key={el.id}>
-                    <Link
-                      href={"/movies/" + el.id}
-                      color="green"
-                      textDecoration="none"
-                      fontFamily="OCR"
-                      transition="1s"
-                      _hover={{
-                        color: "lightgreen",
-                        textShadow: "0rem 0rem 1rem white",
-                        fontSize: "1.15rem",
-                      }}
-                    >
-                      <Text>
-                        <b>{el.title}</b>
-                        <br />
-                        {el.character === "" ? (
-                          ""
-                        ) : (
-                          <div>Character: {el.character}</div>
-                        )}
-                        {moment(el.release_date).format("YYYY")}
-                      </Text>
-                    </Link>
-                  </Container>
-                );
-              }
-            })
-          : []}
-      </SimpleGrid>
+      <Accordion allowMultiple>
+        <AccordionItem>
+          <h2>
+            <AccordionButton
+              bg="transparent"
+              _focus=""
+              borderColor=""
+              _before=""
+              _after=""
+              outline="0.5rem solid black"
+              outlineOffset=""
+            >
+              <Box
+                flex="1"
+                textAlign="center"
+                color="green"
+                textDecoration="none"
+                fontFamily={actorFont}
+                fontSize={[" 6vw", "2rem"]}
+              >
+                Actor Appearances
+                <AccordionIcon color="green" />
+              </Box>
+            </AccordionButton>
+          </h2>
+          <AccordionPanel>
+            <SimpleGrid
+              justify="center"
+              spacing="1.5rem"
+              minChildWidth="15rem"
+              ml="1rem"
+              mr="1rem"
+            >
+              {actorAppearances
+                ? actorAppearances.cast.map((el) => {
+                    return (
+                      <Container centerContent key={el.id}>
+                        <Link
+                          href={"/movies/" + el.id}
+                          color="green"
+                          textDecoration="none"
+                          fontFamily={actorFont}
+                          transition="1s"
+                          _hover={{
+                            color: "lightgreen",
+                            textShadow: "0rem 0rem 1rem white",
+                          }}
+                        >
+                          <Text>
+                            <u>{el.title}</u>
+                            <br />
+                            {el.character === "" ? (
+                              ""
+                            ) : (
+                              <span>
+                                {el.character}
+                                <br />
+                              </span>
+                            )}
+                            {el.vote_average === 0 ? (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                No Rating Provided
+                              </Text>
+                            ) : (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                {el.vote_average}
+                              </Text>
+                            )}
+                            <Center>
+                              <Image
+                                borderWidth="0.5rem"
+                                borderRadius="md"
+                                borderColor="green"
+                                borderStyle="dashed"
+                                transition="1s"
+                                w="100%"
+                                _hover={{ borderColor: "lightgreen" }}
+                                src={
+                                  `https://image.tmdb.org/t/p/w500` +
+                                  el.poster_path
+                                }
+                                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                              />
+                            </Center>
+                            {moment(el.release_date).format("YYYY") ===
+                            "Invalid date" ? (
+                              <Text>Not Yet Released</Text>
+                            ) : (
+                              <Text>
+                                {moment(el.release_date).format("YYYY")}
+                              </Text>
+                            )}
+                          </Text>
+                        </Link>
+                      </Container>
+                    );
+                  })
+                : []}
+            </SimpleGrid>
+          </AccordionPanel>
+        </AccordionItem>
+        {actorAppearances && actorAppearances.crew.length > 0 ? (
+          <AccordionItem>
+            <h2>
+              <AccordionButton
+                bg="transparent"
+                _focus=""
+                borderColor=""
+                _before=""
+                _after=""
+                outline="0.5rem solid black"
+                outlineOffset=""
+              >
+                <Box
+                  flex="1"
+                  textAlign="center"
+                  color="green"
+                  textDecoration="none"
+                  fontFamily={actorFont}
+                  fontSize={[" 6vw", "2rem"]}
+                >
+                  Behind The Scenes
+                  <AccordionIcon color="green" />
+                </Box>
+              </AccordionButton>
+            </h2>
+            <AccordionPanel>
+              <SimpleGrid
+                justify="center"
+                spacing="1.5rem"
+                minChildWidth="15rem"
+                // maxChildWidth="10rem"
+                ml="1rem"
+                mr="1rem"
+              >
+                {actorAppearances
+                  ? actorAppearances.crew.map((el) => {
+                      return (
+                        <Container centerContent key={el.credit_id}>
+                          <Link
+                            href={"/movies/" + el.id}
+                            color="green"
+                            textDecoration="none"
+                            fontFamily={actorFont}
+                            transition="1s"
+                            _hover={{
+                              color: "lightgreen",
+                              textShadow: "0rem 0rem 1rem white",
+                            }}
+                          >
+                            <Text h="3rem">
+                              <u>{el.title}</u>
+                              <br /> {el.job}
+                            </Text>
+                            {el.vote_average === 0 ? (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                No Rating Provided
+                              </Text>
+                            ) : (
+                              <Text>
+                                <br />
+                                Rating: <br />
+                                {el.vote_average}
+                              </Text>
+                            )}
+                            <Center>
+                              <Image
+                                borderWidth="0.5rem"
+                                borderRadius="md"
+                                borderColor="green"
+                                borderStyle="dashed"
+                                transition="1s"
+                                w="100%"
+                                _hover={{ borderColor: "lightgreen" }}
+                                src={
+                                  `https://image.tmdb.org/t/p/w500` +
+                                  el.poster_path
+                                }
+                                fallbackSrc="https://via.placeholder.com/325x500.png?text=No+Image+Provided"
+                              />
+                            </Center>
+                            {moment(el.release_date).format("YYYY") ===
+                            "Invalid date" ? (
+                              <Text>Not Yet Released</Text>
+                            ) : (
+                              <Text>
+                                {moment(el.release_date).format("YYYY")}
+                              </Text>
+                            )}
+                          </Link>
+                        </Container>
+                      );
+                    })
+                  : []}
+              </SimpleGrid>
+            </AccordionPanel>
+          </AccordionItem>
+        ) : (
+          ""
+        )}
+      </Accordion>
     </div>
   );
 }

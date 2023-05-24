@@ -15,177 +15,24 @@ app = Flask(__name__, static_folder='client/build', static_url_path='')
 CORS(app)
 tmdb_key = os.getenv("TMDB_KEY")
 
+def rec_source(target):
+  try:
+    genre = target['genre']
+    keyword = target['keyword']
+    if genre == 0 | keyword == 0:
+      raise ValueError
+    print(f"GENRE DETECTED: {genre}")
+    print(f"KEYWORD DETECTED: {keyword}") 
+    customRec = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+    return customRec
+  except:
+    movie_id = target['movie_id']
+    print("NO KEYWORD OR GENRE") 
+    defaultRec = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key={tmdb_key}&language=en-US&page=1'
+    return defaultRec
+
 # client = MongoClient("mongodb://localhost:27017")
 # db = client.six_three_db
-
-# @app.route('/actors/<person_id>')
-# @cross_origin()
-# def actor(person_id):
-#   print(person_id)
-#   # need to convert person_id string to number
-#   person_id_int = int(person_id)
-#   print(person_id_int)
-#   actor = db.credits.find({'person_id': person_id_int})
-#   print(actor[0]['name'])
-#   name = actor[0]['name']
-#   print(name)
-
-#   appearances_array = []
-
-#   for appearance in actor:
-#     print(appearance)
-#     print(appearance['id'])
-
-#     # we only want to display movies; all titles that are movies have an m as the second character in their id
-#     if appearance['id'][1] == "m":
-#       movie = db.titles.find_one({'id': appearance['id']}),
-#       print(movie)
-#       # not clear why movie is a tuple
-#       print(movie[0]['title'])
-      
-
-#       details = {
-#         # "name": actor['name'],
-#         "character": appearance['character'],
-#         "role": appearance['role'],
-#         "id": appearance['id'],
-#         "title": movie[0]['title'],
-#         # "rating": movie[0]['imdb_score'],
-#         "release_year": movie[0]['release_year'],
-#         # "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-#         # "person_id": actor['person_id'],
-#       }
-#       appearances_array.append(details)
-
-#   print(appearances_array)
-
-#   response_body = {
-#     # not clear why it doesn't like this: "name": actor[0]['name'],
-#     "name": name,
-#     "appearances_array": appearances_array
-#   }
-
-#   return response_body
-
-# @app.route('/movies/<id>')
-# @cross_origin()
-# def movie(id):
-#   print(id)
-#   movie = db.titles.find_one({'id': id})
-#   actors = db.credits.find({'id':id})
-#   print(movie)
-#   print(actors)
-
-#   actor_array = []
-
-#   for actor in actors:
-#     print(actor)
-#     details = {
-#       "name": actor['name'],
-#       "character": actor['character'],
-#       "role": actor['role'],
-#       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-#       "person_id": actor['person_id'],
-#     }
-#     actor_array.append(details)
-
-#   print(actor_array)
-
-#   response_body = {
-#     "title": movie['title'],
-#     "genres": movie['genres'],
-#     "rating": movie['imdb_score'],
-#     "description": movie['description'],
-#     "release_year": movie['release_year'],
-#     "actor_array": actor_array
-#   }
-
-#   return response_body
-
-# @app.route('/genres/<genre>')
-# @cross_origin()
-# def genres(genre):
-#   movies = db.titles.find({'type': "MOVIE","production_countries_array": {"$in":["US", "UK", "JP"]}, "imdb_score": {"$gt": 0}, "genres_array": {"$in":[genre]}}).sort("imdb_score", -1).limit(5)
-#   print(movies)
-
-#   response_body = []
-
-#   for movie in movies:
-#     print(movie)
-#     details = {
-#       "title": movie['title'],
-#       "genres": movie['genres_array'],
-#       "rating": movie['imdb_score'],
-#       "release_year": movie['release_year'],
-#       "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Large_breaking_wave.jpg/320px-Large_breaking_wave.jpg",
-#       "id": movie['id'],
-#       # "description": movie['description'],
-#     }
-#     response_body.append(details)
-
-#   print(response_body)
-
-#   return response_body
-
-# @app.route('/person-image-link/', methods = ['POST'])
-# @cross_origin()
-# def image_link():
-  
-#   print('image_link')
-
-#   person_name = request.get_json()['person_name']
-
-#   print(person_name)
-
-#   url_parsed_person_name = urllib.parse.quote(person_name)
-
-#   tmdb_actor_api_search_link = f'https://api.themoviedb.org/3/search/person?api_key={tmdb_key}&language=en-US&query={url_parsed_person_name}&page=1&include_adult=false'
-
-#   print(tmdb_actor_api_search_link)
-
-#   with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
-#     res = response.read()
-#     print(json.loads(res))
-#     print(json.loads(res)['results'][0]['profile_path'])
-#     path_suffix = json.loads(res)['results'][0]['profile_path']
-
-#   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
-
-#   print(image_link)
-
-#   response_body = image_link
-
-#   return response_body
-
-# @app.route('/movie-poster-link/', methods = ['POST'])
-# @cross_origin()
-# def poster_link():
-  
-#   print('poster_link')
-
-#   movie_name = request.get_json()['movie_name']
-
-#   print(movie_name)
-
-#   url_parsed_movie_name = urllib.parse.quote(movie_name)
-
-#   tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/search/movie?api_key={tmdb_key}&language=en-US&query={url_parsed_movie_name}&page=1&include_adult=false'
-
-#   print(tmdb_movie_api_search_link)
-
-#   with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
-#     res = response.read()
-#     print(json.loads(res))
-#     print(json.loads(res)['results'][0]['poster_path'])
-#     path_suffix = json.loads(res)['results'][0]['poster_path']
-
-#   image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
-
-#   print(image_link)
-
-#   response_body = image_link
-
-#   return response_body
 
 ##
 ## BELOW THIS ARE THE API CALLS TO THE TMDB API
@@ -251,7 +98,7 @@ def actor_appearances(target):
 
   return response_body
 
-@app.route('/person-image-link2/', methods = ['POST'])
+@app.route('/person-image-link/', methods = ['POST'])
 @cross_origin()
 def image_link2():
   
@@ -263,17 +110,15 @@ def image_link2():
 
   with urllib.request.urlopen(tmdb_actor_api_search_link) as response:
     res = response.read()
-    path_suffix = json.loads(res)['profiles'][0]['file_path']
 
-  image_link = f'https://image.tmdb.org/t/p/w500{path_suffix}'
 
   response_body = res
 
   return response_body
 
-@app.route('/movie-poster-link2/', methods = ['POST'])
+@app.route('/movie-poster-link/', methods = ['POST'])
 @cross_origin()
-def poster_link2():
+def poster_link():
   
   print('GETTING MOVIE POSTER')
 
@@ -345,18 +190,111 @@ def movie_recs():
   
   print('GETTING RECOMMENDATIONS')
 
-  genre = request.get_json()['genre']
-  keyword = request.get_json()['keyword']
+  with urllib.request.urlopen(rec_source(request.get_json())) as response:
+      res = response.read()
+      response_body = res
+      return response_body
 
+@app.route('/top-movies/', methods = ['GET'])
+@cross_origin()
+def top_movies():
+  
+  print('GETTING TOP MOVIES IN THE WORLD')
 
-  tmdb_movie_api_search_link = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres={genre}&with_keywords={keyword}&with_watch_monetization_types=flatrate'
+  top_movie_search = f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=100&with_watch_monetization_types=flatrate'
 
-  with urllib.request.urlopen(tmdb_movie_api_search_link) as response:
-    res = response.read()
+  with urllib.request.urlopen(top_movie_search) as response:
+      res = response.read()
+      response_body = res
+      return response_body
 
-  response_body = res
+@app.route('/watch-providers/', methods = ['POST'])
+@cross_origin()
+def watch_providers():
 
-  return response_body
+  movie_id = request.get_json()['movie_id']
+  
+  print('GETTING WATCH PROVIDERS')
+
+  watch_providers_list = f'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(watch_providers_list) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
+@app.route('/trending/', methods = ['GET'])
+@cross_origin()
+def trending():
+  
+  print('GETTING WEEKLY TRENDING MOVIES')
+
+  trending_movies = f'https://api.themoviedb.org/3/trending/movie/week?api_key={tmdb_key}'
+
+  with urllib.request.urlopen(trending_movies) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
+@app.route('/top-rated/', methods = ['GET'])
+@cross_origin()
+def top_rated():
+  
+  print('GETTING TOP MOVIES OF ALL TIME')
+
+  top_rated= f'https://api.themoviedb.org/3/movie/top_rated?api_key={tmdb_key}&language=en-US&page=1'
+
+  with urllib.request.urlopen(top_rated) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+  
+@app.route('/search-movie/', methods = ['POST'])
+@cross_origin()
+def search_movie():
+  
+  print('SEARCHING FOR MOVIE')
+  pageNum = request.get_json()["pageNum"]
+  search = request.get_json()["search"]
+
+  search_movie= f'https://api.themoviedb.org/3/search/movie?api_key={tmdb_key}&language=en-US&page={pageNum}&query={search}'
+
+  with urllib.request.urlopen(search_movie) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+  
+@app.route('/search-year/', methods = ['POST'])
+@cross_origin()
+def search_year():
+  
+  print('SEARCHING BY YEAR')
+  sortBy = request.get_json()["sortBy"]
+  pageNum = request.get_json()["pageNum"]
+  search = request.get_json()["search"]
+
+  search_year= f'https://api.themoviedb.org/3/discover/movie?api_key={tmdb_key}&region=US&sort_by={sortBy}&include_adult=false&include_video=false&page={pageNum}&with_watch_monetization_types=flatrate&primary_release_year={search}'
+
+  with urllib.request.urlopen(search_year) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+  
+@app.route('/search-person/', methods = ['POST'])
+@cross_origin()
+def search_person():
+  
+  print('SEARCHING FOR PERSON')
+  pageNum = request.get_json()["pageNum"]
+  keyword = request.get_json()["keyword"]
+
+  search_person= f'https://api.themoviedb.org/3/search/person?api_key={tmdb_key}&language=en-US&page={pageNum}&query={keyword}'
+
+  with urllib.request.urlopen(search_person) as response:
+      res = response.read()
+      response_body = res
+      return response_body
+
 
 @app.errorhandler(404)
 def not_found(e):

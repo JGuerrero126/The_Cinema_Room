@@ -39,9 +39,77 @@
   src: URL("./assets/fonts/OCR\ A\ Std\ Regular.ttf") format("truetype");
 }
 
-body {
+@font-face {
+  font-family: "Chen";
+  src: URL("./assets/fonts/Aachen\ Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bus";
+  src: URL("./assets/fonts/ITC\ Busorama\ Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ben";
+  src: URL("./assets/fonts/ITCBenguiatStdBoldCn.OTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Yasashii";
+  src: URL("./assets/fonts/Yasashii\ W01\ Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "YasashiiR";
+  src: URL("./assets/fonts/Yasashii\ W01\ Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SouvenirB";
+  src: URL("./assets/fonts/Souvenir-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "SouvenirD";
+  src: URL("./assets/fonts/Souvenir-Demi.otf") format("opentype");
+}
+@font-face {
+  font-family: "SouvenirM";
+  src: URL("./assets/fonts/Souvenir-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gill";
+  src: URL("./assets/fonts/GILLSANS.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamB";
+  src: URL("./assets/fonts/GothamBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamT";
+  src: URL("./assets/fonts/Gotham-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "GothamBook";
+  src: URL("./assets/fonts/GothamBook.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamL";
+  src: URL("./assets/fonts/GothamLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GothamM";
+  src: URL("./assets/fonts/GothamMedium.ttf") format("truetype");
+}
+
+#root,
+:root {
   background-color: black;
-  /* font-family: "Corleone"; */
 }
 
 #appHead {
@@ -50,4 +118,8 @@ body {
 
 .App {
   text-align: center;
+}
+
+.watchFooter {
+  bottom: 0;
 }

@@ -7,21 +7,20 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.5.8",
-    "@chakra-ui/icons": "2.0.4",
-    "@chakra-ui/react": "^1.8.8",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@chakra-ui/icons": "^2.0.14",
+    "@chakra-ui/react": "^2.4.4",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "axios": "^0.27.2",
     "framer-motion": "^4.1.17",
     "graphql": "^15.4.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "4.4.0",
+    "react-ipynb-renderer": "^2.0.0",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
@@ -30,6 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,5 +50,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "TMDB_KEY"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "axios-mock-adapter": "^1.21.2"
   }
 }
